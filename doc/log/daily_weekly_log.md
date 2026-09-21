@@ -141,17 +141,17 @@ carry-over means for next week's goals.]
 ---
 
 
-## 
-**Day Goal:** 
+## Monday September 21, 2026
+**Day Goal:** Start Creating MD files
 
-**What Was Done:** 
+**What Was Done:** Created claude.md, readme.md and created templet for the phase MD files.
 
-**Challenges:** 
+**Challenges:** No Challanges today
 
-**Blockers:** 
+**Blockers:** No Blockers
 
 **Summary:**
-  
+    Today I created the claude.md file and had chatGPT revew it as well as Claude. I updated the Readme.md file so it has more information. I also desided to hold off on making a project.md file, because the Readme file could be seean as the project.md file. However my capstone Profecer might want a sepert project.md file, so I am puting the project.md file on the backlongs for now. I also created the temples for the phases md files, this means tomorrow I will just fill them in for each phase. 
 ---
 
 ## 
