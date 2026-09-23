@@ -155,15 +155,16 @@ carry-over means for next week's goals.]
 ---
 
 ## 
-**Day Goal:** 
+**Day Goal:** Finnish pre work
 
-**What Was Done:** 
+**What Was Done:** Created the phases MD files and requiments.txt 
 
-**Challenges:** 
+**Challenges:** Had to update my labtop 2 times this week
 
-**Blockers:** 
+**Blockers:** Procrasanation 
 
 **Summary:**
+    Today I filled in all of the phases md files. I also created the requiments.txt files and installed all the libarys I am plaining on using thoughout my project. Some chalanged today i had to restart my labtop to download some updates wich took a few mintiont, and that was the secont time this week I had to do that. Today I also stugled finding modavation to start working on my capstone, however I did get everthing done that I wanted to today. :)
   
 ---
 
