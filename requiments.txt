@@ -1,0 +1,30 @@
+# AvianVision - Requirements
+# Python 3.12.3
+
+# Data & Dataset Access
+datasets
+pandas
+numpy
+pygbif
+
+# Image Processing
+pillow
+
+# Machine Learning
+tensorflow
+mlflow
+
+# Configuration
+pyyaml
+python-dotenv
+
+# Backend
+fastapi
+uvicorn
+pymongo
+
+# Visualization
+plotly
+
+# Project Management (optional)
+py-trello

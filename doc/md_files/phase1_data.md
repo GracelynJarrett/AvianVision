@@ -1,26 +1,29 @@
-# Phase [#] — [Phase Name]
+# Phase 1 — Dataset & Preprocessing
 
-**Status:** Not Started
+**Status:** In Progress
 
 ---
 
 ## Overview
 
-[What this phase is and what it aims to accomplish — 2 to 3 sentences]
+Phase 1 focuses on accessing and preparing the 525-species bird dataset for model 
+training. This includes verifying the dataset is clean and usable, building the image 
+preprocessing pipeline, and setting up MLflow to track all experiments going forward.
 
 ---
 
 ## Main Tasks
 
-- [ ] Task 1
-- [ ] Task 2
-- [ ] Task 3
+- [x] Access the Hugging Face bird dataset
+- [ ] Verify dataset integrity (corrupted images, class distribution)
+- [ ] Set up the image preprocessing pipeline
+- [ ] Set up MLflow for experiment tracking
 
 ---
 
 ## Dependencies
 
-[What must be completed before this phase can begin]
+None — this is the first phase of the project.
 
 ---
 
@@ -28,34 +31,48 @@
 
 | Tool / Library | Purpose |
 |---------------|---------|
-| | |
+| Hugging Face Datasets | Accessing the 525-species bird dataset |
+| pygbif | Matching common bird names to scientific names |
+| eBird Taxonomy CSV | Common name to scientific name lookup |
+| pandas | Data manipulation and mapping |
+| MLflow | Experiment tracking |
+| Python (venv) | Dependency management |
 
 ---
 
 ## Key Decisions
 
-[Document any major decisions made during this phase and why those decisions were chosen. 
-Add a new entry each time a significant decision is made.]
-
-**Decision:** [What was decided]
-**Reason:** [Why this option was chosen over alternatives]
+**Decision:** Use the eBird taxonomy CSV instead of pygbif for common name to scientific 
+name matching
+**Reason:** pygbif is designed for scientific names, not common names. Both name_suggest() 
+and name_backbone() returned zero reliable matches for the dataset's ALL CAPS common name 
+labels. The eBird taxonomy CSV provided a direct common name lookup that achieved a 98.3% 
+match rate across 525 species.
 
 ---
 
 ## Known Risks & Mitigations
 
-[Anticipated challenges and how you plan to handle them if they occur.]
+**Risk:** Corrupted or mislabeled images in the dataset could affect model training
+**Mitigation:** Verify dataset integrity before training begins by checking class 
+distribution and scanning for corrupted files
 
-**Risk:** [Potential problem]
-**Mitigation:** [How you plan to handle it]
+**Risk:** Some fuzzy-matched scientific names from the entity resolution script may be 
+incorrect
+**Mitigation:** Manually review all fuzzy-matched entries in the bird name mapping CSV 
+before using them in the enrichment pipeline
+
+**Risk:** Class imbalance across 525 species could bias the model toward more 
+common species
+**Mitigation:** Check class distribution during dataset verification and apply 
+class weighting or oversampling if needed
 
 ---
 
 ## Results & Notes
 
-[Filled in after the phase is complete. Capture what actually happened, what changed from 
-the original plan, and any final outcomes worth noting.]
+[Filled in after the phase is complete.]
 
 ---
 
-*Last updated: [Date]*
+*Last updated: 2026-09-22*
