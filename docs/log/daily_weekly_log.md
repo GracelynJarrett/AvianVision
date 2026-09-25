@@ -138,6 +138,7 @@ carry-over means for next week's goals.]
 
 **Summary:**
     Today I created the github repository for my project and setup my file structure. I had time and created the change_log, daily_weekly_log and the schedule_log documetion files as well. I had no challenges today, but I am still recoving from a cold so I still not feeling the best, and I have a small headaike. 
+
 ---
 
 
@@ -152,9 +153,10 @@ carry-over means for next week's goals.]
 
 **Summary:**
     Today I created the claude.md file and had chatGPT revew it as well as Claude. I updated the Readme.md file so it has more information. I also desided to hold off on making a project.md file, because the Readme file could be seean as the project.md file. However my capstone Profecer might want a sepert project.md file, so I am puting the project.md file on the backlongs for now. I also created the temples for the phases md files, this means tomorrow I will just fill them in for each phase. 
+
 ---
 
-## 
+## Tuesday September 22, 2026 
 **Day Goal:** Finnish pre work
 
 **What Was Done:** Created the phases MD files and requiments.txt 
@@ -168,8 +170,50 @@ carry-over means for next week's goals.]
   
 ---
 
-## 
-**Day Goal:** 
+## Wednestday September 23, 2026
+**Day Goal:** Coplete Seting up accase to Huging face and creating the CSV file
+
+**What Was Done:** Setting up contion to the Huging face
+
+**Challenges:** No challenges
+
+**Blockers:** Lack of sleep
+
+**Summary:**
+    Todays gole was not completed because I ran out of time. I worked on as much as I could but had work. I was only able to connet to the Huging face dataset and start working on the csv file setup. One reasion I had less time then I want too was becase of lack of sleep. There was constution acrosse the stree that was vary loaud and shouched my whole room form 10:30 pm - 3 am so I slepted in. 
+
+---
+
+## Thursday Septemer 24, 2026
+**Day Goal:** Complet the CSV File 
+
+**What Was Done:** Completed the csv file and started exploring the data set
+
+**Challenges:** no chalanges for today
+
+**Blockers:** Vary tired, getting into my school schegral ( geting up at 4:30 am)
+
+**Summary:**
+    Today I finnished the CSV file ans started exploring the data set. Todays blocker was being exasted. I now have work at 6 am and I am trying to get into my school sleeping schegral wich means I am waking up at 4:30 am every moring. 
+  
+---
+
+## Friday September 25, 2026
+**Day Goal:** Complit exploration
+
+**What Was Done:** Complited exploration, seting up preprosing pipline, set up mlflow
+
+**Challenges:** No chalanges
+
+**Blockers:** No blockers
+
+**Summary:**
+    Today I was able to finnish week 1 goals. I complited exploraing the data and setting up the preprosing pipline. From both of these tasks I had made the distion of how I want to start my week 2 and 3 work. One destion that I made was to have one base modle at less 3 models playing around with the diretion of the images, and then at less 6 modles of Hypertuning bases on the best model. I was also able to set up mlflow and get a plain for tomorrow.
+  
+---
+
+## Saterday Setember 26, 2026
+**Day Goal:** creat display_names, update phase 1 md file, check spelling in logs
 
 **What Was Done:** 
 
@@ -180,34 +224,6 @@ carry-over means for next week's goals.]
 **Summary:**
   
 ---
-
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-  
----
-
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-  
----
-
-
 
 
 
@@ -215,6 +231,90 @@ carry-over means for next week's goals.]
 
 
 # Week 2
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+  
+---
 
 # Week 3
 

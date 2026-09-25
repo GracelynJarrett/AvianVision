@@ -33,10 +33,10 @@ see the Project Log. For any changes to the original plan, see the Change Log.
 - [X] Create all phase MD files
 
 **Phase 1 — Dataset & Preprocessing:**
-- [ ] Access Hugging Face bird dataset
-- [ ] Verify dataset integrity
-- [ ] Set up image preprocessing pipeline
-- [ ] Set up MLflow for experiment tracking
+- [x] Access Hugging Face bird dataset
+- [x] Verify dataset integrity
+- [x] Set up image preprocessing pipeline
+- [x] Set up MLflow for experiment tracking
 
 ---
 
