@@ -233,18 +233,22 @@ carry-over means for next week's goals.]
 
 
 # Week 2
-## 
-**Day Goal:** 
+## Sunday September 27,2026
+**Day Goal:** creat EfficientNetbo model builder and yaml files
 
-**What Was Done:** 
+**What Was Done:** Set up accase to GPU and created yaml filed
 
-**Challenges:** 
-
-**Blockers:** 
+**Challenges:** no challenges for today 
+ 
+**Blockers:** No blockers for today
 
 **Summary:**
-  
+    Todays goal was to builed the EfficientNetB0 model and created the Yaml files. However when I was reviewing everthing I reized I forgot to include setup for the GUP. In the past we use pytourch which had adumadic accsas to a GUP, but we are not using pytourch so we had to set up accase through linx. I now have accase to the GUP and I creaded both yaml file. 
+
+    * Note I am at 75% for my monthly useage. It will reset on Wendsday at 6 pm
+
 ---
+
 ## 
 **Day Goal:** 
 

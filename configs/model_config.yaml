@@ -1,0 +1,20 @@
+# Model / Hyperparameter Configuration
+# ------------------------------------
+# Controls how the EfficientNetB0 model is built and trained. These are the knobs
+# you will change during hyperparameter tuning. The values below are the baseline.
+
+# --- Training settings ---
+learning_rate: 0.001   # how big each training step is (smaller = slower but steadier)
+epochs: 10             # how many full passes the model makes over the training data
+batch_size: 32         # how many images the model looks at per training step
+
+# --- Classifier head (the layers we add on top of EfficientNetB0) ---
+dropout: 0.2           # fraction of connections randomly dropped, to reduce overfitting
+
+# --- Transfer learning ---
+freeze_base: true      # true = keep EfficientNetB0's pretrained layers frozen (baseline)
+fine_tune_layers: 0    # how many of the top base layers to unfreeze for fine-tuning
+                       # (0 = none; used later when experimenting with fine-tuning)
+
+# --- Optimizer ---
+optimizer: adam        # the optimization algorithm used to train the model

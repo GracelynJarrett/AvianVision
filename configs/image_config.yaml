@@ -1,0 +1,25 @@
+# Image / Data Augmentation Configuration
+# ----------------------------------------
+# Controls how images are prepared and (optionally) augmented before training.
+# The baseline run keeps augmentation OFF. For augmentation experiments, flip
+# augmentation_enabled to true and turn on the individual options you want to test.
+
+# The size (in pixels) that every image is resized to before training.
+# EfficientNetB0 is built for 224, so keep this at 224 unless you are deliberately
+# experimenting with image size (see the note in the phase docs).
+image_size: 224
+
+# Master on/off switch for data augmentation.
+# false = use the real images unchanged (this is the baseline).
+# true  = apply the augmentation options below to the TRAINING images only.
+augmentation_enabled: false
+
+# Individual augmentation options. These are ONLY used when augmentation_enabled is
+# true, and they are ONLY applied to training images (never validation or test).
+augmentation:
+  horizontal_flip: false   # randomly mirror the image left-to-right
+  vertical_flip: false     # randomly flip the image upside down
+  rotation: 0.0            # random rotation, as a fraction of a full turn (e.g. 0.1)
+  zoom: 0.0                # random zoom in or out (e.g. 0.1)
+  brightness: 0.0          # random brightness change (e.g. 0.1)
+  contrast: 0.0            # random contrast change (e.g. 0.1)
