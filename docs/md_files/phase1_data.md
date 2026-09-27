@@ -1,6 +1,6 @@
 # Phase 1 — Dataset & Preprocessing
 
-**Status:** In Progress
+**Status:** Complete
 
 ---
 
@@ -15,9 +15,9 @@ preprocessing pipeline, and setting up MLflow to track all experiments going for
 ## Main Tasks
 
 - [x] Access the Hugging Face bird dataset
-- [ ] Verify dataset integrity (corrupted images, class distribution)
-- [ ] Set up the image preprocessing pipeline
-- [ ] Set up MLflow for experiment tracking
+- [x] Verify dataset integrity (corrupted images, class distribution)
+- [x] Set up the image preprocessing pipeline
+- [x] Set up MLflow for experiment tracking
 
 ---
 
@@ -71,8 +71,39 @@ class weighting or oversampling if needed
 
 ## Results & Notes
 
-[Filled in after the phase is complete.]
+Phase 1 was completed on 2026-09-27, one day ahead of schedule. All four main tasks are done.
+
+**Bird name mapping**
+- Built `data/bird_name_mapping.csv` mapping every dataset label to a scientific name using
+  the eBird taxonomy.
+- Final matches: 285 exact, 144 fuzzy, 88 manual, 9 ambiguous — 517 of 526 labels have a
+  scientific name.
+- 36 fuzzy matches were manually reviewed and corrected into MANUAL_MAP; the remaining 144
+  fuzzy matches were validated with an 18/18 random sample check.
+- The Hugging Face token was moved into a .env file (python-dotenv) so it is no longer hardcoded.
+
+**Dataset integrity** (explored in `notebooks/exploring_bird_images.ipynb`)
+- 89,885 images total, already split into train (84,635), validation (2,625), and test (2,625).
+- The dataset defines 526 labels but contains 525 true species — the extra label is a
+  whitespace-typo duplicate of the Parakeet Auklet, merged into one class during preprocessing.
+- Class balance is mild (~2:1, 130–263 images per class), so class weighting/oversampling is
+  not needed.
+- 0 corrupted images; 100% RGB; 99.8% already 224x224 (211 outliers handled by resizing).
+
+**Preprocessing pipeline** (`src/preprocessing.py`)
+- Builds train/validation/test tf.data pipelines: resize to 224x224, merge the duplicate label,
+  shuffle training data (fixed seed 42), batch by 32, and prefetch.
+- Pixel values are left at 0-255 because EfficientNetB0 normalizes internally; data augmentation
+  is off for the baseline, with a seam in place to add it in Phase 2.
+
+**MLflow** (`src/mlflow_setup.py`)
+- Configured with a local SQLite backend (mlflow.db) so the model registry will work in Phase 2.
+- Experiment name: avianvision-bird-classification. A test run was logged and verified in the UI.
+
+**Follow-up**
+- A clean `display_name` column (corrected spellings for the frontend) is planned for
+  bird_name_mapping.csv before Phase 5.
 
 ---
 
-*Last updated: 2026-09-22*
+*Last updated: 2026-09-27*
