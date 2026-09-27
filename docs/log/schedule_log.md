@@ -30,13 +30,13 @@ see the Project Log. For any changes to the original plan, see the Change Log.
 - [x] Create documentation files
 - [x] Create AI instruction file (CLAUDE.md)
 - [ ] Create project MD file *(DeLayed - the readme file might work as the project md file)
-- [ ] Create all phase MD files
+- [X] Create all phase MD files
 
 **Phase 1 — Dataset & Preprocessing:**
-- [ ] Access Hugging Face bird dataset
-- [ ] Verify dataset integrity
-- [ ] Set up image preprocessing pipeline
-- [ ] Set up MLflow for experiment tracking
+- [x] Access Hugging Face bird dataset
+- [x] Verify dataset integrity
+- [x] Set up image preprocessing pipeline
+- [x] Set up MLflow for experiment tracking
 
 ---
 
