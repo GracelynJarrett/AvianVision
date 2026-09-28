@@ -2,9 +2,10 @@
 #
 # Purpose: Turn the raw Hugging Face bird dataset into batches of images that are
 # ready to feed into EfficientNetB0 for training. This handles resizing, merging
-# the duplicate Parakeet Auklet label, and building efficient train/validation/test
-# pipelines. It intentionally does NOT normalize pixel values (EfficientNetB0 does
-# that internally) and does NOT add data augmentation (that comes in Phase 2).
+# the duplicate Parakeet Auklet label, optional data augmentation, and building
+# efficient train/validation/test pipelines. It intentionally does NOT normalize
+# pixel values (EfficientNetB0 does that internally). The image size, batch size,
+# and augmentation settings are passed in from the config files by the runner.
 
 import os
 import re
@@ -15,17 +16,17 @@ from dotenv import load_dotenv
 from datasets import load_dataset
 
 
-# ---- Settings ----
+# ---- Default settings (the runner overrides these with values from the configs) ----
 # The Hugging Face dataset we are loading.
 DATASET_NAME = "yashikota/birds-525-species-image-classification"
 
-# EfficientNetB0 expects 224x224 images, so every image is resized to this.
+# Default image size EfficientNetB0 expects, used if the runner does not pass one.
 IMAGE_SIZE = 224
 
-# How many images the model sees at once during training.
+# Default number of images per training step.
 BATCH_SIZE = 32
 
-# A fixed random seed so shuffling is repeatable and experiments are comparable.
+# A fixed random seed so shuffling/augmentation are repeatable and experiments compare fairly.
 SEED = 42
 
 # How many images to hold in memory for shuffling the training data. A bigger
@@ -70,7 +71,38 @@ def build_label_remap(class_names):
     return old_to_new, merged_names
 
 
-def make_tf_dataset(hf_split, old_to_new, training=False, augment=False):
+def build_augmenter(augmentation):
+    """Builds a stack of random image-augmentation layers from the settings, or None if all are off."""
+    # Collect only the augmentation layers that are switched on in the image config.
+    layers = []
+    # Randomly mirror images left-to-right.
+    if augmentation.get("horizontal_flip"):
+        layers.append(tf.keras.layers.RandomFlip("horizontal", seed=SEED))
+    # Randomly flip images upside down.
+    if augmentation.get("vertical_flip"):
+        layers.append(tf.keras.layers.RandomFlip("vertical", seed=SEED))
+    # Randomly rotate images (value is a fraction of a full turn).
+    if augmentation.get("rotation", 0):
+        layers.append(tf.keras.layers.RandomRotation(augmentation["rotation"], seed=SEED))
+    # Randomly zoom in or out.
+    if augmentation.get("zoom", 0):
+        layers.append(tf.keras.layers.RandomZoom(augmentation["zoom"], seed=SEED))
+    # Randomly change brightness (our images are on a 0-255 scale).
+    if augmentation.get("brightness", 0):
+        layers.append(tf.keras.layers.RandomBrightness(
+            augmentation["brightness"], value_range=(0, 255), seed=SEED))
+    # Randomly change contrast.
+    if augmentation.get("contrast", 0):
+        layers.append(tf.keras.layers.RandomContrast(augmentation["contrast"], seed=SEED))
+
+    # If nothing was turned on, there is no augmenter to apply.
+    if not layers:
+        return None
+    # Bundle the chosen layers into one pipeline that can be applied to a batch of images.
+    return tf.keras.Sequential(layers, name="augmentation")
+
+
+def make_tf_dataset(hf_split, old_to_new, batch_size, image_size, training=False, augmenter=None):
     """Converts one dataset split into a batched, ready-to-train TensorFlow dataset."""
 
     # For training, shuffle the whole dataset ORDER first so every batch gets a good
@@ -97,31 +129,34 @@ def make_tf_dataset(hf_split, old_to_new, training=False, augment=False):
     # Build the TensorFlow dataset from our generator.
     ds = tf.data.Dataset.from_generator(generator, output_signature=output_signature)
 
-    # Resize every image to 224x224. We do NOT rescale the pixel values here because
-    # EfficientNetB0 normalizes them itself; doing it twice would hurt accuracy.
+    # Resize every image to the model's expected size. We do NOT rescale the pixel
+    # values here because EfficientNetB0 normalizes them itself.
     def resize(image, label):
-        image = tf.image.resize(image, [IMAGE_SIZE, IMAGE_SIZE])
+        image = tf.image.resize(image, [image_size, image_size])
         return image, label
     ds = ds.map(resize, num_parallel_calls=tf.data.AUTOTUNE)
-
-    # (Augmentation seam) In Phase 2, turning this on will add random flips/rotations
-    # to the TRAINING data to help the model generalize. The baseline leaves it off.
-    if augment:
-        # Placeholder: augmentation layers will be added here during Phase 2 tuning.
-        pass
 
     # Only shuffle the training data, using the fixed seed so runs stay comparable.
     if training:
         ds = ds.shuffle(buffer_size=SHUFFLE_BUFFER, seed=SEED,
                         reshuffle_each_iteration=True)
 
-    # Group images into batches and prefetch so the CPU prepares the next batch while
-    # the model trains on the current one.
-    ds = ds.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
+    # Group images into batches.
+    ds = ds.batch(batch_size)
+
+    # Apply data augmentation to TRAINING batches only, and only if one was built.
+    # Validation and test data are never augmented — they must stay as the real images.
+    if training and augmenter is not None:
+        ds = ds.map(lambda image, label: (augmenter(image, training=True), label),
+                    num_parallel_calls=tf.data.AUTOTUNE)
+
+    # Prefetch so the CPU prepares the next batch while the model trains on the current one.
+    ds = ds.prefetch(tf.data.AUTOTUNE)
     return ds
 
 
-def get_datasets():
+def get_datasets(batch_size=BATCH_SIZE, image_size=IMAGE_SIZE,
+                 augmentation_enabled=False, augmentation=None):
     """Builds the train, validation, and test datasets plus the list of class names."""
     # Load the raw dataset from Hugging Face.
     dataset = load_raw_dataset()
@@ -131,16 +166,24 @@ def get_datasets():
     old_to_new, merged_names = build_label_remap(class_names)
     print(f"Original labels: {len(class_names)}  ->  merged classes: {len(merged_names)}")
 
-    # Build a TensorFlow pipeline for each split (only training is shuffled).
-    train_ds = make_tf_dataset(dataset["train"], old_to_new, training=True)
-    val_ds = make_tf_dataset(dataset["validation"], old_to_new, training=False)
-    test_ds = make_tf_dataset(dataset["test"], old_to_new, training=False)
+    # Build the augmentation pipeline only if it is switched on in the image config.
+    augmenter = build_augmenter(augmentation) if (augmentation_enabled and augmentation) else None
+    print(f"Data augmentation: {'ON' if augmenter is not None else 'OFF'}")
+
+    # Build a TensorFlow pipeline for each split. Only training is shuffled/augmented.
+    train_ds = make_tf_dataset(dataset["train"], old_to_new, batch_size, image_size,
+                               training=True, augmenter=augmenter)
+    val_ds = make_tf_dataset(dataset["validation"], old_to_new, batch_size, image_size,
+                             training=False)
+    test_ds = make_tf_dataset(dataset["test"], old_to_new, batch_size, image_size,
+                              training=False)
 
     # Return the three datasets and the class names (new id -> name).
     return train_ds, val_ds, test_ds, merged_names
 
 
-# Run a quick sanity check when this file is executed directly.
+# Run a quick sanity check when this file is executed directly (uses the defaults:
+# batch 32, size 224, no augmentation).
 if __name__ == "__main__":
     # Build all three datasets and the class-name list.
     train_ds, val_ds, test_ds, class_names = get_datasets()

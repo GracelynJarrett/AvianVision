@@ -249,16 +249,17 @@ carry-over means for next week's goals.]
 
 ---
 
-## 
-**Day Goal:** 
+## Monday September 28, 2026
+**Day Goal:** Complete setting up the EfficientNetB0 model
 
-**What Was Done:** 
+**What Was Done:** set up efficientnetB0 builer, train and read yaml file
 
-**Challenges:** 
+**Challenges:** Almost out of criteds (resets on wendsday)
 
-**Blockers:** 
+**Blockers:** no blockers for today 
 
 **Summary:**
+    Today I was able to complet seting up the file for buileding models. I also set up a helper file that read yaml files. I desided to have the train file used for running other files. 
   
 ---
 ## 
