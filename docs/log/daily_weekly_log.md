@@ -262,40 +262,43 @@ carry-over means for next week's goals.]
     Today I was able to complet seting up the file for buileding models. I also set up a helper file that read yaml files. I desided to have the train file used for running other files. 
   
 ---
-## 
-**Day Goal:** 
+## Tusday September 29, 2026 
+**Day Goal:** Creat the Base model
 
-**What Was Done:** 
+**What Was Done:** Train base  model
 
-**Challenges:** 
+**Challenges:** Only params loged to MLFlow, Ran out of Cloude Critedts. 
 
 **Blockers:** 
 
 **Summary:**
+    Today I tryed to train my base model and it worked but only the parms where loged to mlflow, so I could not vew my models metrics. I also ran out of cloude critedts so I had to wait until Thursday to fix my problom, becase I try ChatGPT but I quily ran out of crites too. 
+
+---
+## Thursday
+**Day Goal:** Fix train.py and log Base model into mlflow
+
+**What Was Done:** Fixed train and log the base modle
+
+**Challenges:** non
+
+**Blockers:** no blockers today
+
+**Summary:**
+    today I was able to train my base modle. I had no challenges or blockes
   
 ---
 ## 
-**Day Goal:** 
+**Day Goal:** Set up augmentation runs, run 1st augmentation
 
-**What Was Done:** 
+**What Was Done:** Set up agmentation
 
-**Challenges:** 
+**Challenges:** Spet WAY TO MUCH MONEY
 
-**Blockers:** 
-
-**Summary:**
-  
----
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
+**Blockers:** tired
 
 **Summary:**
+    Today I relized yesterday I septe $13 and found out that I am using the could modle that cost 5x more then normal. I swiched to a modle that would healy decreass that number. Also I created the augmentation yaml files so tomorrow I can run my first augmentation modle and hopely have them all done by sunday night. 
   
 ---
 ## 

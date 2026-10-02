@@ -5,7 +5,7 @@
 
 # --- Training settings ---
 learning_rate: 0.001   # how big each training step is (smaller = slower but steadier)
-epochs: 10             # how many full passes the model makes over the training data
+epochs: 10          # how many full passes the model makes over the training data
 batch_size: 32         # how many images the model looks at per training step
 
 # --- Classifier head (the layers we add on top of EfficientNetB0) ---

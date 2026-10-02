@@ -1,0 +1,59 @@
+# Augmentation Experiments Configuration
+# ----------------------------------------
+# Each entry below is one augmentation experiment. To run one, pass its name to
+# train.py with the --run flag:
+#
+#   python src/train.py --run conservative-DA
+#
+# All augmentations are applied to TRAINING images only (never validation or test).
+# image_size is still read from image_config.yaml, so that never needs to change.
+
+conservative-DA:
+  augmentation_enabled: true
+  augmentation:
+    horizontal_flip: true    # randomly mirror the image left-to-right
+    vertical_flip: false
+    rotation: 0.10           # up to ~36 degrees in either direction
+    zoom: 0.10               # zoom in or out up to 10%
+    brightness: 0.10         # brightness shift up to 10%
+    contrast: 0.10           # contrast shift up to 10%
+
+moderate-DA:
+  augmentation_enabled: true
+  augmentation:
+    horizontal_flip: true
+    vertical_flip: false
+    rotation: 0.15           # up to ~54 degrees in either direction
+    zoom: 0.15               # zoom in or out up to 15%
+    brightness: 0.15
+    contrast: 0.15
+
+aggressive-DA:
+  augmentation_enabled: true
+  augmentation:
+    horizontal_flip: true
+    vertical_flip: false
+    rotation: 0.20           # up to ~72 degrees in either direction
+    zoom: 0.20               # zoom in or out up to 20%
+    brightness: 0.20
+    contrast: 0.20
+
+spatial-focus-DA:
+  augmentation_enabled: true
+  augmentation:
+    horizontal_flip: true
+    vertical_flip: false
+    rotation: 0.20           # heavy spatial augmentation
+    zoom: 0.20
+    brightness: 0.05         # light color augmentation
+    contrast: 0.05
+
+color-focus-DA:
+  augmentation_enabled: true
+  augmentation:
+    horizontal_flip: true
+    vertical_flip: false
+    rotation: 0.05           # light spatial augmentation
+    zoom: 0.05
+    brightness: 0.25         # heavy color augmentation
+    contrast: 0.25
