@@ -37,6 +37,7 @@ made throughout the project lifecycle.
 [Expand on everything above in a short paragraph. Include what was done, any challenges, 
 any changes made to project files or the project plan, and anything worth noting for tomorrow.]
 
+
 ---
 
 ### [Day of Week] — [Date]
@@ -232,7 +233,7 @@ carry-over means for next week's goals.]
 
 
 
-# Week 2
+# Week 2 - Sart Traing models
 ## Sunday September 27,2026
 **Day Goal:** creat EfficientNetbo model builder and yaml files
 
@@ -288,7 +289,7 @@ carry-over means for next week's goals.]
     today I was able to train my base modle. I had no challenges or blockes
   
 ---
-## 
+## Friday
 **Day Goal:** Set up augmentation runs, run 1st augmentation
 
 **What Was Done:** Set up agmentation
@@ -301,17 +302,125 @@ carry-over means for next week's goals.]
     Today I relized yesterday I septe $13 and found out that I am using the could modle that cost 5x more then normal. I swiched to a modle that would healy decreass that number. Also I created the augmentation yaml files so tomorrow I can run my first augmentation modle and hopely have them all done by sunday night. 
   
 ---
-## 
-**Day Goal:** 
 
-**What Was Done:** 
+  
+---
+## Week 2 Review
 
-**Challenges:** 
+**Week Goal:** Creat base modle and train 3 augmentation models
 
-**Blockers:** 
+**What Was Done:** Created the base model
+
+**What Was Not Done:** the 3 augmentation models
+
+**Challenges:** Ran out of claude cridet
+
+**Carried Into Next Week:** Traing the 3 augmentation models
+
+**Weekly Summary:**
+    This weeks goal was to creat the base modele and at less 3 augmentation models. I was able to creat the yaml files so that it would be easy to run the augmentation models, however I ran into some problomes with the base model not recording everthing in mlflow. The same time I ran out of claoude crites and had to waite to fix the probloms. Once I got cloude credits back I realized that I was using a modle that coast 5x the normal rate so I lost $13 out of $50 on one day. I have changed the modle and fixed the base modle recording problome. However this unexpeded road bump let to me not getting everthing done I wanted to but I am still on track, to finnish my project on time. 
+    
+
+---
+
+
+# NOTES - Save Time
+Started school week 3, and Profecer wants us to keep track on time spent on work on the capstone. Added the time section starting on Monday October 4. 
+
+    Cut traing time in half if I didnt work on other parts of my project this is refleted in Project Peek but not in this log. this log have the full traing hours
+
+
+# Week 3 - Finnish Traing models
+    **Week Goal:** Creating the augmentation models and the Hyperpramiter models
+
+## Sunday October 4, 2026
+**Day Goal:** Start traing augmentation models
+
+**What Was Done:** trained 2 augmetation model
+
+**Challenges:** no chalanges
+
+**Blockers:** I didnt have any modivation
 
 **Summary:**
+    Today I started traing my augmentation models. I was able to train 2/5. I also had no modivation to continoue working so i just stoped there for today
+
+---
+
+## Monday October 5, 2026
+**Day Goal:** Finnish augmentation analyze the models, pick a model fore hyper touning
+
+**What Was Done:** Finnished augmentation models, picked best model, created hypertuning experets, ran 2/24 hypertuning
+    
+**Challenges:** Picking how many hypertuning model to make
+
+**Blockers:** No Blockers for today
+
+**Summary:**
+    Today I was able to finnish the augmentation models and I analyed all the models. In the end I found that the Base model was the best model to do hypertuning on. I then was ablue to create the hypertuning yaml file. I did stugle with deciding how many different hypyertuning models to make. In the end I planed for 24 different model. I ran 2/24 models
+
+**Time:**
+    - Total: 9 hours 30 minuts
+    - Model tarin: 8 hours 45 minuts
+    - Other: 45 m
+
+---
+
+## Tusday October 6, 2026
+**Day Goal:** Work on Hypertuning models
+
+**What Was Done:** I trained 8 more hypertuning models (10/24), and update Trello
+
+**Challenges:** No challenges
+
+**Blockers:** No Blockers
+
+**Summary:**
+    Today I created 8 more hupertuning modesls.
   
+**Time:**
+    - Total: 9 hours
+    - Model taing: 9 hours
+    - Note:
+        As the models where traing I updated Trello and the daily_weekly_log.md files
+
+---
+## Wednestday October 7,2026
+**Day Goal:** Continy traing hypertuning models
+
+**What Was Done:** I trained 9 more hypertuning models (19/24)
+
+**Challenges:** Had to restart one of my models
+
+**Blockers:** no blockers
+
+**Summary:**
+    Today I created 9 more hypertuning models, that means tomorrow I will only need to make 5 more models than I can anlaze and pick the best model for my project. 
+
+**Time:**
+    - Total:9 hours
+    -Model training: 9 hours
+    -Note:
+        As the models where traing I worked on other class work ()
+
+---
+
+## Thusday October 8,2026
+**Day Goal:** Complet hypertubing modles
+
+**What Was Done:** ran 5 hypertuning models 24/24, analyzed the modle and picked the best one
+
+**Challenges:** had to stop and restart 2 models, had wifi probloms at home
+
+**Blockers:** tired
+
+**Summary:**
+    Today I was able to finnish running all of the hypertuning models. I analysed the models and desided to go with base-middle-frozen-low-dropout-HT model, which had an f1 of 0.978 and loss of 0.09. I wanted to work on my project a little more but ran into some wifi problom and can contunin. 
+  
+**Time:**
+    - Total: 6h 45 m 
+    - Model traing: 6 hours
+    - analyzing model: 45 m
 ---
 ## 
 **Day Goal:** 
@@ -323,10 +432,12 @@ carry-over means for next week's goals.]
 **Blockers:** 
 
 **Summary:**
-  
----
 
-# Week 3
+
+**Time:**
+    - Total:
+
+---
 
 # Week 4
 

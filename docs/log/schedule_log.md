@@ -42,16 +42,16 @@ see the Project Log. For any changes to the original plan, see the Change Log.
 
 ## Week 2 — Phase 2 Start
 
-- [ ] Set up EfficientNetB0
-- [ ] Set up YAML config files
-- [ ] Begin training experiments
-- [ ] Log all experiments in MLflow
+- [x] Set up EfficientNetB0
+- [x] Set up YAML config files
+- [x] Begin training experiments
+- [x] Log all experiments in MLflow
 
 ---
 
 ## Week 3 — Phase 2 Continued
 
-- [ ] Continue hyperparameter experiments
+- [x] Continue hyperparameter experiments
 - [ ] Validate models on validation dataset
 - [ ] Select best-performing model (80%+ accuracy)
 - [ ] Evaluate best model on test dataset
