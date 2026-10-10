@@ -47,41 +47,50 @@ This document contains a dictionay for the models metrics. The dictionay explain
             Measures the model's ability to identify all instances of each class
     ** Why:
             Macro calculateds each class independently and then averged them across all the classes
-        
+    ** Formula:
+                                True Positives
+            Recall  =  ----------------------------------
+                        True Positives + Fasle Negatives
 
-## Metric name here
-   ** Definition:
-
-    ** Why:
-        
-
-## Metric name here
+## Macro F1 score
     ** Definition:
-
+        Balances precision and recall into one metric
     ** Why:
+        Macro allows for each class to get its own f1 score before taking the average
+    ** Formula:
+                            Precision X Recall
+                F1  = 2 X  ----------------------
+                             Precision + Recall
         
 
-## Metric name here
-   ** Definition:
-
-    ** Why:
-        
-
-## Metric name here
+## Best Epoch
     ** Definition:
-
+            Epochs that achieved the highest validation performance according to the selected evluation metric
     ** Why:
+        Demistrats where the model preformed the best
         
 
-## Metric name here
-   ** Definition:
-
-    ** Why:
+## Prefix Definitions
+   |Prefix|Definition|
+   |train_|Metric calculated using the training dataset|
+   |val_|Metric calculated using the validation dataset|
+   |test_|Metric calculated using the test dataset|
+   |final_|Metric calculated from the final training epoch|
+   |best_|Metric corresponding to the epoch with the best validation performance|
+   
+        
         
 
 
 # Metic Table
-
+|Metric|Type|Definition|Better Direction|
+|Loss|Optimization|Measuers prediction error used during training|Lower|
+|Accuracy|Classification|Percentage of correctly classified samoles|Higher|
+|Top-5 Accuracy|Classification|Percentage of samples where the true class is among the tip five predicted classes|Higher|
+|Marco Precision|Classification|Average precision across all classes|Higher|
+|Macro Recall|Classification|Average recall across all classes|Higher|
+|Macro F1 Score|Classification|Harmonic mean of precision and recall averaged across classes|Higher|
+|Best Epoch|Training|Epoch that achieved the best validation performance|N/A|
 
 
 
