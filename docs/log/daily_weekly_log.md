@@ -324,6 +324,8 @@ carry-over means for next week's goals.]
 ---
 
 
+
+
 # NOTES - Save Time
 Started school week 3, and Profecer wants us to keep track on time spent on work on the capstone. Added the time section starting on Monday October 4. 
 
@@ -421,7 +423,34 @@ Started school week 3, and Profecer wants us to keep track on time spent on work
     - Total: 6h 45 m 
     - Model traing: 6 hours
     - analyzing model: 45 m
+
+
 ---
+
+
+## Friday October 9, 2026
+**Day Goal:** Add test set to model, register model
+
+**What Was Done:** update change log, added test modle, started metric dictionary
+
+**Challenges:** I orginaly had some problomes with traing with the test set so I had to restart
+
+**Blockers:** No blockers for today
+
+**Summary:**
+    Today I set up the test model and the register python srcript. I didnt probley save the best modle so I had to retreain it, but I did not realzed this earlyer so I had to rerun the modle 2 times. I also updated the change log, doculmenting what modle I picked and why. I decided to create a metrics dictionary so people so doesnt understand all of the metrics can understaned them a lot better. 
+
+
+**Time:**
+    - Total: 3 hours
+    - Train modle: 2 hours
+    - other: 2 hours
+    -Notes:
+        While the first model was running I worked on other stuff, when I reran the model I was busing with something else that is why the toatl time is only 3 hours
+
+---
+
+# Week 4
 ## 
 **Day Goal:** 
 
@@ -439,13 +468,472 @@ Started school week 3, and Profecer wants us to keep track on time spent on work
 
 ---
 
-# Week 4
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 5
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 6
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 7
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 8
 

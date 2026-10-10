@@ -2,9 +2,8 @@
 
 ## About This Document
 
-This document tracks all meaningful changes made to the AvianVision project throughout its 
-lifecycle. A "change" is any modification to the project plan, file structure, documentation, 
-model architecture, or scope that differs from what was originally planned.
+This document tracks all meaningful changes and desidions made to the AvianVision project throughout its lifecycle. 
+A "change" is any modification to the project plan, file structure, documentation, model architecture, or scope that differs from what was originally planned.
 
 **How to use this document:**
 - Log a change any time something meaningful is modified, added, or removed from the project
@@ -52,3 +51,8 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 
 **What Was Changed and Why:** After completing the baseline model and five data augmentation experiments (conservative-DA, moderate-DA, aggressive-DA, spatial-focus-DA, color-focus-DA), the baseline model was selected as the foundation for hyperparameter tuning. The baseline outperformed all augmentation runs with a validation accuracy of 97.3%, macro F1 of 0.973, and validation loss of 0.106, indicating that EfficientNetB0's pretrained ImageNet weights already generalize well to this dataset without additional augmentation. Because augmentation introduced noise that hurt rather than helped, hyperparameter tuning will proceed with augmentation disabled, focusing instead on unfreezing base layers, learning rate, dropout, batch size, optimizer, and epoch count.
 
+---
+
+**Date:** 08-9-2026
+
+**What was Changed and why:** After traing all of the hypertuning experiments and comparing them to the base model, I have decided to us the base-middle-frozen-low-dropout-HT model. This chosie model has an macro F1 of 0.978 and a vval loss of 0.090. meaning there was improvment to the model with hypertuning. 

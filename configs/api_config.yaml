@@ -1,0 +1,4 @@
+# Confidence threshold for the /predict endpoint.
+# If the model's top prediction is below this value, the API returns "Unknown"
+# instead of a species name. Value is between 0.0 and 1.0.
+unknown_threshold: 0.45
