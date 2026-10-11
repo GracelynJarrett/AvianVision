@@ -1,0 +1,273 @@
+# Hypertuning Experiments Configuration
+# ----------------------------------------
+# Each entry below is one hypertuning experiment. To run one, pass its name to
+# hypertuning.py with the --run flag:
+#
+#   python src/hypertuning.py --run base-frozen-HT
+#
+# Experiments are organized into 6 groups based on which sections of EfficientNetB0
+# are frozen. Within each group, 4 runs vary one knob at a time (LR, dropout/epochs,
+# batch size) so results can be compared cleanly.
+#
+# Section definitions:
+#   base   = Blocks 1-2 (early layers — edges, colors, textures)
+#   middle = Blocks 3-5 (mid layers — shapes and patterns)
+#   end    = Blocks 6-7 (top layers — high-level, bird-specific features)
+
+
+# --- BASE FROZEN (middle + end can train) ---
+
+base-frozen-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+base-frozen-low-lr-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+base-frozen-low-dropout-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+base-frozen-large-batch-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
+
+
+# --- MIDDLE FROZEN (base + end can train) ---
+
+middle-frozen-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+middle-frozen-low-lr-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+middle-frozen-low-dropout-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+middle-frozen-large-batch-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
+
+
+# --- END FROZEN (base + middle can train) ---
+
+end-frozen-HT: # Done
+  freeze_base: false
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+end-frozen-low-lr-HT: # Done
+  freeze_base: false
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+end-frozen-low-dropout-HT: # Done
+  freeze_base: false
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+end-frozen-large-batch-HT: # Done
+  freeze_base: false
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
+
+
+# --- BASE + MIDDLE FROZEN (only end can train) ---
+
+base-middle-frozen-HT: # Done
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+base-middle-frozen-low-lr-HT: # Done
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+base-middle-frozen-low-dropout-HT: # Done
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+base-middle-frozen-large-batch-HT: # Done
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
+
+
+# --- BASE + END FROZEN (only middle can train) ---
+
+base-end-frozen-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+base-end-frozen-low-lr-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+base-end-frozen-low-dropout-HT: # Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+base-end-frozen-large-batch-HT: #Done
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
+
+
+# --- MIDDLE + END FROZEN (only base can train) ---
+
+middle-end-frozen-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+middle-end-frozen-low-lr-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: true
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+middle-end-frozen-low-dropout-HT: # Done
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+middle-end-frozen-large-batch-HT:
+  freeze_base: false
+  freeze_middle: true
+  freeze_end: true
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam

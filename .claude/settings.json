@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvidia-smi)",
+      "PowerShell($env:WSL_UTF8=1; Write-Output \"=== wsl --version ===\"; wsl --version; Write-Output \"=== wsl --status ===\"; wsl --status; Write-Output \"=== installed distros ===\"; wsl -l -v)"
+    ]
+  }
+}

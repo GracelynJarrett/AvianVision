@@ -37,6 +37,7 @@ made throughout the project lifecycle.
 [Expand on everything above in a short paragraph. Include what was done, any challenges, 
 any changes made to project files or the project plan, and anything worth noting for tomorrow.]
 
+
 ---
 
 ### [Day of Week] — [Date]
@@ -232,101 +233,739 @@ carry-over means for next week's goals.]
 
 
 
-# Week 2
-## 
-**Day Goal:** 
+# Week 2 - Start Training Models
+## Sunday September 27,2026
+**Day Goal:** Create EfficientNetB0 model builder and YAML files
 
-**What Was Done:** 
+**What Was Done:** Set up access to GPU and created YAML files
 
-**Challenges:** 
+**Challenges:** No challenges for today
+
+**Blockers:** No blockers for today
+
+**Summary:**
+    Today's goal was to build the EfficientNetB0 model and create the YAML files. However, when I was reviewing everything I realized I forgot to include setup for the GPU. In the past we used PyTorch which had automatic access to a GPU, but we are not using PyTorch so we had to set up access through Linux. I now have access to the GPU and I created both YAML files.
+
+    * Note I am at 75% for my monthly usage. It will reset on Wednesday at 6 pm
+
+---
+
+## Monday September 28, 2026
+**Day Goal:** Complete setting up the EfficientNetB0 model
+
+**What Was Done:** Set up EfficientNetB0 builder, train, and read YAML file
+
+**Challenges:** Almost out of credits (resets on Wednesday)
+
+**Blockers:** No blockers for today
+
+**Summary:**
+    Today I was able to complete setting up the file for building models. I also set up a helper file that reads YAML files. I decided to have the train file used for running other files.
+  
+---
+## Tuesday September 29, 2026
+**Day Goal:** Create the base model
+
+**What Was Done:** Trained base model
+
+**Challenges:** Only params logged to MLflow, ran out of Claude credits.
 
 **Blockers:** 
 
 **Summary:**
-  
+    Today I tried to train my base model and it worked, but only the params were logged to MLflow, so I could not view my model's metrics. I also ran out of Claude credits so I had to wait until Thursday to fix my problem, because I tried ChatGPT but I quickly ran out of credits too.
+
 ---
-## 
-**Day Goal:** 
+## Thursday
+**Day Goal:** Fix train.py and log Base model into mlflow
 
-**What Was Done:** 
+**What Was Done:** Fixed train.py and logged the base model
 
-**Challenges:** 
+**Challenges:** None
 
-**Blockers:** 
+**Blockers:** No blockers today
 
 **Summary:**
+    Today I was able to train my base model. I had no challenges or blockers.
   
 ---
-## 
-**Day Goal:** 
+## Friday
+**Day Goal:** Set up augmentation runs, run 1st augmentation
 
-**What Was Done:** 
+**What Was Done:** Set up augmentation
 
-**Challenges:** 
+**Challenges:** Spent WAY TOO MUCH MONEY
 
-**Blockers:** 
+**Blockers:** Tired
 
 **Summary:**
+    Today I realized yesterday I spent $13 and found out that I am using the Claude model that costs 5x more than normal. I switched to a model that would heavily decrease that number. Also I created the augmentation YAML files so tomorrow I can run my first augmentation model and hopefully have them all done by Sunday night.
   
 ---
-## 
-**Day Goal:** 
 
-**What Was Done:** 
+  
+---
+## Week 2 Review
 
-**Challenges:** 
+**Week Goal:** Create base model and train 3 augmentation models
 
-**Blockers:** 
+**What Was Done:** Created the base model
+
+**What Was Not Done:** The 3 augmentation models
+
+**Challenges:** Ran out of Claude credits
+
+**Carried Into Next Week:** Training the 3 augmentation models
+
+**Weekly Summary:**
+    This week's goal was to create the base model and at least 3 augmentation models. I was able to create the YAML files so that it would be easy to run the augmentation models, however I ran into some problems with the base model not recording everything in MLflow. At the same time I ran out of Claude credits and had to wait to fix the problems. Once I got Claude credits back I realized that I was using a model that costs 5x the normal rate so I lost $13 out of $50 on one day. I have changed the model and fixed the base model recording problem. However this unexpected road bump led to me not getting everything done I wanted to, but I am still on track to finish my project on time.
+    
+
+---
+
+
+
+
+# NOTES - Save Time
+Started school week 3, and Professor wants us to keep track of time spent on work on the capstone. Added the time section starting on Monday October 4.
+
+    Cut training time in half if I didn't work on other parts of my project; this is reflected in Project Peek but not in this log. This log has the full training hours.
+
+
+# Week 3 - Finish Training Models
+    **Week Goal:** Creating the augmentation models and the hyperparameter models
+
+## Sunday October 4, 2026
+**Day Goal:** Start training augmentation models
+
+**What Was Done:** Trained 2 augmentation models
+
+**Challenges:** No challenges
+
+**Blockers:** I didn't have any motivation
 
 **Summary:**
-  
+    Today I started training my augmentation models. I was able to train 2/5. I also had no motivation to continue working so I just stopped there for today.
+
 ---
-## 
-**Day Goal:** 
 
-**What Was Done:** 
+## Monday October 5, 2026
+**Day Goal:** Finish augmentation, analyze the models, pick a model for hypertuning
 
-**Challenges:** 
+**What Was Done:** Finished augmentation models, picked best model, created hypertuning experiments, ran 2/24 hypertuning models
 
-**Blockers:** 
+**Challenges:** Picking how many hypertuning models to make
+
+**Blockers:** No blockers for today
 
 **Summary:**
-  
+    Today I was able to finish the augmentation models and I analyzed all the models. In the end I found that the base model was the best model to do hypertuning on. I then was able to create the hypertuning YAML file. I did struggle with deciding how many different hypertuning models to make. In the end I planned for 24 different models. I ran 2/24 models.
+
+**Time:**
+    - Total: 9 hours 30 minuts
+    - Model tarin: 8 hours 45 minuts
+    - Other: 45 m
+
 ---
-## 
-**Day Goal:** 
 
-**What Was Done:** 
+## Tuesday October 6, 2026
+**Day Goal:** Work on hypertuning models
 
-**Challenges:** 
+**What Was Done:** I trained 8 more hypertuning models (10/24), and updated Trello
 
-**Blockers:** 
+**Challenges:** No challenges
+
+**Blockers:** No blockers
 
 **Summary:**
-  
+    Today I trained 8 more hypertuning models.
+
+**Time:**
+    - Total: 9 hours
+    - Model training: 9 hours
+    - Note:
+        As the models were training I updated Trello and the daily_weekly_log.md files
+
 ---
-## 
-**Day Goal:** 
+## Wednesday October 7, 2026
+**Day Goal:** Continue training hypertuning models
 
-**What Was Done:** 
+**What Was Done:** I trained 9 more hypertuning models (19/24)
 
-**Challenges:** 
+**Challenges:** Had to restart one of my models
 
-**Blockers:** 
+**Blockers:** No blockers
 
 **Summary:**
-  
+    Today I trained 9 more hypertuning models, that means tomorrow I will only need to make 5 more models, then I can analyze and pick the best model for my project.
+
+**Time:**
+    - Total: 9 hours
+    - Model training: 9 hours
+    - Note:
+        As the models were training I worked on other class work
+
 ---
 
-# Week 3
+## Thursday October 8, 2026
+**Day Goal:** Complete hypertuning models
+
+**What Was Done:** Ran 5 hypertuning models (24/24), analyzed the models and picked the best one
+
+**Challenges:** Had to stop and restart 2 models, had Wi-Fi problems at home
+
+**Blockers:** Tired
+
+**Summary:**
+    Today I was able to finish running all of the hypertuning models. I analyzed the models and decided to go with the base-middle-frozen-low-dropout-HT model, which had an F1 of 0.978 and loss of 0.09. I wanted to work on my project a little more but ran into some Wi-Fi problems and could not continue.
+
+**Time:**
+    - Total: 6h 45 min
+    - Model training: 6 hours
+    - Analyzing model: 45 min
+
+
+---
+
+
+## Friday October 9, 2026
+**Day Goal:** Add test set to model, register model
+
+**What Was Done:** Updated change log, added test model, started metric dictionary
+
+**Challenges:** I originally had some problems with training with the test set so I had to restart
+
+**Blockers:** No blockers for today
+
+**Summary:**
+    Today I set up the test model and the register Python script. I didn't properly save the best model so I had to retrain it, but I did not realize this earlier so I had to rerun the model 2 times. I also updated the change log, documenting what model I picked and why. I decided to create a metrics dictionary so people who don't understand all of the metrics can understand them a lot better.
+
+**Time:**
+    - Total: 3 hours
+    - Train model: 2 hours
+    - Other: 2 hours
+    - Notes:
+        While the first model was running I worked on other stuff; when I reran the model I was busy with something else, which is why the total time is only 3 hours
+
+---
+
+
+## Saturday October 10, 2026
+**Day Goal:** Register model
+
+**What Was Done:** Registered model, finished metrics dictionary, spell check
+
+**Challenges:** No challenges
+
+**Blockers:** I was tired after work
+
+**Summary:**
+    Today I registered the model so that now I can use it properly. I also finished the metrics dictionary and had all my added documents spell checked.
+
+**Time:**
+    - Total: 1 hour 30 minutes
+
+---
+
+## Week 3 Review
+
+**Week Goal:** Creating the augmentation models and the hyperparameter models
+
+**What Was Done:** Created all the augmentation models and the hyperparameter models, validated them, chose the best model and registered it
+
+**What Was Not Done:** Registering for Snowflake
+
+**Challenges:** Time management
+
+**Carried Into Next Week:** Registering for Snowflake
+
+**Weekly Summary:**
+    This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
 # Week 4
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 5
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 6
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 7
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
 
 # Week 8
 

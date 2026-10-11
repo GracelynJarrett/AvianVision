@@ -1,6 +1,6 @@
 # Phase 2 — Model Training
 
-**Status:** Not Started
+**Status:** Complete
 
 ---
 
@@ -15,16 +15,16 @@ evaluated, and registered for use in later phases.
 
 ## Main Tasks
 
-- [ ] Set up EfficientNetB0 with transfer learning
-- [ ] Set up YAML config files for hyperparameters
-- [ ] Begin training experiments
-- [ ] Log all experiments in MLflow (accuracy, loss, hyperparameters)
-- [ ] Continue running hyperparameter experiments
-- [ ] Validate each model on the validation dataset
-- [ ] Select the best-performing model (80%+ validation accuracy)
-- [ ] Evaluate the best model on the test dataset
-- [ ] Set the confidence threshold for the unknown category
-- [ ] Register the best model in MLflow
+- [x] Set up EfficientNetB0 with transfer learning
+- [x] Set up YAML config files for hyperparameters
+- [x] Begin training experiments
+- [x] Log all experiments in MLflow (accuracy, loss, hyperparameters)
+- [x] Continue running hyperparameter experiments
+- [x] Validate each model on the validation dataset
+- [x] Select the best-performing model (80%+ validation accuracy)
+- [x] Evaluate the best model on the test dataset
+- [x] Set the confidence threshold for the unknown category
+- [x] Register the best model in MLflow
 
 ---
 
@@ -84,8 +84,25 @@ predictions get through.
 
 ## Results & Notes
 
-[Filled in after the phase is complete.]
+**Training Summary:**
+- Baseline model: validation accuracy 97.37%, macro F1 0.973, validation loss 0.106
+- Five data augmentation experiments were run (conservative-DA, moderate-DA, aggressive-DA, spatial-focus-DA, color-focus-DA). None outperformed the baseline, confirming that EfficientNetB0's pretrained ImageNet weights already generalize well to this dataset without augmentation.
+- Twenty-four hypertuning experiments were run across six freezing strategy groups (base frozen, middle frozen, end frozen, base+middle frozen, base+end frozen, middle+end frozen), varying learning rate, dropout, batch size, and epochs within each group.
+
+**Chosen Model:** base-middle-frozen-low-dropout-HT
+- Freezing strategy: base and middle sections frozen, end section (Blocks 6–7) unfrozen
+- Learning rate: 0.0001 | Dropout: 0.1 | Epochs: 15 | Batch size: 32 | Optimizer: Adam
+- Validation macro F1: 0.978 | Validation loss: 0.090
+
+**Final Test Set Results:**
+- Test accuracy: 98.55% | Test top-5 accuracy: 99.96%
+- Test macro F1: 0.9849 | Test macro precision: 0.9882 | Test macro recall: 0.9855
+- Test loss: 0.0464
+
+**Model Registration:** Registered in MLflow as `avianvision-bird-classifier` version 1
+- Run ID: b1ab602131634539868de6602f557373
+- Confidence threshold for the unknown category: 45% (stored in configs/api_config.yaml)
 
 ---
 
-*Last updated: 2026-09-22*
+*Last updated: 2026-10-10*
