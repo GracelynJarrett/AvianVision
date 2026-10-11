@@ -233,73 +233,73 @@ carry-over means for next week's goals.]
 
 
 
-# Week 2 - Sart Traing models
+# Week 2 - Start Training Models
 ## Sunday September 27,2026
-**Day Goal:** creat EfficientNetbo model builder and yaml files
+**Day Goal:** Create EfficientNetB0 model builder and YAML files
 
-**What Was Done:** Set up accase to GPU and created yaml filed
+**What Was Done:** Set up access to GPU and created YAML files
 
-**Challenges:** no challenges for today 
- 
+**Challenges:** No challenges for today
+
 **Blockers:** No blockers for today
 
 **Summary:**
-    Todays goal was to builed the EfficientNetB0 model and created the Yaml files. However when I was reviewing everthing I reized I forgot to include setup for the GUP. In the past we use pytourch which had adumadic accsas to a GUP, but we are not using pytourch so we had to set up accase through linx. I now have accase to the GUP and I creaded both yaml file. 
+    Today's goal was to build the EfficientNetB0 model and create the YAML files. However, when I was reviewing everything I realized I forgot to include setup for the GPU. In the past we used PyTorch which had automatic access to a GPU, but we are not using PyTorch so we had to set up access through Linux. I now have access to the GPU and I created both YAML files.
 
-    * Note I am at 75% for my monthly useage. It will reset on Wendsday at 6 pm
+    * Note I am at 75% for my monthly usage. It will reset on Wednesday at 6 pm
 
 ---
 
 ## Monday September 28, 2026
 **Day Goal:** Complete setting up the EfficientNetB0 model
 
-**What Was Done:** set up efficientnetB0 builer, train and read yaml file
+**What Was Done:** Set up EfficientNetB0 builder, train, and read YAML file
 
-**Challenges:** Almost out of criteds (resets on wendsday)
+**Challenges:** Almost out of credits (resets on Wednesday)
 
-**Blockers:** no blockers for today 
+**Blockers:** No blockers for today
 
 **Summary:**
-    Today I was able to complet seting up the file for buileding models. I also set up a helper file that read yaml files. I desided to have the train file used for running other files. 
+    Today I was able to complete setting up the file for building models. I also set up a helper file that reads YAML files. I decided to have the train file used for running other files.
   
 ---
-## Tusday September 29, 2026 
-**Day Goal:** Creat the Base model
+## Tuesday September 29, 2026
+**Day Goal:** Create the base model
 
-**What Was Done:** Train base  model
+**What Was Done:** Trained base model
 
-**Challenges:** Only params loged to MLFlow, Ran out of Cloude Critedts. 
+**Challenges:** Only params logged to MLflow, ran out of Claude credits.
 
 **Blockers:** 
 
 **Summary:**
-    Today I tryed to train my base model and it worked but only the parms where loged to mlflow, so I could not vew my models metrics. I also ran out of cloude critedts so I had to wait until Thursday to fix my problom, becase I try ChatGPT but I quily ran out of crites too. 
+    Today I tried to train my base model and it worked, but only the params were logged to MLflow, so I could not view my model's metrics. I also ran out of Claude credits so I had to wait until Thursday to fix my problem, because I tried ChatGPT but I quickly ran out of credits too.
 
 ---
 ## Thursday
 **Day Goal:** Fix train.py and log Base model into mlflow
 
-**What Was Done:** Fixed train and log the base modle
+**What Was Done:** Fixed train.py and logged the base model
 
-**Challenges:** non
+**Challenges:** None
 
-**Blockers:** no blockers today
+**Blockers:** No blockers today
 
 **Summary:**
-    today I was able to train my base modle. I had no challenges or blockes
+    Today I was able to train my base model. I had no challenges or blockers.
   
 ---
 ## Friday
 **Day Goal:** Set up augmentation runs, run 1st augmentation
 
-**What Was Done:** Set up agmentation
+**What Was Done:** Set up augmentation
 
-**Challenges:** Spet WAY TO MUCH MONEY
+**Challenges:** Spent WAY TOO MUCH MONEY
 
-**Blockers:** tired
+**Blockers:** Tired
 
 **Summary:**
-    Today I relized yesterday I septe $13 and found out that I am using the could modle that cost 5x more then normal. I swiched to a modle that would healy decreass that number. Also I created the augmentation yaml files so tomorrow I can run my first augmentation modle and hopely have them all done by sunday night. 
+    Today I realized yesterday I spent $13 and found out that I am using the Claude model that costs 5x more than normal. I switched to a model that would heavily decrease that number. Also I created the augmentation YAML files so tomorrow I can run my first augmentation model and hopefully have them all done by Sunday night.
   
 ---
 
@@ -307,18 +307,18 @@ carry-over means for next week's goals.]
 ---
 ## Week 2 Review
 
-**Week Goal:** Creat base modle and train 3 augmentation models
+**Week Goal:** Create base model and train 3 augmentation models
 
 **What Was Done:** Created the base model
 
-**What Was Not Done:** the 3 augmentation models
+**What Was Not Done:** The 3 augmentation models
 
-**Challenges:** Ran out of claude cridet
+**Challenges:** Ran out of Claude credits
 
-**Carried Into Next Week:** Traing the 3 augmentation models
+**Carried Into Next Week:** Training the 3 augmentation models
 
 **Weekly Summary:**
-    This weeks goal was to creat the base modele and at less 3 augmentation models. I was able to creat the yaml files so that it would be easy to run the augmentation models, however I ran into some problomes with the base model not recording everthing in mlflow. The same time I ran out of claoude crites and had to waite to fix the probloms. Once I got cloude credits back I realized that I was using a modle that coast 5x the normal rate so I lost $13 out of $50 on one day. I have changed the modle and fixed the base modle recording problome. However this unexpeded road bump let to me not getting everthing done I wanted to but I am still on track, to finnish my project on time. 
+    This week's goal was to create the base model and at least 3 augmentation models. I was able to create the YAML files so that it would be easy to run the augmentation models, however I ran into some problems with the base model not recording everything in MLflow. At the same time I ran out of Claude credits and had to wait to fix the problems. Once I got Claude credits back I realized that I was using a model that costs 5x the normal rate so I lost $13 out of $50 on one day. I have changed the model and fixed the base model recording problem. However this unexpected road bump led to me not getting everything done I wanted to, but I am still on track to finish my project on time.
     
 
 ---
@@ -327,39 +327,39 @@ carry-over means for next week's goals.]
 
 
 # NOTES - Save Time
-Started school week 3, and Profecer wants us to keep track on time spent on work on the capstone. Added the time section starting on Monday October 4. 
+Started school week 3, and Professor wants us to keep track of time spent on work on the capstone. Added the time section starting on Monday October 4.
 
-    Cut traing time in half if I didnt work on other parts of my project this is refleted in Project Peek but not in this log. this log have the full traing hours
+    Cut training time in half if I didn't work on other parts of my project; this is reflected in Project Peek but not in this log. This log has the full training hours.
 
 
-# Week 3 - Finnish Traing models
-    **Week Goal:** Creating the augmentation models and the Hyperpramiter models
+# Week 3 - Finish Training Models
+    **Week Goal:** Creating the augmentation models and the hyperparameter models
 
 ## Sunday October 4, 2026
-**Day Goal:** Start traing augmentation models
+**Day Goal:** Start training augmentation models
 
-**What Was Done:** trained 2 augmetation model
+**What Was Done:** Trained 2 augmentation models
 
-**Challenges:** no chalanges
+**Challenges:** No challenges
 
-**Blockers:** I didnt have any modivation
+**Blockers:** I didn't have any motivation
 
 **Summary:**
-    Today I started traing my augmentation models. I was able to train 2/5. I also had no modivation to continoue working so i just stoped there for today
+    Today I started training my augmentation models. I was able to train 2/5. I also had no motivation to continue working so I just stopped there for today.
 
 ---
 
 ## Monday October 5, 2026
-**Day Goal:** Finnish augmentation analyze the models, pick a model fore hyper touning
+**Day Goal:** Finish augmentation, analyze the models, pick a model for hypertuning
 
-**What Was Done:** Finnished augmentation models, picked best model, created hypertuning experets, ran 2/24 hypertuning
-    
-**Challenges:** Picking how many hypertuning model to make
+**What Was Done:** Finished augmentation models, picked best model, created hypertuning experiments, ran 2/24 hypertuning models
 
-**Blockers:** No Blockers for today
+**Challenges:** Picking how many hypertuning models to make
+
+**Blockers:** No blockers for today
 
 **Summary:**
-    Today I was able to finnish the augmentation models and I analyed all the models. In the end I found that the Base model was the best model to do hypertuning on. I then was ablue to create the hypertuning yaml file. I did stugle with deciding how many different hypyertuning models to make. In the end I planed for 24 different model. I ran 2/24 models
+    Today I was able to finish the augmentation models and I analyzed all the models. In the end I found that the base model was the best model to do hypertuning on. I then was able to create the hypertuning YAML file. I did struggle with deciding how many different hypertuning models to make. In the end I planned for 24 different models. I ran 2/24 models.
 
 **Time:**
     - Total: 9 hours 30 minuts
@@ -368,61 +368,61 @@ Started school week 3, and Profecer wants us to keep track on time spent on work
 
 ---
 
-## Tusday October 6, 2026
-**Day Goal:** Work on Hypertuning models
+## Tuesday October 6, 2026
+**Day Goal:** Work on hypertuning models
 
-**What Was Done:** I trained 8 more hypertuning models (10/24), and update Trello
+**What Was Done:** I trained 8 more hypertuning models (10/24), and updated Trello
 
 **Challenges:** No challenges
 
-**Blockers:** No Blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I created 8 more hupertuning modesls.
-  
+    Today I trained 8 more hypertuning models.
+
 **Time:**
     - Total: 9 hours
-    - Model taing: 9 hours
+    - Model training: 9 hours
     - Note:
-        As the models where traing I updated Trello and the daily_weekly_log.md files
+        As the models were training I updated Trello and the daily_weekly_log.md files
 
 ---
-## Wednestday October 7,2026
-**Day Goal:** Continy traing hypertuning models
+## Wednesday October 7, 2026
+**Day Goal:** Continue training hypertuning models
 
 **What Was Done:** I trained 9 more hypertuning models (19/24)
 
 **Challenges:** Had to restart one of my models
 
-**Blockers:** no blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I created 9 more hypertuning models, that means tomorrow I will only need to make 5 more models than I can anlaze and pick the best model for my project. 
+    Today I trained 9 more hypertuning models, that means tomorrow I will only need to make 5 more models, then I can analyze and pick the best model for my project.
 
 **Time:**
-    - Total:9 hours
-    -Model training: 9 hours
-    -Note:
-        As the models where traing I worked on other class work ()
+    - Total: 9 hours
+    - Model training: 9 hours
+    - Note:
+        As the models were training I worked on other class work
 
 ---
 
-## Thusday October 8,2026
-**Day Goal:** Complet hypertubing modles
+## Thursday October 8, 2026
+**Day Goal:** Complete hypertuning models
 
-**What Was Done:** ran 5 hypertuning models 24/24, analyzed the modle and picked the best one
+**What Was Done:** Ran 5 hypertuning models (24/24), analyzed the models and picked the best one
 
-**Challenges:** had to stop and restart 2 models, had wifi probloms at home
+**Challenges:** Had to stop and restart 2 models, had Wi-Fi problems at home
 
-**Blockers:** tired
+**Blockers:** Tired
 
 **Summary:**
-    Today I was able to finnish running all of the hypertuning models. I analysed the models and desided to go with base-middle-frozen-low-dropout-HT model, which had an f1 of 0.978 and loss of 0.09. I wanted to work on my project a little more but ran into some wifi problom and can contunin. 
-  
+    Today I was able to finish running all of the hypertuning models. I analyzed the models and decided to go with the base-middle-frozen-low-dropout-HT model, which had an F1 of 0.978 and loss of 0.09. I wanted to work on my project a little more but ran into some Wi-Fi problems and could not continue.
+
 **Time:**
-    - Total: 6h 45 m 
-    - Model traing: 6 hours
-    - analyzing model: 45 m
+    - Total: 6h 45 min
+    - Model training: 6 hours
+    - Analyzing model: 45 min
 
 
 ---
@@ -431,24 +431,56 @@ Started school week 3, and Profecer wants us to keep track on time spent on work
 ## Friday October 9, 2026
 **Day Goal:** Add test set to model, register model
 
-**What Was Done:** update change log, added test modle, started metric dictionary
+**What Was Done:** Updated change log, added test model, started metric dictionary
 
-**Challenges:** I orginaly had some problomes with traing with the test set so I had to restart
+**Challenges:** I originally had some problems with training with the test set so I had to restart
 
 **Blockers:** No blockers for today
 
 **Summary:**
-    Today I set up the test model and the register python srcript. I didnt probley save the best modle so I had to retreain it, but I did not realzed this earlyer so I had to rerun the modle 2 times. I also updated the change log, doculmenting what modle I picked and why. I decided to create a metrics dictionary so people so doesnt understand all of the metrics can understaned them a lot better. 
-
+    Today I set up the test model and the register Python script. I didn't properly save the best model so I had to retrain it, but I did not realize this earlier so I had to rerun the model 2 times. I also updated the change log, documenting what model I picked and why. I decided to create a metrics dictionary so people who don't understand all of the metrics can understand them a lot better.
 
 **Time:**
     - Total: 3 hours
-    - Train modle: 2 hours
-    - other: 2 hours
-    -Notes:
-        While the first model was running I worked on other stuff, when I reran the model I was busing with something else that is why the toatl time is only 3 hours
+    - Train model: 2 hours
+    - Other: 2 hours
+    - Notes:
+        While the first model was running I worked on other stuff; when I reran the model I was busy with something else, which is why the total time is only 3 hours
 
 ---
+
+
+## Saturday October 10, 2026
+**Day Goal:** Register model
+
+**What Was Done:** Registered model, finished metrics dictionary, spell check
+
+**Challenges:** No challenges
+
+**Blockers:** I was tired after work
+
+**Summary:**
+    Today I registered the model so that now I can use it properly. I also finished the metrics dictionary and had all my added documents spell checked.
+
+**Time:**
+    - Total: 1 hour 30 minutes
+
+---
+
+## Week 3 Review
+
+**Week Goal:** Creating the augmentation models and the hyperparameter models
+
+**What Was Done:** Created all the augmentation models and the hyperparameter models, validated them, chose the best model and registered it
+
+**What Was Not Done:** Registering for Snowflake
+
+**Challenges:** Time management
+
+**Carried Into Next Week:** Registering for Snowflake
+
+**Weekly Summary:**
+    This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
 # Week 4
 ## 

@@ -52,20 +52,20 @@ see the Project Log. For any changes to the original plan, see the Change Log.
 ## Week 3 — Phase 2 Continued
 
 - [x] Continue hyperparameter experiments
-- [ ] Validate models on validation dataset
-- [ ] Select best-performing model (80%+ accuracy)
-- [ ] Evaluate best model on test dataset
-- [ ] Set confidence threshold for unknown category
-- [ ] Register best model in MLflow
+- [X] Validate models on validation dataset
+- [X] Select best-performing model (80%+ accuracy)
+- [X] Evaluate best model on test dataset
+- [X] Set confidence threshold for unknown category
+- [X] Register best model in MLflow
 - [ ] Set up Snowflake account *(moved from Week 0)*
 
 ---
 
 ## Week 4 — Phase 2 Wrap-Up + Buffer
 
-- [ ] Continue working on Phase 2 if needed
-- [ ] Review and document model results
-- [ ] Verify best model is properly registered in MLflow
+- [X] Continue working on Phase 2 if needed
+- [X] Review and document model results
+- [X] Verify best model is properly registered in MLflow
 - [ ] Start setting up Snowflake and loading datasets
 - [ ] Start working on the enrichment pipeline
 
