@@ -482,21 +482,23 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Weekly Summary:**
     This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
-# Week 4
-## 
-**Day Goal:** 
+# Week 4 - Snowflack and Buffer week
+    ** This week is a buffer week but this weeks goal is to download and accase all the datasets **
 
-**What Was Done:** 
+## Sunday October 11, 2026
+**Day Goal:** Set up Snowflack account
 
-**Challenges:** 
+**What Was Done:** Set up snowflack account, submited the Project peek sprint
 
-**Blockers:** 
+**Challenges:** Seleting the correte snowflack account
+
+**Blockers:** No blockers
 
 **Summary:**
-
+    Today I set up my snowflack account, where I set up my account to pay for crites. I also submited my Project peek sprint, and I am waiting for the next sprint to be posted. 
 
 **Time:**
-    - Total:
+    - Total: 30m 
 
 ---
 
