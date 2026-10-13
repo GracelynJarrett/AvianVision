@@ -502,20 +502,20 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Monday October 12, 2026
+**Day Goal:** Set up snowflake
 
-**What Was Done:** 
+**What Was Done:** Snow flake was set up, coneted to mongodb atlase, conneted to snowflake, accase the data, and requeted the migration data from ebrid
 
-**Challenges:** 
+**Challenges:** I didnt realys how fast the enrichment pipline whould take, I didnt relized I did had accase to the migration data, and I had trubal seting up the snowflakes Authenticator
 
-**Blockers:** 
+**Blockers:** no blocker
 
 **Summary:**
-
+    Today I was able to get a lot done. I set up snowflake and reilzed that I need to have my pipline create a table in mongodb, becase runing the pipline ever singel prediction will means that the api accase is being used a lot, and it can take a long time to query the data. SO I created the connetion point between mongobd and snowflack. When I was working on connting to snowflake I relized I needed authenricator to fully accase it, but it took me a while to figer out how to get authenticator set up. Lastly once everthing worked I relized that I didnt have any migration data, so I requeted premision to use the Ebird api, so i am waiting on that. 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 

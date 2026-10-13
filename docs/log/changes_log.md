@@ -53,6 +53,11 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 
 ---
 
-**Date:** 08-9-2026
+**Date:** 10-9-2026
 
 **What was Changed and why:** After traing all of the hypertuning experiments and comparing them to the base model, I have decided to us the base-middle-frozen-low-dropout-HT model. This chosie model has an macro F1 of 0.978 and a vval loss of 0.090. meaning there was improvment to the model with hypertuning. 
+
+---
+
+**Date:** 10-12-2026
+**What was Changed and why:** My orginal plain was to run the enrichment pipline in snowflack everytime someone made a prediction. However Cloude pointed out to me doing it this way will put stress on the API request and would take a long time to query the results. Also that in one of the servers crashed then the pipline would break. Instead Snowflake will be creating the tables and combinding the dataset into one table that is stored inside mongoDB atles.
