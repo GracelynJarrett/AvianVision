@@ -28,7 +28,7 @@ from snowflake_client import get_snowflake_connection
 
 # Base URLs for the two external APIs.
 GBIF_API_URL = "https://api.gbif.org/v1"
-IUCN_API_URL = "https://apiv3.iucnredlist.org/api/v3"
+IUCN_API_URL = "https://api.iucnredlist.org/api/v4"
 
 # How long to wait between API calls (in seconds).
 # This prevents hitting GBIF and IUCN rate limits when looping through 525 species.
@@ -186,43 +186,74 @@ IUCN_STATUS_LABELS = {
 
 
 def fetch_iucn(scientific_name):
-    """Calls the IUCN Red List API for one species and returns its conservation status
+    """Calls the IUCN Red List API v4 for one species and returns its conservation status
     and population trend. Returns None if the species is not found or the request fails."""
 
     # Load the IUCN API token from the environment.
     load_dotenv()
     token = os.getenv("IUCN_API_KEY")
 
-    # Build the request URL — the scientific name goes directly in the path.
-    # Spaces are encoded as %20 so the URL is valid.
-    encoded_name = scientific_name.replace(" ", "%20")
-    url = f"{IUCN_API_URL}/species/{encoded_name}"
-    params = {"token": token}
+    # Split scientific name into genus and species for the v4 query parameters.
+    # We take just the first two words to handle subspecies names (3+ words) gracefully.
+    parts = scientific_name.strip().split()
+    if len(parts) < 2:
+        print(f"  IUCN: cannot parse scientific name '{scientific_name}'")
+        return None
+
+    url = f"{IUCN_API_URL}/taxa/scientific_name"
+    headers = {"Authorization": f"Bearer {token}"}
+    # Pass token as both a query parameter and a Bearer header to cover both
+    # auth styles — v4 documentation shows Bearer but some endpoints still
+    # accept the token as a query param (used in v3).
+    params = {"genus_name": parts[0], "species_name": parts[1], "token": token}
 
     try:
-        # Send the request to the IUCN Red List API.
-        response = requests.get(url, params=params, timeout=10)
+        # Send the request to the IUCN Red List v4 API.
+        response = requests.get(url, headers=headers, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
 
-        # The API returns results as a list. If the list is empty, the species
-        # is not in the IUCN database.
-        results = data.get("result", [])
-        if not results:
-            print(f"  IUCN: no record found for '{scientific_name}'")
+        # DEBUG — print the raw response for the first few species so we can confirm
+        # the v4 field names. Remove this print once the response format is verified.
+        print(f"  IUCN DEBUG: {data}")
+
+        # The v4 API may return a list or a dict. Normalise to a single record.
+        if isinstance(data, list):
+            if not data:
+                print(f"  IUCN: no record found for '{scientific_name}'")
+                return None
+            record = data[0]
+        elif isinstance(data, dict):
+            # Some v4 responses wrap results in a key — handle both shapes.
+            record = data.get("taxon") or data.get("result") or data
+            if isinstance(record, list):
+                if not record:
+                    print(f"  IUCN: no record found for '{scientific_name}'")
+                    return None
+                record = record[0]
+        else:
+            print(f"  IUCN: unexpected response format for '{scientific_name}'")
             return None
 
-        # Take the first result (there is almost always only one).
-        record = results[0]
-        status_code = record.get("category")
+        # Extract conservation status — v4 uses red_list_category instead of category.
+        # The value may be a string label or a nested object depending on the endpoint.
+        red_list_category = record.get("red_list_category")
+        if isinstance(red_list_category, dict):
+            status_label = red_list_category.get("description", {}).get("en") or red_list_category.get("name")
+            status_code = red_list_category.get("code")
+        else:
+            status_label = red_list_category
+            status_code = red_list_category
 
-        # Look up the full label for the status code (e.g. "LC" → "Least Concern").
-        status_label = IUCN_STATUS_LABELS.get(status_code, "Unknown")
+        # Extract population trend — v4 may return this as a string or nested object.
+        population_trend = record.get("population_trend")
+        if isinstance(population_trend, dict):
+            population_trend = population_trend.get("description", {}).get("en") or population_trend.get("name")
 
         return {
             "conservation_status": status_code,
             "conservation_status_label": status_label,
-            "population_trend": record.get("population_trend"),
+            "population_trend": population_trend,
         }
 
     except requests.exceptions.RequestException as e:
@@ -288,19 +319,33 @@ def insert_diet_row(cur, scientific_name, diet_data):
     If no diet data exists for this species, all fields are stored as NULL."""
 
     if diet_data:
-        # Convert Python lists to JSON strings so Snowflake can store them
-        # as VARIANT (JSON) columns using PARSE_JSON().
-        prey_names_json = json.dumps(diet_data["prey_common_names"])
-        prey_classes_json = json.dumps(diet_data["prey_classes"])
-        top_prey_json = json.dumps(diet_data["top_prey"])
+        # Convert each list to a JSON string, but use None if the list is empty.
+        # Snowflake rejects PARSE_JSON('[]') in a VALUES clause, so we store NULL
+        # instead of an empty array — NULL means "no data" which is clearer anyway.
+        prey_names = diet_data["prey_common_names"]
+        prey_classes = diet_data["prey_classes"]
+        top_prey = diet_data["top_prey"]
 
+        prey_names_json = json.dumps(prey_names) if prey_names else None
+        prey_classes_json = json.dumps(prey_classes) if prey_classes else None
+        top_prey_json = json.dumps(top_prey) if top_prey else None
+
+        # Use SELECT instead of VALUES so PARSE_JSON() can be called on non-NULL fields.
         cur.execute(
             """
             INSERT INTO DIET_RAW
                 (SCIENTIFIC_NAME, PREY_COMMON_NAMES, PREY_CLASSES, TOP_PREY)
-            VALUES (%s, PARSE_JSON(%s), PARSE_JSON(%s), PARSE_JSON(%s))
+            SELECT %s,
+                   CASE WHEN %s IS NOT NULL THEN PARSE_JSON(%s) ELSE NULL END,
+                   CASE WHEN %s IS NOT NULL THEN PARSE_JSON(%s) ELSE NULL END,
+                   CASE WHEN %s IS NOT NULL THEN PARSE_JSON(%s) ELSE NULL END
             """,
-            (scientific_name, prey_names_json, prey_classes_json, top_prey_json),
+            (
+                scientific_name,
+                prey_names_json, prey_names_json,
+                prey_classes_json, prey_classes_json,
+                top_prey_json, top_prey_json,
+            ),
         )
     else:
         # No diet data found — insert a row with NULLs so the JOIN in Section 6
@@ -482,9 +527,9 @@ def run_pipeline(test_mode=False):
                 continue
             species_list.append({"label": label, "scientific_name": sci_name})
 
-    # In test mode, only process the first 3 species so issues can be caught quickly.
+    # In test mode, only process the first 10 species so issues can be caught quickly.
     if test_mode:
-        species_list = species_list[:3]
+        species_list = species_list[:10]
         print(f"TEST MODE — processing {len(species_list)} species only.")
     else:
         print(f"{len(species_list)} species loaded from mapping file.")

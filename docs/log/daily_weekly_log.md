@@ -519,21 +519,20 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Tusday October 13, 2026
+**Day Goal:** Fix pipline
 
-**What Was Done:** 
+**What Was Done:** Conneted the pipline to the model, requeted help for the IUCN red API, requeted to download the Ebird data.
 
-**Challenges:** 
+**Challenges:** The API for IUCN is for an older reiterd dataset
 
 **Blockers:** 
 
 **Summary:**
-
+    Today I Conneted the pipline to the modle and ran two tests, and both worked perfictly. I have a problom with the IUCN API, I have the APU for the v3 data but that one was retired in March and there is no way to accase the API for v4, so I sent an email to get some help. I also relized that I dont have any migration data so I requeted to download a dataset form Ebird, but the requet should take up to a week for me to get accase. 
 
 **Time:**
-    - Total:
-
+    - Total: 2 hours 30m 
 ---
 
 ## 
