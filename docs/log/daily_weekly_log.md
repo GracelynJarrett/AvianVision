@@ -535,20 +535,21 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     - Total: 2 hours 30m 
 ---
 
-## 
-**Day Goal:** 
+## Wensday October 14, 2026
+**Day Goal:** Create the logo, start working on the pages dezins
 
-**What Was Done:** 
+**What Was Done:** Created the logo, page home dezine, stats dezin
 
-**Challenges:** 
+**Challenges:** Still waiting for the API 
 
-**Blockers:** 
+**Blockers:** no blockers 
 
 **Summary:**
+    Today I created the logo for my Webpage, and I started working on page dezins for the pages. I am still waiting to hear anything about the two API requests. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
