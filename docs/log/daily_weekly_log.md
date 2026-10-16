@@ -533,6 +533,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 **Time:**
     - Total: 2 hours 30m 
+
 ---
 
 ## Wensday October 14, 2026
@@ -553,20 +554,21 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Thurday October 15, 2026
+**Day Goal:** continue Working on the page dezins
 
-**What Was Done:** 
+**What Was Done:** I finnished the stats and the prediction page. 
 
-**Challenges:** 
+**Challenges:** No chalanges
 
-**Blockers:** 
+**Blockers:**  No Blockers
 
 **Summary:**
+    Today I work on the dezins for the prediction page and I finnished the stats page. 
 
 
 **Time:**
-    - Total:
+    - Total: 3 hours
 
 ---
 
