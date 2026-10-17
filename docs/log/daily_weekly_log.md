@@ -572,20 +572,21 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Friday Octoner 16, 2026
+**Day Goal:** Contiune working on the page dezinse
 
-**What Was Done:** 
+**What Was Done:** Got most of the page dezinse done
 
-**Challenges:** 
+**Challenges:** Finding time to work on the project
 
-**Blockers:** 
+**Blockers:** No bloakcers
 
 **Summary:**
+    Today I contiune working on the page dezinse and got most of the pages done. I didnt have truble finding time to work on the project and didnt work all four hours that I originaly wanted to. 
 
 
 **Time:**
-    - Total:
+    - Total: 2 hours 30 m
 
 ---
 
