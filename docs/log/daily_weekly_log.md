@@ -482,106 +482,111 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Weekly Summary:**
     This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
-# Week 4
-## 
-**Day Goal:** 
+# Week 4 - Snowflack and Buffer week
+    ** This week is a buffer week but this weeks goal is to download and accase all the datasets **
 
-**What Was Done:** 
+## Sunday October 11, 2026
+**Day Goal:** Set up Snowflack account
 
-**Challenges:** 
+**What Was Done:** Set up snowflack account, submited the Project peek sprint
 
-**Blockers:** 
+**Challenges:** Seleting the correte snowflack account
+
+**Blockers:** No blockers
 
 **Summary:**
-
+    Today I set up my snowflack account, where I set up my account to pay for crites. I also submited my Project peek sprint, and I am waiting for the next sprint to be posted. 
 
 **Time:**
-    - Total:
+    - Total: 30m 
 
 ---
 
-## 
-**Day Goal:** 
+## Monday October 12, 2026
+**Day Goal:** Set up snowflake
 
-**What Was Done:** 
+**What Was Done:** Snow flake was set up, coneted to mongodb atlase, conneted to snowflake, accase the data, and requeted the migration data from ebrid
 
-**Challenges:** 
+**Challenges:** I didnt realys how fast the enrichment pipline whould take, I didnt relized I did had accase to the migration data, and I had trubal seting up the snowflakes Authenticator
 
-**Blockers:** 
+**Blockers:** no blocker
 
 **Summary:**
-
+    Today I was able to get a lot done. I set up snowflake and reilzed that I need to have my pipline create a table in mongodb, becase runing the pipline ever singel prediction will means that the api accase is being used a lot, and it can take a long time to query the data. SO I created the connetion point between mongobd and snowflack. When I was working on connting to snowflake I relized I needed authenricator to fully accase it, but it took me a while to figer out how to get authenticator set up. Lastly once everthing worked I relized that I didnt have any migration data, so I requeted premision to use the Ebird api, so i am waiting on that. 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
-## 
-**Day Goal:** 
+## Tusday October 13, 2026
+**Day Goal:** Fix pipline
 
-**What Was Done:** 
+**What Was Done:** Conneted the pipline to the model, requeted help for the IUCN red API, requeted to download the Ebird data.
 
-**Challenges:** 
+**Challenges:** The API for IUCN is for an older reiterd dataset
 
 **Blockers:** 
 
 **Summary:**
-
+    Today I Conneted the pipline to the modle and ran two tests, and both worked perfictly. I have a problom with the IUCN API, I have the APU for the v3 data but that one was retired in March and there is no way to accase the API for v4, so I sent an email to get some help. I also relized that I dont have any migration data so I requeted to download a dataset form Ebird, but the requet should take up to a week for me to get accase. 
 
 **Time:**
-    - Total:
+    - Total: 2 hours 30m 
 
 ---
 
-## 
-**Day Goal:** 
+## Wensday October 14, 2026
+**Day Goal:** Create the logo, start working on the pages dezins
 
-**What Was Done:** 
+**What Was Done:** Created the logo, page home dezine, stats dezin
 
-**Challenges:** 
+**Challenges:** Still waiting for the API 
 
-**Blockers:** 
+**Blockers:** no blockers 
 
 **Summary:**
+    Today I created the logo for my Webpage, and I started working on page dezins for the pages. I am still waiting to hear anything about the two API requests. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
-## 
-**Day Goal:** 
+## Thurday October 15, 2026
+**Day Goal:** continue Working on the page dezins
 
-**What Was Done:** 
+**What Was Done:** I finnished the stats and the prediction page. 
 
-**Challenges:** 
+**Challenges:** No chalanges
 
-**Blockers:** 
+**Blockers:**  No Blockers
 
 **Summary:**
+    Today I work on the dezins for the prediction page and I finnished the stats page. 
 
 
 **Time:**
-    - Total:
+    - Total: 3 hours
 
 ---
 
-## 
-**Day Goal:** 
+## Friday Octoner 16, 2026
+**Day Goal:** Contiune working on the page dezinse
 
-**What Was Done:** 
+**What Was Done:** Got most of the page dezinse done
 
-**Challenges:** 
+**Challenges:** Finding time to work on the project
 
-**Blockers:** 
+**Blockers:** No bloakcers
 
 **Summary:**
+    Today I contiune working on the page dezinse and got most of the pages done. I didnt have truble finding time to work on the project and didnt work all four hours that I originaly wanted to. 
 
 
 **Time:**
-    - Total:
+    - Total: 2 hours 30 m
 
 ---
 
