@@ -590,22 +590,38 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Saterday October 17, 2026
+**Day Goal:** Finnsh page dezids, creat a new branch, add the page dezins.
 
-**What Was Done:** 
+**What Was Done:** I finnished page dezins, anc created a new branch. I also started a dataset_notes.
 
-**Challenges:** 
+**Challenges:** Finding a new datset for the migration
 
-**Blockers:** 
+**Blockers:** no blockers
 
 **Summary:**
+    today I finnshed page desinds and created a new branch and saved the page dexinds to a Dashboard folder. I also decided to start a dataset_notes.md file that tells what socrese I am using and what I am gathering from either of them. 
 
 
 **Time:**
-    - Total:
+    - Total: 2
 
 ---
+
+## Week 4 review
+**Week Goal:** This weeks goal was to create the enrichment pipline
+
+**What Was Done:** created the enrichment pipline, created the dashbord page dezinse.
+
+**What Was Not Done:** All the dataset was not confermed to be accasesd.
+
+**Challenges:** Hade problomes with the Redlist and the Ebird APIS
+
+**Carried Into Next Week:** Finnish the Enrichment pipline
+
+**Weekly Summary:**
+    This weeks main gaol was to get the enrichment pipline done however when I made the pipline I reived I didnt have avvase to migration data, and had probloms with the red list. So I as for help with the red list and as for acces from Ebird. As I waited for a resons I created the dashbord dezinse and saved them to a file. 
+
 
 
 # Week 5
