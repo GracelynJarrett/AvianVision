@@ -482,7 +482,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Weekly Summary:**
     This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
-# Week 4 - Snowflack and Buffer week
+# Week 4 - Snowflack and Buffer weekd
     ** This week is a buffer week but this weeks goal is to download and accase all the datasets **
 
 ## Sunday October 11, 2026
@@ -609,7 +609,9 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 # Week 5
-## 
+    ** Fix the Enrichment pipline, and set up the dashbord
+
+## Sunday October 18, 2026
 **Day Goal:** 
 
 **What Was Done:** 
