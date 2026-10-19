@@ -1,21 +1,23 @@
 # enrich_pipeline.py
 #
 # Purpose: The main enrichment pipeline for AvianVision. For all 525 bird species,
-# this script fetches data from three sources (GBIF API, IUCN Red List API, and
-# the Avian Diet Database file), loads each source into its own raw table in
-# Snowflake, combines them into a single SPECIES_ENRICHMENT table, and then
-# stores the final enriched records in MongoDB Atlas.
+# this script fetches data from five sources (GBIF taxonomy API, GBIF occurrence API,
+# IUCN Red List API v4, Avian Diet Database file, and Wikipedia API), loads each
+# source into Snowflake, combines them into a single SPECIES_ENRICHMENT table, and
+# then stores the final enriched records in MongoDB Atlas.
 #
 # Run this script once before Phase 4 to pre-populate the enrichment data.
 #
 # Usage:
-#   python src/enrich_pipeline.py
+#   python src/enrich_pipeline.py          # full run (all 525 species)
+#   python src/enrich_pipeline.py --test   # test run (first 10 species only)
 
 import argparse
 import csv
 import json
 import os
 import time
+from collections import Counter
 from pathlib import Path
 
 import requests
@@ -26,13 +28,20 @@ from snowflake_client import get_snowflake_connection
 
 # --- Constants ---
 
-# Base URLs for the two external APIs.
+# Base URLs for the external APIs.
 GBIF_API_URL = "https://api.gbif.org/v1"
 IUCN_API_URL = "https://api.iucnredlist.org/api/v4"
+WIKI_API_URL = "https://en.wikipedia.org/w/api.php"
+WIKI_REST_URL = "https://en.wikipedia.org/api/rest_v1"
 
-# How long to wait between API calls (in seconds).
-# This prevents hitting GBIF and IUCN rate limits when looping through 525 species.
+# How long to wait between species (in seconds) to avoid hitting API rate limits.
 API_DELAY = 0.5
+
+# Wikipedia blocks requests that do not include a descriptive User-Agent header.
+# This header identifies the project so Wikipedia knows who is making the requests.
+WIKI_HEADERS = {
+    "User-Agent": "AvianVision/1.0 (neumont capstone project; gjarrett@student.neumont.edu)"
+}
 
 # Path to the Avian Diet Database file, which lives in the project's data folder.
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -128,50 +137,107 @@ def load_diet_lookup():
     return diet_lookup
 
 
-# --- Section 3: GBIF Fetch Function ---
+# --- Section 3: GBIF Fetch Functions ---
 
 def fetch_gbif(scientific_name):
-    """Calls the GBIF species match API for one species and returns its taxonomy data.
-    Returns None if no match is found or the request fails."""
+    """Calls the GBIF API for one species and returns taxonomy data plus a summary
+    of where and when the species has been observed (used for migration patterns).
 
-    # Build the request URL — GBIF's species/match endpoint looks up a species
-    # by scientific name and returns taxonomy information.
+    Makes two API calls:
+      1. species/match — gets the classification (class, order, family, genus) and
+         the GBIF species key needed for the second call.
+      2. occurrence/search — fetches up to 300 sighting records and summarises them
+         by country and calendar month.
+
+    Returns None if no species match is found or the first request fails.
+    If only the second call fails, taxonomy data is still returned."""
+
+    # --- Step 1: Taxonomy lookup ---
+    # GBIF's species/match endpoint takes a scientific name and returns classification data.
     url = f"{GBIF_API_URL}/species/match"
     params = {"name": scientific_name, "strict": "false"}
 
     try:
-        # Send the request to GBIF. Timeout after 10 seconds to avoid hanging
-        # indefinitely if the API is slow.
         response = requests.get(url, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
 
         # GBIF returns matchType "NONE" when it cannot find the species.
-        # In that case there is no useful data to return.
         if data.get("matchType") == "NONE":
             print(f"  GBIF: no match found for '{scientific_name}'")
             return None
 
-        # Pull out the fields we want to store. Use .get() so that missing
-        # fields return None instead of crashing.
-        return {
-            "gbif_key": data.get("usageKey"),
+        gbif_key = data.get("usageKey")
+
+        # Build the result dictionary with taxonomy fields and placeholder
+        # occurrence fields that will be filled in by Step 2.
+        result = {
+            "gbif_key": gbif_key,
             "taxonomy_class": data.get("class"),
             "taxonomy_order": data.get("order"),
             "taxonomy_family": data.get("family"),
             "taxonomy_genus": data.get("genus"),
+            "total_sightings": None,
+            "top_countries": None,
+            "monthly_sightings": None,
         }
 
     except requests.exceptions.RequestException as e:
-        # Catch any network error (timeout, connection refused, bad status code)
-        # and report it without stopping the whole pipeline.
-        print(f"  GBIF: request failed for '{scientific_name}': {e}")
+        print(f"  GBIF taxonomy: request failed for '{scientific_name}': {e}")
         return None
+
+    # --- Step 2: Occurrence data (seasonal range / migration) ---
+    # Only run if we got a valid species key from Step 1.
+    if gbif_key:
+        try:
+            occ_url = f"{GBIF_API_URL}/occurrence/search"
+            occ_params = {
+                "speciesKey": gbif_key,
+                "limit": 300,               # GBIF's maximum records per request
+                "hasCoordinate": True,       # only include records with lat/lon
+                "hasGeospatialIssue": False, # skip records with known location errors
+            }
+            occ_response = requests.get(occ_url, params=occ_params, timeout=15)
+            occ_response.raise_for_status()
+            occ_data = occ_response.json()
+
+            records = occ_data.get("results", [])
+            total = occ_data.get("count", 0)
+
+            if records:
+                # Count how many sightings were recorded in each country and each month.
+                country_counts = Counter()
+                month_counts = Counter()
+                for rec in records:
+                    country = rec.get("countryCode")
+                    month = rec.get("month")
+                    if country:
+                        country_counts[country] += 1
+                    if month:
+                        month_counts[int(month)] += 1
+
+                # Store the total number of GBIF records (not just the 300 we fetched).
+                result["total_sightings"] = total
+
+                # Keep the top 5 countries by sighting count.
+                result["top_countries"] = [c for c, _ in country_counts.most_common(5)]
+
+                # Store counts for all 12 months so charts can show the full year.
+                result["monthly_sightings"] = {
+                    str(m): month_counts.get(m, 0) for m in range(1, 13)
+                }
+
+        except requests.exceptions.RequestException as e:
+            # Taxonomy data is still valid even if the occurrence call fails.
+            print(f"  GBIF occurrences: request failed for '{scientific_name}': {e}")
+
+    return result
 
 
 # --- Section 4: IUCN Fetch Function ---
 
 # Maps IUCN two-letter status codes to their full human-readable labels.
+# Used as a fallback if the API does not return a label directly.
 IUCN_STATUS_LABELS = {
     "LC": "Least Concern",
     "NT": "Near Threatened",
@@ -186,97 +252,267 @@ IUCN_STATUS_LABELS = {
 
 
 def fetch_iucn(scientific_name):
-    """Calls the IUCN Red List API v4 for one species and returns its conservation status
-    and population trend. Returns None if the species is not found or the request fails."""
+    """Calls the IUCN Red List API v4 for one species and returns its conservation
+    status, population trend, and movement pattern (migratory behaviour).
 
-    # Load the IUCN API token from the environment.
+    Makes two API calls:
+      1. taxa/scientific_name — finds the latest assessment ID and category code.
+      2. assessment/{id} — fetches the full assessment details, including population
+         trend (e.g. 'Stable', 'Decreasing') and movement patterns (e.g. 'Full Migrant',
+         'Resident').
+
+    Returns None if the species is not found in IUCN or the first request fails.
+    If only the second call fails, it returns what Step 1 found with nulls for the rest."""
+
+    # Load the IUCN API token from the .env file.
     load_dotenv()
     token = os.getenv("IUCN_API_KEY")
 
-    # Split scientific name into genus and species for the v4 query parameters.
-    # We take just the first two words to handle subspecies names (3+ words) gracefully.
+    # Split the scientific name into genus and species for the v4 query parameters.
     parts = scientific_name.strip().split()
     if len(parts) < 2:
         print(f"  IUCN: cannot parse scientific name '{scientific_name}'")
         return None
 
-    url = f"{IUCN_API_URL}/taxa/scientific_name"
     headers = {"Authorization": f"Bearer {token}"}
-    # Pass token as both a query parameter and a Bearer header to cover both
-    # auth styles — v4 documentation shows Bearer but some endpoints still
-    # accept the token as a query param (used in v3).
+
+    # --- Step 1: Find the latest assessment ID and category code ---
+    # The taxa endpoint returns a list of all assessments for this species.
+    # We look for the one marked latest=True to get the current status.
+    url = f"{IUCN_API_URL}/taxa/scientific_name"
     params = {"genus_name": parts[0], "species_name": parts[1], "token": token}
 
     try:
-        # Send the request to the IUCN Red List v4 API.
         response = requests.get(url, headers=headers, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
 
-        # DEBUG — print the raw response for the first few species so we can confirm
-        # the v4 field names. Remove this print once the response format is verified.
-        print(f"  IUCN DEBUG: {data}")
+        # Scan the assessments list for the most recent entry.
+        assessment_id = None
+        status_code = None
+        for assessment in data.get("assessments", []):
+            if assessment.get("latest"):
+                assessment_id = assessment.get("assessment_id")
+                status_code = assessment.get("red_list_category_code")
+                break
 
-        # The v4 API may return a list or a dict. Normalise to a single record.
-        if isinstance(data, list):
-            if not data:
-                print(f"  IUCN: no record found for '{scientific_name}'")
-                return None
-            record = data[0]
-        elif isinstance(data, dict):
-            # Some v4 responses wrap results in a key — handle both shapes.
-            record = data.get("taxon") or data.get("result") or data
-            if isinstance(record, list):
-                if not record:
-                    print(f"  IUCN: no record found for '{scientific_name}'")
-                    return None
-                record = record[0]
-        else:
-            print(f"  IUCN: unexpected response format for '{scientific_name}'")
+        if not assessment_id:
+            print(f"  IUCN: no current assessment found for '{scientific_name}'")
             return None
 
-        # Extract conservation status — v4 uses red_list_category instead of category.
-        # The value may be a string label or a nested object depending on the endpoint.
-        red_list_category = record.get("red_list_category")
-        if isinstance(red_list_category, dict):
-            status_label = red_list_category.get("description", {}).get("en") or red_list_category.get("name")
-            status_code = red_list_category.get("code")
-        else:
-            status_label = red_list_category
-            status_code = red_list_category
+    except requests.exceptions.RequestException as e:
+        print(f"  IUCN step 1: request failed for '{scientific_name}': {e}")
+        return None
 
-        # Extract population trend — v4 may return this as a string or nested object.
-        population_trend = record.get("population_trend")
-        if isinstance(population_trend, dict):
-            population_trend = population_trend.get("description", {}).get("en") or population_trend.get("name")
+    # --- Step 2: Fetch full assessment details ---
+    # The assessment endpoint returns the complete assessment record, which includes
+    # population trend and movement patterns that are not in the Step 1 response.
+    detail_url = f"{IUCN_API_URL}/assessment/{assessment_id}"
+
+    try:
+        detail_response = requests.get(
+            detail_url, headers=headers, params={"token": token}, timeout=10
+        )
+        detail_response.raise_for_status()
+        detail = detail_response.json()
+
+        # Population trend is a nested object — pull out the English description.
+        pop_trend_obj = detail.get("population_trend") or {}
+        if isinstance(pop_trend_obj, dict):
+            population_trend = pop_trend_obj.get("description", {}).get("en")
+        else:
+            population_trend = pop_trend_obj
+
+        # The full Red List category label is also in the detail response.
+        # Fall back to our lookup table if the API does not include it.
+        category_obj = detail.get("red_list_category") or {}
+        if isinstance(category_obj, dict):
+            status_label = category_obj.get("description", {}).get("en")
+        else:
+            status_label = None
+        if not status_label:
+            status_label = IUCN_STATUS_LABELS.get(status_code)
+
+        # Movement patterns (e.g. "Full Migrant", "Resident") live in the
+        # supplementary_info block of the full assessment.
+        supp = detail.get("supplementary_info") or {}
+        movement_patterns = supp.get("movement_patterns")
 
         return {
             "conservation_status": status_code,
             "conservation_status_label": status_label,
             "population_trend": population_trend,
+            "movement_patterns": movement_patterns,
         }
 
     except requests.exceptions.RequestException as e:
-        # Catch any network error and report it without stopping the whole pipeline.
-        print(f"  IUCN: request failed for '{scientific_name}': {e}")
+        # Step 2 failed — return what we know from Step 1 with nulls for detail fields.
+        print(f"  IUCN step 2: request failed for '{scientific_name}': {e}")
+        return {
+            "conservation_status": status_code,
+            "conservation_status_label": IUCN_STATUS_LABELS.get(status_code),
+            "population_trend": None,
+            "movement_patterns": None,
+        }
+
+
+# --- Section 5: Wikipedia Fetch Function ---
+
+def fetch_wikipedia(scientific_name):
+    """Searches Wikipedia by scientific name and returns a description, intro paragraph,
+    and a dictionary of article sections (e.g. Description, Habitat, Breeding).
+
+    Makes three API calls:
+      1. MediaWiki query/search — finds the most relevant Wikipedia article title.
+      2. REST page/summary — fetches the one-line description and intro paragraph.
+      3. MediaWiki query/extracts — fetches the full article as plain text, which is
+         then parsed into individual sections.
+
+    Returns None if no article is found or the first two requests both fail.
+    If only the section fetch fails, title/description/extract are still returned."""
+
+    # --- Step 1: Search for the article by scientific name ---
+    # Wikipedia's search API returns the most relevant articles for a given query.
+    search_params = {
+        "action": "query",
+        "list": "search",
+        "srsearch": scientific_name,
+        "srlimit": 1,     # we only need the single best result
+        "format": "json",
+    }
+
+    try:
+        search_response = requests.get(
+            WIKI_API_URL, params=search_params, headers=WIKI_HEADERS, timeout=10
+        )
+        search_response.raise_for_status()
+        search_data = search_response.json()
+
+        search_hits = search_data.get("query", {}).get("search", [])
+        if not search_hits:
+            print(f"  Wikipedia: no article found for '{scientific_name}'")
+            return None
+
+        wiki_title = search_hits[0]["title"]
+
+    except requests.exceptions.RequestException as e:
+        print(f"  Wikipedia search: request failed for '{scientific_name}': {e}")
         return None
 
+    # --- Step 2: Fetch the article summary ---
+    # The REST summary endpoint returns a plain-text description and intro paragraph.
+    # Wikipedia article titles use underscores in URLs, so we replace spaces.
+    url_title = wiki_title.replace(" ", "_")
+    summary_url = f"{WIKI_REST_URL}/page/summary/{url_title}"
 
-# --- Section 5: Snowflake Load Functions ---
+    try:
+        summary_response = requests.get(
+            summary_url, headers=WIKI_HEADERS, timeout=10
+        )
+        summary_response.raise_for_status()
+        summary = summary_response.json()
+
+        description = summary.get("description")
+        extract = summary.get("extract")
+
+    except requests.exceptions.RequestException as e:
+        print(f"  Wikipedia summary: request failed for '{scientific_name}': {e}")
+        return None
+
+    # --- Step 3: Fetch the full article text to extract individual sections ---
+    # The extracts API returns the complete article as plain text with section headers
+    # in the format == Section Name ==. We parse these to build a sections dictionary
+    # so the dashboard can display specific biology sections (description, habitat, etc.).
+    wiki_sections = {}
+    try:
+        extract_params = {
+            "action": "query",
+            "prop": "extracts",
+            "titles": wiki_title,
+            "explaintext": 1,        # return plain text, not HTML
+            "exsectionformat": "wiki", # use == Section == style headers
+            "format": "json",
+        }
+        extract_response = requests.get(
+            WIKI_API_URL, params=extract_params, headers=WIKI_HEADERS, timeout=15
+        )
+        extract_response.raise_for_status()
+        extract_data = extract_response.json()
+
+        # The pages dict uses the Wikipedia page ID as its key.
+        # We get the first (and only) page returned.
+        pages = extract_data.get("query", {}).get("pages", {})
+        page = next(iter(pages.values()), {})
+        full_text = page.get("extract", "")
+
+        if full_text:
+            # Split on '\n== ' to find only top-level section headers (== Section ==).
+            # This avoids matching subsection headers (=== Sub ===).
+            section_chunks = full_text.split('\n== ')
+
+            # These standard Wikipedia sections contain no useful biology content.
+            skip_sections = {
+                "references", "further reading", "external links",
+                "see also", "notes", "footnotes", "bibliography",
+            }
+
+            # Each chunk after the first starts with "Section Name ==\ncontent...".
+            for chunk in section_chunks[1:]:
+                if ' ==' not in chunk:
+                    continue
+
+                # The section name is everything before the first ' =='.
+                header_end = chunk.index(' ==')
+                section_name = chunk[:header_end].strip()
+
+                # The section content starts on the line after the closing ==.
+                content_start = chunk.index('\n') + 1 if '\n' in chunk else len(chunk)
+                content = chunk[content_start:].strip()
+
+                # Only store sections that have content and are not boilerplate.
+                if section_name.lower() not in skip_sections and content:
+                    wiki_sections[section_name] = content
+
+    except requests.exceptions.RequestException as e:
+        # Section fetch failed — we still return title, description, and extract.
+        print(f"  Wikipedia sections: request failed for '{scientific_name}': {e}")
+
+    return {
+        "wiki_title": wiki_title,
+        "wiki_description": description,
+        "wiki_extract": extract,
+        "wiki_sections": wiki_sections if wiki_sections else None,
+    }
+
+
+# --- Section 6: Snowflake Load Functions ---
 
 def insert_gbif_row(cur, species_label, scientific_name, gbif_data):
-    """Inserts one species' GBIF taxonomy data into the GBIF_RAW table in Snowflake.
-    If GBIF returned no data for this species, all taxonomy fields are stored as NULL."""
+    """Inserts one species' GBIF data into GBIF_RAW in Snowflake.
+    Stores taxonomy fields (class, order, family, genus) and occurrence fields
+    (total sightings, top countries, monthly breakdown) for migration analysis.
+    If GBIF returned no data, all fields are stored as NULL."""
 
     # If the GBIF fetch returned None, use an empty dict so all fields become NULL.
     gbif_data = gbif_data or {}
 
+    # Convert the top_countries list and monthly_sightings dict to JSON strings
+    # before passing them to Snowflake's PARSE_JSON() function, which expects a string.
+    top_countries = gbif_data.get("top_countries")
+    monthly_sightings = gbif_data.get("monthly_sightings")
+    top_countries_json = json.dumps(top_countries) if top_countries is not None else None
+    monthly_sightings_json = json.dumps(monthly_sightings) if monthly_sightings is not None else None
+
+    # Use SELECT instead of VALUES so we can call PARSE_JSON() on the VARIANT columns.
     cur.execute(
         """
         INSERT INTO GBIF_RAW
             (SPECIES_LABEL, SCIENTIFIC_NAME, GBIF_KEY,
-             TAXONOMY_CLASS, TAXONOMY_ORDER, TAXONOMY_FAMILY, TAXONOMY_GENUS)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+             TAXONOMY_CLASS, TAXONOMY_ORDER, TAXONOMY_FAMILY, TAXONOMY_GENUS,
+             TOTAL_SIGHTINGS, TOP_COUNTRIES, MONTHLY_SIGHTINGS)
+        SELECT %s, %s, %s, %s, %s, %s, %s, %s,
+               CASE WHEN %s IS NOT NULL THEN PARSE_JSON(%s) ELSE NULL END,
+               CASE WHEN %s IS NOT NULL THEN PARSE_JSON(%s) ELSE NULL END
         """,
         (
             species_label,
@@ -286,12 +522,16 @@ def insert_gbif_row(cur, species_label, scientific_name, gbif_data):
             gbif_data.get("taxonomy_order"),
             gbif_data.get("taxonomy_family"),
             gbif_data.get("taxonomy_genus"),
+            gbif_data.get("total_sightings"),
+            top_countries_json, top_countries_json,
+            monthly_sightings_json, monthly_sightings_json,
         ),
     )
 
 
 def insert_iucn_row(cur, scientific_name, iucn_data):
-    """Inserts one species' IUCN conservation data into the IUCN_RAW table in Snowflake.
+    """Inserts one species' IUCN conservation data into IUCN_RAW in Snowflake.
+    Stores conservation status, population trend, and movement patterns.
     If IUCN returned no data for this species, all fields are stored as NULL."""
 
     # If the IUCN fetch returned None, use an empty dict so all fields become NULL.
@@ -301,14 +541,15 @@ def insert_iucn_row(cur, scientific_name, iucn_data):
         """
         INSERT INTO IUCN_RAW
             (SCIENTIFIC_NAME, CONSERVATION_STATUS,
-             CONSERVATION_STATUS_LABEL, POPULATION_TREND)
-        VALUES (%s, %s, %s, %s)
+             CONSERVATION_STATUS_LABEL, POPULATION_TREND, MOVEMENT_PATTERNS)
+        VALUES (%s, %s, %s, %s, %s)
         """,
         (
             scientific_name,
             iucn_data.get("conservation_status"),
             iucn_data.get("conservation_status_label"),
             iucn_data.get("population_trend"),
+            iucn_data.get("movement_patterns"),
         ),
     )
 
@@ -348,7 +589,7 @@ def insert_diet_row(cur, scientific_name, diet_data):
             ),
         )
     else:
-        # No diet data found — insert a row with NULLs so the JOIN in Section 6
+        # No diet data found — insert a row with NULLs so the JOIN in Section 7
         # still includes this species in the final SPECIES_ENRICHMENT table.
         cur.execute(
             """
@@ -360,23 +601,53 @@ def insert_diet_row(cur, scientific_name, diet_data):
         )
 
 
-# --- Section 6: Snowflake Combine Function ---
+def insert_wiki_row(cur, scientific_name, wiki_data):
+    """Inserts one species' Wikipedia data into the WIKI_RAW table in Snowflake.
+    Stores the article title, one-line description, intro paragraph, and a dictionary
+    of article sections (e.g. Description, Habitat, Breeding).
+    If Wikipedia returned no data for this species, all fields are stored as NULL."""
+
+    # If the Wikipedia fetch returned None, use an empty dict so all fields become NULL.
+    wiki_data = wiki_data or {}
+
+    # Convert the sections dictionary to a JSON string before passing to PARSE_JSON().
+    wiki_sections = wiki_data.get("wiki_sections")
+    wiki_sections_json = json.dumps(wiki_sections) if wiki_sections is not None else None
+
+    # Use SELECT instead of VALUES so PARSE_JSON() can be called on the VARIANT column.
+    cur.execute(
+        """
+        INSERT INTO WIKI_RAW
+            (SCIENTIFIC_NAME, WIKI_TITLE, WIKI_DESCRIPTION, WIKI_EXTRACT, WIKI_SECTIONS)
+        SELECT %s, %s, %s, %s,
+               CASE WHEN %s IS NOT NULL THEN PARSE_JSON(%s) ELSE NULL END
+        """,
+        (
+            scientific_name,
+            wiki_data.get("wiki_title"),
+            wiki_data.get("wiki_description"),
+            wiki_data.get("wiki_extract"),
+            wiki_sections_json, wiki_sections_json,
+        ),
+    )
+
+
+# --- Section 7: Snowflake Combine Function ---
 
 def combine_in_snowflake(conn):
-    """Joins the three raw Snowflake tables (GBIF_RAW, IUCN_RAW, DIET_RAW) into one
-    unified SPECIES_ENRICHMENT table. Any existing rows in SPECIES_ENRICHMENT are
-    cleared first so the pipeline can be safely re-run without creating duplicates."""
+    """Joins all four raw Snowflake tables (GBIF_RAW, IUCN_RAW, DIET_RAW, WIKI_RAW)
+    into one unified SPECIES_ENRICHMENT table. Any existing rows in SPECIES_ENRICHMENT
+    are cleared first so the pipeline can be safely re-run without creating duplicates."""
 
     cur = conn.cursor()
 
     # Clear the table before inserting so re-running the pipeline stays safe.
-    # TRUNCATE removes all rows instantly without logging individual deletes.
     print("Clearing SPECIES_ENRICHMENT table...")
     cur.execute("TRUNCATE TABLE SPECIES_ENRICHMENT")
 
-    # Join all three raw tables on scientific name and insert the combined result
-    # into SPECIES_ENRICHMENT. LEFT JOINs are used so that every species from
-    # GBIF_RAW appears in the output even if IUCN or diet data is missing.
+    # Join all four raw tables on scientific name and insert the combined result.
+    # LEFT JOINs are used so every species from GBIF_RAW appears in the output
+    # even if IUCN, diet, or Wikipedia data is missing for that species.
     print("Combining raw tables into SPECIES_ENRICHMENT...")
     cur.execute(
         """
@@ -384,7 +655,10 @@ def combine_in_snowflake(conn):
             SPECIES_LABEL, SCIENTIFIC_NAME,
             GBIF_KEY, TAXONOMY_CLASS, TAXONOMY_ORDER, TAXONOMY_FAMILY, TAXONOMY_GENUS,
             CONSERVATION_STATUS, CONSERVATION_STATUS_LABEL, POPULATION_TREND,
-            PREY_COMMON_NAMES, PREY_CLASSES, TOP_PREY
+            MOVEMENT_PATTERNS,
+            PREY_COMMON_NAMES, PREY_CLASSES, TOP_PREY,
+            TOTAL_SIGHTINGS, TOP_COUNTRIES, MONTHLY_SIGHTINGS,
+            WIKI_TITLE, WIKI_DESCRIPTION, WIKI_EXTRACT, WIKI_SECTIONS
         )
         SELECT
             g.SPECIES_LABEL,
@@ -397,12 +671,21 @@ def combine_in_snowflake(conn):
             i.CONSERVATION_STATUS,
             i.CONSERVATION_STATUS_LABEL,
             i.POPULATION_TREND,
+            i.MOVEMENT_PATTERNS,
             PARSE_JSON(d.PREY_COMMON_NAMES),
             d.PREY_CLASSES,
-            d.TOP_PREY
+            d.TOP_PREY,
+            g.TOTAL_SIGHTINGS,
+            g.TOP_COUNTRIES,
+            g.MONTHLY_SIGHTINGS,
+            w.WIKI_TITLE,
+            w.WIKI_DESCRIPTION,
+            w.WIKI_EXTRACT,
+            w.WIKI_SECTIONS
         FROM GBIF_RAW g
         LEFT JOIN IUCN_RAW i ON g.SCIENTIFIC_NAME = i.SCIENTIFIC_NAME
         LEFT JOIN DIET_RAW d ON g.SCIENTIFIC_NAME = d.SCIENTIFIC_NAME
+        LEFT JOIN WIKI_RAW w ON g.SCIENTIFIC_NAME = w.SCIENTIFIC_NAME
         """
     )
 
@@ -412,7 +695,7 @@ def combine_in_snowflake(conn):
     print(f"SPECIES_ENRICHMENT populated: {row_count} species rows inserted.")
 
 
-# --- Section 7: MongoDB Load Function ---
+# --- Section 8: MongoDB Load Function ---
 
 def _parse_variant(value):
     """Converts a Snowflake VARIANT column value into a Python object.
@@ -451,7 +734,7 @@ def load_to_mongodb(conn):
     cur.execute("SELECT * FROM SPECIES_ENRICHMENT")
 
     # Use the cursor's column descriptions to get the column names so we can
-    # build a dictionary from each row instead of referencing by position.
+    # build a dictionary from each row instead of referencing columns by position.
     columns = [col[0].lower() for col in cur.description]
     rows = cur.fetchall()
 
@@ -460,8 +743,8 @@ def load_to_mongodb(conn):
     for row in rows:
         record = dict(zip(columns, row))
 
-        # Nest related fields into sub-documents so the structure is clean
-        # and easy to read in MongoDB Atlas.
+        # Nest related fields into sub-documents so the structure is clean and
+        # easy to navigate in MongoDB Atlas and in the FastAPI /predict endpoint.
         doc = {
             "species_label": record["species_label"],
             "scientific_name": record["scientific_name"],
@@ -476,11 +759,25 @@ def load_to_mongodb(conn):
                 "status": record["conservation_status"],
                 "status_label": record["conservation_status_label"],
                 "population_trend": record["population_trend"],
+                "movement_patterns": record["movement_patterns"],
             },
             "diet": {
                 "prey_common_names": _parse_variant(record["prey_common_names"]),
                 "prey_classes": _parse_variant(record["prey_classes"]),
                 "top_prey": _parse_variant(record["top_prey"]),
+            },
+            "migration": {
+                # Total sightings is an integer so no parsing needed.
+                "total_sightings": record["total_sightings"],
+                # Top countries and monthly sightings are stored as VARIANT in Snowflake.
+                "top_countries": _parse_variant(record["top_countries"]),
+                "monthly_sightings": _parse_variant(record["monthly_sightings"]),
+            },
+            "wikipedia": {
+                "title": record["wiki_title"],
+                "description": record["wiki_description"],
+                "extract": record["wiki_extract"],
+                "sections": _parse_variant(record["wiki_sections"]),
             },
         }
         documents.append(doc)
@@ -494,14 +791,14 @@ def load_to_mongodb(conn):
         print("No documents to insert — SPECIES_ENRICHMENT appears to be empty.")
 
 
-# --- Section 8: Main Orchestration Function ---
+# --- Section 9: Main Orchestration Function ---
 
 def run_pipeline(test_mode=False):
     """Runs the full enrichment pipeline from start to finish.
-    Fetches data from GBIF, IUCN, and the diet file for all 525 species,
-    loads the raw data into Snowflake, combines it into one table, and
-    stores the final result in MongoDB.
-    If test_mode is True, only the first 3 species are processed."""
+    Fetches data from GBIF (taxonomy + occurrences), IUCN Red List (two-step),
+    Wikipedia, and the Avian Diet Database for all 525 species. Loads the raw data
+    into Snowflake, combines it into one table, and stores the final result in MongoDB.
+    If test_mode is True, only the first 10 species are processed."""
 
     # Load environment variables from .env so all credentials are available.
     load_dotenv()
@@ -544,6 +841,7 @@ def run_pipeline(test_mode=False):
     cur.execute("TRUNCATE TABLE GBIF_RAW")
     cur.execute("TRUNCATE TABLE IUCN_RAW")
     cur.execute("TRUNCATE TABLE DIET_RAW")
+    cur.execute("TRUNCATE TABLE WIKI_RAW")
 
     # --- Step 4: Fetch and insert data for every species ---
     print("\n=== Step 4: Fetching and loading species data ===")
@@ -554,23 +852,26 @@ def run_pipeline(test_mode=False):
         sci_name = species["scientific_name"]
         print(f"[{i}/{total}] {label} ({sci_name})")
 
-        # Fetch from GBIF and IUCN APIs.
+        # Fetch from all external sources.
+        # GBIF makes two calls: taxonomy + occurrences.
+        # IUCN makes two calls: assessment list + full assessment detail.
+        # Wikipedia makes two calls: search + summary.
+        # Diet data comes from the pre-loaded local file (no API call).
         gbif_data = fetch_gbif(sci_name)
         iucn_data = fetch_iucn(sci_name)
-
-        # Look up diet data from the pre-loaded dictionary.
-        # Returns None if this species is not in the diet file.
+        wiki_data = fetch_wikipedia(sci_name)
         diet_data = diet_lookup.get(sci_name)
 
         # Insert each piece of data into its raw Snowflake table.
         insert_gbif_row(cur, label, sci_name, gbif_data)
         insert_iucn_row(cur, sci_name, iucn_data)
         insert_diet_row(cur, sci_name, diet_data)
+        insert_wiki_row(cur, sci_name, wiki_data)
 
-        # Pause briefly between species to respect API rate limits.
+        # Pause briefly between species to be polite to the APIs.
         time.sleep(API_DELAY)
 
-    # --- Step 5: Combine the three raw tables into SPECIES_ENRICHMENT ---
+    # --- Step 5: Combine the four raw tables into SPECIES_ENRICHMENT ---
     print("\n=== Step 5: Combining tables in Snowflake ===")
     combine_in_snowflake(conn)
 
@@ -591,7 +892,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--test",
         action="store_true",
-        help="Run in test mode — processes only the first 3 species.",
+        help="Run in test mode — processes only the first 10 species.",
     )
     args = parser.parse_args()
     run_pipeline(test_mode=args.test)

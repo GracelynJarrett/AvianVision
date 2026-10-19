@@ -629,8 +629,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Monday October 19, 2026 
+**Day Goal:** Explare the Enrichment dataset conntions in botebooks
 
 **What Was Done:** 
 
