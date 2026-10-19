@@ -612,19 +612,20 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     ** Fix the Enrichment pipline, and set up the dashbord
 
 ## Sunday October 18, 2026
-**Day Goal:** 
+**Day Goal:** Complet the dataset notes
 
-**What Was Done:** 
+**What Was Done:** complet the dataset notes, updated Project peek
 
-**Challenges:** 
+**Challenges:** No chalanges for today
 
-**Blockers:** 
+**Blockers:** I have a small head heack
 
 **Summary:**
+    Today i finnshed creating the datset notes and I updated the project peekplatform
 
 
 **Time:**
-    - Total:
+    - Total: 1 hour
 
 ---
 
