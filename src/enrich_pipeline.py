@@ -180,7 +180,8 @@ def fetch_gbif(scientific_name):
             "total_sightings": None,
             "top_countries": None,
             "monthly_sightings": None,
-        }
+            "occurrences": []
+            }
 
     except requests.exceptions.RequestException as e:
         print(f"  GBIF taxonomy: request failed for '{scientific_name}': {e}")
@@ -191,30 +192,72 @@ def fetch_gbif(scientific_name):
     if gbif_key:
         try:
             occ_url = f"{GBIF_API_URL}/occurrence/search"
-            occ_params = {
-                "speciesKey": gbif_key,
-                "limit": 300,               # GBIF's maximum records per request
-                "hasCoordinate": True,       # only include records with lat/lon
-                "hasGeospatialIssue": False, # skip records with known location errors
-            }
-            occ_response = requests.get(occ_url, params=occ_params, timeout=15)
-            occ_response.raise_for_status()
-            occ_data = occ_response.json()
+            all_records = []
 
-            records = occ_data.get("results", [])
+            offset = 0
+            page_size = 300
+
+            while len(all_records) < 2500:
+
+                occ_params = {
+                    "speciesKey": gbif_key,
+                    "limit": page_size,
+                    "offset": offset,
+                    "hasCoordinate": True,
+                    "hasGeospatialIssue": False,
+                }
+
+                occ_response = requests.get(
+                    occ_url,
+                    params=occ_params,
+                    timeout=15
+                )
+
+                occ_response.raise_for_status()
+
+                occ_data = occ_response.json()
+
+                page_records = occ_data.get("results", [])
+
+                if not page_records:
+                    break
+
+                all_records.extend(page_records)
+
+                offset += page_size
+
+            records = all_records[:2500]
+
             total = occ_data.get("count", 0)
 
             if records:
                 # Count how many sightings were recorded in each country and each month.
                 country_counts = Counter()
                 month_counts = Counter()
+
+                occurrence_records = []
                 for rec in records:
+                    occurrence_records.append({
+                        "occurrence_id": rec.get("key"),
+                        "gbif_key": gbif_key,
+                        "species_label": None,
+                        "scientific_name": scientific_name,
+                        "decimal_latitude": rec.get("decimalLatitude"),
+                        "decimal_longitude": rec.get("decimalLongitude"),
+                        "country_code": rec.get("countryCode"),
+                        "state_province": rec.get("stateProvince"),
+                        "event_date": rec.get("eventDate"),
+                        "year": rec.get("year"),
+                        "month": rec.get("month"),
+                        "basis_of_record": rec.get("basisOfRecord")
+                        })
                     country = rec.get("countryCode")
                     month = rec.get("month")
                     if country:
                         country_counts[country] += 1
                     if month:
                         month_counts[int(month)] += 1
+                    
 
                 # Store the total number of GBIF records (not just the 300 we fetched).
                 result["total_sightings"] = total
@@ -226,6 +269,8 @@ def fetch_gbif(scientific_name):
                 result["monthly_sightings"] = {
                     str(m): month_counts.get(m, 0) for m in range(1, 13)
                 }
+                
+                result["occurrences"] = occurrence_records
 
         except requests.exceptions.RequestException as e:
             # Taxonomy data is still valid even if the occurrence call fails.
@@ -632,6 +677,55 @@ def insert_wiki_row(cur, scientific_name, wiki_data):
     )
 
 
+def insert_gbif_occurrences(cur, occurrence_records):
+    """Insert occurrence records into GBIF_OCCURRENCES."""
+
+    if not occurrence_records:
+        return
+
+    insert_sql = """
+        INSERT INTO GBIF_OCCURRENCES (
+            OCCURRENCE_ID,
+            GBIF_KEY,
+            SPECIES_LABEL,
+            SCIENTIFIC_NAME,
+            DECIMAL_LATITUDE,
+            DECIMAL_LONGITUDE,
+            COUNTRY_CODE,
+            STATE_PROVINCE,
+            EVENT_DATE,
+            YEAR,
+            MONTH,
+            BASIS_OF_RECORD
+        )
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """
+
+    rows = [
+        (
+            r["occurrence_id"],
+            r["gbif_key"],
+            r["species_label"],
+            r["scientific_name"],
+            r["decimal_latitude"],
+            r["decimal_longitude"],
+            r["country_code"],
+            r["state_province"],
+            r["event_date"],
+            r["year"],
+            r["month"],
+            r["basis_of_record"],
+        )
+        for r in occurrence_records
+    ]
+
+    cur.executemany(insert_sql, rows)
+
+
+
+
+
+
 # --- Section 7: Snowflake Combine Function ---
 
 def combine_in_snowflake(conn):
@@ -826,7 +920,7 @@ def run_pipeline(test_mode=False):
 
     # In test mode, only process the first 10 species so issues can be caught quickly.
     if test_mode:
-        species_list = species_list[:10]
+        species_list = species_list[:3]
         print(f"TEST MODE — processing {len(species_list)} species only.")
     else:
         print(f"{len(species_list)} species loaded from mapping file.")
@@ -858,12 +952,20 @@ def run_pipeline(test_mode=False):
         # Wikipedia makes two calls: search + summary.
         # Diet data comes from the pre-loaded local file (no API call).
         gbif_data = fetch_gbif(sci_name)
+        if gbif_data and gbif_data.get("occurrences"):
+            for occ in gbif_data["occurrences"]: 
+                occ["species_label"] = label
         iucn_data = fetch_iucn(sci_name)
         wiki_data = fetch_wikipedia(sci_name)
         diet_data = diet_lookup.get(sci_name)
 
         # Insert each piece of data into its raw Snowflake table.
         insert_gbif_row(cur, label, sci_name, gbif_data)
+        if gbif_data:
+            insert_gbif_occurrences(
+                cur,
+                gbif_data.get("occurrences", [])
+            )
         insert_iucn_row(cur, sci_name, iucn_data)
         insert_diet_row(cur, sci_name, diet_data)
         insert_wiki_row(cur, sci_name, wiki_data)

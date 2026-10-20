@@ -630,19 +630,20 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 ## Monday October 19, 2026 
-**Day Goal:** Explare the Enrichment dataset conntions in botebooks
+**Day Goal:** Fix the Enrichment pipline
 
-**What Was Done:** 
+**What Was Done:** Fix the erichmetn pipline, dowloaded all the data into snowflake and mongodb
 
-**Challenges:** 
+**Challenges:** No Migration data, had to find a differnt way
 
-**Blockers:** 
+**Blockers:** No Blockers
 
 **Summary:**
+    Today I was able to Fix the main Enrichment pipline, meaning all the APIs now work. However I relized to get the migration data I want I would have over 1 minllon records in Mongodb. So I uploaded all the data to mongodb but keeped the main migration data in snowflake. Tomorrow I will explore the migration data deciding what graphs and mapes I want in my database. I will also be saving small miny tables fore each bird in VS code so that we dont use a lot of snowflake crites and procation in snowflake crashes. 
 
 
 **Time:**
-    - Total:
+    - Total: 5 hours
 
 ---
 

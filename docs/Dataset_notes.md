@@ -67,7 +67,3 @@ Last updated October 18, 2026
 
     *Note
         I have sent in a requete to Ebird for premition to downlaod thire data but I have not heard back from them yet. 
-
-
-
-** SandHil crane (antigone candensis) bird 432 did not load properly -  IUCN step 1: request failed for 'Antigone canadensis': 404 Client Error: Not Found for url: https://api.iucnredlist.org/api/v4/taxa/scientific_name?genus_name=Antigone&species_name=canadensis&token=rlts_KLhFVoEeD1T7QIfbTSPwVNuHqaek6u1wPjpw
