@@ -61,3 +61,12 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 
 **Date:** 10-12-2026
 **What was Changed and why:** My orginal plain was to run the enrichment pipline in snowflack everytime someone made a prediction. However Cloude pointed out to me doing it this way will put stress on the API request and would take a long time to query the results. Also that in one of the servers crashed then the pipline would break. Instead Snowflake will be creating the tables and combinding the dataset into one table that is stored inside mongoDB atles.
+
+---
+**Date:** 10-20-2026
+**What was changed and why:** Reduced GBIF occurrence retrieval limit from 2,500 to 1,000 records per species. This change significantly reduces API requests, lowers the likelihood of GBIF rate-limiting (HTTP 429), decreases Snowflake storage requirements, and still provides sufficient observations for geographic visualizations and migration analysis.
+
+---
+
+**Date:** 10-20-2026
+**What was changed and why:** Removeing Snowflake from the archtecal dezine. Snowflake right now is only combinding the differnet data set, but phython can do that. And though expemtation I have already used up my $20 limit. By removing snowflake I will be saveing money and by storing the data strate into Mongodb Atalse I will be saving time. However when presenting this project I need to mention that I was using snowflake but found that it was unesary for this project. 
