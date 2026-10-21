@@ -647,20 +647,24 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+##  October 20, 2025
+**Day Goal:** Down load all the data
 
-**What Was Done:** 
+**What Was Done:** got ride of snowflake, changed the enrichment pipline to go strat into MongoDB Atlase, Down loaded all the data
 
-**Challenges:** 
+**Challenges:** Snowflake ran out of criteds, data keeped stoping
 
-**Blockers:** 
+**Blockers:** No blockers
 
 **Summary:**
+    So yeterday when I was finnising downloading my data (after I recoded my hours) I ran into a qreset limt rate and had to stop downloading data. Then today it stop 2 more time, one time becase it lost internet accase the secont becase I ran out of snowflake crits. I then really though about it and I relized that I didnt need snowflake, so I decided to take it out complitly. I then updated the pipline to update the data strat into Mongodb Atlatse, and I split it in to two different scripts. One for bird info and the other for observations. I then was able to download all the data into mongoDB Atlase sesefully.
 
 
 **Time:**
-    - Total:
+    - Total: 9 hours 5 mintus
+    - Downloading data: 7 hours 5 minuts
+    - Other: 2 hours
+    - recoded to Project peek: 5 Hours 35 minutes
 
 ---
 
