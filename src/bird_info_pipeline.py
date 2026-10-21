@@ -321,11 +321,23 @@ def fetch_iucn_data(scientific_name, iucn_token):
     status_label = IUCN_STATUS_LABELS.get(status_code, status_code)
 
     # Population trend tells us whether numbers are increasing, decreasing, or stable.
-    population_trend = data_2.get("population_trend", {}).get("description")
+    # The IUCN API v4 returns description as a nested dict {"en": "..."} rather than
+    # a plain string, so we have to unwrap it.
+    trend_raw = data_2.get("population_trend") or {}
+    trend_desc = trend_raw.get("description") if isinstance(trend_raw, dict) else None
+    population_trend = trend_desc.get("en") if isinstance(trend_desc, dict) else trend_desc
 
     # Movement patterns describe whether the species is resident, migratory, nomadic, etc.
+    # Same nested-dict issue applies here — unwrap to a plain English string.
     movements = data_2.get("systems", [])
-    movement_descriptions = [m.get("description", "") for m in movements if m.get("description")]
+    movement_descriptions = []
+    for m in movements:
+        desc = m.get("description", "")
+        if isinstance(desc, dict):
+            # Pull the English value, or fall back to the first value if "en" is missing.
+            desc = desc.get("en", "") or next(iter(desc.values()), "")
+        if desc:
+            movement_descriptions.append(str(desc))
     movement_patterns = "; ".join(movement_descriptions) if movement_descriptions else None
 
     return {

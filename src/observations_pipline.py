@@ -42,7 +42,7 @@ GBIF_BASE = "https://api.gbif.org/v1"
 
 # Default maximum number of occurrence records to fetch per species.
 # This can be increased with the --limit flag when running the script.
-DEFAULT_LIMIT = 300
+DEFAULT_LIMIT = 1000
 
 # How long to pause between species so we do not overwhelm external APIs.
 RATE_LIMIT_SECONDS = 0.5
