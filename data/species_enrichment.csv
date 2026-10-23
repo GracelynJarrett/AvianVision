@@ -1,0 +1,518 @@
+species_label,scientific_name,gbif_key,class,order,family,genus,status,status_label,population_trend,movement_patterns,primary_prey_class,prey_classes,top_prey
+ABBOTTS BABBLER,Malacocincla abbotti,2493399.0,Aves,Passeriformes,Pellorneidae,Malacocincla,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+ABBOTTS BOOBY,Papasula abbotti,2480983.0,Aves,Suliformes,Sulidae,Papasula,EN,Endangered,Stable,Terrestrial; Marine,Unknown,,
+ABYSSINIAN GROUND HORNBILL,Bucorvus abyssinicus,2476042.0,Aves,Bucerotiformes,Bucorvidae,Bucorvus,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+AFRICAN CROWNED CRANE,Balearica regulorum,5228229.0,Aves,Gruiformes,Gruidae,Balearica,EN,Endangered,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AFRICAN EMERALD CUCKOO,Chrysococcyx cupreus,2496324.0,Aves,Cuculiformes,Cuculidae,Chrysococcyx,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AFRICAN FIREFINCH,Lagonosticta rubricata,2493687.0,Aves,Passeriformes,Estrildidae,Lagonosticta,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AFRICAN OYSTER CATCHER,Haematopus moquini,2480263.0,Aves,Charadriiformes,Haematopodidae,Haematopus,LC,Least Concern,Increasing,Terrestrial; Marine,Unknown,,
+AFRICAN PIED HORNBILL,Lophoceros semifasciatus,10939066.0,Aves,Bucerotiformes,Bucerotidae,Lophoceros,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+AFRICAN PYGMY GOOSE,Nettapus auritus,2498313.0,Aves,Anseriformes,Anatidae,Nettapus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Magnoliopsida,Magnoliopsida|Insecta,nan
+ALBERTS TOWHEE,Melozone aberti,7341587.0,Aves,Passeriformes,Passerellidae,Melozone,LC,Least Concern,Increasing,Terrestrial,Magnoliopsida,Magnoliopsida|Insecta,"nan|cow, horse dung; buds, grass shoots|caterpillars|berries|Mesquite flower-buds"
+ALEXANDRINE PARAKEET,Psittacula eupatria,5229055.0,Aves,Psittaciformes,Psittacidae,Psittacula,,,,,Unknown,,
+ALPINE CHOUGH,Pyrrhocorax graculus,2482553.0,Aves,Passeriformes,Corvidae,Pyrrhocorax,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+ALTAMIRA YELLOWTHROAT,Geothlypis flavovelata,2489644.0,Aves,Passeriformes,Parulidae,Geothlypis,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AMERICAN AVOCET,Recurvirostra americana,2480258.0,Aves,Charadriiformes,Recurvirostridae,Recurvirostra,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan,nan
+AMERICAN BITTERN,Botaurus lentiginosus,2480911.0,Aves,Pelecaniformes,Ardeidae,Botaurus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AMERICAN COOT,Fulica americana,2474393.0,Aves,Gruiformes,Rallidae,Fulica,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Chlorophyceae|Sordariomycetes|Clitellata|Bivalvia|Branchiopoda|Magnoliopsida|Ulvophyceae|nan|Gastropoda|Insecta,gravel|Star Duckweed|mucronate sprangeltop|Illinois pondweed|Snail
+AMERICAN DIPPER,Cinclus mexicanus,9606873.0,Aves,Passeriformes,Cinclidae,Cinclus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AMERICAN FLAMINGO,Phoenicopterus ruber,9691034.0,Aves,Phoenicopteriformes,Phoenicopteridae,Phoenicopterus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+AMERICAN GOLDFINCH,Spinus tristis,5231640.0,Aves,Passeriformes,Fringillidae,Spinus,LC,Least Concern,Decreasing,Terrestrial,nan,nan|Magnoliopsida|Insecta,weed seed|nan|caterpillars|bur thistle|Alfilaria
+AMERICAN KESTREL,Falco sparverius,9685907.0,Aves,Falconiformes,Falconidae,Falco,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Aves|Arachnida|Clitellata|Amphibia|Magnoliopsida|Reptilia|Mammalia|Chilopoda|nan|Gastropoda|Insecta,invertebrate|meadow vole|Insecta|unidentified invertebrates|invertebrates
+AMERICAN PIPIT,Anthus rubescens,2490263.0,Aves,Passeriformes,Motacillidae,Anthus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Euchelicerata,Euchelicerata|Diplopoda|Magnoliopsida|Pinopsida|nan|Gastropoda|Insecta,false chinch bug|weed seed|cottton boll weevil|corn leaf beetle|nan
+AMERICAN REDSTART,Setophaga ruticilla,2489985.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Arachnida|nan|Gastropoda|Insecta,Fulgorid planthoppers|beetles|coffee berry borer beetle|snails|moths
+AMERICAN ROBIN,Turdus migratorius,9510564.0,Aves,Passeriformes,Turdidae,Turdus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Pinopsida|Chilopoda|nan|Gastropoda|Insecta,"Choke cherry|caterpillars, beetles, grasshoppers|Blackberry|fruit|pepper berries"
+AMERICAN WIGEON,Mareca americana,2498155.0,Aves,Anseriformes,Anatidae,Mareca,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Magnoliopsida|Gastropoda|nan|Ulvophyceae|Insecta,bread wheat|pondweeds|rice|nan|sedge
+AMETHYST WOODSTAR,Calliphlox amethystina,2476373.0,Aves,Apodiformes,Trochilidae,Calliphlox,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+ANDEAN GOOSE,Oressochen melanopterus,8138522.0,Aves,Anseriformes,Anatidae,Chloephaga,,,,,Unknown,,
+ANDEAN LAPWING,Vanellus resplendens,5229141.0,Aves,Charadriiformes,Charadriidae,Vanellus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+ANDEAN SISKIN,Spinus spinescens,7341772.0,Aves,Passeriformes,Fringillidae,Spinus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+ANHINGA,Anhinga anhinga,2482082.0,Aves,Suliformes,Anhingidae,Anhinga,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Malacostraca,Malacostraca|nan|Teleostei,fish;crayfish|freshwater shrimp|nan|fish|crayfish
+ANIANIAU,Magumma parva,6091021.0,Aves,Passeriformes,Fringillidae,Magumma,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+ANNAS HUMMINGBIRD,Calypte anna,2476674.0,Aves,Apodiformes,Trochilidae,Calypte,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Insecta,nan|leafhopper|spider
+ANTILLEAN EUPHONIA,Chlorophonia flavifrons,12320276.0,Aves,Passeriformes,Fringillidae,Euphonia,,,,,Unknown,,
+APAPANE,Himatione sanguinea,2494524.0,Aves,Passeriformes,Fringillidae,Himatione,LC,Least Concern,Stable,Terrestrial,Unknown,,
+APOSTLEBIRD,Struthidea cinerea,2494854.0,Aves,Passeriformes,Corcoracidae,Struthidea,LC,Least Concern,Stable,Terrestrial,Unknown,,
+ARARIPE MANAKIN,Chiroxiphia bokermanni,2487764.0,Aves,Passeriformes,Pipridae,Chiroxiphia,,,,,Unknown,,
+ASHY STORM PETREL,Hydrobates homochroa,10750616.0,Aves,Procellariiformes,Hydrobatidae,Hydrobates,EN,Endangered,Decreasing,Terrestrial; Marine,Unknown,,
+ASHY THRUSHBIRD,Geokichla cinerea,6100881.0,Aves,Passeriformes,Turdidae,Geokichla,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+ASIAN CRESTED IBIS,Nipponia nippon,2480810.0,Aves,Pelecaniformes,Threskiornithidae,Nipponia,EN,Endangered,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+ASIAN DOLLARD BIRD,Eurystomus orientalis,5228280.0,Aves,Coraciiformes,Coraciidae,Eurystomus,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+ASIAN GREEN BEE EATER,Merops orientalis,2475410.0,Aves,Coraciiformes,Meropidae,Merops,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+ASIAN OPENBILL STORK,Anastomus oscitans,5229410.0,Aves,Ciconiiformes,Ciconiidae,Anastomus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AUCKLAND SHAQ,Leucocarbo colensoi,4848923.0,Aves,Suliformes,Phalacrocoracidae,Leucocarbo,VU,Vulnerable,Stable,Terrestrial; Marine,Unknown,,
+AUSTRAL CANASTERO,Asthenes anthoides,5230075.0,Aves,Passeriformes,Furnariidae,Asthenes,LC,Least Concern,Stable,Terrestrial,Unknown,,
+AUSTRALASIAN FIGBIRD,Sphecotheres vieilloti,7340924.0,Aves,Passeriformes,Oriolidae,Sphecotheres,LC,Least Concern,Stable,Terrestrial,Unknown,,
+AVADAVAT,Amandava amandava,2493698.0,Aves,Passeriformes,Estrildidae,Amandava,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+AZARAS SPINETAIL,Synallaxis azarae,9492770.0,Aves,Passeriformes,Furnariidae,Synallaxis,LC,Least Concern,Stable,Terrestrial,Unknown,,
+AZURE BREASTED PITTA,Pitta steerii,2489456.0,Aves,Passeriformes,Pittidae,Pitta,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+AZURE JAY,Cyanocorax caeruleus,2482560.0,Aves,Passeriformes,Corvidae,Cyanocorax,,,,,Unknown,,
+AZURE TANAGER,Tangara cayana,2488246.0,Aves,Passeriformes,Thraupidae,Stilpnia,LC,Least Concern,Stable,Terrestrial,Unknown,,
+AZURE TIT,Cyanistes cyanus,2487877.0,Aves,Passeriformes,Paridae,Cyanistes,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BAIKAL TEAL,Sibirionetta formosa,9235549.0,Aves,Anseriformes,Anatidae,Sibirionetta,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BALD EAGLE,Haliaeetus leucocephalus,2480446.0,Aves,Accipitriformes,Accipitridae,Haliaeetus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Aves,Aves|Teleostei|Cephalopoda|Malacostraca|Polychaeta|Asteroidea|Bivalvia|Chondrichthyes|Amphibia|Echinoidea|Cephalaspidomorphi|Reptilia|Gastropoda|Mammalia|Holostei|nan|Chondrostei,domestic sheep|low vertebrate|white-tailed jackrabbit|cod|elk/mule deer
+BALD IBIS,Geronticus eremita,2480770.0,Aves,Pelecaniformes,Threskiornithidae,Geronticus,RE,RE,Unknown,Terrestrial,Unknown,,
+BALI STARLING,Leucopsar rothschildi,2489068.0,Aves,Passeriformes,Sturnidae,Leucopsar,CR,Critically Endangered,Decreasing,Terrestrial,Unknown,,
+BALTIMORE ORIOLE,Icterus galbula,2484340.0,Aves,Passeriformes,Icteridae,Icterus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|Teleostei|Magnoliopsida|nan|Insecta,Weevils|Unknown material|nan|insect egg cases|click beetle
+BANANAQUIT,Coereba flaveola,2493744.0,Aves,Passeriformes,Thraupidae,Coereba,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,Lantern Flies|nan|Weevils|Ladybird Beetles|Leaf Beetles
+BAND TAILED GUAN,Penelope argyrotis,2482208.0,Aves,Galliformes,Cracidae,Penelope,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BANDED BROADBILL,Eurylaimus javanicus,9574405.0,Aves,Passeriformes,Eurylaimidae,Eurylaimus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+BANDED PITA,Hydrornis guajanus,6101094.0,Aves,Passeriformes,Pittidae,Pitta,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BANDED STILT,Cladorhynchus leucocephalus,2480216.0,Aves,Charadriiformes,Recurvirostridae,Cladorhynchus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+BAR-TAILED GODWIT,Limosa lapponica,2481681.0,Aves,Charadriiformes,Scolopacidae,Limosa,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+BARN OWL,Tyto alba,2497921.0,Aves,Strigiformes,Tytonidae,Tyto,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Malacostraca|Amphibia|Mammalia|Reptilia|Aves|nan|Insecta,mammal|meadow vole|pocket gopher|Great Basin Pocket Mouse|pine vole
+BARN SWALLOW,Hirundo rustica,9515886.0,Aves,Passeriformes,Hirundinidae,Hirundo,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|nan|Gastropoda|Insecta,leaf bugs|bugs|flies|nan|bees
+BARRED PUFFBIRD,Nystalus radiatus,2475200.0,Aves,Piciformes,Bucconidae,Nystalus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BARROWS GOLDENEYE,Bucephala islandica,2498325.0,Aves,Anseriformes,Anatidae,Bucephala,NT,Near Threatened,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Euchelicerata,Euchelicerata|Teleostei|Malacostraca|Bivalvia|Magnoliopsida|nan|Gastropoda|Insecta,bivalves|salmon eggs|blue mussel|caddisflies|pondweeds and Misc. vegetable matter
+BAY-BREASTED WARBLER,Setophaga castanea,6093202.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,Harlequin flies|spruce budworm|Cankerworms|Aphids|nan
+BEARDED BARBET,Pogonornis dubius,10791919.0,Aves,Piciformes,Lybiidae,Lybius,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+BEARDED BELLBIRD,Procnias averano,2486400.0,Aves,Passeriformes,Cotingidae,Procnias,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+BEARDED REEDLING,Panurus biarmicus,2493367.0,Aves,Passeriformes,Panuridae,Panurus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BELTED KINGFISHER,Megaceryle alcyon,2475472.0,Aves,Coraciiformes,Alcedinidae,Megaceryle,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BLACK AND YELLOW BROADBILL,Eurylaimus ochromalus,2484548.0,Aves,Passeriformes,Eurylaimidae,Eurylaimus,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+BLACK BAZA,Aviceda leuphotes,2480706.0,Aves,Accipitriformes,Accipitridae,Aviceda,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLACK BREASTED PUFFBIRD,Notharchus pectoralis,2475108.0,Aves,Piciformes,Bucconidae,Notharchus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BLACK COCKATO,Calyptorhynchus banksii,2480108.0,Aves,Psittaciformes,Psittacidae,Calyptorhynchus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLACK FACED SPOONBILL,Platalea minor,2480805.0,Aves,Pelecaniformes,Threskiornithidae,Platalea,VU,Vulnerable,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+BLACK FRANCOLIN,Francolinus francolinus,5227919.0,Aves,Galliformes,Phasianidae,Francolinus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|Clitellata|Amphibia|Magnoliopsida|nan|Gastropoda|Insecta,Succinea salleana|Medium black ants|Diabrotica decimpunctata|greens|Brown beetle
+BLACK HEADED CAIQUE,Pionites melanocephalus,2479437.0,Aves,Psittaciformes,Psittacidae,Pionites,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLACK NECKED STILT,Himantopus mexicanus,5229128.0,Aves,Charadriiformes,Recurvirostridae,Himantopus,,,,,Unknown,,
+BLACK SKIMMER,Rynchops niger,2481209.0,Aves,Charadriiformes,Laridae,Rynchops,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+BLACK SWAN,Cygnus atratus,2498344.0,Aves,Anseriformes,Anatidae,Cygnus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Chlorophyceae|Polypodiopsida|Ostracoda|Magnoliopsida|nan|Insecta,nan|mussel shrimps|true insects
+BLACK TAIL CRAKE,Zapornia bicolor,9263720.0,Aves,Gruiformes,Rallidae,Porzana,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BLACK THROATED BUSHTIT,Aegithalos concinnus,2494998.0,Aves,Passeriformes,Aegithalidae,Aegithalos,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLACK THROATED HUET,Pteroptochos tarnii,2491019.0,Aves,Passeriformes,Rhinocryptidae,Pteroptochos,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLACK THROATED WARBLER,Setophaga caerulescens,7341828.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Arachnida|nan|Gastropoda|Insecta,nan|snails|fruit and nectar|coffee berry borer beetle|Mites
+BLACK VENTED SHEARWATER,Puffinus opisthomelas,5229356.0,Aves,Procellariiformes,Procellariidae,Puffinus,NT,Near Threatened,Stable,Terrestrial; Marine,nan,nan|Teleostei|Cephalopoda,unidentified|fish|squid|northern ancovies|fish otoliths
+BLACK VULTURE,Coragyps atratus,2481942.0,Aves,Accipitriformes,Cathartidae,Coragyps,LC,Least Concern,Unknown,Terrestrial,Aves,Aves|Mammalia,cattle|calf|cow|pig|turkey
+BLACK-CAPPED CHICKADEE,Poecile atricapillus,2487805.0,Aves,Passeriformes,Paridae,Poecile,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,spruce budworm|nan|Homoptera|spider|Heteroptera
+BLACK-NECKED GREBE,Podiceps nigricollis,2482065.0,Aves,Podicipediformes,Podicipedidae,Podiceps,VU,Vulnerable,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Euchelicerata,Euchelicerata|Teleostei|Malacostraca|Polychaeta|Amphibia|Branchiopoda|Magnoliopsida|Chilopoda|nan|Gastropoda|Insecta,Brine shrimp|Brine fly|nan|Grasshopper|Aquatic mite
+BLACK-THROATED SPARROW,Amphispiza bilineata,2491757.0,Aves,Passeriformes,Passerellidae,Amphispiza,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLACKBURNIAM WARBLER,Setophaga fusca,6093199.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,nan|spruce budworm|Harlequin flies|Ground beetles|Click beetles
+BLONDE CRESTED WOODPECKER,Celeus flavescens,5228941.0,Aves,Piciformes,Picidae,Celeus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLOOD PHEASANT,Ithaginis cruentus,2474060.0,Aves,Galliformes,Phasianidae,Ithaginis,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLUE COAU,Coua caerulea,2496419.0,Aves,Cuculiformes,Cuculidae,Coua,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLUE DACNIS,Dacnis cayana,2488352.0,Aves,Passeriformes,Thraupidae,Dacnis,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BLUE GRAY GNATCATCHER,Polioptila caerulea,2487596.0,Aves,Passeriformes,Polioptilidae,Polioptila,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Insecta,Homoptera|Moth|Fly|Spider|Caterpillar
+BLUE GROSBEAK,Passerina caerulea,5230862.0,Aves,Passeriformes,Cardinalidae,Passerina,LC,Least Concern,Increasing,Terrestrial,nan,nan|Magnoliopsida|Insecta,nan|crickets and grasshoppers|weeds|grain
+BLUE GROUSE,Dendragapus obscurus,9428437.0,Aves,Galliformes,Phasianidae,Dendragapus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|Lycopodiopsida|Hydrozoa|Magnoliopsida|Pinopsida|nan|Insecta,bearberry|short-horned grasshoppers|prickly lettuce|cottonwood|yellow salsify
+BLUE HERON,Ardea herodias,9630752.0,Aves,Pelecaniformes,Ardeidae,Ardea,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Malacostraca,Malacostraca|nan|Teleostei|Gastropoda,"shrimp, crabs, other crustaceans|nan"
+BLUE MALKOHA,Ceuthmochares aereus,2496449.0,Aves,Cuculiformes,Cuculidae,Ceuthmochares,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BLUE THROATED PIPING GUAN,Pipile cumanensis,2482310.0,Aves,Galliformes,Cracidae,Pipile,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BLUE THROATED TOUCANET,Aulacorhynchus caeruleogularis,5229024.0,Aves,Piciformes,Ramphastidae,Aulacorhynchus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BOBOLINK,Dolichonyx oryzivorus,2484417.0,Aves,Passeriformes,Icteridae,Dolichonyx,NT,Near Threatened,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,rice|weed seed|nan|grain
+BORNEAN BRISTLEHEAD,Pityriasis gymnocephala,2482591.0,Aves,Passeriformes,Pityriaseidae,Pityriasis,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+BORNEAN LEAFBIRD,Chloropsis kinabaluensis,5789034.0,Aves,Passeriformes,Chloropseidae,Chloropsis,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+BORNEAN PHEASANT,Polyplectron schleiermacheri,2474077.0,Aves,Galliformes,Phasianidae,Polyplectron,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+BRANDT CORMARANT,Urile penicillatus,10682451.0,Aves,Suliformes,Phalacrocoracidae,Urile,LC,Least Concern,Decreasing,Terrestrial; Marine,Unknown,,
+BREWERS BLACKBIRD,Euphagus cyanocephalus,2484183.0,Aves,Passeriformes,Icteridae,Euphagus,NT,Near Threatened,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Chilopoda|nan|Gastropoda|Insecta,Lamb's Quarter|pigweed|sand dropseed|smartweed|grain sorghum
+BROWN CREPPER,Certhia americana,9581157.0,Aves,Passeriformes,Certhiidae,Certhia,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,miscellaneous insects|nan|vegetable matter|mast
+BROWN HEADED COWBIRD,Molothrus ater,2484391.0,Aves,Passeriformes,Icteridae,Molothrus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,grain sorghum|sand dropseed|foxtail|weed|weed seed
+BROWN NOODY,Anous stolidus,9512459.0,Aves,Charadriiformes,Laridae,Anous,LC,Least Concern,Stable,Terrestrial; Marine,Teleostei,Teleostei|Cephalopoda|Malacostraca|nan|Insecta,other|fish|squid|goat fishes|flyingfishes
+BROWN THRASHER,Toxostoma rufum,9479809.0,Aves,Passeriformes,Mimidae,Toxostoma,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Diplopoda|Malacostraca|Clitellata|Magnoliopsida|Chilopoda|nan|Gastropoda|Insecta,mayfly|acorns|grasshopper|moth|beetles
+BUFFLEHEAD,Bucephala albeola,2498329.0,Aves,Anseriformes,Anatidae,Bucephala,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Malacostraca,Malacostraca|Bivalvia|Magnoliopsida|nan|Gastropoda|Insecta,bivalves|nan|gastropods|true insects|dragonflies and damselflies
+BULWERS PHEASANT,Lophura bulweri,5228005.0,Aves,Galliformes,Phasianidae,Lophura,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+BURCHELLS COURSER,Cursorius rufus,2480742.0,Aves,Charadriiformes,Glareolidae,Cursorius,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+BUSH TURKEY,Alectura lathami,5229426.0,Aves,Galliformes,Megapodiidae,Alectura,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CAATINGA CACHOLOTE,Pseudoseisura cristata,2485852.0,Aves,Passeriformes,Furnariidae,Pseudoseisura,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+CABOTS TRAGOPAN,Tragopan caboti,2473545.0,Aves,Galliformes,Phasianidae,Tragopan,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+CACTUS WREN,Campylorhynchus brunneicapillus,5231474.0,Aves,Passeriformes,Troglodytidae,Campylorhynchus,LC,Least Concern,Decreasing,Terrestrial,nan,nan|Magnoliopsida|Insecta,ants; wasps|beetles|grasshoppers|black olive scale|fruit pulp
+CALIFORNIA CONDOR,Gymnogyps californianus,2481920.0,Aves,Accipitriformes,Cathartidae,Gymnogyps,CR,Critically Endangered,Increasing,Terrestrial,Unknown,,
+CALIFORNIA GULL,Larus californicus,2481146.0,Aves,Charadriiformes,Laridae,Larus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan|Teleostei|Cephalopoda,pebbles|nan|Orchomere obtusa
+CALIFORNIA QUAIL,Callipepla californica,5228080.0,Aves,Galliformes,Odontophoridae,Callipepla,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Diplopoda|Magnoliopsida|nan|Gastropoda|Insecta,vegetable matter|Vetch|Grasses|Chaff|bur thistle
+CAMPO FLICKER,Colaptes campestris,2478233.0,Aves,Piciformes,Picidae,Colaptes,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+CANARY,Serinus canaria,2494303.0,Aves,Passeriformes,Fringillidae,Serinus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+CANVASBACK,Aythya valisineria,2498256.0,Aves,Anseriformes,Anatidae,Aythya,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Malacostraca|Polychaeta|Bivalvia|Magnoliopsida|nan|Gastropoda|Insecta,gravel|snail|caddisfly|nan|wapato
+CAPE GLOSSY STARLING,Lamprotornis nitens,2489073.0,Aves,Passeriformes,Sturnidae,Lamprotornis,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CAPE LONGCLAW,Macronyx capensis,5230846.0,Aves,Passeriformes,Motacillidae,Macronyx,LC,Least Concern,Stable,Terrestrial; Marine,Unknown,,
+CAPE MAY WARBLER,Setophaga tigrina,6093357.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,Grape Leafhopper|spruce budworm|nan|fruit and nectar|Aphids
+CAPE ROCK THRUSH,Monticola rupestris,5231002.0,Aves,Passeriformes,Muscicapidae,Monticola,LC,Least Concern,Stable,Terrestrial,Unknown,,
+CAPPED HERON,Pilherodius pileatus,2480816.0,Aves,Pelecaniformes,Ardeidae,Pilherodius,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CAPUCHINBIRD,Perissocephalus tricolor,2486342.0,Aves,Passeriformes,Cotingidae,Perissocephalus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CARMINE BEE-EATER,Merops nubicus,2475396.0,Aves,Coraciiformes,Meropidae,Merops,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CASPIAN TERN,Hydroprogne caspia,2481236.0,Aves,Charadriiformes,Laridae,Hydroprogne,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan,fish
+CASSOWARY,Casuarius casuarius,5231783.0,Aves,Casuariiformes,Casuariidae,Casuarius,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CEDAR WAXWING,Bombycilla cedrorum,2484609.0,Aves,Passeriformes,Bombycillidae,Bombycilla,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Magnoliopsida|Pinopsida|nan|Insecta,wild and cultivated fruit|spruce budworm|nan|scarab beetle|crane fly
+CERULEAN WARBLER,Setophaga cerulea,6093350.0,Aves,Passeriformes,Parulidae,Setophaga,NT,Near Threatened,Decreasing,Terrestrial,Insecta,Insecta,Homoptera|nan
+CHARA DE COLLAR,Calocitta formosa,2482458.0,Aves,Passeriformes,Corvidae,Calocitta,,,,,Unknown,,
+CHATTERING LORY,Lorius garrulus,2479414.0,Aves,Psittaciformes,Psittacidae,Lorius,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+CHESTNET BELLIED EUPHONIA,Euphonia pectoralis,2487980.0,Aves,Passeriformes,Fringillidae,Euphonia,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CHESTNUT WINGED CUCKOO,Clamator coromandus,2496467.0,Aves,Cuculiformes,Cuculidae,Clamator,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CHINESE BAMBOO PARTRIDGE,Bambusicola thoracicus,5227939.0,Aves,Galliformes,Phasianidae,Bambusicola,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CHINESE POND HERON,Ardeola bacchus,2480907.0,Aves,Pelecaniformes,Ardeidae,Ardeola,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+CHIPPING SPARROW,Spizella passerina,2492109.0,Aves,Passeriformes,Passerellidae,Spizella,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,spruce budworm|weed seed|Grass seed|Alfilaria|nan
+CHUCAO TAPACULO,Scelorchilus rubecula,2490973.0,Aves,Passeriformes,Rhinocryptidae,Scelorchilus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CHUKAR PARTRIDGE,Alectoris chukar,2474029.0,Aves,Galliformes,Phasianidae,Alectoris,LC,Least Concern,Unknown,Terrestrial,Euchelicerata,Euchelicerata|Gnetopsida|Magnoliopsida|Pinopsida|Mammalia|Chilopoda|nan|Insecta,cottonwood|plantlice|leafhoppers|plant bugs|downy brome
+CINNAMON ATTILA,Attila cinnamomeus,2483645.0,Aves,Passeriformes,Tyrannidae,Attila,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CINNAMON FLYCATCHER,Pyrrhomyias cinnamomeus,2483914.0,Aves,Passeriformes,Tyrannidae,Pyrrhomyias,LC,Least Concern,Stable,Terrestrial,Unknown,,
+CINNAMON TEAL,Spatula cyanoptera,9345027.0,Aves,Anseriformes,Anatidae,Spatula,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Ostracoda|Malacostraca|Branchiopoda|Magnoliopsida|nan|Gastropoda|Insecta,nan|nonbiting midges|spikerushes|flies|gastropods
+CLARKS GREBE,Aechmophorus clarkii,2482032.0,Aves,Podicipediformes,Podicipedidae,Aechmophorus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Insecta,Insecta,nan
+CLARKS NUTCRACKER,Nucifraga columbiana,2482614.0,Aves,Passeriformes,Corvidae,Nucifraga,LC,Least Concern,Stable,Terrestrial,nan,nan|Pinopsida|Mammalia,nan
+COCK OF THE  ROCK,Rupicola peruvianus,5230374.0,Aves,Passeriformes,Cotingidae,Rupicola,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+COLLARED ARACARI,Pteroglossus torquatus,2478838.0,Aves,Piciformes,Ramphastidae,Pteroglossus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+COLLARED CRESCENTCHEST,Melanopareia torquata,2491015.0,Aves,Passeriformes,Melanopareiidae,Melanopareia,LC,Least Concern,Stable,Terrestrial,Unknown,,
+COMMON FIRECREST,Regulus ignicapilla,6093527.0,Aves,Passeriformes,Regulidae,Regulus,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+COMMON GRACKLE,Quiscalus quiscula,2484155.0,Aves,Passeriformes,Icteridae,Quiscalus,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Diplopoda|Teleostei|Malacostraca|Clitellata|Amphibia|Magnoliopsida|Mammalia|nan|Insecta,Corn|corn|rice|fish|insects
+COMMON HOUSE MARTIN,Delichon urbicum,2489214.0,Aves,Passeriformes,Hirundinidae,Delichon,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+COMMON IORA,Aegithina tiphia,2484096.0,Aves,Passeriformes,Aegithinidae,Aegithina,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+COMMON LOON,Gavia immer,2481962.0,Aves,Gaviiformes,Gaviidae,Gavia,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Teleostei,Teleostei,shorthorn sculpin|viviporous blenny|North Atlantic flounder|Atlantic cod|common eel
+COMMON POORWILL,Phalaenoptilus nuttallii,2497062.0,Aves,Caprimulgiformes,Caprimulgidae,Phalaenoptilus,LC,Least Concern,Stable,Terrestrial,Insecta,Insecta,moth|beetle|nan
+COMMON STARLING,Sturnus vulgaris,9809229.0,Aves,Passeriformes,Sturnidae,Sturnus,LC,Least Concern,Stable,Terrestrial; Marine,Euchelicerata,Euchelicerata|Diplopoda|Malacostraca|Magnoliopsida|Pinopsida|nan|Gastropoda|Insecta,hop hornbeam|weed seeds|wild fruit|Unknown material|corn
+COPPERSMITH BARBET,Psilopogon haemacephalus,7691806.0,Aves,Piciformes,Megalaimidae,Psilopogon,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+COPPERY TAILED COUCAL,Centropus cupreicaudus,5231940.0,Aves,Cuculiformes,Cuculidae,Centropus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CRAB PLOVER,Dromas ardeola,5229199.0,Aves,Charadriiformes,Dromadidae,Dromas,LC,Least Concern,Stable,Terrestrial; Marine,Unknown,,
+CRANE HAWK,Geranospiza caerulescens,2480435.0,Aves,Accipitriformes,Accipitridae,Geranospiza,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CREAM COLORED WOODPECKER,Celeus flavus,5228966.0,Aves,Piciformes,Picidae,Celeus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CRESTED AUKLET,Aethia cristatella,2481295.0,Aves,Charadriiformes,Alcidae,Aethia,LC,Least Concern,Decreasing,Terrestrial; Marine,Scyphozoa,Scyphozoa|Malacostraca|Maxillopoda|nan|Gastropoda,jellyfish|nan
+CRESTED CARACARA,Caracara plancus,2480989.0,Aves,Falconiformes,Falconidae,Caracara,LC,Least Concern,Stable,Terrestrial,Unknown,,
+CRESTED COUA,Coua cristata,2496411.0,Aves,Cuculiformes,Cuculidae,Coua,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CRESTED FIREBACK,Lophura ignita,5227961.0,Aves,Galliformes,Phasianidae,Lophura,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+CRESTED KINGFISHER,Megaceryle lugubris,2475476.0,Aves,Coraciiformes,Alcedinidae,Megaceryle,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CRESTED NUTHATCH,Sitta europaea,2484916.0,Aves,Passeriformes,Sittidae,Sitta,LC,Least Concern,Stable,Terrestrial,Unknown,,
+CRESTED OROPENDOLA,Psarocolius decumanus,2484217.0,Aves,Passeriformes,Icteridae,Psarocolius,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CRESTED SERPENT EAGLE,Spilornis cheela,2480433.0,Aves,Accipitriformes,Accipitridae,Spilornis,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+CRESTED SHRIKETIT,Falcunculus frontatus,2482606.0,Aves,Passeriformes,Pachycephalidae,Falcunculus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CRESTED WOOD PARTRIDGE,Rollulus rouloul,2474113.0,Aves,Galliformes,Phasianidae,Rollulus,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+CRIMSON CHAT,Epthianura tricolor,2487109.0,Aves,Passeriformes,Meliphagidae,Epthianura,LC,Least Concern,Stable,Terrestrial,Unknown,,
+CRIMSON SUNBIRD,Aethopyga siparaja,2484677.0,Aves,Passeriformes,Nectariniidae,Aethopyga,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CROW,Corvus brachyrhynchos,2482507.0,Aves,Passeriformes,Corvidae,Corvus,LC,Least Concern,Increasing,Terrestrial,Diplopoda,Diplopoda|Aves|Teleostei|Malacostraca|Magnoliopsida|Reptilia|Mammalia|Chilopoda|nan|Gastropoda|Insecta,misc beetle|sorghum|Hackberry|wheat|misc. plants
+CUBAN TODY,Todus multicolor,2475385.0,Aves,Coraciiformes,Todidae,Todus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CUBAN TROGON,Priotelus temnurus,5232027.0,Aves,Trogoniformes,Trogonidae,Priotelus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+CURL CRESTED ARACURI,Pteroglossus beauharnaisii,10733411.0,Aves,Piciformes,Ramphastidae,Pteroglossus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+D-ARNAUDS BARBET,Trachyphonus darnaudii,2478893.0,Aves,Piciformes,Lybiidae,Trachyphonus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+DALMATIAN PELICAN,Pelecanus crispus,2480353.0,Aves,Pelecaniformes,Pelecanidae,Pelecanus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+DARJEELING WOODPECKER,Dendrocopos darjellensis,2477965.0,Aves,Piciformes,Picidae,Dendrocopos,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+DARK EYED JUNCO,Junco hyemalis,9362842.0,Aves,Passeriformes,Passerellidae,Junco,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Pinopsida|nan|Insecta,weed seed|other homoptera|Wild fruits|miscellaneous insects and spiders|nan
+DAURIAN REDSTART,Phoenicurus auroreus,5231223.0,Aves,Passeriformes,Muscicapidae,Phoenicurus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+DEMOISELLE CRANE,Grus virgo,5789355.0,Aves,Gruiformes,Gruidae,Anthropoides,,,,,Unknown,,
+DOUBLE BARRED FINCH,Stizoptera bichenovii,10968431.0,Aves,Passeriformes,Estrildidae,Taeniopygia,,,,,Unknown,,
+DOUBLE BRESTED CORMARANT,Nannopterum auritum,9275717.0,Aves,Suliformes,Phalacrocoracidae,Phalacrocorax,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+DOUBLE EYED FIG PARROT,Cyclopsitta diophthalma,2480157.0,Aves,Psittaciformes,Psittacidae,Cyclopsitta,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+DOWNY WOODPECKER,Dryobates pubescens,9149595.0,Aves,Piciformes,Picidae,Dryobates,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,"scale insects|beetles|spruce beetle|caterpillars, pupae|unidentified plant matter"
+DUNLIN,Calidris alpina,2481759.0,Aves,Charadriiformes,Scolopacidae,Calidris,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+DUSKY LORY,Chalcopsitta fuscata,2479705.0,Aves,Psittaciformes,Psittacidae,Chalcopsitta,,,,,Unknown,,
+DUSKY ROBIN,Melanodryas vittata,2489289.0,Aves,Passeriformes,Petroicidae,Melanodryas,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+EARED PITA,Hydrornis phayrei,6101091.0,Aves,Passeriformes,Pittidae,Anthocincla,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+EASTERN BLUEBIRD,Sialia sialis,2490941.0,Aves,Passeriformes,Turdidae,Sialia,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Diplopoda|Malacostraca|Clitellata|Branchiopoda|Magnoliopsida|Pinopsida|Chilopoda|nan|Gastropoda|Insecta,wild berries|grasshoppers|beetles|spider|caterpillars
+EASTERN BLUEBONNET,Northiella haematogaster,2479053.0,Aves,Psittaciformes,Psittacidae,Northiella,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+EASTERN GOLDEN WEAVER,Ploceus subaureus,2494012.0,Aves,Passeriformes,Ploceidae,Ploceus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+EASTERN MEADOWLARK,Sturnella magna,2484254.0,Aves,Passeriformes,Icteridae,Sturnella,NT,Near Threatened,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,"grasshoppers|fruits, grains, weed seed|beetles|grain|nan"
+EASTERN ROSELLA,Platycercus eximius,2479329.0,Aves,Psittaciformes,Psittacidae,Platycercus,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+EASTERN TOWEE,Pipilo erythrophthalmus,2491205.0,Aves,Passeriformes,Passerellidae,Pipilo,LC,Least Concern,Decreasing,Terrestrial,nan,nan|Magnoliopsida|Insecta,nan|mineral material
+EASTERN WIP POOR WILL,Antrostomus vociferus,6101178.0,Aves,Caprimulgiformes,Caprimulgidae,Antrostomus,NT,Near Threatened,Stable,Terrestrial,Insecta,Insecta,Moths|Scarab Beetle|Scarab Beetles|nan|Click Beetles
+EASTERN YELLOW ROBIN,Eopsaltria australis,2489301.0,Aves,Passeriformes,Petroicidae,Eopsaltria,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+ECUADORIAN HILLSTAR,Oreotrochilus chimborazo,2476681.0,Aves,Apodiformes,Trochilidae,Oreotrochilus,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+EGYPTIAN GOOSE,Alopochen aegyptiaca,2498252.0,Aves,Anseriformes,Anatidae,Alopochen,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Chlorophyceae,Chlorophyceae|Magnoliopsida,nan|Bermuda grass|goosegrass
+ELEGANT TROGON,Trogon elegans,9323342.0,Aves,Trogoniformes,Trogonidae,Trogon,LC,Least Concern,Decreasing,Terrestrial,Magnoliopsida,Magnoliopsida|Insecta,nan
+ELLIOTS  PHEASANT,Syrmaticus ellioti,2473483.0,Aves,Galliformes,Phasianidae,Syrmaticus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+EMERALD TANAGER,Tangara florida,2488189.0,Aves,Passeriformes,Thraupidae,Tangara,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+EMPEROR PENGUIN,Aptenodytes forsteri,2481661.0,Aves,Sphenisciformes,Spheniscidae,Aptenodytes,NT,Near Threatened,Decreasing,Terrestrial; Marine,Malacostraca,Malacostraca|nan|Teleostei|Cephalopoda,fish|nan
+EMU,Dromaius novaehollandiae,2495134.0,Aves,Casuariiformes,Dromaiidae,Dromaius,LC,Least Concern,Stable,Terrestrial,Unknown,,
+ENGGANO MYNA,Acridotheres melanopterus,5845376.0,Aves,Passeriformes,Sturnidae,Acridotheres,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+EURASIAN BULLFINCH,Pyrrhula pyrrhula,2494543.0,Aves,Passeriformes,Fringillidae,Pyrrhula,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+EURASIAN GOLDEN ORIOLE,Oriolus oriolus,2488949.0,Aves,Passeriformes,Oriolidae,Oriolus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+EURASIAN MAGPIE,Pica pica,5229490.0,Aves,Passeriformes,Corvidae,Pica,LC,Least Concern,Stable,Terrestrial,Unknown,,
+EUROPEAN GOLDFINCH,Carduelis carduelis,2494686.0,Aves,Passeriformes,Fringillidae,Carduelis,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Insecta,Insecta|nan|Magnoliopsida|Pinopsida,thistle|nan|greenstuff
+EUROPEAN TURTLE DOVE,Streptopelia turtur,2495708.0,Aves,Columbiformes,Columbidae,Streptopelia,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+EVENING GROSBEAK,Hesperiphona vespertina,2494324.0,Aves,Passeriformes,Fringillidae,Hesperiphona,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+FAIRY BLUEBIRD,Irena puella,2488929.0,Aves,Passeriformes,Irenidae,Irena,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+FAIRY PENGUIN,Eudyptula minor,2481646.0,Aves,Sphenisciformes,Spheniscidae,Eudyptula,LC,Least Concern,Stable,Terrestrial; Marine,Malacostraca,Malacostraca|nan|Cephalopoda,fish|squid|crustaceans|krill
+FAIRY TERN,Gygis alba,2481213.0,Aves,Charadriiformes,Laridae,Gygis,LC,Least Concern,Stable,Terrestrial; Marine,Malacostraca,Malacostraca|nan|Teleostei|Cephalopoda,fish|squid|goat fishes|flyingfishes|bristlemouths
+FAN TAILED WIDOW,Euplectes axillaris,2494092.0,Aves,Passeriformes,Ploceidae,Euplectes,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+FASCIATED WREN,Campylorhynchus fasciatus,5231471.0,Aves,Passeriformes,Troglodytidae,Campylorhynchus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+FIERY MINIVET,Pericrocotus igneus,2486814.0,Aves,Passeriformes,Campephagidae,Pericrocotus,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+FIORDLAND PENGUIN,Eudyptes pachyrhynchus,2481634.0,Aves,Sphenisciformes,Spheniscidae,Eudyptes,NT,Near Threatened,Decreasing,Terrestrial; Marine,Unknown,,
+FIRE TAILLED MYZORNIS,Myzornis pyrrhoura,2492938.0,Aves,Passeriformes,Sylviidae,Myzornis,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+FLAME BOWERBIRD,Sericulus ardens,5846070.0,Aves,Passeriformes,Ptilonorhynchidae,Sericulus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+FLAME TANAGER,Piranga bidentata,2488488.0,Aves,Passeriformes,Cardinalidae,Piranga,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+FOREST WAGTAIL,Dendronanthus indicus,2490317.0,Aves,Passeriformes,Motacillidae,Dendronanthus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GAMBELS QUAIL,Callipepla gambelii,5228072.0,Aves,Galliformes,Odontophoridae,Callipepla,LC,Least Concern,Stable,Terrestrial,nan,nan|Magnoliopsida|Insecta,Crownbeard|nan|Filaree|Russian thistle|Deervetch
+GANG GANG COCKATOO,Callocephalon fimbriatum,2480030.0,Aves,Psittaciformes,Psittacidae,Callocephalon,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+GILA WOODPECKER,Melanerpes uropygialis,2478112.0,Aves,Piciformes,Picidae,Melanerpes,LC,Least Concern,Stable,Terrestrial,Insecta,Insecta,nan
+GILDED FLICKER,Colaptes chrysoides,2478248.0,Aves,Piciformes,Picidae,Colaptes,LC,Least Concern,Stable,Terrestrial,Unknown,,
+GLOSSY IBIS,Plegadis falcinellus,2480773.0,Aves,Pelecaniformes,Threskiornithidae,Plegadis,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Euchelicerata,Euchelicerata|Teleostei|Ostracoda|Malacostraca|Clitellata|Phylactolaemata|Bivalvia|Amphibia|Branchiopoda|Magnoliopsida|Reptilia|nan|Gastropoda|Insecta,Grasshopper|Crayfish|Cutworm|Cutworms|Green plant material
+GO AWAY BIRD,Corythaixoides leucogaster,2475264.0,Aves,Musophagiformes,Musophagidae,Corythaixoides,,,,,Unknown,,
+GOLD WING WARBLER,Vermivora chrysoptera,5230811.0,Aves,Passeriformes,Parulidae,Vermivora,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+GOLDEN BOWER BIRD,Prionodura newtoniana,2494790.0,Aves,Passeriformes,Ptilonorhynchidae,Prionodura,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+GOLDEN CHEEKED WARBLER,Setophaga chrysoparia,6092637.0,Aves,Passeriformes,Parulidae,Setophaga,EN,Endangered,Decreasing,Terrestrial,Insecta,Insecta,nan
+GOLDEN CHLOROPHONIA,Chlorophonia callophrys,2488323.0,Aves,Passeriformes,Fringillidae,Chlorophonia,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GOLDEN EAGLE,Aquila chrysaetos,2480506.0,Aves,Accipitriformes,Accipitridae,Aquila,LC,Least Concern,Unknown,Terrestrial,Teleostei,Teleostei|Reptilia|Mammalia|Aves|nan|Insecta,osprey|Black-tailed Jackrabbit|jackrabbit|black-tailed jackrabbit|jack rabbit
+GOLDEN PARAKEET,Guaruba guarouba,2480064.0,Aves,Psittaciformes,Psittacidae,Guaruba,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+GOLDEN PHEASANT,Chrysolophus pictus,5228034.0,Aves,Galliformes,Phasianidae,Chrysolophus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GOLDEN PIPIT,Tmetothylacus tenellus,2490294.0,Aves,Passeriformes,Motacillidae,Tmetothylacus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+GOULDIAN FINCH,Chloebia gouldiae,2493720.0,Aves,Passeriformes,Estrildidae,Erythrura,LC,Least Concern,Stable,Terrestrial,Unknown,,
+GRANDALA,Grandala coelicolor,2492673.0,Aves,Passeriformes,Muscicapidae,Grandala,LC,Least Concern,Stable,Terrestrial,Unknown,,
+GRAY CATBIRD,Dumetella carolinensis,2494936.0,Aves,Passeriformes,Mimidae,Dumetella,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,weed seed|nan|ant
+GRAY KINGBIRD,Tyrannus dominicensis,5229678.0,Aves,Passeriformes,Tyrannidae,Tyrannus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Reptilia|nan|Insecta,"Beetles|Wasps, bees, ants|weevils|honey bees|changa"
+GRAY PARTRIDGE,Perdix perdix,2473958.0,Aves,Galliformes,Phasianidae,Perdix,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,green matter|wild seeds|leafy vegetation|row crop grains|grit
+GREAT ARGUS,Argusianus argus,5227762.0,Aves,Galliformes,Phasianidae,Argusianus,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+GREAT GRAY OWL,Strix nebulosa,2497522.0,Aves,Strigiformes,Strigidae,Strix,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Teleostei,Teleostei|Amphibia|Mammalia|Aves|Insecta,mammal|Meadow Vole|Northern Pocket Gopher|Vole|Common Shrew
+GREAT JACAMAR,Jacamerops aureus,2475080.0,Aves,Piciformes,Galbulidae,Jacamerops,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+GREAT KISKADEE,Pitangus sulphuratus,2482755.0,Aves,Passeriformes,Tyrannidae,Pitangus,LC,Least Concern,Increasing,Terrestrial,Teleostei,Teleostei|Amphibia|Magnoliopsida|Reptilia|Mammalia|nan|Gastropoda|Insecta,unknown aquatic invertebrates plus unknown|nan|Mouse-eared bat|Fish|Menwig Frog
+GREAT POTOO,Nyctibius grandis,2496801.0,Aves,Nyctibiiformes,Nyctibiidae,Nyctibius,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GREAT TINAMOU,Tinamus major,2477630.0,Aves,Tinamiformes,Tinamidae,Tinamus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GREAT XENOPS,Megaxenops parnaguae,2485604.0,Aves,Passeriformes,Furnariidae,Megaxenops,LC,Least Concern,Stable,Terrestrial,Unknown,,
+GREATER PEWEE,Contopus pertinax,5229730.0,Aves,Passeriformes,Tyrannidae,Contopus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GREATER PRAIRIE CHICKEN,Tympanuchus cupido,2473510.0,Aves,Galliformes,Phasianidae,Tympanuchus,NT,Near Threatened,Increasing,Terrestrial,nan,nan,nan
+GREATOR SAGE GROUSE,Centrocercus urophasianus,5959240.0,Aves,Galliformes,Phasianidae,Centrocercus,VU,Vulnerable,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Insecta|nan|Hydrozoa,sagebrush|desert-parsley|black sagebrush|big sagebrush|milkvetch
+GREEN BROADBILL,Calyptomena viridis,2484559.0,Aves,Passeriformes,Eurylaimidae,Calyptomena,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+GREEN JAY,Cyanocorax yncas,2482565.0,Aves,Passeriformes,Corvidae,Cyanocorax,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,nan
+GREEN MAGPIE,Cissa chinensis,2482587.0,Aves,Passeriformes,Corvidae,Cissa,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+GREEN WINGED DOVE,Chalcophaps indica,2495840.0,Aves,Columbiformes,Columbidae,Chalcophaps,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+GREY CUCKOOSHRIKE,Ceblepyris caesius,10974621.0,Aves,Passeriformes,Campephagidae,Coracina,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+GREY HEADED CHACHALACA,Ortalis cinereiceps,5229450.0,Aves,Galliformes,Cracidae,Ortalis,LC,Least Concern,Stable,Terrestrial,Unknown,,
+GREY HEADED FISH EAGLE,Icthyophaga ichthyaetus,6066180.0,Aves,Accipitriformes,Accipitridae,Icthyophaga,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+GREY PLOVER,Pluvialis squatarola,2480327.0,Aves,Charadriiformes,Charadriidae,Pluvialis,VU,Vulnerable,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+GROVED BILLED ANI,Crotophaga sulcirostris,2496211.0,Aves,Cuculiformes,Cuculidae,Crotophaga,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+GUINEA TURACO,Tauraco persa,2475243.0,Aves,Musophagiformes,Musophagidae,Tauraco,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+GUINEAFOWL,Numida meleagris,2473341.0,Aves,Galliformes,Numididae,Numida,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),nan,nan|Magnoliopsida|Insecta,true insects|cockroaches|metazoans|nan|beetles
+GURNEYS PITTA,Hydrornis gurneyi,6101095.0,Aves,Passeriformes,Pittidae,Pitta,CR,Critically Endangered,Decreasing,Terrestrial,Unknown,,
+GYRFALCON,Falco rusticolus,8069880.0,Aves,Falconiformes,Falconidae,Falco,LC,Least Concern,Stable,Terrestrial; Marine,Mammalia,Mammalia|Aves,Ptarmigan|bird|mammal|Voles|nan
+HAMERKOP,Scopus umbretta,5229154.0,Aves,Pelecaniformes,Scopidae,Scopus,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+HARLEQUIN DUCK,Histrionicus histrionicus,2498224.0,Aves,Anseriformes,Anatidae,Histrionicus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Teleostei,Teleostei|Anthozoa|Malacostraca|Holothuroidea|Polychaeta|Asteroidea|Bivalvia|Echinoidea|Ulvophyceae|Maxillopoda|nan|Gastropoda|Polyplacophora|Insecta,Grit|gastropods|Digested animal matter and broken shells|limpets|Crab fragments
+HARLEQUIN QUAIL,Coturnix delegorguei,2474141.0,Aves,Galliformes,Phasianidae,Coturnix,LC,Least Concern,Stable,Terrestrial,Unknown,,
+HARPY EAGLE,Harpia harpyja,2480516.0,Aves,Accipitriformes,Accipitridae,Harpia,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+HAWAIIAN GOOSE,Branta sandvicensis,5232445.0,Aves,Anseriformes,Anatidae,Branta,NT,Near Threatened,Increasing,Terrestrial,nan,nan|Magnoliopsida,nan
+HAWFINCH,Coccothraustes coccothraustes,2494329.0,Aves,Passeriformes,Fringillidae,Coccothraustes,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+HELMET VANGA,Euryceros prevostii,5231781.0,Aves,Passeriformes,Vangidae,Euryceros,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+HEPATIC TANAGER,Piranga flava,2488498.0,Aves,Passeriformes,Cardinalidae,Piranga,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+HIMALAYAN BLUETAIL,Tarsiger rufilatus,6089951.0,Aves,Passeriformes,Muscicapidae,Tarsiger,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+HIMALAYAN MONAL,Lophophorus impejanus,5227747.0,Aves,Galliformes,Phasianidae,Lophophorus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+HOATZIN,Opisthocomus hoazin,2496202.0,Aves,Opisthocomiformes,Opisthocomidae,Opisthocomus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+HOODED MERGANSER,Lophodytes cucullatus,2498408.0,Aves,Anseriformes,Anatidae,Lophodytes,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Teleostei,Teleostei|Malacostraca|Amphibia|nan|Insecta,"trouts, salmons & chars|nan|chordates|true insects|arthropods"
+HOOPOES,Upupa epops,2498415.0,Aves,Bucerotiformes,Upupidae,Upupa,LC,Least Concern,Stable,Terrestrial,Unknown,,
+HORNED GUAN,Oreophasis derbianus,2482289.0,Aves,Galliformes,Cracidae,Oreophasis,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+HORNED LARK,Eremophila alpestris,9415596.0,Aves,Passeriformes,Alaudidae,Eremophila,LC,Least Concern,Unknown,Terrestrial; Marine,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,yellow foxtail|weed seed|buckwheat|weeds; grasses|oats
+HORNED SUNGEM,Heliactin bilophus,2476794.0,Aves,Apodiformes,Trochilidae,Heliactin,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+HOUSE FINCH,Haemorhous mexicanus,8323485.0,Aves,Passeriformes,Fringillidae,Haemorhous,LC,Least Concern,Increasing,Terrestrial,nan,nan|Magnoliopsida,weed seed|nan|Alfilaria|Knotweed|Turkey mullen
+HOUSE SPARROW,Passer domesticus,5231190.0,Aves,Passeriformes,Passeridae,Passer,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Teleostei|Magnoliopsida|Insecta|nan|Collembola,"Grain|Feed|Unidentified grains|Grasshoppers, crickets|Milo/broom cane"
+HYACINTH MACAW,Anodorhynchus hyacinthinus,2479359.0,Aves,Psittaciformes,Psittacidae,Anodorhynchus,VU,Vulnerable,Stable,Terrestrial,Unknown,,
+IBERIAN MAGPIE,Cyanopica cooki,5844936.0,Aves,Passeriformes,Corvidae,Cyanopica,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+IBISBILL,Ibidorhyncha struthersii,2480336.0,Aves,Charadriiformes,Ibidorhynchidae,Ibidorhyncha,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+IMPERIAL SHAQ,Leucocarbo atriceps,4848927.0,Aves,Suliformes,Phalacrocoracidae,Leucocarbo,LC,Least Concern,Unknown,Terrestrial; Marine,Unknown,,
+INCA TERN,Larosterna inca,2481125.0,Aves,Charadriiformes,Laridae,Larosterna,NT,Near Threatened,Decreasing,Terrestrial; Marine,Unknown,,
+INDIAN BUSTARD,Ardeotis nigriceps,2474902.0,Aves,Otidiformes,Otididae,Ardeotis,CR,Critically Endangered,Decreasing,Terrestrial,Unknown,,
+INDIAN PITTA,Pitta brachyura,2489507.0,Aves,Passeriformes,Pittidae,Pitta,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+INDIAN ROLLER,Coracias benghalensis,2475379.0,Aves,Coraciiformes,Coraciidae,Coracias,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+INDIAN VULTURE,Gyps indicus,2480385.0,Aves,Accipitriformes,Accipitridae,Gyps,CR,Critically Endangered,Decreasing,Terrestrial,Unknown,,
+INDIGO BUNTING,Passerina cyanea,2490327.0,Aves,Passeriformes,Cardinalidae,Passerina,LC,Least Concern,Decreasing,Terrestrial,Magnoliopsida,Magnoliopsida|Insecta,weed|Cankerworm|other beetles|caterpillar|beetle
+INDIGO FLYCATCHER,Eumyias indigo,2492419.0,Aves,Passeriformes,Muscicapidae,Eumyias,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+INLAND DOTTEREL,Peltohyas australis,2480338.0,Aves,Charadriiformes,Charadriidae,Peltohyas,LC,Least Concern,Stable,Terrestrial,Unknown,,
+IVORY BILLED ARACARI,Pteroglossus azara,2478817.0,Aves,Piciformes,Ramphastidae,Pteroglossus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+IVORY GULL,Pagophila eburnea,2481202.0,Aves,Charadriiformes,Laridae,Pagophila,VU,Vulnerable,Decreasing,Terrestrial; Marine,Unknown,,
+IWI,Drepanis coccinea,8070758.0,Aves,Passeriformes,Fringillidae,Vestiaria,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+JABIRU,Jabiru mycteria,2481953.0,Aves,Ciconiiformes,Ciconiidae,Jabiru,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+JACK SNIPE,Lymnocryptes minimus,2481835.0,Aves,Charadriiformes,Scolopacidae,Lymnocryptes,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+JANDAYA PARAKEET,Aratinga jandaya,2479106.0,Aves,Psittaciformes,Psittacidae,Aratinga,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+JAPANESE ROBIN,Larvivora akahige,7341264.0,Aves,Passeriformes,Muscicapidae,Erithacus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+JAVA SPARROW,Padda oryzivora,2493591.0,Aves,Passeriformes,Estrildidae,Lonchura,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+JOCOTOCO ANTPITTA,Grallaria ridgelyi,5788705.0,Aves,Passeriformes,Grallariidae,Grallaria,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+KAGU,Rhynochetos jubatus,2474354.0,Aves,Eurypygiformes,Rhynochetidae,Rhynochetos,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+KAKAPO,Strigops habroptilus,2479236.0,Aves,Psittaciformes,Psittacidae,Strigops,CR,Critically Endangered,Increasing,Terrestrial,Unknown,,
+KILLDEAR,Charadrius vociferus,2480320.0,Aves,Charadriiformes,Charadriidae,Charadrius,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan|Magnoliopsida|Gastropoda|Insecta,fire ant|mole cricket|darkling beetles|nan|weevil
+KING EIDER,Somateria spectabilis,2498350.0,Aves,Anseriformes,Anatidae,Somateria,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,Anthozoa,Anthozoa|Magnoliopsida|nan|Florideophyceae|Insecta,mollusks|arthropods|echinoderms|metazoans|true insects
+KING VULTURE,Sarcoramphus papa,2481923.0,Aves,Accipitriformes,Cathartidae,Sarcoramphus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+KIWI,Apteryx mantelli,2495144.0,Aves,Apterygiformes,Apterygidae,Apteryx,VU,Vulnerable,Stable,Terrestrial,Unknown,,
+KNOB BILLED DUCK,Sarkidiornis melanotos,2498001.0,Aves,Anseriformes,Anatidae,Sarkidiornis,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+KOOKABURRA,Dacelo novaeguineae,2475648.0,Aves,Coraciiformes,Alcedinidae,Dacelo,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+LARK BUNTING,Calamospiza melanocorys,2491893.0,Aves,Passeriformes,Passerellidae,Calamospiza,LC,Least Concern,Decreasing,Terrestrial,nan,nan,nan
+LAUGHING GULL,Leucophaeus atricilla,6065844.0,Aves,Charadriiformes,Laridae,Leucophaeus,,,,,nan,nan,fish|plant|crustacean|plastic|sand
+LAZULI BUNTING,Passerina amoena,5230861.0,Aves,Passeriformes,Cardinalidae,Passerina,LC,Least Concern,Increasing,Terrestrial,nan,nan,nan
+LESSER ADJUTANT,Leptoptilos javanicus,2481947.0,Aves,Ciconiiformes,Ciconiidae,Leptoptilos,NT,Near Threatened,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+LILAC ROLLER,Coracias caudatus,2475360.0,Aves,Coraciiformes,Coraciidae,Coracias,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+LIMPKIN,Aramus guarauna,2474337.0,Aves,Gruiformes,Aramidae,Aramus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Bivalvia,Bivalvia|Magnoliopsida|nan|Gastropoda|Insecta,apple snail|nan|mussel|other snail|weed seed
+LITTLE AUK,Alle alle,2481299.0,Aves,Charadriiformes,Alcidae,Alle,LC,Least Concern,Unknown,Terrestrial; Marine,Unknown,,
+LOGGERHEAD SHRIKE,Lanius ludovicianus,2492870.0,Aves,Passeriformes,Laniidae,Lanius,NT,Near Threatened,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Amphibia|Magnoliopsida|Mammalia|Reptilia|Aves|nan|Insecta,grasshoppers|Lizards|grasshoppers; crickets|grasshoppers/crickets|mammals
+LONG-EARED OWL,Asio otus,2497306.0,Aves,Strigiformes,Strigidae,Asio,LC,Least Concern,Unknown,Terrestrial,Euchelicerata,Euchelicerata|Malacostraca|Amphibia|Reptilia|Mammalia|Aves|nan|Insecta,Meadow vole|meadow mouse|mammal|Middle Western Prairie Vole|california vole
+LUCIFER HUMMINGBIRD,Calothorax lucifer,2476570.0,Aves,Apodiformes,Trochilidae,Calothorax,LC,Least Concern,Stable,Terrestrial,Unknown,,
+MAGPIE GOOSE,Anseranas semipalmata,2497981.0,Aves,Anseriformes,Anseranatidae,Anseranas,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),nan,nan|Magnoliopsida|Gastropoda|Bivalvia,nan|spikerushes|rice|Bermuda grass|metazoans
+MALABAR HORNBILL,Ocyceros griseus,2475924.0,Aves,Bucerotiformes,Bucerotidae,Ocyceros,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+MALACHITE KINGFISHER,Corythornis cristatus,6095338.0,Aves,Coraciiformes,Alcedinidae,Corythornis,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+MALAGASY WHITE EYE,Zosterops maderaspatanus,2489361.0,Aves,Passeriformes,Zosteropidae,Zosterops,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+MALEO,Macrocephalon maleo,2482154.0,Aves,Galliformes,Megapodiidae,Macrocephalon,CR,Critically Endangered,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+MALLARD DUCK,Anas platyrhynchos,9761484.0,Aves,Anseriformes,Anatidae,Anas,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Charophyceae,Charophyceae|Ostracoda|Malacostraca|Bivalvia|Magnoliopsida|nan|Gastropoda|Insecta,sedges|annelid worms|true insects|arthropods|nan
+MANDRIN DUCK,Aix galericulata,2498388.0,Aves,Anseriformes,Anatidae,Aix,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+MANGROVE CUCKOO,Coccyzus minor,2496294.0,Aves,Cuculiformes,Cuculidae,Coccyzus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|nan|Gastropoda|Insecta,true grasshoppers|caterpillars|walking sticks|earwigs|cicadas
+MARABOU STORK,Leptoptilos crumenifer,9772663.0,Aves,Ciconiiformes,Ciconiidae,Leptoptilos,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+MASKED BOBWHITE,Colinus virginianus,9791464.0,Aves,Galliformes,Odontophoridae,Colinus,NT,Near Threatened,Decreasing,Terrestrial,nan,nan|Magnoliopsida|Gastropoda|Insecta,weed seeds|Debris|weed seed|Arthropods|Soybeans
+MASKED BOOBY,Sula dactylatra,2480967.0,Aves,Suliformes,Sulidae,Sula,LC,Least Concern,Decreasing,Marine,nan,nan|Teleostei|Cephalopoda,fish|flyngfishes|Peruvian anchovy|redlip blenny|flyingfishes
+MASKED LAPWING,Vanellus miles,5229134.0,Aves,Charadriiformes,Charadriidae,Vanellus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+MCKAYS BUNTING,Plectrophenax hyperboreus,2491718.0,Aves,Passeriformes,Calcariidae,Plectrophenax,LC,Least Concern,Stable,Terrestrial; Marine,Unknown,,
+MERLIN,Falco columbarius,9813242.0,Aves,Falconiformes,Falconidae,Falco,LC,Least Concern,Stable,Terrestrial; Marine,Reptilia,Reptilia|nan|Mammalia|Aves,birds|invertebrate|House Sparrow|least sandpiper|Least Sandpiper
+MIKADO  PHEASANT,Syrmaticus mikado,2473482.0,Aves,Galliformes,Phasianidae,Syrmaticus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+MILITARY MACAW,Ara militaris,5959230.0,Aves,Psittaciformes,Psittacidae,Ara,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+MOURNING DOVE,Zenaida macroura,2495347.0,Aves,Columbiformes,Columbidae,Zenaida,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),nan,nan|Magnoliopsida|Gastropoda|Insecta,Barley|Canary grass|Buckwheat|Commercial bird seed|Milo
+MYNA,Acridotheres tristis,2489005.0,Aves,Passeriformes,Sturnidae,Acridotheres,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+NICOBAR PIGEON,Caloenas nicobarica,5231891.0,Aves,Columbiformes,Columbidae,Caloenas,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+NOISY FRIARBIRD,Philemon corniculatus,2487086.0,Aves,Passeriformes,Meliphagidae,Philemon,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+NORTHERN BEARDLESS TYRANNULET,Camptostoma imberbe,2483507.0,Aves,Passeriformes,Tyrannidae,Camptostoma,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),nan,nan|Insecta,Soft Scaled Insects|Flies|Ladybirds|Caterpillars|unknown animal debris
+NORTHERN CARDINAL,Cardinalis cardinalis,2490384.0,Aves,Passeriformes,Cardinalidae,Cardinalis,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Magnoliopsida|Chilopoda|nan|Gastropoda|Insecta,weeds|wild grape|nan|weevils|smartweeds; bindweeds
+NORTHERN FLICKER,Colaptes auratus,2478259.0,Aves,Piciformes,Picidae,Colaptes,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,ants|nan|unidentified plant matter|mast|grain
+NORTHERN FULMAR,Fulmarus glacialis,2481433.0,Aves,Procellariiformes,Procellariidae,Fulmarus,VU,Vulnerable,Decreasing,Terrestrial; Marine,Teleostei,Teleostei|Cephalopoda|Scyphozoa|Malacostraca|Polychaeta|Hydrozoa|Magnoliopsida|Mammalia|Maxillopoda|nan|Insecta,sandeels|herrring|plastic|copepoda|pacific pomfret
+NORTHERN GANNET,Morus bassanus,2480964.0,Aves,Suliformes,Sulidae,Morus,LC,Least Concern,Increasing,Terrestrial; Marine,nan,nan|Teleostei|Cephalopoda,fish|herring|Atlantic mackerel|sand eel|pollock
+NORTHERN GOSHAWK,Accipiter gentilis,2480589.0,Aves,Accipitriformes,Accipitridae,Accipiter,LC,Least Concern,Unknown,Terrestrial,Amphibia,Amphibia|Aves|nan|Mammalia,birds|bird|mammal|Willow ptarmigan|robin
+NORTHERN JACANA,Jacana spinosa,9520263.0,Aves,Charadriiformes,Jacanidae,Jacana,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+NORTHERN MOCKINGBIRD,Mimus polyglottos,5231677.0,Aves,Passeriformes,Mimidae,Mimus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Reptilia|Pinopsida|nan|Insecta,seeds; fruit|unidentified food|nan|ants|grasshoppers
+NORTHERN PARULA,Setophaga americana,6093345.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Bivalvia|Magnoliopsida|nan|Gastropoda|Insecta,spruce budworm|nan|fruit and nectar|snails|moth
+NORTHERN RED BISHOP,Euplectes franciscanus,2494086.0,Aves,Passeriformes,Ploceidae,Euplectes,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+NORTHERN SHOVELER,Spatula clypeata,8332393.0,Aves,Anseriformes,Anatidae,Spatula,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Granuloreticulosea|Ostracoda|Malacostraca|Branchiopoda|Magnoliopsida|Maxillopoda|nan|Gastropoda|Insecta,gastropods|water fleas|nan|foraminifera|nonbiting midges
+OCELLATED TURKEY,Meleagris ocellata,5227755.0,Aves,Galliformes,Phasianidae,Meleagris,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+OILBIRD,Steatornis caripensis,2497150.0,Aves,Steatornithiformes,Steatornithidae,Steatornis,LC,Least Concern,Stable,Terrestrial,Unknown,,
+OKINAWA RAIL,Gallirallus okinawae,2474542.0,Aves,Gruiformes,Rallidae,Gallirallus,,,,,Unknown,,
+ORANGE BREASTED TROGON,Harpactes oreskios,5232055.0,Aves,Trogoniformes,Trogonidae,Harpactes,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+ORANGE BRESTED BUNTING,Passerina leclancherii,5230870.0,Aves,Passeriformes,Cardinalidae,Passerina,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+ORIENTAL BAY OWL,Phodilus badius,2497972.0,Aves,Strigiformes,Tytonidae,Phodilus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+ORNATE HAWK EAGLE,Spizaetus ornatus,2480679.0,Aves,Accipitriformes,Accipitridae,Spizaetus,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+OSPREY,Pandion haliaetus,2480726.0,Aves,Accipitriformes,Pandionidae,Pandion,EN,Endangered,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan|Teleostei,low vertebrate|Atlantic menhaden|Black bullhead|black bullhead|bluegill
+OSTRICH,Struthio camelus,2495150.0,Aves,Struthioniformes,Struthionidae,Struthio,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+OVENBIRD,Seiurus aurocapilla,2489590.0,Aves,Passeriformes,Parulidae,Seiurus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|Diplopoda|Amphibia|Magnoliopsida|Chilopoda|nan|Gastropoda|Insecta,Soldier beetles|seeds|snails|Ground beetles|spiders
+OYSTER CATCHER,Haematopus ostralegus,7788295.0,Aves,Charadriiformes,Haematopodidae,Haematopus,VU,Vulnerable,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+PAINTED BUNTING,Passerina ciris,5230852.0,Aves,Passeriformes,Cardinalidae,Passerina,LC,Least Concern,Stable,Terrestrial,nan,nan|Magnoliopsida|Insecta,foxtail grass|nan|cotton boll weevil|grasses|cotton worm
+PALILA,Loxioides bailleui,2494136.0,Aves,Passeriformes,Fringillidae,Loxioides,CR,Critically Endangered,Decreasing,Terrestrial,Unknown,,
+PALM NUT VULTURE,Gypohierax angolensis,2480393.0,Aves,Accipitriformes,Accipitridae,Gypohierax,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+PARADISE TANAGER,Tangara chilensis,2488217.0,Aves,Passeriformes,Thraupidae,Tangara,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+PARAKETT  AUKLET,Aethia psittacula,5229269.0,Aves,Charadriiformes,Alcidae,Aethia,LC,Least Concern,Decreasing,Terrestrial; Marine,Teleostei,Teleostei|Scyphozoa|Cephalopoda|Malacostraca|Polychaeta|Maxillopoda|nan|Gastropoda,jellyfish|nan|fish
+PARAKETT AUKLET,Aethia psittacula,5229269.0,Aves,Charadriiformes,Alcidae,Aethia,LC,Least Concern,Decreasing,Terrestrial; Marine,Teleostei,Teleostei|Scyphozoa|Cephalopoda|Malacostraca|Polychaeta|Maxillopoda|nan|Gastropoda,jellyfish|nan|fish
+PARUS MAJOR,Parus major,9705453.0,Aves,Passeriformes,Paridae,Parus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|nan|Insecta,nan
+PATAGONIAN SIERRA FINCH,Phrygilus patagonicus,5231073.0,Aves,Passeriformes,Thraupidae,Phrygilus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+PEACOCK,Pavo cristatus,9451184.0,Aves,Galliformes,Phasianidae,Pavo,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+PEREGRINE FALCON,Falco peregrinus,2481047.0,Aves,Falconiformes,Falconidae,Falco,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan|Mammalia|Aves,birds|bird|Lapland Longspur|Lemming|invertebrate
+PHAINOPEPLA,Phainopepla nitens,2492885.0,Aves,Passeriformes,Ptilogonatidae,Phainopepla,LC,Least Concern,Stable,Terrestrial,nan,nan,nan
+PHILIPPINE EAGLE,Pithecophaga jefferyi,2480381.0,Aves,Accipitriformes,Accipitridae,Pithecophaga,CR,Critically Endangered,Decreasing,Terrestrial,Unknown,,
+PINK ROBIN,Petroica rodinogaster,2489314.0,Aves,Passeriformes,Petroicidae,Petroica,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+PLUSH CRESTED JAY,Cyanocorax chrysops,2482575.0,Aves,Passeriformes,Corvidae,Cyanocorax,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+POMARINE JAEGER,Stercorarius pomarinus,2481609.0,Aves,Charadriiformes,Stercorariidae,Stercorarius,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan|Cephalopoda|Insecta,fish|squid|plant|other|crustacean
+PUFFIN,Fratercula arctica,2481353.0,Aves,Charadriiformes,Alcidae,Fratercula,EN,Endangered,Decreasing,Terrestrial; Marine,Malacostraca,Malacostraca|Teleostei|Cephalopoda|Polychaeta,sand eel|rockling|European sprat|sandlance|unidentified gadoids
+PUNA TEAL,Spatula puna,9583342.0,Aves,Anseriformes,Anatidae,Spatula,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+PURPLE FINCH,Haemorhous purpureus,7804446.0,Aves,Passeriformes,Fringillidae,Haemorhous,LC,Least Concern,Increasing,Terrestrial,nan,nan|Magnoliopsida|Insecta,spruce budworm|nan|mineral material
+PURPLE GALLINULE,Porphyrio martinica,5228136.0,Aves,Gruiformes,Rallidae,Porphyrio,,,,,Euchelicerata,Euchelicerata|Magnoliopsida|Aves|Gastropoda|Insecta,water millet|nan|gallinule knee segment
+PURPLE MARTIN,Progne subis,2489129.0,Aves,Passeriformes,Hirundinidae,Progne,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),nan,nan|Insecta|Aves,bees; ants; wasps|true bugs|dragonflies|dragonfly|flies
+PURPLE SWAMPHEN,Porphyrio porphyrio,2474416.0,Aves,Gruiformes,Rallidae,Porphyrio,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+PYGMY KINGFISHER,Chloroceryle aenea,2475483.0,Aves,Coraciiformes,Alcedinidae,Chloroceryle,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+PYRRHULOXIA,Cardinalis sinuatus,2490405.0,Aves,Passeriformes,Cardinalidae,Cardinalis,LC,Least Concern,Decreasing,Terrestrial,nan,nan|Magnoliopsida|Insecta,grasses|nan|caterpillars|croton grass|weeds and grain
+QUETZAL,Pharomachrus mocinno,2496723.0,Aves,Trogoniformes,Trogonidae,Pharomachrus,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+RAINBOW LORIKEET,Trichoglossus moluccanus,2479694.0,Aves,Psittaciformes,Psittacidae,Trichoglossus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RAZORBILL,Alca torda,8277073.0,Aves,Charadriiformes,Alcidae,Alca,LC,Least Concern,Increasing,Terrestrial; Marine,Unknown,,
+RED BEARDED BEE EATER,Nyctyornis amictus,2475461.0,Aves,Coraciiformes,Meropidae,Nyctyornis,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+RED BELLIED PITTA,Erythropitta erythrogaster,6101101.0,Aves,Passeriformes,Pittidae,Pitta,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RED BILLED TROPICBIRD,Phaethon aethereus,9743996.0,Aves,Phaethontiformes,Phaethontidae,Phaethon,LC,Least Concern,Decreasing,Terrestrial; Marine,Malacostraca,Malacostraca|nan|Teleostei|Cephalopoda,fish|Flying fish|nan|Squid|Pelagic red crab
+RED BROWED FINCH,Neochmia temporalis,2493737.0,Aves,Passeriformes,Estrildidae,Neochmia,LC,Least Concern,Stable,Terrestrial,Unknown,,
+RED CROSSBILL,Loxia curvirostra,9629160.0,Aves,Passeriformes,Fringillidae,Loxia,LC,Least Concern,Decreasing,Terrestrial,Insecta,Insecta|nan|Magnoliopsida|Pinopsida,nan|pine|scrub pine|western yellow pine|red pine
+RED FACED CORMORANT,Urile urile,10980289.0,Aves,Suliformes,Phalacrocoracidae,Phalacrocorax,LC,Least Concern,Decreasing,Terrestrial; Marine,Unknown,,
+RED FACED WARBLER,Cardellina rubrifrons,2489634.0,Aves,Passeriformes,Parulidae,Cardellina,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RED FODY,Foudia madagascariensis,2494077.0,Aves,Passeriformes,Ploceidae,Foudia,LC,Least Concern,Stable,Terrestrial,Unknown,,
+RED HEADED DUCK,Aythya americana,2498263.0,Aves,Anseriformes,Anatidae,Aythya,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Bivalvia|Magnoliopsida|Ulvophyceae|nan|Gastropoda|Insecta,caddisfly|caddisflies|nonbiting midges|rice cutgrass|nan
+RED HEADED WOODPECKER,Melanerpes erythrocephalus,2478130.0,Aves,Piciformes,Picidae,Melanerpes,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Clitellata|Magnoliopsida|nan|Insecta,17-year locusts|corn|mast|mulberry|grasshopper
+RED KNOT,Calidris canutus,2481765.0,Aves,Charadriiformes,Scolopacidae,Calidris,NT,Near Threatened,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Malacostraca,Malacostraca|nan|Magnoliopsida|Insecta,nan|crustacean
+RED LEGGED HONEYCREEPER,Cyanerpes cyaneus,2488890.0,Aves,Passeriformes,Thraupidae,Cyanerpes,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RED NAPED TROGON,Harpactes kasumba,5232070.0,Aves,Trogoniformes,Trogonidae,Harpactes,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+RED SHOULDERED HAWK,Buteo lineatus,2480529.0,Aves,Accipitriformes,Accipitridae,Buteo,LC,Least Concern,Increasing,Terrestrial,Teleostei,Teleostei|Malacostraca|Clitellata|Amphibia|Reptilia|Mammalia|Aves|nan|Insecta,invertebrate|mammals|reptiles and amphibians|invertebrates|low vertebrate
+RED TAILED HAWK,Buteo jamaicensis,2480542.0,Aves,Accipitriformes,Accipitridae,Buteo,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Teleostei|Amphibia|Reptilia|Mammalia|Aves|Chilopoda|nan|Insecta,Black-tailed Jackrabbit|Belding's Ground Squirrel|meadow vole|rabbit|Richardson's Ground Squirrel
+RED TAILED THRUSH,Neocossyphus rufus,2490831.0,Aves,Passeriformes,Turdidae,Neocossyphus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RED WINGED BLACKBIRD,Agelaius phoeniceus,9409198.0,Aves,Passeriformes,Icteridae,Agelaius,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Malacostraca|Magnoliopsida|nan|Gastropoda|Insecta,grain sorghum|ragweed|sunflowers|grass and weed|Oats
+RED WISKERED BULBUL,Pycnonotus jocosus,2486151.0,Aves,Passeriformes,Pycnonotidae,Pycnonotus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+REGENT BOWERBIRD,Sericulus chrysocephalus,2494814.0,Aves,Passeriformes,Ptilonorhynchidae,Sericulus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RING-NECKED PHEASANT,Phasianus colchicus,9752149.0,Aves,Galliformes,Phasianidae,Phasianus,LC,Least Concern,Unknown,Terrestrial,Diplopoda,Diplopoda|Euchelicerata|Clitellata|Amphibia|Magnoliopsida|nan|Gastropoda|Insecta,vegetable matter|grains|grain|animal matter|corn
+ROADRUNNER,Geococcyx californianus,2496459.0,Aves,Cuculiformes,Cuculidae,Geococcyx,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+ROCK DOVE,Columba livia,2495414.0,Aves,Columbiformes,Columbidae,Columba,LC,Least Concern,Unknown,Terrestrial,nan,nan|Clitellata|Magnoliopsida,"Corn|Bread, cake or currants|Wheat or oats|Barley|Peas, beans, or cultivated vetch seed"
+ROSE BREASTED COCKATOO,Eolophus roseicapilla,2479598.0,Aves,Psittaciformes,Psittacidae,Eolophus,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+ROSE BREASTED GROSBEAK,Pheucticus ludovicianus,2490494.0,Aves,Passeriformes,Cardinalidae,Pheucticus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,caterpillar|peas|nan|wild fruit|other beetles
+ROSEATE SPOONBILL,Platalea ajaja,2480803.0,Aves,Pelecaniformes,Threskiornithidae,Platalea,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Malacostraca,Malacostraca|nan|Magnoliopsida|Insecta,nan|shrimp
+ROSY FACED LOVEBIRD,Agapornis roseicollis,9770031.0,Aves,Psittaciformes,Psittacidae,Agapornis,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+ROUGH LEG BUZZARD,Buteo lagopus,2480524.0,Aves,Accipitriformes,Accipitridae,Buteo,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Aves,Aves|nan|Reptilia|Mammalia,mammals|meadow vole|mammal|invertebrate|black-tailed jackrabbit
+ROYAL FLYCATCHER,Onychorhynchus coronatus,2483680.0,Aves,Passeriformes,Tyrannidae,Onychorhynchus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RUBY CROWNED KINGLET,Corthylio calendula,11261360.0,Aves,Passeriformes,Regulidae,Regulus,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+RUBY THROATED HUMMINGBIRD,Archilochus colubris,5228514.0,Aves,Apodiformes,Trochilidae,Archilochus,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Insecta,spider|ants and bees|nan|misc. plants|leafhopper
+RUDDY SHELDUCK,Tadorna ferruginea,2498015.0,Aves,Anseriformes,Anatidae,Tadorna,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+RUDY KINGFISHER,Halcyon coromanda,5228311.0,Aves,Coraciiformes,Alcedinidae,Halcyon,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+RUFOUS KINGFISHER,Todiramphus winchelli,2475710.0,Aves,Coraciiformes,Alcedinidae,Todiramphus,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+RUFOUS TREPE,Dendrocitta vagabunda,2482451.0,Aves,Passeriformes,Corvidae,Dendrocitta,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+RUFUOS MOTMOT,Baryphthengus martii,2475270.0,Aves,Coraciiformes,Momotidae,Baryphthengus,LC,Least Concern,Decreasing,Terrestrial,Diplopoda,Diplopoda|Magnoliopsida|nan|Gastropoda|Insecta,nan|snails|lizards and frogs
+SAMATRAN THRUSH,Garrulax bicolor,5788995.0,Aves,Passeriformes,Leiothrichidae,Garrulax,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+SAND MARTIN,Riparia riparia,2489160.0,Aves,Passeriformes,Hirundinidae,Riparia,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Magnoliopsida,Magnoliopsida|Teleostei|Insecta,wasps; bees|miscellaneous insects; spiders|flies|ants|beetles
+SANDHILL CRANE,Antigone canadensis,9036008.0,Aves,Gruiformes,Gruidae,Grus,,,,,Polypodiopsida,Polypodiopsida|Clitellata|Magnoliopsida|nan|Gastropoda|Insecta,grit|soil|nut-grasses|timothy|corn
+SATYR TRAGOPAN,Tragopan satyra,2473539.0,Aves,Galliformes,Phasianidae,Tragopan,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SAYS PHOEBE,Sayornis saya,2483607.0,Aves,Passeriformes,Tyrannidae,Sayornis,LC,Least Concern,Increasing,Terrestrial,Euchelicerata,Euchelicerata|Malacostraca|Magnoliopsida|nan|Insecta,bees; wasps; ants|Bees/Wasps|Grasshoppers/crickets|Moths|Flies
+SCARLET CROWNED FRUIT DOVE,Ptilinopus pulchellus,2495561.0,Aves,Columbiformes,Columbidae,Ptilinopus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SCARLET FACED LIOCICHLA,Liocichla ripponi,6101116.0,Aves,Passeriformes,Leiothrichidae,Liocichla,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SCARLET IBIS,Eudocimus ruber,5229204.0,Aves,Pelecaniformes,Threskiornithidae,Eudocimus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+SCARLET MACAW,Ara macao,5959227.0,Aves,Psittaciformes,Psittacidae,Ara,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SCARLET TANAGER,Piranga olivacea,2488517.0,Aves,Passeriformes,Cardinalidae,Piranga,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,nan|Other|Heteroptera|Homoptera|spider
+SHOEBILL,Balaeniceps rex,2480347.0,Aves,Pelecaniformes,Balaenicipitidae,Balaeniceps,VU,Vulnerable,Decreasing,Freshwater (=Inland waters),Unknown,,
+SHORT BILLED DOWITCHER,Limnodromus griseus,2481672.0,Aves,Charadriiformes,Scolopacidae,Limnodromus,VU,Vulnerable,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Malacostraca,Malacostraca|nan|Magnoliopsida|Insecta,nan|marine worm|crustacean
+SMITHS LONGSPUR,Calcarius pictus,2491684.0,Aves,Passeriformes,Calcariidae,Calcarius,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Magnoliopsida,Magnoliopsida|Insecta,yellow foxtail|dropseed|witchgrass|goosegrass|ragweed
+SNOW GOOSE,Anser caerulescens,2498167.0,Aves,Anseriformes,Anatidae,Anser,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,nan,nan|Magnoliopsida|Polypodiopsida,timothy grass|smooth cordgrass|nan|sorghum|wild rice
+SNOW PARTRIDGE,Lerwa lerwa,2474021.0,Aves,Galliformes,Phasianidae,Lerwa,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SNOWY EGRET,Egretta thula,2480873.0,Aves,Pelecaniformes,Ardeidae,Egretta,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Euchelicerata,Euchelicerata|Teleostei|Malacostraca|Clitellata|Polychaeta|Amphibia|Reptilia|nan|Insecta,Small bodied fish|Grasshoppers|Guppies|Shrimp|dragon fly
+SNOWY OWL,Bubo scandiacus,5959143.0,Aves,Strigiformes,Strigidae,Bubo,VU,Vulnerable,Decreasing,Terrestrial; Freshwater (=Inland waters),Aves,Aves|nan|Mammalia,mammal|meadow vole|horned grebe|bufflehead|glaucous-winged gull
+SNOWY PLOVER,Anarhynchus nivosus,1.0,,,,,,,,,Unknown,,
+SNOWY SHEATHBILL,Chionis albus,5789302.0,Aves,Charadriiformes,Chionidae,Chionis,LC,Least Concern,Stable,Terrestrial; Marine,Unknown,,
+SORA,Porzana carolina,2474639.0,Aves,Gruiformes,Rallidae,Porzana,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Collembola|Magnoliopsida|nan|Gastropoda|Insecta,seed coats|Grasshoppers and crickets|Halberdleaf tearthumb|Wildrice|Dotted smartweed
+SPANGLED COTINGA,Cotinga cayana,5230383.0,Aves,Passeriformes,Cotingidae,Cotinga,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SPLENDID WREN,Malurus splendens,2487511.0,Aves,Passeriformes,Maluridae,Malurus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+SPOON BILED SANDPIPER,Calidris pygmaea,10658506.0,Aves,Charadriiformes,Scolopacidae,Calidris,CR,Critically Endangered,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+SPOTTED CATBIRD,Ailuroedus maculosus,7713122.0,Aves,Passeriformes,Ptilonorhynchidae,Ailuroedus,,,,,Unknown,,
+SPOTTED WHISTLING DUCK,Dendrocygna guttata,2498397.0,Aves,Anseriformes,Anatidae,Dendrocygna,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+SQUACCO HERON,Ardeola ralloides,2480906.0,Aves,Pelecaniformes,Ardeidae,Ardeola,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters); Marine,Amphibia,Amphibia|Teleostei|Insecta,nan|beetles|carps|amphibians
+SRI LANKA BLUE MAGPIE,Urocissa ornata,2482420.0,Aves,Passeriformes,Corvidae,Urocissa,VU,Vulnerable,Decreasing,Terrestrial,Unknown,,
+STEAMER DUCK,Tachyeres pteneres,2498234.0,Aves,Anseriformes,Anatidae,Tachyeres,LC,Least Concern,Stable,Terrestrial; Marine,Unknown,,
+STORK BILLED KINGFISHER,Pelargopsis capensis,5228417.0,Aves,Coraciiformes,Alcedinidae,Pelargopsis,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+STRIATED CARACARA,Daptrius australis,2481072.0,Aves,Falconiformes,Falconidae,Daptrius,,,,,Unknown,,
+STRIPED OWL,Asio clamator,4843115.0,Aves,Strigiformes,Strigidae,Pseudoscops,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+STRIPPED MANAKIN,Machaeropterus striolatus,6101077.0,Aves,Passeriformes,Pipridae,Machaeropterus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+STRIPPED SWALLOW,Cecropis striolata,7342267.0,Aves,Passeriformes,Hirundinidae,Cecropis,,,,,Unknown,,
+SUNBITTERN,Eurypyga helias,2474332.0,Aves,Eurypygiformes,Eurypygidae,Eurypyga,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+SUPERB STARLING,Lamprotornis superbus,2489075.0,Aves,Passeriformes,Sturnidae,Lamprotornis,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+SURF SCOTER,Melanitta perspicillata,2498246.0,Aves,Anseriformes,Anatidae,Melanitta,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Teleostei,Teleostei|Malacostraca|Bivalvia|Magnoliopsida|Maxillopoda|nan|Gastropoda|Insecta,nan|herrings|mollusks|bivalves|gastropods
+SWINHOES PHEASANT,Lophura swinhoii,5227984.0,Aves,Galliformes,Phasianidae,Lophura,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+TAILORBIRD,Orthotomus sutorius,2493028.0,Aves,Passeriformes,Cisticolidae,Orthotomus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+TAIWAN MAGPIE,Urocissa caerulea,2482421.0,Aves,Passeriformes,Corvidae,Urocissa,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+TAKAHE,Porphyrio hochstetteri,5228153.0,Aves,Gruiformes,Rallidae,Porphyrio,EN,Endangered,Increasing,Terrestrial,Unknown,,
+TASMANIAN HEN,Tribonyx mortierii,2474776.0,Aves,Gruiformes,Rallidae,Gallinula,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters),Unknown,,
+TAWNY FROGMOUTH,Podargus strigoides,2497109.0,Aves,Caprimulgiformes,Podargidae,Podargus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+TIT MOUSE,Baeolophus bicolor,2487887.0,Aves,Passeriformes,Paridae,Baeolophus,LC,Least Concern,Stable,Terrestrial,Euchelicerata,Euchelicerata|nan|Insecta,nan|spider|Homoptera|Heteroptera
+TOUCHAN,Ramphastos toco,2478765.0,Aves,Piciformes,Ramphastidae,Ramphastos,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+TOWNSENDS WARBLER,Setophaga townsendi,6092651.0,Aves,Passeriformes,Parulidae,Setophaga,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Insecta,other homoptera|true bugs|weevils; snout beetles|nan|ants; wasps
+TREE SWALLOW,Tachycineta bicolor,2489181.0,Aves,Passeriformes,Hirundinidae,Tachycineta,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Magnoliopsida|Pinopsida|nan|Insecta,flies|waxberry|beetles|seeds|ants
+TRICOLORED BLACKBIRD,Agelaius tricolor,2484445.0,Aves,Passeriformes,Icteridae,Agelaius,EN,Endangered,Decreasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,caterpillar|ground beetles|weevils|weed seeds|beetles
+TROPICAL KINGBIRD,Tyrannus melancholicus,5229662.0,Aves,Passeriformes,Tyrannidae,Tyrannus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Insecta,Insecta,"Beetles|Wasp, bees, ants|Dragonflies|Moths and caterpillars|Grasshoppers and crickets"
+TRUMPTER SWAN,Cygnus buccinator,2498345.0,Aves,Anseriformes,Anatidae,Cygnus,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters); Marine,Charophyceae,Charophyceae|Polypodiopsida|Bryopsida|Magnoliopsida|Gastropoda|Insecta,pondweeds|nan|mustard family|horstails|pondweed
+TURKEY VULTURE,Cathartes aura,2481930.0,Aves,Accipitriformes,Cathartidae,Cathartes,LC,Least Concern,Stable,Terrestrial,Teleostei,Teleostei|Malacostraca|Amphibia|Magnoliopsida|Reptilia|Mammalia|Aves|Pinopsida|nan|Gastropoda|Insecta,opposum|ungulates|sheep|horse|mole
+TURQUOISE MOTMOT,Eumomota superciliosa,2475276.0,Aves,Coraciiformes,Momotidae,Eumomota,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+UMBRELLA BIRD,Cephalopterus ornatus,5959196.0,Aves,Passeriformes,Cotingidae,Cephalopterus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+VARIED THRUSH,Ixoreus naevius,2490926.0,Aves,Passeriformes,Turdidae,Ixoreus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Pinopsida|nan|Insecta,nan|mast|wild fruit|miscellaneous vegetable matter|unidentified seeds
+VEERY,Catharus fuscescens,2490804.0,Aves,Passeriformes,Turdidae,Catharus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Diplopoda|Magnoliopsida|Pinopsida|nan|Gastropoda|Insecta,spruce budworm|wild berries|wild fruit|termites|cultivated fruit
+VENEZUELIAN TROUPIAL,Icterus icterus,5229915.0,Aves,Passeriformes,Icteridae,Icterus,LC,Least Concern,Stable,Terrestrial,Unknown,,
+VERDIN,Auriparus flaviceps,2487397.0,Aves,Passeriformes,Remizidae,Auriparus,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Insecta,nan|parasitic wasps
+VERMILION FLYCATHER,Pyrocephalus rubinus,2483647.0,Aves,Passeriformes,Tyrannidae,Pyrocephalus,LC,Least Concern,Increasing,Terrestrial,Unknown,,
+VICTORIA CROWNED PIGEON,Goura victoria,2495204.0,Aves,Columbiformes,Columbidae,Goura,NT,Near Threatened,Decreasing,Terrestrial,Unknown,,
+VIOLET BACKED STARLING,Cinnyricinclus leucogaster,2489057.0,Aves,Passeriformes,Sturnidae,Cinnyricinclus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+VIOLET CUCKOO,Chrysococcyx xanthorhynchus,2496321.0,Aves,Cuculiformes,Cuculidae,Chrysococcyx,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+VIOLET GREEN SWALLOW,Tachycineta thalassina,5230754.0,Aves,Passeriformes,Hirundinidae,Tachycineta,LC,Least Concern,Decreasing,Terrestrial; Marine,Insecta,Insecta,bark beetle|bugs|true bugs|flies|leafhoppers
+VIOLET TURACO,Tauraco violaceus,11228987.0,Aves,Musophagiformes,Musophagidae,Musophaga,,,,,Unknown,,
+VISAYAN HORNBILL,Penelopides panini,2476026.0,Aves,Bucerotiformes,Bucerotidae,Penelopides,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+VULTURINE GUINEAFOWL,Acryllium vulturinum,2473339.0,Aves,Galliformes,Numididae,Acryllium,LC,Least Concern,Stable,Terrestrial,Unknown,,
+WALL CREAPER,Tichodroma muraria,2484918.0,Aves,Passeriformes,Tichodromidae,Tichodroma,LC,Least Concern,Unknown,Terrestrial,Unknown,,
+WATTLED CURASSOW,Crax globulosa,2482171.0,Aves,Galliformes,Cracidae,Crax,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+WATTLED LAPWING,Vanellus senegallus,5229150.0,Aves,Charadriiformes,Charadriidae,Vanellus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+WHIMBREL,Numenius phaeopus,2481784.0,Aves,Charadriiformes,Scolopacidae,Numenius,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+WHITE BREASTED WATERHEN,Amaurornis phoenicurus,2474732.0,Aves,Gruiformes,Rallidae,Amaurornis,LC,Least Concern,Unknown,Terrestrial; Freshwater (=Inland waters); Marine,Unknown,,
+WHITE BROWED CRAKE,Poliolimnas cinereus,5228180.0,Aves,Gruiformes,Rallidae,Porzana,,,,,Unknown,,
+WHITE CHEEKED TURACO,Menelikornis leucotis,11244765.0,Aves,Musophagiformes,Musophagidae,Tauraco,,,,,Unknown,,
+WHITE CRESTED HORNBILL,Berenicornis comatus,2476030.0,Aves,Bucerotiformes,Bucerotidae,Berenicornis,EN,Endangered,Decreasing,Terrestrial,Unknown,,
+WHITE EARED HUMMINGBIRD,Basilinna leucotis,2476836.0,Aves,Apodiformes,Trochilidae,Basilinna,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+WHITE NECKED RAVEN,Corvus albicollis,2482478.0,Aves,Passeriformes,Corvidae,Corvus,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+WHITE TAILED TROPIC,Phaethon lepturus,2481364.0,Aves,Phaethontiformes,Phaethontidae,Phaethon,LC,Least Concern,Decreasing,Terrestrial; Marine,nan,nan|Teleostei|Cephalopoda,nan|Crustaceans
+WHITE THROATED BEE EATER,Merops albicollis,2475448.0,Aves,Coraciiformes,Meropidae,Merops,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Unknown,,
+WILD TURKEY,Meleagris gallopavo,9606290.0,Aves,Galliformes,Phasianidae,Meleagris,LC,Least Concern,Increasing,Terrestrial,Chlorophyceae,Chlorophyceae|Lycopodiopsida|Amphibia|Magnoliopsida|Pinopsida|nan|Insecta,"Mountain dandelion|Pin cherry and/or black cherry|Grasshoppers, crickets|Sedge|Mineral"
+WILLOW PTARMIGAN,Lagopus lagopus,2473421.0,Aves,Galliformes,Phasianidae,Lagopus,LC,Least Concern,Decreasing,Terrestrial,Polypodiopsida,Polypodiopsida|Malacostraca|Magnoliopsida|nan|Insecta,nan|Rocks/grit|Wasp|Sow-bug|Saw-fly
+WILSONS BIRD OF PARADISE,Diphyllodes respublica,5788945.0,Aves,Passeriformes,Paradisaeidae,Diphyllodes,,,,,Unknown,,
+WOOD DUCK,Aix sponsa,2498387.0,Aves,Anseriformes,Anatidae,Aix,LC,Least Concern,Increasing,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|Malacostraca|Magnoliopsida|Pinopsida|nan|Insecta,grass and sedges|maple trees|butterflies and moths|nan|misc. insects and crustaceans
+WOOD THRUSH,Hylocichla mustelina,2490872.0,Aves,Passeriformes,Turdidae,Hylocichla,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Diplopoda|Magnoliopsida|Pinopsida|nan|Insecta,"wild fruit|.|nan|unknown fruit, pulp, and juice|blackberries or raspberries"
+WOODLAND KINGFISHER,Halcyon senegalensis,5228340.0,Aves,Coraciiformes,Alcedinidae,Halcyon,LC,Least Concern,Decreasing,Terrestrial; Freshwater (=Inland waters),Unknown,,
+WRENTIT,Chamaea fasciata,2493558.0,Aves,Passeriformes,Sylviidae,Chamaea,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,nan|caterpillars|wasps; ants|fruit|Poison oak
+YELLOW BELLIED FLOWERPECKER,Pachyglossa melanozantha,,,,,,,,,,Unknown,,
+YELLOW BREASTED CHAT,Icteria virens,2489989.0,Aves,Passeriformes,Parulidae,Icteria,LC,Least Concern,Decreasing,Terrestrial,Euchelicerata,Euchelicerata|Magnoliopsida|Insecta,ants|nan|wasps
+YELLOW CACIQUE,Cacicus cela,5229832.0,Aves,Passeriformes,Icteridae,Cacicus,LC,Least Concern,Decreasing,Terrestrial,Unknown,,
+YELLOW HEADED BLACKBIRD,Xanthocephalus xanthocephalus,2484195.0,Aves,Passeriformes,Icteridae,Xanthocephalus,LC,Least Concern,Stable,Terrestrial; Freshwater (=Inland waters),Euchelicerata,Euchelicerata|nan|Magnoliopsida|Insecta,insects|small grains|oats|seeds|weed seed
+ZEBRA DOVE,Geopelia striata,2495486.0,Aves,Columbiformes,Columbidae,Geopelia,LC,Least Concern,Stable,Terrestrial,Unknown,,
