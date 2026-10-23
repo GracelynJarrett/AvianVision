@@ -482,7 +482,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Weekly Summary:**
     This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
-# Week 4 - Snowflack and Buffer week
+# Week 4 - Snowflack and Buffer weekd
     ** This week is a buffer week but this weeks goal is to download and accase all the datasets **
 
 ## Sunday October 11, 2026
@@ -625,68 +625,76 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 # Week 5
-## 
-**Day Goal:** 
+    ** Fix the Enrichment pipline, and set up the dashbord
 
-**What Was Done:** 
+## Sunday October 18, 2026
+**Day Goal:** Complet the dataset notes
 
-**Challenges:** 
+**What Was Done:** complet the dataset notes, updated Project peek
 
-**Blockers:** 
+**Challenges:** No chalanges for today
+
+**Blockers:** I have a small head heack
 
 **Summary:**
+    Today i finnshed creating the datset notes and I updated the project peekplatform
 
 
 **Time:**
-    - Total:
+    - Total: 1 hour
 
 ---
 
-## 
-**Day Goal:** 
+## Monday October 19, 2026 
+**Day Goal:** Fix the Enrichment pipline
 
-**What Was Done:** 
+**What Was Done:** Fix the erichmetn pipline, dowloaded all the data into snowflake and mongodb
 
-**Challenges:** 
+**Challenges:** No Migration data, had to find a differnt way
 
-**Blockers:** 
+**Blockers:** No Blockers
 
 **Summary:**
+    Today I was able to Fix the main Enrichment pipline, meaning all the APIs now work. However I relized to get the migration data I want I would have over 1 minllon records in Mongodb. So I uploaded all the data to mongodb but keeped the main migration data in snowflake. Tomorrow I will explore the migration data deciding what graphs and mapes I want in my database. I will also be saving small miny tables fore each bird in VS code so that we dont use a lot of snowflake crites and procation in snowflake crashes. 
 
 
 **Time:**
-    - Total:
+    - Total: 5 hours
 
 ---
 
-## 
-**Day Goal:** 
+##  October 20, 2025
+**Day Goal:** Down load all the data
 
-**What Was Done:** 
+**What Was Done:** got ride of snowflake, changed the enrichment pipline to go strat into MongoDB Atlase, Down loaded all the data
 
-**Challenges:** 
+**Challenges:** Snowflake ran out of criteds, data keeped stoping
 
-**Blockers:** 
+**Blockers:** No blockers
 
 **Summary:**
+    So yeterday when I was finnising downloading my data (after I recoded my hours) I ran into a qreset limt rate and had to stop downloading data. Then today it stop 2 more time, one time becase it lost internet accase the secont becase I ran out of snowflake crits. I then really though about it and I relized that I didnt need snowflake, so I decided to take it out complitly. I then updated the pipline to update the data strat into Mongodb Atlatse, and I split it in to two different scripts. One for bird info and the other for observations. I then was able to download all the data into mongoDB Atlase sesefully.
 
 
 **Time:**
-    - Total:
+    - Total: 9 hours 5 mintus
+    - Downloading data: 7 hours 5 minuts
+    - Other: 2 hours
+    - recoded to Project peek: 5 Hours 35 minutes
 
 ---
 
-## 
-**Day Goal:** 
+## October 21, 2026
+**Day Goal:** Start working on data graphs
 
-**What Was Done:** 
+**What Was Done:** downloaded data from mongoDB
 
-**Challenges:** 
+**Challenges:** No Challenges
 
-**Blockers:** 
+**Blockers:** No Blockers 
 
 **Summary:**
-
+    Today I started working on a Notbook that explored the occurrences and enrichment data, and the graphs/maps would be used on the Dashboard. However after I subsfuly got accase to the data I got a proter key for Tableau. So I created a script to download the MongoDB data as CSV files so that tomorrow I can explore the different graphs/maps. 
 
 **Time:**
     - Total:

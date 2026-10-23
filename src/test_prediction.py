@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from datasets import load_dataset_builder
 from mlflow_setup import setup_mlflow
-from mongodb_client import get_species_enrichment_collection
+from mongodb_client import get_species_info_collection
 from preprocessing import build_label_remap
 
 # ---- Fixed settings ----
@@ -169,7 +169,7 @@ def run_test(image_path):
     # --- Step 7: Look up enrichment data in MongoDB ---
     # We search for the species by its dataset label (e.g. "ABBOTTS BOOBY").
     print("\nLooking up enrichment data in MongoDB...")
-    collection = get_species_enrichment_collection()
+    collection = get_species_info_collection()
     doc = collection.find_one({"species_label": predicted_label})
 
     if doc is None:
