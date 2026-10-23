@@ -663,7 +663,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-##  October 20, 2025
+## Tuesday  October 20, 2025
 **Day Goal:** Down load all the data
 
 **What Was Done:** got ride of snowflake, changed the enrichment pipline to go strat into MongoDB Atlase, Down loaded all the data
@@ -684,7 +684,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## October 21, 2026
+## Wednsday October 21, 2026
 **Day Goal:** Start working on data graphs
 
 **What Was Done:** downloaded data from mongoDB
@@ -701,20 +701,20 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Thursday
+**Day Goal:** Work on graphs in Tableau
 
-**What Was Done:** 
+**What Was Done:** Created 12 different Tableau graphs
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:**  I am tired
 
 **Summary:**
-
+    Today I set up tableau and created 12 differnet graphs and maps for my dashboard. The tables, graphs, and maps haved data from bothe observation and the enrichment dataset. I saved the tableau as a notbook so I can explore the data some more if I wanted to in the furcher. 
 
 **Time:**
-    - Total:
+    - Total: 3 hours 30m 
 
 ---
 
