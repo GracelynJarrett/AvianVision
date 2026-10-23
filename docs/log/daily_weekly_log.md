@@ -668,17 +668,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## October 21, 2026
+**Day Goal:** Start working on data graphs
 
-**What Was Done:** 
+**What Was Done:** downloaded data from mongoDB
 
-**Challenges:** 
+**Challenges:** No Challenges
 
-**Blockers:** 
+**Blockers:** No Blockers 
 
 **Summary:**
-
+    Today I started working on a Notbook that explored the occurrences and enrichment data, and the graphs/maps would be used on the Dashboard. However after I subsfuly got accase to the data I got a proter key for Tableau. So I created a script to download the MongoDB data as CSV files so that tomorrow I can explore the different graphs/maps. 
 
 **Time:**
     - Total:
