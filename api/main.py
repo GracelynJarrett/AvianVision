@@ -1,8 +1,8 @@
 from fastapi import FastAPI
+import json
+import mlflow
 
 common_name = "BirdName"
-
-
 
 
 
@@ -12,6 +12,41 @@ app = FastAPI( # creat a new FastAPI server
     description="Backend API for bird prediction and species information",
     version="1.0.0"
 )
+
+
+
+# --- Helper files ---
+
+# Helpe to load json file for /stats
+def load_json(filepath):
+    with open(filepath, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+## help to talks to mlflow
+from src.mlflow_setup import(
+    setup_mlflow,
+    EXPERIMENT_NAME
+)
+
+# help to talk to mlflow
+def get_mlflow_status():
+    setup_mlflow()
+
+    experiment = mlflow.get_experiment_by_name(
+        EXPERIMENT_NAME
+    )
+
+    if experiment:
+        return {
+            "status": "connected",
+            "experiment": experiment.name
+        }
+
+    return {
+        "status": "not connected"
+    }
+
 
 
 # ---  Endpoints  ---
@@ -26,7 +61,7 @@ def health():
         "api_status": "online",
         "model_status": "not loaded",
         "database": "not connected",
-        "mlflow": "not connected "
+        "mlflow": get_mlflow_status()
     }
     
 
@@ -42,7 +77,18 @@ def home():
 @app.get("/stats")
 def model_stats():
     return {
-        "message":"Coming soon"
+        "defintions": {
+            "metrics": load_json("api/data/metrics.json"),
+            "aggregations": load_json("api/data/aggregations.json"),
+            "hyperparameters": load_json("api/data/hyperparameters.json"),
+            "model_types": load_json("api/data/model_types.json")
+        },
+         "mlflow": 
+            {
+             "top_aggtetion_models": [],
+             "top_hypeerparameter_models": [],
+             "best_model": {}
+         }
     }
 
 
@@ -68,4 +114,14 @@ def bird(common_name:str):
     return {
         "message":f"information for {common_name} coning soon"
     }
+
+
+
+
+
+
+
+
+
+
 

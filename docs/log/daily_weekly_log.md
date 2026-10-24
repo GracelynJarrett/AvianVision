@@ -731,12 +731,12 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     Today I set up my fastAPI folder and created all of my endpoints. I tested them all out and they conetted, however I do not have any of the endpoints detesl inplace. Meaning they are not coneted to the model, mlflow or to the dash bord. Today i relly strugled with finding modivation to starte and stay working on my project. 
 
 **Time:**
-    - Total:
+    - Total: 2 hours
 
 ---
 
 ## 
-**Day Goal:** 
+**Day Goal:** Finnish FastAPI enpoint 
 
 **What Was Done:** 
 
