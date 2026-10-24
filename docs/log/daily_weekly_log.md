@@ -721,14 +721,14 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Thusday October 23 2026
 **Day Goal:** Set up FastAPI and endpoints
 
-**What Was Done:** 
+**What Was Done:** Set up FastAPI and created all the endpoints
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:** Finding modivation to work on my capstone
 
 **Summary:**
-
+    Today I set up my fastAPI folder and created all of my endpoints. I tested them all out and they conetted, however I do not have any of the endpoints detesl inplace. Meaning they are not coneted to the model, mlflow or to the dash bord. Today i relly strugled with finding modivation to starte and stay working on my project. 
 
 **Time:**
     - Total:

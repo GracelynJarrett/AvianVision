@@ -6,7 +6,7 @@ common_name = "BirdName"
 
 
 
-# App is creating the the API application
+# App is creating the API application
 app = FastAPI( # creat a new FastAPI server
     title="AvianVision Backend", 
     description="Backend API for bird prediction and species information",
@@ -38,7 +38,7 @@ def home():
     }
 
 
-# /stats Endpoints returns the modles stats and talks about the models metrics
+# /stats Endpoint returns the model stats and model metrics
 @app.get("/stats")
 def model_stats():
     return {
@@ -54,8 +54,8 @@ def species():
     }
 
 
-# /predict  Endpoint returns the model and the bird predtiion
-@app.get("/predict")
+# /predict Endpoint returns the model prediction
+@app.post("/predict")
 def prediction():
     return {
         "message":"Coming soon"
@@ -63,9 +63,9 @@ def prediction():
 
 
 # /bird/common_name returns info for one bird
-@app.get(f"/bird/{common_name}")
-def birds():
+@app.get("/bird/{common_name}")
+def bird(common_name:str):
     return {
-        "message":"Coming soon"
+        "message":f"information for {common_name} coning soon"
     }
 
