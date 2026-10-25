@@ -701,7 +701,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Thursday
+## Thursday October 22, 2026
 **Day Goal:** Work on graphs in Tableau
 
 **What Was Done:** Created 12 different Tableau graphs
@@ -718,7 +718,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Thusday October 23 2026
+## Friday October 23 2026
 **Day Goal:** Set up FastAPI and endpoints
 
 **What Was Done:** Set up FastAPI and created all the endpoints
@@ -735,22 +735,43 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
+## Saterday October 24, 2026
 **Day Goal:** Finnish FastAPI enpoint 
 
-**What Was Done:** 
+**What Was Done:** Worked on the /stats endpoint
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:** Losing modivation to start working on my capstone
 
 **Summary:**
+    Today I started working on my /stats endpoint. I sueffly conneted to MLFLOW now I just need to connet to the right experment. Once again I found it hard to find modivation to work and stay working on my capstone project. 
 
 
 **Time:**
-    - Total:
+    - Total: 1 hour 30 m 
 
 ---
+
+## Week 5 Review
+
+**Week Goal:** Fix the enrichment pipline and creat the dashboard
+
+**What Was Done:** I fixed the enrichment pipline, created the graphs I want to use on the dash board, and strted creating the FastAPI endpoins
+
+**What Was Not Done:** The FastAPI endpoints are not fully done. Have not worked on created the Dashboard.
+
+**Challenges:** I am starting to loase modivation to start working on my capstone.
+
+**Carried Into Next Week:** Finnishing the Fast API endpoints and creating at less 2 dashboard pages
+
+**Weekly Summary:**
+    This week I fixed the enrichment pipeline and found that I didn not need Snowflake. In stead python a python script can do what snowflake did so I dont need to use snowflake any more. I was able to get tablue and made many differnet maps and graphs that I plain to use for my dash board. I also started to work on my FastAPI end point, unfocently I didnt get it Fully done like I wanted too but I got all the endpoint created. 
+
+---
+
+
+
 
 
 # Week 6
