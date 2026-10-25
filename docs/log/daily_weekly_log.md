@@ -775,20 +775,23 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 # Week 6
-## 
-**Day Goal:** 
+    * This weeks goal is to finnish the Enpoints and create at less 2 dashboards
 
-**What Was Done:** 
+## Sunday October 25 2026
+**Day Goal:** Finnish the /Stats endpoint
 
-**Challenges:** 
+**What Was Done:** Finnish the /stats endpoint
 
-**Blockers:** 
+**Challenges:** no chanlanges
+
+**Blockers:** I am really tired
 
 **Summary:**
+    Today i finnish the /stats endpoint. So now it returns all the stats from MLflow, and it sorrts the top 5 best hypertuning models. 
 
 
 **Time:**
-    - Total:
+    - Total: 2 hours
 
 ---
 
@@ -891,6 +894,25 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 **Time:**
     - Total:
+
+---
+
+## Week 6 Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
 
 ---
 
@@ -1016,9 +1038,441 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
+
 
 # Week 8
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
+
 
 # Week 9
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
+
 
 # Week 10
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
