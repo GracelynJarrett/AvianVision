@@ -330,32 +330,6 @@ def get_home_data():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # ---  Endpoints  ---
 
 # /health Endpoint retunes a message talking about if all the projects parts are conneted and online
@@ -415,8 +389,24 @@ def model_stats():
 # /species Endpoint returns graphs/tables/maps about different birds
 @app.get("/species")
 def species():
+    collection = get_species_info_collection()
+
+    species = list(
+        collection.find(
+            {},
+            {
+                "_id": 0,
+                "species_label": 1,
+                "scientific_name": 1,
+                "conservation.status_label": 1,
+                "migration.total_sightings": 1
+            }
+        )
+    )
+
     return {
-        "message":"Coming soon"
+        "species_count": len(species),
+        "species": species
     }
 
 
