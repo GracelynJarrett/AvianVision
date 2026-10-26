@@ -208,8 +208,49 @@ def hyperparameter_sort_key(model):
     )
 
 
+#------ Health cheeker funtions --------------
 
+# check if conneted to mongoDB
+def check_mongodb():
+
+    try:
+        collection = get_species_info_collection()
+
+        collection.find_one()
+
+        return True
+
+    except Exception:
+        return False
     
+    
+# Check if the model is conneted
+
+def check_model():
+
+    try:
+        model = get_model()
+
+        return model is not None
+
+    except Exception:
+        return False
+
+
+# Check if mlflow is conneted
+def check_mlflow():
+
+    try:
+        setup_mlflow()
+
+        experiment = mlflow.get_experiment_by_name(
+            EXPERIMENT_NAME
+        )
+
+        return experiment is not None
+
+    except Exception:
+        return False
     
 
 
@@ -218,14 +259,32 @@ def hyperparameter_sort_key(model):
 # /health Endpoint retunes a message talking about if all the projects parts are conneted and online
 @app.get("/health") 
 def health():
-    return{
+
         # Sends data back to the user
-        
-        "application": "AvianVision",
-        "api_status": "online",
-        "model_status": "not loaded",
-        "database": "not connected",
-        "mlflow": get_mlflow_status()
+    mongodb_ok = check_mongodb()
+    mlflow_ok = check_mlflow()
+    model_ok = check_model()
+
+    overall_ok = (
+        mongodb_ok and
+        mlflow_ok and
+        model_ok
+    )
+
+    return {
+        "status": (
+            "healthy"
+            if overall_ok
+            else "unhealthy"
+        ),
+
+        "services": {
+            "application": "AvianVision",
+            "api": True,
+            "mongodb": mongodb_ok,
+            "mlflow": mlflow_ok,
+            "model": model_ok
+        }
     }
     
 
