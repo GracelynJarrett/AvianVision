@@ -3,6 +3,13 @@ import json
 import mlflow
 import math
 import pandas as pd
+from src.mongodb_client import (
+    get_species_info_collection,
+    get_species_observations_collection,
+    get_predictions_collection
+)
+
+
 
 common_name = "BirdName"
 
@@ -276,6 +283,15 @@ def bird(common_name:str):
 
 
 
+@app.get("/test-mongo")
+def test_mongo():
 
+    collection = get_species_info_collection()
+
+    bird = collection.find_one()
+
+    return {
+        "species": bird["species_label"]
+    }
 
 

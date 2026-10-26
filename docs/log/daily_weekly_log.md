@@ -795,8 +795,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Monday October 26 2026
+**Day Goal:** Connect MongoDB to endpoints, Finnish /health and /home
 
 **What Was Done:** 
 

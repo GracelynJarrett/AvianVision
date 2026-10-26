@@ -59,3 +59,15 @@ def get_species_observations_collection():
     collection = client["avianvision"]["species_observations"]
 
     return collection
+
+
+def get_predictions_collection():
+    load_dotenv()
+
+    uri = os.getenv("MONGODB_URI")
+
+    client = MongoClient(uri)
+
+    collection = client["avianvision"]["predictions"]
+
+    return collection
