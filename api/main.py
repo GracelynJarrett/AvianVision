@@ -8,6 +8,7 @@ from src.mongodb_client import (
     get_species_observations_collection,
     get_predictions_collection
 )
+from src.model_loader import get_model
 
 
 
@@ -208,9 +209,8 @@ def hyperparameter_sort_key(model):
 
 
 
-
-
-
+    
+    
 
 
 # ---  Endpoints  ---
@@ -279,19 +279,7 @@ def bird(common_name:str):
 
 
 
-
-
-
-
-@app.get("/test-mongo")
-def test_mongo():
-
-    collection = get_species_info_collection()
-
-    bird = collection.find_one()
-
-    return {
-        "species": bird["species_label"]
-    }
-
-
+    
+    
+    
+    
