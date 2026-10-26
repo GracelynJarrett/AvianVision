@@ -15,7 +15,6 @@ from src.model_loader import get_model
 common_name = "BirdName"
 
 
-
 # App is creating the API application
 app = FastAPI( # creat a new FastAPI server
     title="AvianVision Backend", 
@@ -329,16 +328,33 @@ def prediction():
 
 
 # /bird/common_name returns info for one bird
-@app.get("/bird/{common_name}")
-def bird(common_name:str):
+@app.get("/bird/{species_label}")
+def get_bird(species_label: str):
+    info_collection = get_species_info_collection()
+    observation_collection = get_species_observations_collection()
+
+    bird_info = info_collection.find_one(
+        {"species_label": species_label.upper()}
+    )
+
+    if bird_info is None:
+        return {
+            "error": "Bird not found"
+        }
+
+    bird_info.pop("_id", None)
+
+
+    observations = list(
+        observation_collection.find(
+            {"species_label": species_label},
+            {"_id": 0}
+        )
+    )
+
     return {
-        "message":f"information for {common_name} coning soon"
+        "bird": bird_info,
+        "observation_count": len(observations),
+        "observations": observations
     }
 
-
-
-
-    
-    
-    
-    
