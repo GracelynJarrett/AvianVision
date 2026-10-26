@@ -1,15 +1,27 @@
-from fastapi import FastAPI
+# Standard Library
 import json
+
+# Third-Party Libraries
 import mlflow
-import math
-import pandas as pd
+import numpy as np
+import tensorflow as tf
+from PIL import Image
+
+# FastAPI
+from fastapi import FastAPI, File, UploadFile
+
+# Project Files
+from src.model_loader import get_model
 from src.mongodb_client import (
+    get_predictions_collection,
     get_species_info_collection,
     get_species_observations_collection,
-    get_predictions_collection
 )
-from src.model_loader import get_model
-
+from src.test_prediction import(
+    load_class_names,
+    load_config
+    
+)
 
 
 common_name = "BirdName"
@@ -330,6 +342,7 @@ def get_home_data():
 
 
 
+
 # ---  Endpoints  ---
 
 # /health Endpoint retunes a message talking about if all the projects parts are conneted and online
@@ -412,10 +425,133 @@ def species():
 
 # /predict Endpoint returns the model prediction
 @app.post("/predict")
-def prediction():
+def predict(file: UploadFile = File(...)):
+
+    # ----- Validate File -----
+
+    if file.content_type not in [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+        "image/webp"
+    ]:
+        return {
+            "error": "Only JPG, PNG, and WEBP images are supported."
+        }
+
+    # ----- Load Config -----
+
+    image_size, threshold = load_config()
+
+    # ----- Preprocess Image -----
+
+    image = Image.open(file.file).convert("RGB")
+
+    img_array = np.array(image)
+
+    img_tensor = tf.cast(
+        img_array,
+        tf.float32
+    )
+
+    img_tensor = tf.image.resize(
+        img_tensor,
+        [image_size, image_size]
+    )
+
+    img_tensor = tf.expand_dims(
+        img_tensor,
+        axis=0
+    )
+
+    # ----- Run Prediction -----
+
+    model = get_model()
+
+    predictions = model.predict(
+        img_tensor,
+        verbose=0
+    )
+
+    top_index = int(
+        np.argmax(predictions[0])
+    )
+
+    confidence = float(
+        predictions[0][top_index]
+    )
+
+    # ----- Convert Prediction To Species -----
+
+    class_names = load_class_names()
+
+    predicted_label = class_names[top_index]
+
+    # ----- Confidence Check -----
+
+    if confidence < threshold:
+        return {
+            "prediction": {
+                "species_label": "UNKNOWN",
+                "confidence": confidence,
+                "accepted": False
+            },
+            "bird": None
+        }
+
+    # ----- Lookup Bird Information -----
+
+    collection = get_species_info_collection()
+
+    bird_info = collection.find_one(
+        {"species_label": predicted_label}
+    )
+
+    if bird_info:
+        bird_info.pop("_id", None)
+
+    # ----- Save Prediction -----
+
+    predictions_collection = (
+        get_predictions_collection()
+    )
+
+    predictions_collection.insert_one({
+        "species_label": predicted_label,
+        "confidence": confidence,
+        "scientific_name": bird_info.get(
+            "scientific_name"
+        ) if bird_info else None
+    })
+
+    # ----- Return Result -----
+
     return {
-        "message":"Coming soon"
+        "prediction": {
+            "species_label": predicted_label,
+            "confidence": confidence,
+            "accepted": True
+        },
+        "bird": bird_info
     }
+
+
+
+
+
+
+
+
+    return {
+    "prediction": {
+        "species_label": predicted_label,
+        "confidence": confidence,
+        "accepted": True
+    },
+
+    "bird": bird_info
+    }
+
 
 
 # /bird/common_name returns info for one bird
@@ -448,4 +584,7 @@ def get_bird(species_label: str):
         "observation_count": len(observations),
         "observations": observations
     }
+
+
+
 
