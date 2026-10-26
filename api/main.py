@@ -196,7 +196,6 @@ def extract_run_metrics(run):
         }
     }
 
-
 # sort key for hyperparameter
 def hyperparameter_sort_key(model):
     return (
@@ -222,9 +221,7 @@ def check_mongodb():
     except Exception:
         return False
     
-    
 # Check if the model is conneted
-
 def check_model():
 
     try:
@@ -234,7 +231,6 @@ def check_model():
 
     except Exception:
         return False
-
 
 # Check if mlflow is conneted
 def check_mlflow():
@@ -251,6 +247,113 @@ def check_mlflow():
     except Exception:
         return False
     
+
+
+# ------- Home ---------
+
+# calulating/ gathering data for the home endpoint
+def get_home_data():
+
+    species_collection = get_species_info_collection()
+
+    observation_collection = (
+        get_species_observations_collection()
+    )
+
+    prediction_collection = (
+        get_predictions_collection()
+    )
+
+    mlflow_data = get_mlflow_runs()
+
+    best_model = mlflow_data["best_model"]
+
+    species_count = (
+        species_collection.count_documents({})
+    )
+
+    observation_count = (
+        observation_collection.count_documents({})
+    )
+
+    prediction_count = (
+        prediction_collection.count_documents({})
+    )
+
+    countries = (
+        observation_collection.distinct("country")
+    )
+
+    years = (
+        observation_collection.distinct("year")
+    )
+
+    return {
+        "project": {
+            "name": "AvianVision"
+        },
+
+        "dataset": {
+            "species_count": species_count,
+            "observation_count": observation_count
+        },
+
+        "coverage": {
+            "country_count": len(countries),
+
+            "year_range": {
+                "min": min(years) if years else None,
+                "max": max(years) if years else None
+                }
+                   
+        },
+
+        "model": {
+            "accuracy":
+                best_model["test"]["accuracy"],
+
+            "f1_score":
+                best_model["test"]["f1_score"],
+
+            "loss":
+                best_model["test"]["loss"]
+        },
+
+        "predictions": {
+            "total_predictions":
+                prediction_count,
+
+            "top_predicted_species": None
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ---  Endpoints  ---
@@ -290,9 +393,7 @@ def health():
 # /home Endpoint returns the project home page, this is where users starts
 @app.get("/home")
 def home():
-    return {
-        "message":"Coming soon"
-    }
+    return get_home_data()
 
 
 # /stats Endpoint returns the model stats and model metrics
