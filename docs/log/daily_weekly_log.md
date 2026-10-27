@@ -813,8 +813,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Tusday October 27 2026
+**Day Goal:** Create the Header and Footer for the dashboard
 
 **What Was Done:** 
 
