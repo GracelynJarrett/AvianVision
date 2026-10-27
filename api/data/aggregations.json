@@ -1,0 +1,26 @@
+[
+    {
+        "method": "Horizontal Flip",
+        "definition": "Randomly mirror the iamge left to right"
+    },
+    {
+        "method": "Vertical Flip",
+        "definition": "Randomly mirror the image up to down"
+    },
+    {
+        "method": "Rotation",
+        "definition": "Rotate the image ## degrees in either direction"
+    },
+    {
+        "method": "Zoom",
+        "definition": "Zoom in and out of the image"
+    },
+    {
+        "method": "Brightness",
+        "definition": "Image Brightness shift up or down"
+    },
+    {
+        "method": "Contrast",
+        "definition": "Contrast shif up or down"
+    }
+]

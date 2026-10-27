@@ -1,0 +1,12 @@
+[
+    {
+        "NOtes": "Instead of talking about differnt modles lets talk about different operations we used though out the model",
+        "1": "The type of model",
+        "2": " The Adam optimizer used in Hypertuning",
+        "3": "Macro used in the models metrics"
+    },
+    {
+        "model": "modle name",
+        "description": "description of the model name"
+    }
+]

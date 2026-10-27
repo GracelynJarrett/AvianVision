@@ -590,22 +590,38 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Saterday October 17, 2026
+**Day Goal:** Finnsh page dezids, creat a new branch, add the page dezins.
 
-**What Was Done:** 
+**What Was Done:** I finnished page dezins, anc created a new branch. I also started a dataset_notes.
 
-**Challenges:** 
+**Challenges:** Finding a new datset for the migration
 
-**Blockers:** 
+**Blockers:** no blockers
 
 **Summary:**
+    today I finnshed page desinds and created a new branch and saved the page dexinds to a Dashboard folder. I also decided to start a dataset_notes.md file that tells what socrese I am using and what I am gathering from either of them. 
 
 
 **Time:**
-    - Total:
+    - Total: 2
 
 ---
+
+## Week 4 review
+**Week Goal:** This weeks goal was to create the enrichment pipline
+
+**What Was Done:** created the enrichment pipline, created the dashbord page dezinse.
+
+**What Was Not Done:** All the dataset was not confermed to be accasesd.
+
+**Challenges:** Hade problomes with the Redlist and the Ebird APIS
+
+**Carried Into Next Week:** Finnish the Enrichment pipline
+
+**Weekly Summary:**
+    This weeks main gaol was to get the enrichment pipline done however when I made the pipline I reived I didnt have avvase to migration data, and had probloms with the red list. So I as for help with the red list and as for acces from Ebird. As I waited for a resons I created the dashbord dezinse and saved them to a file. 
+
 
 
 # Week 5
@@ -647,7 +663,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-##  October 20, 2025
+## Tuesday  October 20, 2025
 **Day Goal:** Down load all the data
 
 **What Was Done:** got ride of snowflake, changed the enrichment pipline to go strat into MongoDB Atlase, Down loaded all the data
@@ -668,7 +684,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## October 21, 2026
+## Wednsday October 21, 2026
 **Day Goal:** Start working on data graphs
 
 **What Was Done:** downloaded data from mongoDB
@@ -685,61 +701,120 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Thursday October 22, 2026
+**Day Goal:** Work on graphs in Tableau
 
-**What Was Done:** 
+**What Was Done:** Created 12 different Tableau graphs
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:**  I am tired
 
 **Summary:**
-
+    Today I set up tableau and created 12 differnet graphs and maps for my dashboard. The tables, graphs, and maps haved data from bothe observation and the enrichment dataset. I saved the tableau as a notbook so I can explore the data some more if I wanted to in the furcher. 
 
 **Time:**
-    - Total:
+    - Total: 3 hours 30m 
 
 ---
 
-## 
-**Day Goal:** 
+## Friday October 23 2026
+**Day Goal:** Set up FastAPI and endpoints
 
-**What Was Done:** 
+**What Was Done:** Set up FastAPI and created all the endpoints
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:** Finding modivation to work on my capstone
 
 **Summary:**
-
+    Today I set up my fastAPI folder and created all of my endpoints. I tested them all out and they conetted, however I do not have any of the endpoints detesl inplace. Meaning they are not coneted to the model, mlflow or to the dash bord. Today i relly strugled with finding modivation to starte and stay working on my project. 
 
 **Time:**
-    - Total:
+    - Total: 2 hours
 
 ---
 
-## 
-**Day Goal:** 
+## Saterday October 24, 2026
+**Day Goal:** Finnish FastAPI enpoint 
 
-**What Was Done:** 
+**What Was Done:** Worked on the /stats endpoint
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:** Losing modivation to start working on my capstone
 
 **Summary:**
+    Today I started working on my /stats endpoint. I sueffly conneted to MLFLOW now I just need to connet to the right experment. Once again I found it hard to find modivation to work and stay working on my capstone project. 
 
 
 **Time:**
-    - Total:
+    - Total: 1 hour 30 m 
 
 ---
+
+## Week 5 Review
+
+**Week Goal:** Fix the enrichment pipline and creat the dashboard
+
+**What Was Done:** I fixed the enrichment pipline, created the graphs I want to use on the dash board, and strted creating the FastAPI endpoins
+
+**What Was Not Done:** The FastAPI endpoints are not fully done. Have not worked on created the Dashboard.
+
+**Challenges:** I am starting to loase modivation to start working on my capstone.
+
+**Carried Into Next Week:** Finnishing the Fast API endpoints and creating at less 2 dashboard pages
+
+**Weekly Summary:**
+    This week I fixed the enrichment pipeline and found that I didn not need Snowflake. In stead python a python script can do what snowflake did so I dont need to use snowflake any more. I was able to get tablue and made many differnet maps and graphs that I plain to use for my dash board. I also started to work on my FastAPI end point, unfocently I didnt get it Fully done like I wanted too but I got all the endpoint created. 
+
+---
+
+
+
 
 
 # Week 6
-## 
-**Day Goal:** 
+    * This weeks goal is to finnish the Enpoints and create at less 2 dashboards
+
+## Sunday October 25 2026
+**Day Goal:** Finnish the /Stats endpoint
+
+**What Was Done:** Finnish the /stats endpoint
+
+**Challenges:** no chanlanges
+
+**Blockers:** I am really tired
+
+**Summary:**
+    Today i finnish the /stats endpoint. So now it returns all the stats from MLflow, and it sorrts the top 5 best hypertuning models. 
+
+
+**Time:**
+    - Total: 2 hours
+
+---
+
+## Monday October 26 2026
+**Day Goal:** Connect MongoDB to endpoints, Finnish /health and /home
+
+**What Was Done:** Finnish createing all endpoints, filled in api/data/json files
+
+**Challenges:** Found a bug with model
+
+**Blockers:** sloly loseing modivation
+
+**Summary:**
+    Today I was able to finnish all endpoints, so now they are all propoly conneted to the right systoms and returns the right data. I even had time to fill in the Json fils in the api/data path. However when testing to see if the predictions are saved propoly to mongoDB, I relized that the model said that an image of an AirPlain is a bird. This means I will need to fix the model, adding an addicanle cattory of not bird stuff. But that is tomorrows problom. 
+
+
+**Time:**
+    - Total: 4 hours 30 m 
+
+---
+
+## Tusday October 27 2026
+**Day Goal:** Create the Header and Footer for the dashboard
 
 **What Was Done:** 
 
@@ -823,37 +898,22 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Week 6 Review
 
-**What Was Done:** 
+**Week Goal:** [The goal of the week — 1 sentence max]
 
-**Challenges:** 
+**What Was Done:** [What got done — 1 sentence max]
 
-**Blockers:** 
+**What Was Not Done:** [What didn't get done — 3 words min]
 
-**Summary:**
+**Challenges:** [The week's main challenge — 3 words min]
 
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
 
-**Time:**
-    - Total:
-
----
-
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-
-
-**Time:**
-    - Total:
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
 
 ---
 
@@ -979,9 +1039,441 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
+
 
 # Week 8
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
+
 
 # Week 9
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
+
 
 # Week 10
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## 
+**Day Goal:** 
+
+**What Was Done:** 
+
+**Challenges:** 
+
+**Blockers:** 
+
+**Summary:**
+
+
+**Time:**
+    - Total:
+
+---
+
+## Week [#] Review
+
+**Week Goal:** [The goal of the week — 1 sentence max]
+
+**What Was Done:** [What got done — 1 sentence max]
+
+**What Was Not Done:** [What didn't get done — 3 words min]
+
+**Challenges:** [The week's main challenge — 3 words min]
+
+**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+
+**Weekly Summary:**
+[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
+and why, main challenges, any changes to project files or the project plan, and what the 
+carry-over means for next week's goals.]
+
+---
