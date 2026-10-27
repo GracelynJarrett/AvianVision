@@ -1,47 +1,44 @@
 [
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Loss",
+        "definition": "Measures how far the model's predictions are from the true label",
+        "formula": " * no given formula *",
+        "Better Direction": "Lower the Better"
     },
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Accuracy",
+        "definition": "The proportion of predictions that were classified correctly out of all predictions made",
+        "formula": "(Number of Correct Prdictions)/ Total Predictions",
+        "Better Direction": "Higher the Better"
     },
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Top 5 Accuracy",
+        "definition": "Percentage of predictions where the correct class appears within the model's five highest-confidence predictions",
+        "formula": " (True Top 5 Prediction class)/ Total Predictions",
+        "Better Direction": "Higher the Better"
     },
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Macro Precision",
+        "definition": "Measures how often positive predictions are correct while giving equal importance to all classes",
+        "formula": "True Positives/ (True Positives + False Positives)",
+        "Better Direction": "Higher the Better"
     },
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Macro Recall",
+        "definition": "Measures the model's ability to identify all instances of each class",
+        "formula": " True Positives/ (True Positives + False Negatives)",
+        "Better Direction": "Higher the Better"
     },
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Macro F1 Score",
+        "definition": "Balances precision and recall into one metric",
+        "formula": " 2 X [(Precision X Recall) / (Precision + Recall)]",
+        "Better Direction": "Higher the Better"
     },
     {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
-    },
-    {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
-    },
-    {
-        "metric": "Name",
-        "definition": "Defintion of the name metric",
-        "formula": " how we calulate the metric"
+        "metric": "Macro",
+        "definition": "Macro calculates each class independently and then averages them across all the classes",
+        "formula": " * no given formula * ",
+        "Better Direction": ""
     }
 ]

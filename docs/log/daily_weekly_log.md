@@ -798,17 +798,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Monday October 26 2026
 **Day Goal:** Connect MongoDB to endpoints, Finnish /health and /home
 
-**What Was Done:** 
+**What Was Done:** Finnish createing all endpoints, filled in api/data/json files
 
-**Challenges:** 
+**Challenges:** Found a bug with model
 
-**Blockers:** 
+**Blockers:** sloly loseing modivation
 
 **Summary:**
+    Today I was able to finnish all endpoints, so now they are all propoly conneted to the right systoms and returns the right data. I even had time to fill in the Json fils in the api/data path. However when testing to see if the predictions are saved propoly to mongoDB, I relized that the model said that an image of an AirPlain is a bird. This means I will need to fix the model, adding an addicanle cattory of not bird stuff. But that is tomorrows problom. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours 30 m 
 
 ---
 

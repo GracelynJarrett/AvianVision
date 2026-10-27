@@ -1,5 +1,7 @@
 # Standard Library
 import json
+from datetime import datetime
+
 
 # Third-Party Libraries
 import mlflow
@@ -482,10 +484,25 @@ def predict(file: UploadFile = File(...)):
     )
 
     # ----- Convert Prediction To Species -----
+    current_time = datetime.now()
 
     class_names = load_class_names()
 
     predicted_label = class_names[top_index]
+    
+    top_5_indices = np.argsort(
+        predictions[0]
+    )[-5:][::-1]
+
+    top_5_predictions = []
+
+    for index in top_5_indices:
+        top_5_predictions.append({
+            "species_label": class_names[index],
+            "confidence": float(
+                predictions[0][index]
+            )
+        })
 
     # ----- Confidence Check -----
 
@@ -517,12 +534,29 @@ def predict(file: UploadFile = File(...)):
     )
 
     predictions_collection.insert_one({
-        "species_label": predicted_label,
-        "confidence": confidence,
-        "scientific_name": bird_info.get(
-            "scientific_name"
-        ) if bird_info else None
-    })
+    "species_label": predicted_label,
+
+    "scientific_name":
+        bird_info.get("scientific_name"),
+
+    "confidence":
+        confidence,
+
+    "top_5_predictions":
+        top_5_predictions,
+
+    "month":
+        current_time.month,
+
+    "year":
+        current_time.year,
+
+    "country":
+        None,
+
+    "timestamp":
+        current_time
+})
 
     # ----- Return Result -----
 
@@ -536,21 +570,6 @@ def predict(file: UploadFile = File(...)):
     }
 
 
-
-
-
-
-
-
-    return {
-    "prediction": {
-        "species_label": predicted_label,
-        "confidence": confidence,
-        "accepted": True
-    },
-
-    "bird": bird_info
-    }
 
 
 

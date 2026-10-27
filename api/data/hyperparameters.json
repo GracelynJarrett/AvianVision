@@ -1,42 +1,42 @@
 [
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Freeze Base",
+        "definition": "Decides whether the base layers of the model can learn during training",
+        "impact": "Freexing thes layers keeps what the model alrady knows byt prevents them from learning new features"
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Freeze Middle",
+        "definition": "Decides whether the middle layers of he model can learn during traing",
+        "impact": "Freezing theses layers keeps their existing knowliedge but limits how much they can adapt to new data"
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Freeze End",
+        "definition": "Decides whether the end layers of the model can learn during traing",
+        "impact": "Freezing theses layers keeps their existing knowledge but prevents them from adapting their predictions"
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Learning Rate",
+        "definition": "Controls how much the model changes its weight as it learns",
+        "impact": "A high learning rate can learn faster but may be less stable, a Low learning rate learns more slowly ut makes smaller changes."
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Dropout",
+        "definition": "Randomly turns off some neurons during training",
+        "impact": "Helps prevent hte model from memoizing data instead of leaning useful patterns"
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Epochs",
+        "definition": "The number of training samples the model processes before updating its weights",
+        "impact": "More epochs give the model more chances to learn but can cause it to memorize the traing data"
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Barch Size",
+        "definition": "The number of training samples the model processes before updating its weights",
+        "impact": "Larger batches process more samples at once but use more memory Smaller batches use less memory"
     },
     {
-        "parameter": "parameter name",
-        "definition": "definition of the parameter name",
-        "impact": "the impact of parameter name"
+        "parameter": "Optimizer",
+        "definition": "The Method the model uses to adjust its weights as it learns",
+        "impact": "Different optimizers affect how quickly and effectively the model learns"
     }
 ]
