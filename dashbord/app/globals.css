@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+footer h3 {
+  @apply font-serif text-xl py-6 decoration-1;
+  text-align: center;
+}
+
+
+
+.footer-divider {
+  position: relative;
+}
+
+.footer-divider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 2px;
+
+  background: repeating-linear-gradient(to bottom,
+      currentColor 0px,
+      currentColor 12px,
+      transparent 12px,
+      transparent 16px);
+}
+
+footer p {
+  @apply py-3 text-lg px-4;
+  overflow-wrap: break-word;
+
+}
