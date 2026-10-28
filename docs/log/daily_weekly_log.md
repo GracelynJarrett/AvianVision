@@ -816,17 +816,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Tusday October 27 2026
 **Day Goal:** Create the Header and Footer for the dashboard
 
-**What Was Done:** 
+**What Was Done:** I got most of the Heade and footer made
 
-**Challenges:** 
+**Challenges:** Had probloms with copilot
 
-**Blockers:** 
+**Blockers:** I am tired
 
 **Summary:**
+    Today I started making the header and footer for my dashbord. I just need to add color and text to the footer and it should be all done. I did have probloms with copilot where it would forget stuf right after it promined to remeter that. I told it over three times to stop trying to show me an example of what the code will preducted becse it would not work. However the AI would say it will not use it any more but would still use it. So I swiched to working with ChatGPT for now. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
