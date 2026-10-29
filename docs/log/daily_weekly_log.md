@@ -848,8 +848,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Thusday October  29, 2026
+**Day Goal:** Finnish the Home page
 
 **What Was Done:** 
 

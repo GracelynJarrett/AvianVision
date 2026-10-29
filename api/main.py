@@ -12,7 +12,7 @@ from PIL import Image
 
 # FastAPI
 from fastapi import FastAPI, File, UploadFile
-
+from fastapi.middleware.cors import CORSMiddleware
 # Project Files
 from src.model_loader import get_model
 from src.mongodb_client import (
@@ -37,7 +37,16 @@ app = FastAPI( # creat a new FastAPI server
     version="1.0.0"
 )
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --- Helper files ---
 

@@ -84,7 +84,7 @@ export default function BirdSlideshow() {
                 className="h-full w-full object-cover"
             />
             <div className="absolute inset-y-0 left-0 w-1/4 bg-black/60 p-6 text-white">
-                <h2 className="text-2xl font-blond font-serif">
+                <h2 className="text-2xl font-bold font-serif">
                     {sampleBirds[currentIndex].name}
                 </h2>
 
