@@ -834,17 +834,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Wendsday October 28, 2026
 **Day Goal:** Finnish header and footer start the home page
 
-**What Was Done:** 
+**What Was Done:** Finnish header and footer, created bird slide show, created section 1 on home page
 
-**Challenges:** 
+**Challenges:** no chalanges
 
-**Blockers:** 
+**Blockers:** really tired
 
 **Summary:**
-
+    Today I finnished up the footer and the heard. I decided to add a seache bar to the header, but as of right now it does not work fully. I also decied instad of showing the logo on the home page I created a bird slide show. The slid show desplay images of birds and then gives some information about the bird. I will need to update the fastAPI home endpoint to returne the bird info, right now it is just filler info. I also started working on Section 1 on the home page, I should finnish the home page tomorrow.
 
 **Time:**
-    - Total:
+    - Total: 3 hours 30 m
 
 ---
 
