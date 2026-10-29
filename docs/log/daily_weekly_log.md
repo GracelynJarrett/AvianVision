@@ -831,8 +831,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Wendsday October 28, 2026
+**Day Goal:** Finnish header and footer start the home page
 
 **What Was Done:** 
 

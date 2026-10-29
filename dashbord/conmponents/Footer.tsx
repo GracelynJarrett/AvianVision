@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="border-t p-6 mt-8 ">
+        <footer className="border-t p-6 mt-8 bg-[#3F4850] text-[#FFFFFF]">
             <div className="grid grid-cols-3">
 
                 <div className="px-8 footer-divider">
