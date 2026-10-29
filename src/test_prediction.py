@@ -50,13 +50,16 @@ def load_config():
         image_cfg = yaml.safe_load(f)
     image_size = image_cfg["image_size"]
 
-    # Open api_config.yaml to find the confidence cutoff.
-    # If the model's top guess scores below this number, we return "Unknown" instead.
+    # Open api_config.yaml to find the confidence cutoff and the spread threshold.
+    # If the model's top guess scores below the confidence cutoff, we return "Unknown".
+    # If the sum of predictions #2 through #5 exceeds the spread threshold, the model's
+    # confidence is too scattered across species and we also return "Unknown".
     with open(PROJECT_ROOT / "configs" / "api_config.yaml") as f:
         api_cfg = yaml.safe_load(f)
     threshold = api_cfg["unknown_threshold"]
+    spread_threshold = api_cfg["spread_threshold"]
 
-    return image_size, threshold
+    return image_size, threshold, spread_threshold
 
 
 def load_class_names():

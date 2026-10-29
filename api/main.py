@@ -453,7 +453,7 @@ def predict(file: UploadFile = File(...)):
 
     # ----- Load Config -----
 
-    image_size, threshold = load_config()
+    image_size, threshold, spread_threshold = load_config()
 
     # ----- Preprocess Image -----
 
@@ -513,6 +513,27 @@ def predict(file: UploadFile = File(...)):
                 predictions[0][index]
             )
         })
+
+    # ----- Spread Check -----
+
+    # Add up the confidence scores for predictions #2 through #5.
+    # If the total is above the spread threshold, the model's confidence is too
+    # scattered across different species — this usually means the image is not a bird.
+    # NOTE: This check catches uncertain OOD images (spread predictions) but cannot
+    # catch falsely confident OOD images where one wrong class dominates (e.g., an
+    # airplane predicted as a specific bird at 95%+). That case requires a future
+    # binary pre-classifier gate.
+    spread = sum(p["confidence"] for p in top_5_predictions[1:])
+
+    if spread > spread_threshold:
+        return {
+            "prediction": {
+                "species_label": "UNKNOWN",
+                "confidence": confidence,
+                "accepted": False
+            },
+            "bird": None
+        }
 
     # ----- Confidence Check -----
 

@@ -70,3 +70,8 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 
 **Date:** 10-20-2026
 **What was changed and why:** Removeing Snowflake from the archtecal dezine. Snowflake right now is only combinding the differnet data set, but phython can do that. And though expemtation I have already used up my $20 limit. By removing snowflake I will be saveing money and by storing the data strate into Mongodb Atalse I will be saving time. However when presenting this project I need to mention that I was using snowflake but found that it was unesary for this project. 
+
+---
+
+**Date:** 10-29-2026
+**What was changed and why:** I added a spead threshold where it looks at the top_5_prediction. If the confidence is spread out 20% then the prediction is audamaidly considted unknown. However some images still slips though the crakes. the data/test_images/airplain.wedp had a confidet score of 95% for the Red Billed TropicBird, sliping though this new procontion. To fully cacher fucher images like this I would need to either A) add an addicaly caagory for not bird, B) add a secont model that anwers the question is this a birs. As of right now I am keeping the model how it is and spending time on getting my dashboard done. With more time I will streanthin my current model.
