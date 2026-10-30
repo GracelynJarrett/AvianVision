@@ -851,17 +851,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Thusday October  29, 2026
 **Day Goal:** Finnish the Home page
 
-**What Was Done:** 
+**What Was Done:** Finnish home page, fixed model, added 2 new end points
 
-**Challenges:** 
+**Challenges:** Figering out how to fix the model
 
-**Blockers:** 
+**Blockers:** no blockers for today
 
 **Summary:**
-
+    Today I was vary predutive. I finnished createing the home page and added two new endpoints. One to help with the slide show, the other to help with giting bird images. I also tryed to fix the model, in the end I added a secont varification that looks at the top-5-predictions and if thery are spred out therough the predictions then the prediction is unknow. However if a prediction is vary high and its not a bird he modle will still say its a bird. To trully fix this I would need to add another model that first says is this a bird? then it will go though my prediction model.
 
 **Time:**
-    - Total:
+    - Total:4hours
 
 ---
 
