@@ -88,7 +88,7 @@ carry-over means for next week's goals.]
 ---
 
 ## Tuesday September 15,2026
-**Day Goal:** Review applications and deside what to do with snowflake
+**Day Goal:** Review applications and decide what to do with Snowflake
 
 **What Was Done:** Reviewed applications, made a decision about Snowflake
 
@@ -105,7 +105,6 @@ carry-over means for next week's goals.]
 ## Week 1 Review
 
 **Week Goal:** Get API access, set up Snowflake, and review some applications
-
 **What Was Done:** Got API access, reviewed applications, and decided what to do with Snowflake
 
 **What Was Not Done:** Did not start week 1 stuff
@@ -362,8 +361,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     Today I was able to finish the augmentation models and I analyzed all the models. In the end I found that the base model was the best model to do hypertuning on. I then was able to create the hypertuning YAML file. I did struggle with deciding how many different hypertuning models to make. In the end I planned for 24 different models. I ran 2/24 models.
 
 **Time:**
-    - Total: 9 hours 30 minuts
-    - Model tarin: 8 hours 45 minuts
+    - Total: 9 hours 30 minutes
+    - Model training: 8 hours 45 minutes
     - Other: 45 m
 
 ---
@@ -482,20 +481,20 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Weekly Summary:**
     This week I created all of the augmentation and hyperparameter models. Once they were all done I analyzed them and found the best model. I then added the test set to the best model and registered it. I didn't have time to register for Snowflake so I will need to add that onto next week, but next week is a buffer week so I am still on track.
 
-# Week 4 - Snowflack and Buffer weekd
-    ** This week is a buffer week but this weeks goal is to download and accase all the datasets **
+# Week 4 - Snowflake and Buffer Week
+    ** This week is a buffer week, but this week's goal is to download and access all the datasets **
 
 ## Sunday October 11, 2026
-**Day Goal:** Set up Snowflack account
+**Day Goal:** Set up Snowflake account
 
-**What Was Done:** Set up snowflack account, submited the Project peek sprint
+**What Was Done:** Set up Snowflake account, submitted the Project Peek sprint
 
-**Challenges:** Seleting the correte snowflack account
+**Challenges:** Selecting the correct Snowflake account
 
 **Blockers:** No blockers
 
 **Summary:**
-    Today I set up my snowflack account, where I set up my account to pay for crites. I also submited my Project peek sprint, and I am waiting for the next sprint to be posted. 
+    Today I set up my Snowflake account, where I set up my account to pay for credits. I also submitted my Project Peek sprint, and I am waiting for the next sprint to be posted.
 
 **Time:**
     - Total: 30m 
@@ -505,48 +504,48 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Monday October 12, 2026
 **Day Goal:** Set up snowflake
 
-**What Was Done:** Snow flake was set up, coneted to mongodb atlase, conneted to snowflake, accase the data, and requeted the migration data from ebrid
+**What Was Done:** Snowflake was set up, connected to MongoDB Atlas, connected to Snowflake, accessed the data, and requested the migration data from eBird
 
-**Challenges:** I didnt realys how fast the enrichment pipline whould take, I didnt relized I did had accase to the migration data, and I had trubal seting up the snowflakes Authenticator
+**Challenges:** I didn't realize how long the enrichment pipeline would take, I didn't realize I didn't have access to the migration data, and I had trouble setting up Snowflake's Authenticator
 
-**Blockers:** no blocker
+**Blockers:** No blockers
 
 **Summary:**
-    Today I was able to get a lot done. I set up snowflake and reilzed that I need to have my pipline create a table in mongodb, becase runing the pipline ever singel prediction will means that the api accase is being used a lot, and it can take a long time to query the data. SO I created the connetion point between mongobd and snowflack. When I was working on connting to snowflake I relized I needed authenricator to fully accase it, but it took me a while to figer out how to get authenticator set up. Lastly once everthing worked I relized that I didnt have any migration data, so I requeted premision to use the Ebird api, so i am waiting on that. 
+    Today I was able to get a lot done. I set up Snowflake and realized that I need to have my pipeline create a table in MongoDB, because running the pipeline on every single prediction means that the API is being used a lot, and it can take a long time to query the data. So I created the connection point between MongoDB and Snowflake. When I was working on connecting to Snowflake I realized I needed Authenticator to fully access it, but it took me a while to figure out how to get Authenticator set up. Lastly, once everything worked I realized that I didn't have any migration data, so I requested permission to use the eBird API, and I am waiting on that.
 
 **Time:**
     - Total: 4 hours
 
 ---
 
-## Tusday October 13, 2026
-**Day Goal:** Fix pipline
+## Tuesday October 13, 2026
+**Day Goal:** Fix pipeline
 
-**What Was Done:** Conneted the pipline to the model, requeted help for the IUCN red API, requeted to download the Ebird data.
+**What Was Done:** Connected the pipeline to the model, requested help for the IUCN Red List API, requested to download the eBird data.
 
-**Challenges:** The API for IUCN is for an older reiterd dataset
+**Challenges:** The API for IUCN is for an older retired dataset
 
 **Blockers:** 
 
 **Summary:**
-    Today I Conneted the pipline to the modle and ran two tests, and both worked perfictly. I have a problom with the IUCN API, I have the APU for the v3 data but that one was retired in March and there is no way to accase the API for v4, so I sent an email to get some help. I also relized that I dont have any migration data so I requeted to download a dataset form Ebird, but the requet should take up to a week for me to get accase. 
+    Today I connected the pipeline to the model and ran two tests, and both worked perfectly. I have a problem with the IUCN API — I have the API for the v3 data but that one was retired in March and there is no way to access the API for v4, so I sent an email to get some help. I also realized that I don't have any migration data so I requested to download a dataset from eBird, but the request should take up to a week for me to get access.
 
 **Time:**
     - Total: 2 hours 30m 
 
 ---
 
-## Wensday October 14, 2026
-**Day Goal:** Create the logo, start working on the pages dezins
+## Wednesday October 14, 2026
+**Day Goal:** Create the logo, start working on the page designs
 
-**What Was Done:** Created the logo, page home dezine, stats dezin
+**What Was Done:** Created the logo, home page design, stats design
 
 **Challenges:** Still waiting for the API 
 
-**Blockers:** no blockers 
+**Blockers:** No blockers 
 
 **Summary:**
-    Today I created the logo for my Webpage, and I started working on page dezins for the pages. I am still waiting to hear anything about the two API requests. 
+    Today I created the logo for my webpage, and I started working on page designs. I am still waiting to hear anything about the two API requests.
 
 
 **Time:**
@@ -554,17 +553,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Thurday October 15, 2026
-**Day Goal:** continue Working on the page dezins
+## Thursday October 15, 2026
+**Day Goal:** Continue working on the page designs
 
-**What Was Done:** I finnished the stats and the prediction page. 
+**What Was Done:** I finished the stats and the prediction page.
 
-**Challenges:** No chalanges
+**Challenges:** No challenges
 
-**Blockers:**  No Blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I work on the dezins for the prediction page and I finnished the stats page. 
+    Today I worked on the designs for the prediction page and I finished the stats page.
 
 
 **Time:**
@@ -572,17 +571,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Friday Octoner 16, 2026
-**Day Goal:** Contiune working on the page dezinse
+## Friday October 16, 2026
+**Day Goal:** Continue working on the page designs
 
-**What Was Done:** Got most of the page dezinse done
+**What Was Done:** Got most of the page designs done
 
 **Challenges:** Finding time to work on the project
 
-**Blockers:** No bloakcers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I contiune working on the page dezinse and got most of the pages done. I didnt have truble finding time to work on the project and didnt work all four hours that I originaly wanted to. 
+    Today I continued working on the page designs and got most of the pages done. I did have trouble finding time to work on the project and didn't work all four hours that I originally wanted to.
 
 
 **Time:**
@@ -590,17 +589,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Saterday October 17, 2026
-**Day Goal:** Finnsh page dezids, creat a new branch, add the page dezins.
+## Saturday October 17, 2026
+**Day Goal:** Finish page designs, create a new branch, add the page designs.
 
-**What Was Done:** I finnished page dezins, anc created a new branch. I also started a dataset_notes.
+**What Was Done:** I finished page designs and created a new branch. I also started a dataset_notes file.
 
-**Challenges:** Finding a new datset for the migration
+**Challenges:** Finding a new dataset for the migration
 
-**Blockers:** no blockers
+**Blockers:** No blockers
 
 **Summary:**
-    today I finnshed page desinds and created a new branch and saved the page dexinds to a Dashboard folder. I also decided to start a dataset_notes.md file that tells what socrese I am using and what I am gathering from either of them. 
+    Today I finished page designs and created a new branch and saved the page designs to a Dashboard folder. I also decided to start a dataset_notes.md file that describes what sources I am using and what I am gathering from each of them.
 
 
 **Time:**
@@ -608,36 +607,36 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Week 4 review
-**Week Goal:** This weeks goal was to create the enrichment pipline
+## Week 4 Review
+**Week Goal:** This week's goal was to create the enrichment pipeline
 
-**What Was Done:** created the enrichment pipline, created the dashbord page dezinse.
+**What Was Done:** Created the enrichment pipeline, created the dashboard page designs.
 
-**What Was Not Done:** All the dataset was not confermed to be accasesd.
+**What Was Not Done:** All the datasets were not confirmed to be accessible.
 
-**Challenges:** Hade problomes with the Redlist and the Ebird APIS
+**Challenges:** Had problems with the Red List and the eBird APIs
 
-**Carried Into Next Week:** Finnish the Enrichment pipline
+**Carried Into Next Week:** Finish the enrichment pipeline
 
 **Weekly Summary:**
-    This weeks main gaol was to get the enrichment pipline done however when I made the pipline I reived I didnt have avvase to migration data, and had probloms with the red list. So I as for help with the red list and as for acces from Ebird. As I waited for a resons I created the dashbord dezinse and saved them to a file. 
+    This week's main goal was to get the enrichment pipeline done; however, when I made the pipeline I realized I didn't have access to migration data, and had problems with the Red List. So I asked for help with the Red List and asked for access from eBird. As I waited for a response, I created the dashboard designs and saved them to a file.
 
 
 
 # Week 5
-    ** Fix the Enrichment pipline, and set up the dashbord
+    ** Fix the enrichment pipeline, and set up the dashboard
 
 ## Sunday October 18, 2026
-**Day Goal:** Complet the dataset notes
+**Day Goal:** Complete the dataset notes
 
-**What Was Done:** complet the dataset notes, updated Project peek
+**What Was Done:** Completed the dataset notes, updated Project Peek
 
-**Challenges:** No chalanges for today
+**Challenges:** No challenges for today
 
-**Blockers:** I have a small head heack
+**Blockers:** I have a small headache
 
 **Summary:**
-    Today i finnshed creating the datset notes and I updated the project peekplatform
+    Today I finished creating the dataset notes and I updated the Project Peek platform
 
 
 **Time:**
@@ -646,16 +645,16 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 ## Monday October 19, 2026 
-**Day Goal:** Fix the Enrichment pipline
+**Day Goal:** Fix the enrichment pipeline
 
-**What Was Done:** Fix the erichmetn pipline, dowloaded all the data into snowflake and mongodb
+**What Was Done:** Fixed the enrichment pipeline, downloaded all the data into Snowflake and MongoDB
 
-**Challenges:** No Migration data, had to find a differnt way
+**Challenges:** No migration data, had to find a different way
 
-**Blockers:** No Blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I was able to Fix the main Enrichment pipline, meaning all the APIs now work. However I relized to get the migration data I want I would have over 1 minllon records in Mongodb. So I uploaded all the data to mongodb but keeped the main migration data in snowflake. Tomorrow I will explore the migration data deciding what graphs and mapes I want in my database. I will also be saving small miny tables fore each bird in VS code so that we dont use a lot of snowflake crites and procation in snowflake crashes. 
+    Today I was able to fix the main enrichment pipeline, meaning all the APIs now work. However, I realized that to get the migration data I want I would have over 1 million records in MongoDB. So I uploaded all the data to MongoDB but kept the main migration data in Snowflake. Tomorrow I will explore the migration data deciding what graphs and maps I want in my database. I will also be saving small summary tables for each bird in VS Code so that we don't use a lot of Snowflake credits and so that if Snowflake crashes the pipeline doesn't break.
 
 
 **Time:**
@@ -663,17 +662,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Tuesday  October 20, 2025
-**Day Goal:** Down load all the data
+## Tuesday October 20, 2026
+**Day Goal:** Download all the data
 
-**What Was Done:** got ride of snowflake, changed the enrichment pipline to go strat into MongoDB Atlase, Down loaded all the data
+**What Was Done:** Got rid of Snowflake, changed the enrichment pipeline to go straight into MongoDB Atlas, downloaded all the data
 
-**Challenges:** Snowflake ran out of criteds, data keeped stoping
+**Challenges:** Snowflake ran out of credits, data kept stopping
 
 **Blockers:** No blockers
 
 **Summary:**
-    So yeterday when I was finnising downloading my data (after I recoded my hours) I ran into a qreset limt rate and had to stop downloading data. Then today it stop 2 more time, one time becase it lost internet accase the secont becase I ran out of snowflake crits. I then really though about it and I relized that I didnt need snowflake, so I decided to take it out complitly. I then updated the pipline to update the data strat into Mongodb Atlatse, and I split it in to two different scripts. One for bird info and the other for observations. I then was able to download all the data into mongoDB Atlase sesefully.
+    Yesterday when I was finishing downloading my data (after I recorded my hours) I ran into a rate limit and had to stop downloading data. Then today it stopped 2 more times — once because it lost internet access and once because I ran out of Snowflake credits. I then really thought about it and realized that I didn't need Snowflake, so I decided to take it out completely. I then updated the pipeline to push data straight into MongoDB Atlas, and I split it into two different scripts: one for bird info and the other for observations. I was then able to download all the data into MongoDB Atlas successfully.
 
 
 **Time:**
@@ -684,17 +683,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Wednsday October 21, 2026
+## Wednesday October 21, 2026
 **Day Goal:** Start working on data graphs
 
-**What Was Done:** downloaded data from mongoDB
+**What Was Done:** Downloaded data from MongoDB
 
-**Challenges:** No Challenges
+**Challenges:** No challenges
 
-**Blockers:** No Blockers 
+**Blockers:** No blockers 
 
 **Summary:**
-    Today I started working on a Notbook that explored the occurrences and enrichment data, and the graphs/maps would be used on the Dashboard. However after I subsfuly got accase to the data I got a proter key for Tableau. So I created a script to download the MongoDB data as CSV files so that tomorrow I can explore the different graphs/maps. 
+    Today I started working on a notebook that explored the occurrences and enrichment data, and the graphs/maps would be used on the dashboard. However, after I successfully got access to the data I got a Tableau key. So I created a script to download the MongoDB data as CSV files so that tomorrow I can explore the different graphs/maps.
 
 **Time:**
     - Total:
@@ -711,7 +710,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Blockers:**  I am tired
 
 **Summary:**
-    Today I set up tableau and created 12 differnet graphs and maps for my dashboard. The tables, graphs, and maps haved data from bothe observation and the enrichment dataset. I saved the tableau as a notbook so I can explore the data some more if I wanted to in the furcher. 
+    Today I set up Tableau and created 12 different graphs and maps for my dashboard. The tables, graphs, and maps have data from both observations and the enrichment dataset. I saved the Tableau file as a notebook so I can explore the data some more if I wanted to in the future.
 
 **Time:**
     - Total: 3 hours 30m 
@@ -725,10 +724,10 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 **Challenges:** No challenges
 
-**Blockers:** Finding modivation to work on my capstone
+**Blockers:** Finding motivation to work on my capstone
 
 **Summary:**
-    Today I set up my fastAPI folder and created all of my endpoints. I tested them all out and they conetted, however I do not have any of the endpoints detesl inplace. Meaning they are not coneted to the model, mlflow or to the dash bord. Today i relly strugled with finding modivation to starte and stay working on my project. 
+    Today I set up my FastAPI folder and created all of my endpoints. I tested them all out and they connected; however, I do not have any of the endpoint details in place, meaning they are not connected to the model, MLflow, or to the dashboard. Today I really struggled with finding motivation to start and stay working on my project.
 
 **Time:**
     - Total: 2 hours
@@ -736,16 +735,16 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 ## Saterday October 24, 2026
-**Day Goal:** Finnish FastAPI enpoint 
+**Day Goal:** Finish FastAPI endpoint
 
 **What Was Done:** Worked on the /stats endpoint
 
-**Challenges:** no challenges
+**Challenges:** No challenges
 
-**Blockers:** Losing modivation to start working on my capstone
+**Blockers:** Losing motivation to start working on my capstone
 
 **Summary:**
-    Today I started working on my /stats endpoint. I sueffly conneted to MLFLOW now I just need to connet to the right experment. Once again I found it hard to find modivation to work and stay working on my capstone project. 
+    Today I started working on my /stats endpoint. I successfully connected to MLflow; now I just need to connect to the right experiment. Once again I found it hard to find motivation to work and stay working on my capstone project.
 
 
 **Time:**
@@ -755,18 +754,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ## Week 5 Review
 
-**Week Goal:** Fix the enrichment pipline and creat the dashboard
+**Week Goal:** Fix the enrichment pipeline and create the dashboard
 
-**What Was Done:** I fixed the enrichment pipline, created the graphs I want to use on the dash board, and strted creating the FastAPI endpoins
+**What Was Done:** I fixed the enrichment pipeline, created the graphs I want to use on the dashboard, and started creating the FastAPI endpoints
 
-**What Was Not Done:** The FastAPI endpoints are not fully done. Have not worked on created the Dashboard.
+**What Was Not Done:** The FastAPI endpoints are not fully done. Have not worked on creating the dashboard.
 
-**Challenges:** I am starting to loase modivation to start working on my capstone.
+**Challenges:** I am starting to lose motivation to start working on my capstone.
 
-**Carried Into Next Week:** Finnishing the Fast API endpoints and creating at less 2 dashboard pages
+**Carried Into Next Week:** Finishing the FastAPI endpoints and creating at least 2 dashboard pages
 
 **Weekly Summary:**
-    This week I fixed the enrichment pipeline and found that I didn not need Snowflake. In stead python a python script can do what snowflake did so I dont need to use snowflake any more. I was able to get tablue and made many differnet maps and graphs that I plain to use for my dash board. I also started to work on my FastAPI end point, unfocently I didnt get it Fully done like I wanted too but I got all the endpoint created. 
+    This week I fixed the enrichment pipeline and found that I didn't need Snowflake. Instead, a Python script can do what Snowflake did, so I don't need to use Snowflake anymore. I was able to get Tableau and made many different maps and graphs that I plan to use for my dashboard. I also started to work on my FastAPI endpoints; unfortunately, I didn't get them fully done like I wanted to, but I got all the endpoints created.
 
 ---
 
@@ -775,19 +774,19 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 # Week 6
-    * This weeks goal is to finnish the Enpoints and create at less 2 dashboards
+    * This week's goal is to finish the endpoints and create at least 2 dashboards
 
-## Sunday October 25 2026
-**Day Goal:** Finnish the /Stats endpoint
+## Sunday October 25, 2026
+**Day Goal:** Finish the /stats endpoint
 
-**What Was Done:** Finnish the /stats endpoint
+**What Was Done:** Finished the /stats endpoint
 
-**Challenges:** no chanlanges
+**Challenges:** No challenges
 
 **Blockers:** I am really tired
 
 **Summary:**
-    Today i finnish the /stats endpoint. So now it returns all the stats from MLflow, and it sorrts the top 5 best hypertuning models. 
+    Today I finished the /stats endpoint. It now returns all the stats from MLflow, and it sorts the top 5 best hypertuning models.
 
 
 **Time:**
@@ -795,17 +794,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Monday October 26 2026
-**Day Goal:** Connect MongoDB to endpoints, Finnish /health and /home
+## Monday October 26, 2026
+**Day Goal:** Connect MongoDB to endpoints, finish /health and /home
 
-**What Was Done:** Finnish createing all endpoints, filled in api/data/json files
+**What Was Done:** Finished creating all endpoints, filled in api/data JSON files
 
-**Challenges:** Found a bug with model
+**Challenges:** Found a bug with the model
 
-**Blockers:** sloly loseing modivation
+**Blockers:** Slowly losing motivation
 
 **Summary:**
-    Today I was able to finnish all endpoints, so now they are all propoly conneted to the right systoms and returns the right data. I even had time to fill in the Json fils in the api/data path. However when testing to see if the predictions are saved propoly to mongoDB, I relized that the model said that an image of an AirPlain is a bird. This means I will need to fix the model, adding an addicanle cattory of not bird stuff. But that is tomorrows problom. 
+    Today I was able to finish all endpoints, so now they are all properly connected to the right systems and return the right data. I even had time to fill in the JSON files in the api/data path. However, when testing to see if the predictions are saved properly to MongoDB, I realized that the model said that an image of an airplane is a bird. This means I will need to fix the model, adding an additional category for non-bird images. But that is tomorrow's problem.
 
 
 **Time:**
@@ -813,17 +812,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Tusday October 27 2026
-**Day Goal:** Create the Header and Footer for the dashboard
+## Tuesday October 27, 2026
+**Day Goal:** Create the header and footer for the dashboard
 
-**What Was Done:** I got most of the Heade and footer made
+**What Was Done:** I got most of the header and footer made
 
-**Challenges:** Had probloms with copilot
+**Challenges:** Had problems with Copilot
 
 **Blockers:** I am tired
 
 **Summary:**
-    Today I started making the header and footer for my dashbord. I just need to add color and text to the footer and it should be all done. I did have probloms with copilot where it would forget stuf right after it promined to remeter that. I told it over three times to stop trying to show me an example of what the code will preducted becse it would not work. However the AI would say it will not use it any more but would still use it. So I swiched to working with ChatGPT for now. 
+    Today I started making the header and footer for my dashboard. I just need to add color and text to the footer and it should be all done. I did have problems with Copilot where it would forget things right after it promised to remember them. I told it over three times to stop trying to show me an example of what the code would produce because it would not work. However, the AI would say it would not use it anymore but would still use it. So I switched to working with ChatGPT for now.
 
 
 **Time:**
@@ -831,37 +830,37 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Wendsday October 28, 2026
-**Day Goal:** Finnish header and footer start the home page
+## Wednesday October 28, 2026
+**Day Goal:** Finish header and footer, start the home page
 
-**What Was Done:** Finnish header and footer, created bird slide show, created section 1 on home page
+**What Was Done:** Finished header and footer, created bird slideshow, created section 1 on home page
 
-**Challenges:** no chalanges
+**Challenges:** No challenges
 
-**Blockers:** really tired
+**Blockers:** Really tired
 
 **Summary:**
-    Today I finnished up the footer and the heard. I decided to add a seache bar to the header, but as of right now it does not work fully. I also decied instad of showing the logo on the home page I created a bird slide show. The slid show desplay images of birds and then gives some information about the bird. I will need to update the fastAPI home endpoint to returne the bird info, right now it is just filler info. I also started working on Section 1 on the home page, I should finnish the home page tomorrow.
+    Today I finished up the footer and the header. I decided to add a search bar to the header, but as of right now it does not work fully. I also decided that instead of showing the logo on the home page I would create a bird slideshow. The slideshow displays images of birds and then gives some information about the bird. I will need to update the FastAPI home endpoint to return the bird info; right now it is just filler info. I also started working on Section 1 on the home page — I should finish the home page tomorrow.
 
 **Time:**
     - Total: 3 hours 30 m
 
 ---
 
-## Thusday October  29, 2026
-**Day Goal:** Finnish the Home page
+## Thursday October 29, 2026
+**Day Goal:** Finish the home page
 
-**What Was Done:** Finnish home page, fixed model, added 2 new end points
+**What Was Done:** Finished home page, fixed model, added 2 new endpoints
 
-**Challenges:** Figering out how to fix the model
+**Challenges:** Figuring out how to fix the model
 
-**Blockers:** no blockers for today
+**Blockers:** No blockers for today
 
 **Summary:**
-    Today I was vary predutive. I finnished createing the home page and added two new endpoints. One to help with the slide show, the other to help with giting bird images. I also tryed to fix the model, in the end I added a secont varification that looks at the top-5-predictions and if thery are spred out therough the predictions then the prediction is unknow. However if a prediction is vary high and its not a bird he modle will still say its a bird. To trully fix this I would need to add another model that first says is this a bird? then it will go though my prediction model.
+    Today I was very productive. I finished creating the home page and added two new endpoints — one to help with the slideshow, the other to help with getting bird images. I also tried to fix the model; in the end I added a second verification that looks at the top-5 predictions and if they are spread out through the predictions then the prediction is unknown. However, if a prediction is very high and it's not a bird, the model will still say it's a bird. To truly fix this I would need to add another model that first asks "is this a bird?" before it goes through my prediction model.
 
 **Time:**
-    - Total:4hours
+    - Total: 4 hours
 
 ---
 

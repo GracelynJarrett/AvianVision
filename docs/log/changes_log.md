@@ -2,7 +2,7 @@
 
 ## About This Document
 
-This document tracks all meaningful changes and desidions made to the AvianVision project throughout its lifecycle. 
+This document tracks all meaningful changes and decisions made to the AvianVision project throughout its lifecycle. 
 A "change" is any modification to the project plan, file structure, documentation, model architecture, or scope that differs from what was originally planned.
 
 **How to use this document:**
@@ -55,12 +55,12 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 
 **Date:** 10-9-2026
 
-**What was Changed and why:** After traing all of the hypertuning experiments and comparing them to the base model, I have decided to us the base-middle-frozen-low-dropout-HT model. This chosie model has an macro F1 of 0.978 and a vval loss of 0.090. meaning there was improvment to the model with hypertuning. 
+**What Was Changed and Why:** After training all of the hypertuning experiments and comparing them to the base model, I have decided to use the base-middle-frozen-low-dropout-HT model. This chosen model has a macro F1 of 0.978 and a val loss of 0.090, meaning there was improvement to the model with hypertuning. 
 
 ---
 
 **Date:** 10-12-2026
-**What was Changed and why:** My orginal plain was to run the enrichment pipline in snowflack everytime someone made a prediction. However Cloude pointed out to me doing it this way will put stress on the API request and would take a long time to query the results. Also that in one of the servers crashed then the pipline would break. Instead Snowflake will be creating the tables and combinding the dataset into one table that is stored inside mongoDB atles.
+**What Was Changed and Why:** My original plan was to run the enrichment pipeline in Snowflake every time someone made a prediction. However, Claude pointed out that doing it this way will put stress on the API requests and would take a long time to query the results, and that if one of the servers crashed then the pipeline would break. Instead, Snowflake will be creating the tables and combining the dataset into one table that is stored inside MongoDB Atlas.
 
 ---
 **Date:** 10-20-2026
@@ -69,9 +69,9 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 ---
 
 **Date:** 10-20-2026
-**What was changed and why:** Removeing Snowflake from the archtecal dezine. Snowflake right now is only combinding the differnet data set, but phython can do that. And though expemtation I have already used up my $20 limit. By removing snowflake I will be saveing money and by storing the data strate into Mongodb Atalse I will be saving time. However when presenting this project I need to mention that I was using snowflake but found that it was unesary for this project. 
+**What Was Changed and Why:** Removing Snowflake from the architectural design. Snowflake right now is only combining the different datasets, but Python can do that. And through experimentation I have already used up my $20 limit. By removing Snowflake I will be saving money, and by storing the data straight into MongoDB Atlas I will be saving time. However, when presenting this project I need to mention that I was using Snowflake but found that it was unnecessary for this project. 
 
 ---
 
 **Date:** 10-29-2026
-**What was changed and why:** I added a spead threshold where it looks at the top_5_prediction. If the confidence is spread out 20% then the prediction is audamaidly considted unknown. However some images still slips though the crakes. the data/test_images/airplain.wedp had a confidet score of 95% for the Red Billed TropicBird, sliping though this new procontion. To fully cacher fucher images like this I would need to either A) add an addicaly caagory for not bird, B) add a secont model that anwers the question is this a birs. As of right now I am keeping the model how it is and spending time on getting my dashboard done. With more time I will streanthin my current model.
+**What Was Changed and Why:** I added a spread threshold that looks at the top_5_predictions. If the confidence is spread out more than 20%, then the prediction is automatically considered unknown. However, some images still slip through the cracks. The data/test_images/airplane.webp had a confidence score of 95% for the Red Billed Tropicbird, slipping through this new protection. To fully catch future images like this I would need to either A) add an additional category for non-bird images, or B) add a second model that answers the question "is this a bird?" As of right now I am keeping the model as it is and spending time on getting my dashboard done. With more time I will strengthen my current model.

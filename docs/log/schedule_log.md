@@ -29,7 +29,7 @@ see the Project Log. For any changes to the original plan, see the Change Log.
 - [x] Create file structure
 - [x] Create documentation files
 - [x] Create AI instruction file (CLAUDE.md)
-- [ ] Create project MD file *(DeLayed - the readme file might work as the project md file)
+- [ ] Create project MD file *(Delayed — the README file might work as the project MD file)
 - [X] Create all phase MD files
 
 **Phase 1 — Dataset & Preprocessing:**
