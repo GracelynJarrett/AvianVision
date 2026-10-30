@@ -1,0 +1,527 @@
+dataset_label,scientific_name,match_type,needs_review
+ABBOTTS BABBLER,Malacocincla abbotti,fuzzy,yes
+ABBOTTS BOOBY,Papasula abbotti,fuzzy,yes
+ABYSSINIAN GROUND HORNBILL,Bucorvus abyssinicus,fuzzy,yes
+AFRICAN CROWNED CRANE,Balearica regulorum,manual,no
+AFRICAN EMERALD CUCKOO,Chrysococcyx cupreus,exact,no
+AFRICAN FIREFINCH,Lagonosticta rubricata,exact,no
+AFRICAN OYSTER CATCHER,Haematopus moquini,fuzzy,yes
+AFRICAN PIED HORNBILL,Lophoceros semifasciatus,manual,no
+AFRICAN PYGMY GOOSE,Nettapus auritus,fuzzy,yes
+ALBATROSS,,ambiguous,yes
+ALBERTS TOWHEE,Melozone aberti,fuzzy,yes
+ALEXANDRINE PARAKEET,Psittacula eupatria,exact,no
+ALPINE CHOUGH,Pyrrhocorax graculus,manual,no
+ALTAMIRA YELLOWTHROAT,Geothlypis flavovelata,exact,no
+AMERICAN AVOCET,Recurvirostra americana,exact,no
+AMERICAN BITTERN,Botaurus lentiginosus,exact,no
+AMERICAN COOT,Fulica americana,exact,no
+AMERICAN DIPPER,Cinclus mexicanus,exact,no
+AMERICAN FLAMINGO,Phoenicopterus ruber,exact,no
+AMERICAN GOLDFINCH,Spinus tristis,exact,no
+AMERICAN KESTREL,Falco sparverius,exact,no
+AMERICAN PIPIT,Anthus rubescens,exact,no
+AMERICAN REDSTART,Setophaga ruticilla,exact,no
+AMERICAN ROBIN,Turdus migratorius,exact,no
+AMERICAN WIGEON,Mareca americana,exact,no
+AMETHYST WOODSTAR,Calliphlox amethystina,exact,no
+ANDEAN GOOSE,Oressochen melanopterus,exact,no
+ANDEAN LAPWING,Vanellus resplendens,exact,no
+ANDEAN SISKIN,Spinus spinescens,exact,no
+ANHINGA,Anhinga anhinga,exact,no
+ANIANIAU,Magumma parva,exact,no
+ANNAS HUMMINGBIRD,Calypte anna,fuzzy,yes
+ANTBIRD,,ambiguous,yes
+ANTILLEAN EUPHONIA,Chlorophonia flavifrons,fuzzy,yes
+APAPANE,Himatione sanguinea,exact,no
+APOSTLEBIRD,Struthidea cinerea,exact,no
+ARARIPE MANAKIN,Chiroxiphia bokermanni,exact,no
+ASHY STORM PETREL,Hydrobates homochroa,fuzzy,yes
+ASHY THRUSHBIRD,Geokichla cinerea,fuzzy,yes
+ASIAN CRESTED IBIS,Nipponia nippon,fuzzy,yes
+ASIAN DOLLARD BIRD,Eurystomus orientalis,manual,no
+ASIAN GREEN BEE EATER,Merops orientalis,fuzzy,yes
+ASIAN OPENBILL STORK,Anastomus oscitans,fuzzy,yes
+AUCKLAND SHAQ,Leucocarbo colensoi,manual,no
+AUSTRAL CANASTERO,Asthenes anthoides,exact,no
+AUSTRALASIAN FIGBIRD,Sphecotheres vieilloti,exact,no
+AVADAVAT,Amandava amandava,fuzzy,yes
+AZARAS SPINETAIL,Synallaxis azarae,fuzzy,yes
+AZURE BREASTED PITTA,Pitta steerii,fuzzy,yes
+AZURE JAY,Cyanocorax caeruleus,exact,no
+AZURE TANAGER,Tangara cayana,manual,no
+AZURE TIT,Cyanistes cyanus,exact,no
+BAIKAL TEAL,Sibirionetta formosa,exact,no
+BALD EAGLE,Haliaeetus leucocephalus,exact,no
+BALD IBIS,Geronticus eremita,manual,no
+BALI STARLING,Leucopsar rothschildi,manual,no
+BALTIMORE ORIOLE,Icterus galbula,exact,no
+BANANAQUIT,Coereba flaveola,exact,no
+BAND TAILED GUAN,Penelope argyrotis,fuzzy,yes
+BANDED BROADBILL,Eurylaimus javanicus,exact,no
+BANDED PITA,Hydrornis guajanus,manual,no
+BANDED STILT,Cladorhynchus leucocephalus,exact,no
+BAR-TAILED GODWIT,Limosa lapponica,exact,no
+BARN OWL,Tyto alba,manual,no
+BARN SWALLOW,Hirundo rustica,exact,no
+BARRED PUFFBIRD,Nystalus radiatus,exact,no
+BARROWS GOLDENEYE,Bucephala islandica,fuzzy,yes
+BAY-BREASTED WARBLER,Setophaga castanea,exact,no
+BEARDED BARBET,Pogonornis dubius,exact,no
+BEARDED BELLBIRD,Procnias averano,exact,no
+BEARDED REEDLING,Panurus biarmicus,exact,no
+BELTED KINGFISHER,Megaceryle alcyon,exact,no
+BIRD OF PARADISE,,ambiguous,yes
+BLACK AND YELLOW BROADBILL,Eurylaimus ochromalus,fuzzy,yes
+BLACK BAZA,Aviceda leuphotes,exact,no
+BLACK BREASTED PUFFBIRD,Notharchus pectoralis,fuzzy,yes
+BLACK COCKATO,Calyptorhynchus banksii,manual,no
+BLACK FACED SPOONBILL,Platalea minor,fuzzy,yes
+BLACK FRANCOLIN,Francolinus francolinus,exact,no
+BLACK HEADED CAIQUE,Pionites melanocephalus,manual,no
+BLACK NECKED STILT,Himantopus mexicanus,fuzzy,yes
+BLACK SKIMMER,Rynchops niger,exact,no
+BLACK SWAN,Cygnus atratus,exact,no
+BLACK TAIL CRAKE,Zapornia bicolor,fuzzy,yes
+BLACK THROATED BUSHTIT,Aegithalos concinnus,fuzzy,yes
+BLACK THROATED HUET,Pteroptochos tarnii,manual,no
+BLACK THROATED WARBLER,Setophaga caerulescens,manual,no
+BLACK VENTED SHEARWATER,Puffinus opisthomelas,fuzzy,yes
+BLACK VULTURE,Coragyps atratus,exact,no
+BLACK-CAPPED CHICKADEE,Poecile atricapillus,exact,no
+BLACK-NECKED GREBE,Podiceps nigricollis,manual,no
+BLACK-THROATED SPARROW,Amphispiza bilineata,exact,no
+BLACKBURNIAM WARBLER,Setophaga fusca,fuzzy,yes
+BLONDE CRESTED WOODPECKER,Celeus flavescens,fuzzy,yes
+BLOOD PHEASANT,Ithaginis cruentus,exact,no
+BLUE COAU,Coua caerulea,fuzzy,yes
+BLUE DACNIS,Dacnis cayana,exact,no
+BLUE GRAY GNATCATCHER,Polioptila caerulea,fuzzy,yes
+BLUE GROSBEAK,Passerina caerulea,exact,no
+BLUE GROUSE,Dendragapus obscurus,manual,no
+BLUE HERON,Ardea herodias,manual,no
+BLUE MALKOHA,Ceuthmochares aereus,exact,no
+BLUE THROATED PIPING GUAN,Pipile cumanensis,fuzzy,yes
+BLUE THROATED TOUCANET,Aulacorhynchus caeruleogularis,manual,no
+BOBOLINK,Dolichonyx oryzivorus,exact,no
+BORNEAN BRISTLEHEAD,Pityriasis gymnocephala,exact,no
+BORNEAN LEAFBIRD,Chloropsis kinabaluensis,exact,no
+BORNEAN PHEASANT,Polyplectron schleiermacheri,manual,no
+BRANDT CORMARANT,Urile penicillatus,fuzzy,yes
+BREWERS BLACKBIRD,Euphagus cyanocephalus,fuzzy,yes
+BROWN CREPPER,Certhia americana,fuzzy,yes
+BROWN HEADED COWBIRD,Molothrus ater,fuzzy,yes
+BROWN NOODY,Anous stolidus,fuzzy,yes
+BROWN THRASHER,Toxostoma rufum,exact,no
+BUFFLEHEAD,Bucephala albeola,exact,no
+BULWERS PHEASANT,Lophura bulweri,fuzzy,yes
+BURCHELLS COURSER,Cursorius rufus,fuzzy,yes
+BUSH TURKEY,Alectura lathami,manual,no
+CAATINGA CACHOLOTE,Pseudoseisura cristata,exact,no
+CABOTS TRAGOPAN,Tragopan caboti,fuzzy,yes
+CACTUS WREN,Campylorhynchus brunneicapillus,exact,no
+CALIFORNIA CONDOR,Gymnogyps californianus,exact,no
+CALIFORNIA GULL,Larus californicus,exact,no
+CALIFORNIA QUAIL,Callipepla californica,exact,no
+CAMPO FLICKER,Colaptes campestris,exact,no
+CANARY,Serinus canaria,manual,no
+CANVASBACK,Aythya valisineria,exact,no
+CAPE GLOSSY STARLING,Lamprotornis nitens,manual,no
+CAPE LONGCLAW,Macronyx capensis,manual,no
+CAPE MAY WARBLER,Setophaga tigrina,exact,no
+CAPE ROCK THRUSH,Monticola rupestris,fuzzy,yes
+CAPPED HERON,Pilherodius pileatus,exact,no
+CAPUCHINBIRD,Perissocephalus tricolor,exact,no
+CARMINE BEE-EATER,Merops nubicus,manual,no
+CASPIAN TERN,Hydroprogne caspia,exact,no
+CASSOWARY,Casuarius casuarius,manual,no
+CEDAR WAXWING,Bombycilla cedrorum,exact,no
+CERULEAN WARBLER,Setophaga cerulea,exact,no
+CHARA DE COLLAR,Calocitta formosa,manual,no
+CHATTERING LORY,Lorius garrulus,exact,no
+CHESTNET BELLIED EUPHONIA,Euphonia pectoralis,fuzzy,yes
+CHESTNUT WINGED CUCKOO,Clamator coromandus,fuzzy,yes
+CHINESE BAMBOO PARTRIDGE,Bambusicola thoracicus,fuzzy,yes
+CHINESE POND HERON,Ardeola bacchus,fuzzy,yes
+CHIPPING SPARROW,Spizella passerina,exact,no
+CHUCAO TAPACULO,Scelorchilus rubecula,exact,no
+CHUKAR PARTRIDGE,Alectoris chukar,manual,no
+CINNAMON ATTILA,Attila cinnamomeus,exact,no
+CINNAMON FLYCATCHER,Pyrrhomyias cinnamomeus,exact,no
+CINNAMON TEAL,Spatula cyanoptera,exact,no
+CLARKS GREBE,Aechmophorus clarkii,fuzzy,yes
+CLARKS NUTCRACKER,Nucifraga columbiana,fuzzy,yes
+COCK OF THE  ROCK,Rupicola peruvianus,manual,no
+COCKATOO,,ambiguous,yes
+COLLARED ARACARI,Pteroglossus torquatus,exact,no
+COLLARED CRESCENTCHEST,Melanopareia torquata,exact,no
+COMMON FIRECREST,Regulus ignicapilla,exact,no
+COMMON GRACKLE,Quiscalus quiscula,exact,no
+COMMON HOUSE MARTIN,Delichon urbicum,manual,no
+COMMON IORA,Aegithina tiphia,exact,no
+COMMON LOON,Gavia immer,exact,no
+COMMON POORWILL,Phalaenoptilus nuttallii,exact,no
+COMMON STARLING,Sturnus vulgaris,manual,no
+COPPERSMITH BARBET,Psilopogon haemacephalus,exact,no
+COPPERY TAILED COUCAL,Centropus cupreicaudus,fuzzy,yes
+CRAB PLOVER,Dromas ardeola,fuzzy,yes
+CRANE HAWK,Geranospiza caerulescens,exact,no
+CREAM COLORED WOODPECKER,Celeus flavus,fuzzy,yes
+CRESTED AUKLET,Aethia cristatella,exact,no
+CRESTED CARACARA,Caracara plancus,exact,no
+CRESTED COUA,Coua cristata,exact,no
+CRESTED FIREBACK,Lophura ignita,manual,no
+CRESTED KINGFISHER,Megaceryle lugubris,exact,no
+CRESTED NUTHATCH,Sitta europaea,manual,no
+CRESTED OROPENDOLA,Psarocolius decumanus,exact,no
+CRESTED SERPENT EAGLE,Spilornis cheela,fuzzy,yes
+CRESTED SHRIKETIT,Falcunculus frontatus,manual,no
+CRESTED WOOD PARTRIDGE,Rollulus rouloul,fuzzy,yes
+CRIMSON CHAT,Epthianura tricolor,exact,no
+CRIMSON SUNBIRD,Aethopyga siparaja,exact,no
+CROW,Corvus brachyrhynchos,manual,no
+CUBAN TODY,Todus multicolor,exact,no
+CUBAN TROGON,Priotelus temnurus,exact,no
+CURL CRESTED ARACURI,Pteroglossus beauharnaisii,fuzzy,yes
+D-ARNAUDS BARBET,Trachyphonus darnaudii,fuzzy,yes
+DALMATIAN PELICAN,Pelecanus crispus,exact,no
+DARJEELING WOODPECKER,Dendrocopos darjellensis,exact,no
+DARK EYED JUNCO,Junco hyemalis,fuzzy,yes
+DAURIAN REDSTART,Phoenicurus auroreus,exact,no
+DEMOISELLE CRANE,Grus virgo,exact,no
+DOUBLE BARRED FINCH,Stizoptera bichenovii,fuzzy,yes
+DOUBLE BRESTED CORMARANT,Nannopterum auritum,fuzzy,yes
+DOUBLE EYED FIG PARROT,Cyclopsitta diophthalma,fuzzy,yes
+DOWNY WOODPECKER,Dryobates pubescens,exact,no
+DUNLIN,Calidris alpina,exact,no
+DUSKY LORY,Chalcopsitta fuscata,exact,no
+DUSKY ROBIN,Melanodryas vittata,exact,no
+EARED PITA,Hydrornis phayrei,fuzzy,yes
+EASTERN BLUEBIRD,Sialia sialis,exact,no
+EASTERN BLUEBONNET,Northiella haematogaster,fuzzy,yes
+EASTERN GOLDEN WEAVER,Ploceus subaureus,manual,no
+EASTERN MEADOWLARK,Sturnella magna,exact,no
+EASTERN ROSELLA,Platycercus eximius,exact,no
+EASTERN TOWEE,Pipilo erythrophthalmus,fuzzy,yes
+EASTERN WIP POOR WILL,Antrostomus vociferus,fuzzy,yes
+EASTERN YELLOW ROBIN,Eopsaltria australis,exact,no
+ECUADORIAN HILLSTAR,Oreotrochilus chimborazo,exact,no
+EGYPTIAN GOOSE,Alopochen aegyptiaca,exact,no
+ELEGANT TROGON,Trogon elegans,exact,no
+ELLIOTS  PHEASANT,Syrmaticus ellioti,fuzzy,yes
+EMERALD TANAGER,Tangara florida,exact,no
+EMPEROR PENGUIN,Aptenodytes forsteri,exact,no
+EMU,Dromaius novaehollandiae,exact,no
+ENGGANO MYNA,Acridotheres melanopterus,manual,no
+EURASIAN BULLFINCH,Pyrrhula pyrrhula,exact,no
+EURASIAN GOLDEN ORIOLE,Oriolus oriolus,exact,no
+EURASIAN MAGPIE,Pica pica,exact,no
+EUROPEAN GOLDFINCH,Carduelis carduelis,exact,no
+EUROPEAN TURTLE DOVE,Streptopelia turtur,fuzzy,yes
+EVENING GROSBEAK,Hesperiphona vespertina,exact,no
+FAIRY BLUEBIRD,Irena puella,manual,no
+FAIRY PENGUIN,Eudyptula minor,manual,no
+FAIRY TERN,Gygis alba,manual,no
+FAN TAILED WIDOW,Euplectes axillaris,fuzzy,yes
+FASCIATED WREN,Campylorhynchus fasciatus,exact,no
+FIERY MINIVET,Pericrocotus igneus,exact,no
+FIORDLAND PENGUIN,Eudyptes pachyrhynchus,exact,no
+FIRE TAILLED MYZORNIS,Myzornis pyrrhoura,fuzzy,yes
+FLAME BOWERBIRD,Sericulus ardens,exact,no
+FLAME TANAGER,Piranga bidentata,manual,no
+FOREST WAGTAIL,Dendronanthus indicus,exact,no
+FRIGATE,,ambiguous,yes
+FRILL BACK PIGEON,,ambiguous,yes
+GAMBELS QUAIL,Callipepla gambelii,fuzzy,yes
+GANG GANG COCKATOO,Callocephalon fimbriatum,fuzzy,yes
+GILA WOODPECKER,Melanerpes uropygialis,exact,no
+GILDED FLICKER,Colaptes chrysoides,exact,no
+GLOSSY IBIS,Plegadis falcinellus,exact,no
+GO AWAY BIRD,Corythaixoides leucogaster,manual,no
+GOLD WING WARBLER,Vermivora chrysoptera,fuzzy,yes
+GOLDEN BOWER BIRD,Prionodura newtoniana,fuzzy,yes
+GOLDEN CHEEKED WARBLER,Setophaga chrysoparia,fuzzy,yes
+GOLDEN CHLOROPHONIA,Chlorophonia callophrys,fuzzy,yes
+GOLDEN EAGLE,Aquila chrysaetos,exact,no
+GOLDEN PARAKEET,Guaruba guarouba,exact,no
+GOLDEN PHEASANT,Chrysolophus pictus,exact,no
+GOLDEN PIPIT,Tmetothylacus tenellus,exact,no
+GOULDIAN FINCH,Chloebia gouldiae,exact,no
+GRANDALA,Grandala coelicolor,exact,no
+GRAY CATBIRD,Dumetella carolinensis,exact,no
+GRAY KINGBIRD,Tyrannus dominicensis,exact,no
+GRAY PARTRIDGE,Perdix perdix,exact,no
+GREAT ARGUS,Argusianus argus,exact,no
+GREAT GRAY OWL,Strix nebulosa,exact,no
+GREAT JACAMAR,Jacamerops aureus,exact,no
+GREAT KISKADEE,Pitangus sulphuratus,exact,no
+GREAT POTOO,Nyctibius grandis,exact,no
+GREAT TINAMOU,Tinamus major,exact,no
+GREAT XENOPS,Megaxenops parnaguae,exact,no
+GREATER PEWEE,Contopus pertinax,exact,no
+GREATER PRAIRIE CHICKEN,Tympanuchus cupido,fuzzy,yes
+GREATOR SAGE GROUSE,Centrocercus urophasianus,fuzzy,yes
+GREEN BROADBILL,Calyptomena viridis,exact,no
+GREEN JAY,Cyanocorax yncas,exact,no
+GREEN MAGPIE,Cissa chinensis,manual,no
+GREEN WINGED DOVE,Chalcophaps indica,manual,no
+GREY CUCKOOSHRIKE,Ceblepyris caesius,fuzzy,yes
+GREY HEADED CHACHALACA,Ortalis cinereiceps,fuzzy,yes
+GREY HEADED FISH EAGLE,Icthyophaga ichthyaetus,fuzzy,yes
+GREY PLOVER,Pluvialis squatarola,manual,no
+GROVED BILLED ANI,Crotophaga sulcirostris,fuzzy,yes
+GUINEA TURACO,Tauraco persa,exact,no
+GUINEAFOWL,Numida meleagris,manual,no
+GURNEYS PITTA,Hydrornis gurneyi,fuzzy,yes
+GYRFALCON,Falco rusticolus,exact,no
+HAMERKOP,Scopus umbretta,exact,no
+HARLEQUIN DUCK,Histrionicus histrionicus,exact,no
+HARLEQUIN QUAIL,Coturnix delegorguei,exact,no
+HARPY EAGLE,Harpia harpyja,exact,no
+HAWAIIAN GOOSE,Branta sandvicensis,exact,no
+HAWFINCH,Coccothraustes coccothraustes,exact,no
+HELMET VANGA,Euryceros prevostii,exact,no
+HEPATIC TANAGER,Piranga flava,exact,no
+HIMALAYAN BLUETAIL,Tarsiger rufilatus,exact,no
+HIMALAYAN MONAL,Lophophorus impejanus,exact,no
+HOATZIN,Opisthocomus hoazin,exact,no
+HOODED MERGANSER,Lophodytes cucullatus,exact,no
+HOOPOES,Upupa epops,manual,no
+HORNED GUAN,Oreophasis derbianus,exact,no
+HORNED LARK,Eremophila alpestris,exact,no
+HORNED SUNGEM,Heliactin bilophus,exact,no
+HOUSE FINCH,Haemorhous mexicanus,exact,no
+HOUSE SPARROW,Passer domesticus,exact,no
+HYACINTH MACAW,Anodorhynchus hyacinthinus,exact,no
+IBERIAN MAGPIE,Cyanopica cooki,exact,no
+IBISBILL,Ibidorhyncha struthersii,exact,no
+IMPERIAL SHAQ,Leucocarbo atriceps,manual,no
+INCA TERN,Larosterna inca,exact,no
+INDIAN BUSTARD,Ardeotis nigriceps,manual,no
+INDIAN PITTA,Pitta brachyura,exact,no
+INDIAN ROLLER,Coracias benghalensis,exact,no
+INDIAN VULTURE,Gyps indicus,exact,no
+INDIGO BUNTING,Passerina cyanea,exact,no
+INDIGO FLYCATCHER,Eumyias indigo,exact,no
+INLAND DOTTEREL,Peltohyas australis,exact,no
+IVORY BILLED ARACARI,Pteroglossus azara,fuzzy,yes
+IVORY GULL,Pagophila eburnea,exact,no
+IWI,Drepanis coccinea,fuzzy,yes
+JABIRU,Jabiru mycteria,exact,no
+JACK SNIPE,Lymnocryptes minimus,exact,no
+JACOBIN PIGEON,,ambiguous,yes
+JANDAYA PARAKEET,Aratinga jandaya,exact,no
+JAPANESE ROBIN,Larvivora akahige,exact,no
+JAVA SPARROW,Padda oryzivora,exact,no
+JOCOTOCO ANTPITTA,Grallaria ridgelyi,exact,no
+KAGU,Rhynochetos jubatus,exact,no
+KAKAPO,Strigops habroptilus,exact,no
+KILLDEAR,Charadrius vociferus,fuzzy,yes
+KING EIDER,Somateria spectabilis,exact,no
+KING VULTURE,Sarcoramphus papa,exact,no
+KIWI,Apteryx mantelli,manual,no
+KNOB BILLED DUCK,Sarkidiornis melanotos,fuzzy,yes
+KOOKABURRA,Dacelo novaeguineae,manual,no
+LARK BUNTING,Calamospiza melanocorys,exact,no
+LAUGHING GULL,Leucophaeus atricilla,exact,no
+LAZULI BUNTING,Passerina amoena,exact,no
+LESSER ADJUTANT,Leptoptilos javanicus,exact,no
+LILAC ROLLER,Coracias caudatus,manual,no
+LIMPKIN,Aramus guarauna,exact,no
+LITTLE AUK,Alle alle,manual,no
+LOGGERHEAD SHRIKE,Lanius ludovicianus,exact,no
+LONG-EARED OWL,Asio otus,exact,no
+LOONEY BIRDS,,ambiguous,yes
+LUCIFER HUMMINGBIRD,Calothorax lucifer,exact,no
+MAGPIE GOOSE,Anseranas semipalmata,exact,no
+MALABAR HORNBILL,Ocyceros griseus,manual,no
+MALACHITE KINGFISHER,Corythornis cristatus,exact,no
+MALAGASY WHITE EYE,Zosterops maderaspatanus,fuzzy,yes
+MALEO,Macrocephalon maleo,exact,no
+MALLARD DUCK,Anas platyrhynchos,manual,no
+MANDRIN DUCK,Aix galericulata,fuzzy,yes
+MANGROVE CUCKOO,Coccyzus minor,exact,no
+MARABOU STORK,Leptoptilos crumenifer,exact,no
+MASKED BOBWHITE,Colinus virginianus,manual,no
+MASKED BOOBY,Sula dactylatra,exact,no
+MASKED LAPWING,Vanellus miles,exact,no
+MCKAYS BUNTING,Plectrophenax hyperboreus,fuzzy,yes
+MERLIN,Falco columbarius,exact,no
+MIKADO  PHEASANT,Syrmaticus mikado,exact,no
+MILITARY MACAW,Ara militaris,exact,no
+MOURNING DOVE,Zenaida macroura,exact,no
+MYNA,Acridotheres tristis,manual,no
+NICOBAR PIGEON,Caloenas nicobarica,exact,no
+NOISY FRIARBIRD,Philemon corniculatus,exact,no
+NORTHERN BEARDLESS TYRANNULET,Camptostoma imberbe,fuzzy,yes
+NORTHERN CARDINAL,Cardinalis cardinalis,exact,no
+NORTHERN FLICKER,Colaptes auratus,exact,no
+NORTHERN FULMAR,Fulmarus glacialis,exact,no
+NORTHERN GANNET,Morus bassanus,exact,no
+NORTHERN GOSHAWK,Accipiter gentilis,manual,no
+NORTHERN JACANA,Jacana spinosa,exact,no
+NORTHERN MOCKINGBIRD,Mimus polyglottos,exact,no
+NORTHERN PARULA,Setophaga americana,exact,no
+NORTHERN RED BISHOP,Euplectes franciscanus,exact,no
+NORTHERN SHOVELER,Spatula clypeata,exact,no
+OCELLATED TURKEY,Meleagris ocellata,exact,no
+OILBIRD,Steatornis caripensis,exact,no
+OKINAWA RAIL,Gallirallus okinawae,exact,no
+ORANGE BREASTED TROGON,Harpactes oreskios,fuzzy,yes
+ORANGE BRESTED BUNTING,Passerina leclancherii,fuzzy,yes
+ORIENTAL BAY OWL,Phodilus badius,fuzzy,yes
+ORNATE HAWK EAGLE,Spizaetus ornatus,fuzzy,yes
+OSPREY,Pandion haliaetus,exact,no
+OSTRICH,Struthio camelus,manual,no
+OVENBIRD,Seiurus aurocapilla,exact,no
+OYSTER CATCHER,Haematopus ostralegus,manual,no
+PAINTED BUNTING,Passerina ciris,exact,no
+PALILA,Loxioides bailleui,exact,no
+PALM NUT VULTURE,Gypohierax angolensis,fuzzy,yes
+PARADISE TANAGER,Tangara chilensis,exact,no
+PARAKETT  AUKLET,Aethia psittacula,fuzzy,yes
+PARAKETT AUKLET,Aethia psittacula,fuzzy,yes
+PARUS MAJOR,Parus major,manual,no
+PATAGONIAN SIERRA FINCH,Phrygilus patagonicus,exact,no
+PEACOCK,Pavo cristatus,manual,no
+PEREGRINE FALCON,Falco peregrinus,exact,no
+PHAINOPEPLA,Phainopepla nitens,exact,no
+PHILIPPINE EAGLE,Pithecophaga jefferyi,exact,no
+PINK ROBIN,Petroica rodinogaster,exact,no
+PLUSH CRESTED JAY,Cyanocorax chrysops,fuzzy,yes
+POMARINE JAEGER,Stercorarius pomarinus,exact,no
+PUFFIN,Fratercula arctica,manual,no
+PUNA TEAL,Spatula puna,exact,no
+PURPLE FINCH,Haemorhous purpureus,exact,no
+PURPLE GALLINULE,Porphyrio martinica,exact,no
+PURPLE MARTIN,Progne subis,exact,no
+PURPLE SWAMPHEN,Porphyrio porphyrio,manual,no
+PYGMY KINGFISHER,Chloroceryle aenea,manual,no
+PYRRHULOXIA,Cardinalis sinuatus,exact,no
+QUETZAL,Pharomachrus mocinno,manual,no
+RAINBOW LORIKEET,Trichoglossus moluccanus,exact,no
+RAZORBILL,Alca torda,exact,no
+RED BEARDED BEE EATER,Nyctyornis amictus,fuzzy,yes
+RED BELLIED PITTA,Erythropitta erythrogaster,manual,no
+RED BILLED TROPICBIRD,Phaethon aethereus,fuzzy,yes
+RED BROWED FINCH,Neochmia temporalis,manual,no
+RED CROSSBILL,Loxia curvirostra,exact,no
+RED FACED CORMORANT,Urile urile,fuzzy,yes
+RED FACED WARBLER,Cardellina rubrifrons,fuzzy,yes
+RED FODY,Foudia madagascariensis,exact,no
+RED HEADED DUCK,Aythya americana,manual,no
+RED HEADED WOODPECKER,Melanerpes erythrocephalus,fuzzy,yes
+RED KNOT,Calidris canutus,exact,no
+RED LEGGED HONEYCREEPER,Cyanerpes cyaneus,fuzzy,yes
+RED NAPED TROGON,Harpactes kasumba,fuzzy,yes
+RED SHOULDERED HAWK,Buteo lineatus,fuzzy,yes
+RED TAILED HAWK,Buteo jamaicensis,fuzzy,yes
+RED TAILED THRUSH,Neocossyphus rufus,manual,no
+RED WINGED BLACKBIRD,Agelaius phoeniceus,fuzzy,yes
+RED WISKERED BULBUL,Pycnonotus jocosus,fuzzy,yes
+REGENT BOWERBIRD,Sericulus chrysocephalus,exact,no
+RING-NECKED PHEASANT,Phasianus colchicus,exact,no
+ROADRUNNER,Geococcyx californianus,manual,no
+ROCK DOVE,Columba livia,manual,no
+ROSE BREASTED COCKATOO,Eolophus roseicapilla,manual,no
+ROSE BREASTED GROSBEAK,Pheucticus ludovicianus,fuzzy,yes
+ROSEATE SPOONBILL,Platalea ajaja,exact,no
+ROSY FACED LOVEBIRD,Agapornis roseicollis,fuzzy,yes
+ROUGH LEG BUZZARD,Buteo lagopus,manual,no
+ROYAL FLYCATCHER,Onychorhynchus coronatus,manual,no
+RUBY CROWNED KINGLET,Corthylio calendula,fuzzy,yes
+RUBY THROATED HUMMINGBIRD,Archilochus colubris,fuzzy,yes
+RUDDY SHELDUCK,Tadorna ferruginea,exact,no
+RUDY KINGFISHER,Halcyon coromanda,fuzzy,yes
+RUFOUS KINGFISHER,Todiramphus winchelli,manual,no
+RUFOUS TREPE,Dendrocitta vagabunda,fuzzy,yes
+RUFUOS MOTMOT,Baryphthengus martii,fuzzy,yes
+SAMATRAN THRUSH,Garrulax bicolor,manual,no
+SAND MARTIN,Riparia riparia,manual,no
+SANDHILL CRANE,Antigone canadensis,exact,no
+SATYR TRAGOPAN,Tragopan satyra,exact,no
+SAYS PHOEBE,Sayornis saya,fuzzy,yes
+SCARLET CROWNED FRUIT DOVE,Ptilinopus pulchellus,manual,no
+SCARLET FACED LIOCICHLA,Liocichla ripponi,fuzzy,yes
+SCARLET IBIS,Eudocimus ruber,exact,no
+SCARLET MACAW,Ara macao,exact,no
+SCARLET TANAGER,Piranga olivacea,exact,no
+SHOEBILL,Balaeniceps rex,exact,no
+SHORT BILLED DOWITCHER,Limnodromus griseus,fuzzy,yes
+SMITHS LONGSPUR,Calcarius pictus,fuzzy,yes
+SNOW GOOSE,Anser caerulescens,exact,no
+SNOW PARTRIDGE,Lerwa lerwa,exact,no
+SNOWY EGRET,Egretta thula,exact,no
+SNOWY OWL,Bubo scandiacus,exact,no
+SNOWY PLOVER,Anarhynchus nivosus,exact,no
+SNOWY SHEATHBILL,Chionis albus,exact,no
+SORA,Porzana carolina,exact,no
+SPANGLED COTINGA,Cotinga cayana,exact,no
+SPLENDID WREN,Malurus splendens,fuzzy,yes
+SPOON BILED SANDPIPER,Calidris pygmaea,fuzzy,yes
+SPOTTED CATBIRD,Ailuroedus maculosus,exact,no
+SPOTTED WHISTLING DUCK,Dendrocygna guttata,fuzzy,yes
+SQUACCO HERON,Ardeola ralloides,exact,no
+SRI LANKA BLUE MAGPIE,Urocissa ornata,fuzzy,yes
+STEAMER DUCK,Tachyeres pteneres,manual,no
+STORK BILLED KINGFISHER,Pelargopsis capensis,fuzzy,yes
+STRIATED CARACARA,Daptrius australis,exact,no
+STRIPED OWL,Asio clamator,exact,no
+STRIPPED MANAKIN,Machaeropterus striolatus,fuzzy,yes
+STRIPPED SWALLOW,Cecropis striolata,manual,no
+SUNBITTERN,Eurypyga helias,exact,no
+SUPERB STARLING,Lamprotornis superbus,exact,no
+SURF SCOTER,Melanitta perspicillata,exact,no
+SWINHOES PHEASANT,Lophura swinhoii,fuzzy,yes
+TAILORBIRD,Orthotomus sutorius,manual,no
+TAIWAN MAGPIE,Urocissa caerulea,fuzzy,yes
+TAKAHE,Porphyrio hochstetteri,manual,no
+TASMANIAN HEN,Tribonyx mortierii,fuzzy,yes
+TAWNY FROGMOUTH,Podargus strigoides,exact,no
+TEAL DUCK,,ambiguous,yes
+TIT MOUSE,Baeolophus bicolor,manual,no
+TOUCHAN,Ramphastos toco,manual,no
+TOWNSENDS WARBLER,Setophaga townsendi,fuzzy,yes
+TREE SWALLOW,Tachycineta bicolor,exact,no
+TRICOLORED BLACKBIRD,Agelaius tricolor,exact,no
+TROPICAL KINGBIRD,Tyrannus melancholicus,exact,no
+TRUMPTER SWAN,Cygnus buccinator,fuzzy,yes
+TURKEY VULTURE,Cathartes aura,exact,no
+TURQUOISE MOTMOT,Eumomota superciliosa,manual,no
+UMBRELLA BIRD,Cephalopterus ornatus,manual,no
+VARIED THRUSH,Ixoreus naevius,exact,no
+VEERY,Catharus fuscescens,exact,no
+VENEZUELIAN TROUPIAL,Icterus icterus,fuzzy,yes
+VERDIN,Auriparus flaviceps,exact,no
+VERMILION FLYCATHER,Pyrocephalus rubinus,fuzzy,yes
+VICTORIA CROWNED PIGEON,Goura victoria,fuzzy,yes
+VIOLET BACKED STARLING,Cinnyricinclus leucogaster,fuzzy,yes
+VIOLET CUCKOO,Chrysococcyx xanthorhynchus,exact,no
+VIOLET GREEN SWALLOW,Tachycineta thalassina,fuzzy,yes
+VIOLET TURACO,Tauraco violaceus,exact,no
+VISAYAN HORNBILL,Penelopides panini,exact,no
+VULTURINE GUINEAFOWL,Acryllium vulturinum,exact,no
+WALL CREAPER,Tichodroma muraria,fuzzy,yes
+WATTLED CURASSOW,Crax globulosa,exact,no
+WATTLED LAPWING,Vanellus senegallus,exact,no
+WHIMBREL,Numenius phaeopus,manual,no
+WHITE BREASTED WATERHEN,Amaurornis phoenicurus,fuzzy,yes
+WHITE BROWED CRAKE,Poliolimnas cinereus,fuzzy,yes
+WHITE CHEEKED TURACO,Menelikornis leucotis,fuzzy,yes
+WHITE CRESTED HORNBILL,Berenicornis comatus,fuzzy,yes
+WHITE EARED HUMMINGBIRD,Basilinna leucotis,fuzzy,yes
+WHITE NECKED RAVEN,Corvus albicollis,fuzzy,yes
+WHITE TAILED TROPIC,Phaethon lepturus,fuzzy,yes
+WHITE THROATED BEE EATER,Merops albicollis,fuzzy,yes
+WILD TURKEY,Meleagris gallopavo,exact,no
+WILLOW PTARMIGAN,Lagopus lagopus,exact,no
+WILSONS BIRD OF PARADISE,Diphyllodes respublica,fuzzy,yes
+WOOD DUCK,Aix sponsa,exact,no
+WOOD THRUSH,Hylocichla mustelina,exact,no
+WOODLAND KINGFISHER,Halcyon senegalensis,exact,no
+WRENTIT,Chamaea fasciata,exact,no
+YELLOW BELLIED FLOWERPECKER,Pachyglossa melanozantha,fuzzy,yes
+YELLOW BREASTED CHAT,Icteria virens,fuzzy,yes
+YELLOW CACIQUE,Cacicus cela,manual,no
+YELLOW HEADED BLACKBIRD,Xanthocephalus xanthocephalus,fuzzy,yes
+ZEBRA DOVE,Geopelia striata,exact,no

@@ -864,20 +864,21 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Fiday Octoebr 30,2026
+**Day Goal:** Start the Bird Dash board
 
-**What Was Done:** 
+**What Was Done:** I created the about section, Coneted all enpoints and tested them.
 
-**Challenges:** 
+**Challenges:** no chanllenges
 
-**Blockers:** 
+**Blockers:** time managment
 
 **Summary:**
+    Today i started my Bird page for my dashboard. I got the about section done and conneted both endpoints to the page. I tested both end point and they both work.I also decided to have the European Turtle Doave as my audo bird for my bird info page, meaning when uses first opean the page they will use information about this Dove. 
 
 
 **Time:**
-    - Total:
+    - Total: 2 hours
 
 ---
 
