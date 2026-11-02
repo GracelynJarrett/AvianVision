@@ -75,3 +75,7 @@ and into a .env file (loaded with python-dotenv) so it is no longer hardcoded.
 
 **Date:** 10-29-2026
 **What Was Changed and Why:** I added a spread threshold that looks at the top_5_predictions. If the confidence is spread out more than 20%, then the prediction is automatically considered unknown. However, some images still slip through the cracks. The data/test_images/airplane.webp had a confidence score of 95% for the Red Billed Tropicbird, slipping through this new protection. To fully catch future images like this I would need to either A) add an additional category for non-bird images, or B) add a second model that answers the question "is this a bird?" As of right now I am keeping the model as it is and spending time on getting my dashboard done. With more time I will strengthen my current model.
+
+---
+**Date:** 11-02-2026
+**what was changed and why:** Instead of desplaying birds images from the dataset I will find my owne images and add them into a sepert folder just for the slideshow on the home page. I am doing this becase the images from the dataset are not largenf and if I incress there size they become blery and hard to see. 
