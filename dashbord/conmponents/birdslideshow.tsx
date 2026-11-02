@@ -77,7 +77,7 @@ export default function BirdSlideshow() {
             <img
                 src={imageUrl}
                 alt={current.species_label}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
             />
 
             <div className="absolute inset-y-0 left-0 w-1/4 bg-black/60 p-6 text-white">

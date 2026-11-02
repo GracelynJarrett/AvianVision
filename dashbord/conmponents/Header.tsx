@@ -2,75 +2,68 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Navigation links shown in the header on every page
+const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/predict", label: "Prediction" },
+    { href: "/species", label: "Species" },
+    { href: "/bird", label: "Bird" },
+    { href: "/stats", label: "Stats" },
+];
 
+// Maps each route to the page title shown in the center of the header
+const pageTitles: { [key: string]: string } = {
+    "/": "Home",
+    "/predict": "Prediction",
+    "/species": "Species",
+    "/bird": "Bird",
+    "/stats": "Statistics",
+};
 
 export default function Header() {
 
     const pathname = usePathname();
-
-    const pageTitles: { [key: string]: string } = {
-        "/": "Home",
-        "/predict": "Prediction",
-        "/species": "Species",
-        "/bird": "Bird",
-        "/stats": "Statistics",
-    };
-
     const pageTitle = pageTitles[pathname] || "AvianVision";
 
-
     return (
-        <header className="py-4 font-serif bg-[#C9C9C9] text-[#3F4850]">
+        // Single horizontal bar: logo left | page title center | nav right
+        <header className="py-3 font-serif bg-[#C9C9C9] text-[#3F4850] border-b border-[#3F4850]/20">
+            <div className="relative flex items-center justify-between px-6">
 
-
-            <div className="header flex justify-between items-center">
-
-                <div className="logosection flex">
-                    <p className="flex px-8">[Logo]</p>
-                    <p className="text-lg font-serif font-normal">AvianVision</p>
+                {/* Logo and brand name — left side */}
+                <div className="flex items-center gap-3">
+                    <span className="text-sm text-[#3F4850]/50">[Logo]</span>
+                    <span className="text-xl font-bold font-serif tracking-tight">AvianVision</span>
                 </div>
 
-                <div className="absolute left-1/2 -translate-x-1/2 font-serif text-2xl">
+                {/* Current page title — pinned to the center of the full header width */}
+                <div className="absolute left-1/2 -translate-x-1/2 font-serif text-2xl font-semibold pointer-events-none">
                     {pageTitle}
                 </div>
 
-                <nav className="hyperlinks flex gap-6 px-6" >
-                    <Link href="/" className="bg-white px-4 py-2 rounded text-[#3F4850] hover:bg-[#3F4850] hover:text-white transition-colors duration-200"> Home </Link>
-                    <Link href="/predict" className="bg-white px-4 py-2 rounded text-[#3F4850] hover:bg-[#3F4850] hover:text-white transition-colors duration-200"> Prediction </Link>
-                    <Link href="/species" className="bg-white px-4 py-2 rounded text-[#3F4850] hover:bg-[#3F4850] hover:text-white transition-colors duration-200"> Species </Link>
-                    <Link href="/bird" className="bg-white px-4 py-2 rounded text-[#3F4850] hover:bg-[#3F4850] hover:text-white transition-colors duration-200"> Bird </Link>
-                    <Link href="/stats" className="bg-white px-4 py-2 rounded text-[#3F4850] hover:bg-[#3F4850] hover:text-white transition-colors duration-200"> Stats </Link>
+                {/* Navigation links — right side */}
+                <nav className="flex gap-3" aria-label="Main navigation">
+                    {navLinks.map(({ href, label }) => {
+                        // Highlight the button for whichever page the user is currently on
+                        const isActive = pathname === href;
+                        return (
+                            <Link
+                                key={href}
+                                href={href}
+                                className={`px-4 py-2 rounded text-sm font-medium transition-colors duration-200 ${
+                                    isActive
+                                        ? "bg-[#3F4850] text-white"
+                                        : "bg-white text-[#3F4850] hover:bg-[#3F4850] hover:text-white"
+                                }`}
+                                aria-current={isActive ? "page" : undefined}
+                            >
+                                {label}
+                            </Link>
+                        );
+                    })}
                 </nav>
 
             </div>
-            <div className="flex justify-left mt-2 px-5">
-                <div className="flex items-center w-1/4 min-w-64 bg-white border border-[#3F4850]/30 rounded-lg px-3 py-2 gap-2">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#3F4850"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                    >
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="m21 21-4.35-4.35" />
-                    </svg>
-
-                    <input
-                        type="search"
-                        placeholder="Search birds..."
-                        aria-label="Search birds"
-                        className="w-full bg-transparent outline-none text-[#3F4850] placeholder:text-gray-500"
-                    />
-                </div>
-            </div>
-
-
         </header>
     );
 }

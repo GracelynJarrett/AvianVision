@@ -882,47 +882,31 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
 
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-
-
-**Time:**
-    - Total:
-
----
 
 ## Week 6 Review
 
-**Week Goal:** [The goal of the week — 1 sentence max]
+**Week Goal:** Finnish endpoints, create 2 dashboard pages
 
-**What Was Done:** [What got done — 1 sentence max]
+**What Was Done:** I finnishe the endpoints, fix the model, finish creating the home page and started to work on the bird page
 
-**What Was Not Done:** [What didn't get done — 3 words min]
+**What Was Not Done:** bird page was not finnish
 
-**Challenges:** [The week's main challenge — 3 words min]
+**Challenges:** finding modivation
 
-**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+**Carried Into Next Week:** Finnish bird page
 
 **Weekly Summary:**
-[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
-and why, main challenges, any changes to project files or the project plan, and what the 
-carry-over means for next week's goals.]
+    This week I finnished all the FastAPI endpoints and started creating the dashboard. I finshed the homepage, header, and footer. I then started to work on the bird page. When testing my endpoints I relized my model was giving a high prediction score to none bird images such as an airplin. To help proved this I added one more buffer chekck for the predictions. to fix this complitly I would need to make a new modle that would idently if an object is a bird first, or retrain my modle with a extra catagory of not a bird.
 
 ---
 
 
 # Week 7
+    * Finnish most of the dashboard, fix the slide show on the home page
 
 ## 
-**Day Goal:** 
+**Day Goal:** clean up what we have right now, finnish bird page
 
 **What Was Done:** 
 
