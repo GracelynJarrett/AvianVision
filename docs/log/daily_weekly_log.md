@@ -905,37 +905,39 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 # Week 7
     * Finnish most of the dashboard, fix the slide show on the home page
 
-## 
+## Monday Novmber 2 2026
 **Day Goal:** clean up what we have right now, finnish bird page
 
-**What Was Done:** 
+**What Was Done:** I clean up the home page and finnish the bird page
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:** no blockers
 
 **Summary:**
+    Today I worked on cleaning up my dashboard home page. I also created my bird page. I found that I dont have emidiat accase to tablue so I will need to hold off on that untill I either get accase or confiner I need to use ploty for my graphs, and maps.
 
 
 **Time:**
-    - Total:
+    - Total: 2 hours
 
 ---
 
-## 
-**Day Goal:** 
+## November 3 2026
+**Day Goal:** Undate Tello
 
-**What Was Done:** 
+**What Was Done:** Update trello, looked into cansloling Snowflake for good
 
-**Challenges:** 
+**Challenges:**  I have other finnals to work on
 
-**Blockers:** 
+**Blockers:** othe finnals
 
 **Summary:**
+    Today I updated trello and looked into closing snowflek, becase I am still geting charged for it. Now I was not able to work long today because I had to work on my finnals for my other classes
 
 
 **Time:**
-    - Total:
+    - Total: 30 m 
 
 ---
 

@@ -1,44 +1,43 @@
 [
     {
         "metric": "Loss",
-        "definition": "Measures how far the model's predictions are from the true label",
-        "formula": " * no given formula *",
-        "Better Direction": "Lower the Better"
+        "definition": "Measures how far the model's predictions are from the true labels. The model is penalized more heavily when it is very confident about a wrong answer.",
+        "formula": "−Σ [ y × log(ŷ) ]",
+        "Better Direction": "Lower is Better"
     },
     {
         "metric": "Accuracy",
-        "definition": "The proportion of predictions that were classified correctly out of all predictions made",
-        "formula": "(Number of Correct Prdictions)/ Total Predictions",
-        "Better Direction": "Higher the Better"
+        "definition": "The proportion of predictions the model got correct out of all predictions made.",
+        "numerator": "Correct Predictions",
+        "denominator": "Total Predictions",
+        "Better Direction": "Higher is Better"
     },
     {
         "metric": "Top 5 Accuracy",
-        "definition": "Percentage of predictions where the correct class appears within the model's five highest-confidence predictions",
-        "formula": " (True Top 5 Prediction class)/ Total Predictions",
-        "Better Direction": "Higher the Better"
+        "definition": "The proportion of images where the correct species appears anywhere in the model's top 5 most confident guesses.",
+        "numerator": "Images with True Class in Top 5",
+        "denominator": "Total Images",
+        "Better Direction": "Higher is Better"
     },
     {
         "metric": "Macro Precision",
-        "definition": "Measures how often positive predictions are correct while giving equal importance to all classes",
-        "formula": "True Positives/ (True Positives + False Positives)",
-        "Better Direction": "Higher the Better"
+        "definition": "Of all the times the model predicted a specific species, how often was it right? Calculated per species then averaged equally across all 525 classes.",
+        "numerator": "True Positives",
+        "denominator": "True Positives + False Positives",
+        "Better Direction": "Higher is Better"
     },
     {
         "metric": "Macro Recall",
-        "definition": "Measures the model's ability to identify all instances of each class",
-        "formula": " True Positives/ (True Positives + False Negatives)",
-        "Better Direction": "Higher the Better"
+        "definition": "Of all the actual occurrences of each species, how many did the model correctly identify? Calculated per species then averaged equally across all 525 classes.",
+        "numerator": "True Positives",
+        "denominator": "True Positives + False Negatives",
+        "Better Direction": "Higher is Better"
     },
     {
         "metric": "Macro F1 Score",
-        "definition": "Balances precision and recall into one metric",
-        "formula": " 2 X [(Precision X Recall) / (Precision + Recall)]",
-        "Better Direction": "Higher the Better"
-    },
-    {
-        "metric": "Macro",
-        "definition": "Macro calculates each class independently and then averages them across all the classes",
-        "formula": " * no given formula * ",
-        "Better Direction": ""
+        "definition": "A single score that balances both precision and recall. Useful when you care equally about avoiding both false positives and false negatives.",
+        "numerator": "2 × (Precision × Recall)",
+        "denominator": "Precision + Recall",
+        "Better Direction": "Higher is Better"
     }
 ]

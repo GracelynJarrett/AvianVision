@@ -1,26 +1,26 @@
 [
     {
         "method": "Horizontal Flip",
-        "definition": "Randomly mirror the iamge left to right"
+        "definition": "Randomly mirrors the image left to right during training. This teaches the model that a bird facing left and a bird facing right are the same species."
     },
     {
         "method": "Vertical Flip",
-        "definition": "Randomly mirror the image up to down"
+        "definition": "Randomly mirrors the image upside down during training. This helps the model recognize birds regardless of which way they are oriented in the photo."
     },
     {
         "method": "Rotation",
-        "definition": "Rotate the image ## degrees in either direction"
+        "definition": "Randomly rotates each image between ±36 and ±72 degrees during training. This helps the model identify birds even when the photo is taken at an angle."
     },
     {
         "method": "Zoom",
-        "definition": "Zoom in and out of the image"
+        "definition": "Randomly zooms in or out on the image during training. This teaches the model to recognize a bird whether it fills the whole frame or appears small in the distance."
     },
     {
         "method": "Brightness",
-        "definition": "Image Brightness shift up or down"
+        "definition": "Randomly shifts the image brighter or darker during training. This helps the model handle photos taken in a wide range of lighting conditions."
     },
     {
         "method": "Contrast",
-        "definition": "Contrast shif up or down"
+        "definition": "Randomly shifts the contrast of the image during training. This helps the model identify birds in photos with washed-out colors or harsh shadows."
     }
 ]
