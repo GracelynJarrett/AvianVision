@@ -11,11 +11,11 @@ function toTitleCase(str: string): string {
 function getStatusColor(status: string): string {
     switch (status?.toUpperCase()) {
         case "CRITICALLY ENDANGERED": return "bg-[#333333] text-white";
-        case "ENDANGERED":            return "bg-[#FF8A2A] text-white";
-        case "VULNERABLE":            return "bg-[#ffbc88] text-[#333333]";
-        case "NEAR THREATENED":       return "bg-[#fff99d] text-[#333333]";
-        case "LEAST CONCERN":         return "bg-[#fffdde] text-[#333333]";
-        default:                      return "bg-[#C9C9C9] text-[#333333]";
+        case "ENDANGERED": return "bg-[#FF8A2A] text-white";
+        case "VULNERABLE": return "bg-[#ffbc88] text-[#333333]";
+        case "NEAR THREATENED": return "bg-[#fff99d] text-[#333333]";
+        case "LEAST CONCERN": return "bg-[#fffdde] text-[#333333]";
+        default: return "bg-[#C9C9C9] text-[#333333]";
     }
 }
 
@@ -234,21 +234,21 @@ export default function PredictPage() {
         <main className="bg-[#FFFFFF]">
 
             {/* Section 1: Hero — page title and description */}
-            <section className="bg-[#fffdde] px-8 py-14">
+            <section className="bg-[#ffffff] px-8 py-14">
                 <div className="max-w-3xl mx-auto text-center">
-                    <h1 className="font-serif text-4xl font-bold text-[#333333] mb-4">
+                    <h1 className="font-serif text-4xl font-bold text-[#333333] mb-15 underline">
                         Identify a Bird
                     </h1>
-                    <p className="text-lg text-[#3F4850] leading-relaxed max-w-xl mx-auto">
+                    <p className="text-xl text-[#3F4850] leading-relaxed max-w-xl mx-auto">
                         Upload a photo and our model will identify the species from 525 possibilities.
                     </p>
                 </div>
             </section>
 
             {/* Section 2: Upload — two-column layout with controls on the left and preview on the right */}
-            <section className="bg-[#ffd6b6] px-8 py-10">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="font-serif text-2xl font-bold text-[#333333] mb-6">
+            <section className=" px-15 py-15 pb-30">
+                <div className="max-w-4xl mx-auto bg-[#ffd6b6] p-15 rounded-2xl">
+                    <h2 className="font-serif text-3xl font-bold text-[#333333] mb-6">
                         Upload Your Photo
                     </h2>
 
@@ -261,7 +261,7 @@ export default function PredictPage() {
                             <div>
                                 <button
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="px-6 py-3 rounded-xl bg-[#333333] text-white font-semibold text-sm hover:bg-[#3F4850] transition-colors w-full"
+                                    className="px-6 py-3 rounded-xl bg-[#333333] text-white font-semibold text-xl hover:bg-[#3F4850] transition-colors w-full"
                                 >
                                     Choose a Photo
                                 </button>
@@ -282,7 +282,7 @@ export default function PredictPage() {
                             </div>
 
                             {/* File type information for the user */}
-                            <div className="bg-white/60 rounded-xl px-4 py-3 text-sm text-[#3F4850] leading-relaxed">
+                            <div className="bg-white/60 rounded-xl px-4 py-3 text-base text-[#3F4850] leading-relaxed">
                                 <p className="font-semibold text-[#333333] mb-1">Accepted file types</p>
                                 <p>JPG, PNG, and WEBP images only. For best results, use a clear photo where the bird is the main subject and well-lit.</p>
                             </div>
@@ -291,7 +291,7 @@ export default function PredictPage() {
                             <div className="flex items-start gap-4">
                                 <button
                                     onClick={() => setShowHelp(prev => !prev)}
-                                    className="shrink-0 w-10 h-10 rounded-full bg-[#333333] text-white text-sm font-bold hover:bg-[#3F4850] transition-colors flex items-center justify-center"
+                                    className="shrink-0 w-12 h-12 rounded-full bg-[#333333] text-white text-2xl font-bold hover:bg-[#3F4850] transition-colors flex items-center justify-center"
                                     aria-label="Toggle upload help"
                                 >
                                     ?
@@ -300,7 +300,7 @@ export default function PredictPage() {
                                 {/* Step-by-step instructions — only shown when help is toggled on */}
                                 {showHelp && (
                                     <div className="bg-white rounded-xl px-4 py-3 text-sm text-[#3F4850] shadow-sm">
-                                        <p className="font-semibold text-[#333333] mb-2">How to upload</p>
+                                        <p className="font-semibold text-[#333333] mb-2 text-base">How to upload</p>
                                         <ol className="flex flex-col gap-1 list-decimal list-inside">
                                             <li>Click <strong>Choose a Photo</strong> and select a bird image</li>
                                             <li>Check the preview on the right looks correct</li>
@@ -453,16 +453,15 @@ export default function PredictPage() {
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
-                                    className={`px-5 py-3 text-sm font-semibold transition-colors border-b-2 -mb-px ${
-                                        activeTab === tab
-                                            ? "border-[#333333] text-[#333333]"
-                                            : "border-transparent text-[#3F4850]/50 hover:text-[#333333]"
-                                    }`}
+                                    className={`px-5 py-3 text-sm font-semibold transition-colors border-b-2 -mb-px ${activeTab === tab
+                                        ? "border-[#333333] text-[#333333]"
+                                        : "border-transparent text-[#3F4850]/50 hover:text-[#333333]"
+                                        }`}
                                 >
-                                    {tab === "diet"      && "Diet"}
-                                    {tab === "taxonomy"  && "Family & Taxonomy"}
-                                    {tab === "history"   && "History"}
-                                    {tab === "plumage"   && "Plumage"}
+                                    {tab === "diet" && "Diet"}
+                                    {tab === "taxonomy" && "Family & Taxonomy"}
+                                    {tab === "history" && "History"}
+                                    {tab === "plumage" && "Plumage"}
                                     {tab === "migration" && "Migration"}
                                 </button>
                             ))}
@@ -473,7 +472,7 @@ export default function PredictPage() {
                             const bird = result.bird;
 
                             // Pull prey names and classes, zipping them together by index
-                            const names  = cleanPreyList(bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? []);
+                            const names = cleanPreyList(bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? []);
                             const classes: string[] = bird?.diet?.prey_classes ?? [];
 
                             return names.length > 0 ? (
@@ -515,14 +514,14 @@ export default function PredictPage() {
                         {/* Family & Taxonomy tab — scientific classification of the predicted species */}
                         {activeTab === "taxonomy" && (() => {
                             const bird = result.bird;
-                            const tax  = bird?.taxonomy;
+                            const tax = bird?.taxonomy;
 
                             // Each row: display label, short definition, the field from taxonomy, and whether to highlight it
                             const rows = [
-                                { label: "Class",  definition: "The broadest grouping — all birds belong to the class Aves.",                                       value: tax?.class,  highlight: false },
-                                { label: "Order",  definition: "A group of related families that share common ancestry.",                                            value: tax?.order,  highlight: false },
-                                { label: "Family", definition: "A group of closely related genera that share distinctive traits.",                                   value: tax?.family, highlight: true  },
-                                { label: "Genus",  definition: "A group of closely related species that share a common ancestor and many physical characteristics.", value: tax?.genus,  highlight: true  },
+                                { label: "Class", definition: "The broadest grouping — all birds belong to the class Aves.", value: tax?.class, highlight: false },
+                                { label: "Order", definition: "A group of related families that share common ancestry.", value: tax?.order, highlight: false },
+                                { label: "Family", definition: "A group of closely related genera that share distinctive traits.", value: tax?.family, highlight: true },
+                                { label: "Genus", definition: "A group of closely related species that share a common ancestor and many physical characteristics.", value: tax?.genus, highlight: true },
                             ];
 
                             return (
@@ -656,7 +655,7 @@ export default function PredictPage() {
                         {/* Migration tab — movement patterns, top sighting countries, and a Tableau map placeholder */}
                         {activeTab === "migration" && (() => {
                             const bird = result.bird;
-                            const movement    = bird?.conservation?.movement_patterns;
+                            const movement = bird?.conservation?.movement_patterns;
                             const topCountries: { country: string; count: number }[] = bird?.migration?.top_countries ?? [];
                             const totalSightings: number | null = bird?.migration?.total_sightings ?? null;
 
@@ -741,69 +740,69 @@ export default function PredictPage() {
 
             {/* Section 5: What's Next — always visible call-to-action cards */}
             <section className="bg-[#fffdde] px-8 py-12">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="font-serif text-2xl font-bold text-[#333333] mb-2 text-center">
-                            What would you like to do next?
-                        </h2>
-                        <p className="text-sm text-[#3F4850]/60 text-center mb-8">
-                            Keep exploring — there are 525 species waiting to be discovered.
-                        </p>
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="font-serif text-2xl font-bold text-[#333333] mb-2 text-center">
+                        What would you like to do next?
+                    </h2>
+                    <p className="text-sm text-[#3F4850]/60 text-center mb-8">
+                        Keep exploring — there are 525 species waiting to be discovered.
+                    </p>
 
-                        {/* Three action cards side by side */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Three action cards side by side */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                            {/* Card 1: Try another prediction */}
-                            <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-sm">
-                                <div className="text-4xl">📷</div>
-                                <h3 className="font-bold text-[#333333]">Try Another Photo</h3>
-                                <p className="text-sm text-[#3F4850]/70 leading-relaxed">
-                                    Upload a different image and see if the model can identify another species.
-                                </p>
-                                {/* Clicking this clears the result and scrolls back to the upload section */}
-                                <button
-                                    onClick={() => {
-                                        handleClear();
-                                        window.scrollTo({ top: 0, behavior: "smooth" });
-                                    }}
-                                    className="mt-auto px-5 py-2 rounded-xl bg-[#333333] text-white text-sm font-semibold hover:bg-[#3F4850] transition-colors"
-                                >
-                                    Upload a New Photo
-                                </button>
-                            </div>
-
-                            {/* Card 2: Go to the Bird Explorer page */}
-                            <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-sm">
-                                <div className="text-4xl">🔍</div>
-                                <h3 className="font-bold text-[#333333]">Explore a Species</h3>
-                                <p className="text-sm text-[#3F4850]/70 leading-relaxed">
-                                    Search for any of the 525 species and dive deep into their full profile.
-                                </p>
-                                <Link
-                                    href="/bird"
-                                    className="mt-auto px-5 py-2 rounded-xl bg-[#ffbc88] text-[#333333] text-sm font-semibold hover:bg-[#ff9f5a] transition-colors"
-                                >
-                                    Go to Bird Explorer
-                                </Link>
-                            </div>
-
-                            {/* Card 3: Go to the Species Comparison page */}
-                            <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-sm">
-                                <div className="text-4xl">⚖️</div>
-                                <h3 className="font-bold text-[#333333]">Compare Species</h3>
-                                <p className="text-sm text-[#3F4850]/70 leading-relaxed">
-                                    Select up to 6 birds and compare their taxonomy, diet, and migration side by side.
-                                </p>
-                                <Link
-                                    href="/species"
-                                    className="mt-auto px-5 py-2 rounded-xl bg-[#ffbc88] text-[#333333] text-sm font-semibold hover:bg-[#ff9f5a] transition-colors"
-                                >
-                                    Go to Species Comparison
-                                </Link>
-                            </div>
-
+                        {/* Card 1: Try another prediction */}
+                        <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-sm">
+                            <div className="text-4xl">📷</div>
+                            <h3 className="font-bold text-[#333333]">Try Another Photo</h3>
+                            <p className="text-sm text-[#3F4850]/70 leading-relaxed">
+                                Upload a different image and see if the model can identify another species.
+                            </p>
+                            {/* Clicking this clears the result and scrolls back to the upload section */}
+                            <button
+                                onClick={() => {
+                                    handleClear();
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }}
+                                className="mt-auto px-5 py-2 rounded-xl bg-[#333333] text-white text-sm font-semibold hover:bg-[#3F4850] transition-colors"
+                            >
+                                Upload a New Photo
+                            </button>
                         </div>
+
+                        {/* Card 2: Go to the Bird Explorer page */}
+                        <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-sm">
+                            <div className="text-4xl">🔍</div>
+                            <h3 className="font-bold text-[#333333]">Explore a Species</h3>
+                            <p className="text-sm text-[#3F4850]/70 leading-relaxed">
+                                Search for any of the 525 species and dive deep into their full profile.
+                            </p>
+                            <Link
+                                href="/bird"
+                                className="mt-auto px-5 py-2 rounded-xl bg-[#ffbc88] text-[#333333] text-sm font-semibold hover:bg-[#ff9f5a] transition-colors"
+                            >
+                                Go to Bird Explorer
+                            </Link>
+                        </div>
+
+                        {/* Card 3: Go to the Species Comparison page */}
+                        <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-sm">
+                            <div className="text-4xl">⚖️</div>
+                            <h3 className="font-bold text-[#333333]">Compare Species</h3>
+                            <p className="text-sm text-[#3F4850]/70 leading-relaxed">
+                                Select up to 6 birds and compare their taxonomy, diet, and migration side by side.
+                            </p>
+                            <Link
+                                href="/species"
+                                className="mt-auto px-5 py-2 rounded-xl bg-[#ffbc88] text-[#333333] text-sm font-semibold hover:bg-[#ff9f5a] transition-colors"
+                            >
+                                Go to Species Comparison
+                            </Link>
+                        </div>
+
                     </div>
-                </section>
+                </div>
+            </section>
 
         </main>
     );
