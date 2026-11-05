@@ -90,25 +90,25 @@ export default function Home() {
 
       {/* Welcome section — project tagline and Why/How/What cards */}
       <section className="mt-12 py-16 px-8">
-        <h1 className="font-serif text-4xl font-bold text-[#333333] text-center">
+        <h1 className="font-serif text-4xl font-bold text-[#333333] text-center underline text">
           Welcome to AvianVision!
         </h1>
 
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-[3fr_2fr] md:items-stretch">
-          <p className="flex items-center justify-center text-center text-[#3F4850] text-xl">
+          <p className="flex items-center justify-center text-center text-[#3F4850] text-2xl">
             Discover bird species through AI-powered image identification
             and explore the data behind the project.
           </p>
 
           {/* Why, How, and What cards */}
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-8 px-25">
             {projectSections.map((item) => (
               <article
                 key={item.title}
-                className={`${item.color} rounded-xl p-6 text-[#333333]`}
+                className={`${item.color} rounded-xl p-8 text-[#333333] `}
               >
-                <h2 className="font-serif text-xl font-bold">{item.title}</h2>
-                <p className="mt-2 leading-relaxed">{item.description}</p>
+                <h2 className="font-serif text-2xl font-bold">{item.title}</h2>
+                <p className="mt-2 leading-relaxed text-xl">{item.description}</p>
               </article>
             ))}
           </div>
@@ -124,50 +124,50 @@ export default function Home() {
         {/* Top four stat cards */}
         <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
           <div className="rounded-xl bg-white/10 p-6 text-center">
-            <h3 className="font-serif text-lg font-bold text-[#fff99d]">Dataset</h3>
+            <h3 className="font-serif text-2xl font-bold text-[#fff99d]">Dataset</h3>
             <p className="mt-3 text-3xl font-bold">{speciesCount ?? "—"}</p>
-            <p className="mt-2 text-sm text-[#C9C9C9]">Species</p>
+            <p className="mt-2 text-lg text-[#C9C9C9]">Species</p>
           </div>
 
           <div className="rounded-xl bg-white/10 p-6 text-center">
-            <h3 className="font-serif text-lg font-bold text-[#ffbc88]">Coverage</h3>
+            <h3 className="font-serif text-2xl font-bold text-[#ffbc88]">Coverage</h3>
             <p className="mt-3 text-3xl font-bold">{countryCount ?? "—"}</p>
-            <p className="mt-2 text-sm text-[#C9C9C9]">Countries represented</p>
+            <p className="mt-2 text-lg text-[#C9C9C9]">Countries represented</p>
           </div>
 
           <div className="rounded-xl bg-white/10 p-6 text-center">
-            <h3 className="font-serif text-lg font-bold text-[#fff99d]">Observations</h3>
+            <h3 className="font-serif text-2xl font-bold text-[#fff99d]">Observations</h3>
             <p className="mt-3 text-3xl font-bold">
               {yearRange?.min ?? "—"} – {yearRange?.max ?? "—"}
             </p>
-            <p className="mt-2 text-sm text-[#C9C9C9]">Year range</p>
+            <p className="mt-2 text-lg text-[#C9C9C9]">Year range</p>
           </div>
 
           <div className="rounded-xl bg-white/10 p-6 text-center">
-            <h3 className="font-serif text-lg font-bold text-[#ffbc88]">Predictions</h3>
+            <h3 className="font-serif text-2xl font-bold text-[#ffbc88]">Predictions</h3>
             <p className="mt-3 text-3xl font-bold">{predictionCount ?? "—"}</p>
-            <p className="mt-2 text-sm text-[#C9C9C9]">Total predictions made</p>
+            <p className="mt-2 text-lg text-[#C9C9C9]">Total predictions made</p>
           </div>
         </div>
 
         {/* AI model metrics card — spans the full width below the four cards */}
         <div className="mt-6 rounded-xl bg-white/10 p-8 text-center">
-          <h3 className="font-serif text-lg font-bold text-[#fff99d]">AI Model Performance</h3>
+          <h3 className="font-serif text-2xl font-bold text-[#fff99d]">AI Model Performance</h3>
           <div className="mt-6 flex flex-wrap justify-center gap-12">
             <div>
-              <p className="text-sm text-[#C9C9C9]">Accuracy</p>
+              <p className="text-lg text-[#C9C9C9]">Accuracy</p>
               <p className="mt-1 text-3xl font-bold">
                 {accuracy !== null ? `${(accuracy * 100).toFixed(2)}%` : "—"}
               </p>
             </div>
             <div>
-              <p className="text-sm text-[#C9C9C9]">F1 Score</p>
+              <p className="text-lg text-[#C9C9C9]">F1 Score</p>
               <p className="mt-1 text-3xl font-bold">
                 {f1Score !== null ? `${(f1Score * 100).toFixed(2)}%` : "—"}
               </p>
             </div>
             <div>
-              <p className="text-sm text-[#C9C9C9]">Loss</p>
+              <p className="text-lg text-[#C9C9C9]">Loss</p>
               <p className="mt-1 text-3xl font-bold">
                 {loss !== null ? loss.toFixed(4) : "—"}
               </p>
@@ -177,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* Explore AvianVision — navigation cards linking to the four main pages */}
-      <section className="px-8 py-14">
+      <section className="px-8 py-20">
         <h2 className="text-center font-serif text-3xl font-bold text-[#333333]">
           Explore AvianVision
         </h2>
@@ -186,26 +186,26 @@ export default function Home() {
           {exploreLinks.map(({ href, title, description, color }) => (
             <div
               key={href}
-              className={`${color} rounded-xl p-8 text-[#333333] transition hover:shadow-lg`}
+              className={`${color} rounded-xl p-10 text-[#333333] transition hover:shadow-lg`}
             >
               <h3 className="font-serif text-2xl font-bold">
                 <Link href={href} className="hover:underline">
                   {title} →
                 </Link>
               </h3>
-              <p className="mt-4">{description}</p>
+              <p className="mt-4 text-lg">{description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* AI Prediction Disclaimer */}
-      <section className="mx-8 mb-14 rounded-xl bg-[#fff3d6] p-10 text-[#333333]">
-        <div className="flex items-center gap-3">
-          <span className="text-4xl">⚠️</span>
-          <h2 className="font-serif text-3xl font-bold">AI Prediction Disclaimer</h2>
+      <section className="mx-30 mb-20 rounded-xl bg-[#fff3d6] p-15 text-[#333333]">
+        <div className="flex items-center gap-5">
+          <span className="text-5xl">⚠️</span>
+          <h2 className="font-serif text-4xl font-bold">AI Prediction Disclaimer</h2>
         </div>
-        <p className="mt-5 text-lg leading-relaxed">
+        <p className="mt-5 text-2xl leading-relaxed">
           AI predictions may not always be accurate. Please verify
           results using reliable sources before making decisions.
         </p>

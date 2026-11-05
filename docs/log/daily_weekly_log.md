@@ -941,8 +941,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## November 4, 2026
+**Day Goal:** Make the Bird stats, and species
 
 **What Was Done:** 
 
