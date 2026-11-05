@@ -46,6 +46,7 @@ export default function Footer() {
                     <p>IUCN Red List — conservation status</p>
                     <p>Avian Diet Database — diet and prey data</p>
                     <p>HuggingFace: yashikota/birds-525-species-image-classification</p>
+                    <p>Wikipedia — species descriptions and plumage information</p>
                 </div>
 
             </div>

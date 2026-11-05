@@ -703,7 +703,8 @@ def predict(file: UploadFile = File(...)):
         "prediction": {
             "species_label": predicted_label,
             "confidence": confidence,
-            "accepted": True
+            "accepted": True,
+            "top_5_predictions": top_5_predictions
         },
         "bird": bird_info
     }
