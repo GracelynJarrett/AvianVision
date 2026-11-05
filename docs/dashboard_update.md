@@ -14,4 +14,5 @@
 # Home page
     - Add more to the Welcome section Pharagraph
 
-
+# Prediction
+    - Need to fix Plumage phargras for a text limit ( example the golden Eagle pharagra is vary long and is not clear)
