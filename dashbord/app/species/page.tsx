@@ -10,11 +10,11 @@ function toTitleCase(str: string): string {
 function getStatusColor(status: string): string {
     switch (status?.toUpperCase()) {
         case "CRITICALLY ENDANGERED": return "bg-[#333333] text-white";
-        case "ENDANGERED":            return "bg-[#FF8A2A] text-white";
-        case "VULNERABLE":            return "bg-[#ffbc88] text-[#333333]";
-        case "NEAR THREATENED":       return "bg-[#fff99d] text-[#333333]";
-        case "LEAST CONCERN":         return "bg-[#fffdde] text-[#333333]";
-        default:                      return "bg-[#C9C9C9] text-[#333333]";
+        case "ENDANGERED": return "bg-[#FF8A2A] text-white";
+        case "VULNERABLE": return "bg-[#ffbc88] text-[#333333]";
+        case "NEAR THREATENED": return "bg-[#fff99d] text-[#333333]";
+        case "LEAST CONCERN": return "bg-[#fffdde] text-[#333333]";
+        default: return "bg-[#C9C9C9] text-[#333333]";
     }
 }
 
@@ -145,9 +145,9 @@ export default function SpeciesPage() {
         <main className="bg-[#FFFFFF]">
 
             {/* Section 1: Hero — page title and description */}
-            <section className="bg-[#fffdde] px-8 py-14">
+            <section className="bg-[#ffffff] px-8 py-14">
                 <div className="max-w-5xl mx-auto text-center">
-                    <h1 className="font-serif text-4xl font-bold text-[#333333] mb-4">
+                    <h1 className="font-serif text-4xl font-bold text-[#333333] mb-10 underline">
                         Species Comparison
                     </h1>
                     <p className="text-lg text-[#3F4850] leading-relaxed max-w-2xl mx-auto">
@@ -158,22 +158,21 @@ export default function SpeciesPage() {
             </section>
 
             {/* Section 2: Bird Selector — 6 search slots in a 2×3 grid */}
-            <section className="bg-[#ffd6b6] px-8 py-10">
+            <section className="bg-[#ffffff] px-8 py-2 ">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="font-serif text-2xl font-bold text-[#333333] mb-6">
+                    <h2 className="font-serif text-3xl font-bold text-[#333333] mb-6">
                         Select Species
                     </h2>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                         {slots.map((label, i) => (
-                            <div key={i} className={`relative rounded-xl border-2 bg-white p-4 transition-colors ${
-                                label
-                                    ? "border-[#3F4850]"
-                                    : "border-dashed border-[#C9C9C9]"
-                            }`}>
+                            <div key={i} className={`relative rounded-xl border-3 bg-[#ffd6b6] p-4 transition-colors ${label
+                                ? "border-[#3F4850] "
+                                : "border-dashed border-[#C9C9C9]"
+                                }`}>
 
                                 {/* Slot number label */}
-                                <p className="text-xs font-semibold uppercase tracking-widest text-[#3F4850]/50 mb-2">
+                                <p className="text-base font-semibold uppercase tracking-widest text-[#3F4850] mb-2">
                                     Bird {i + 1}
                                 </p>
 
@@ -185,7 +184,7 @@ export default function SpeciesPage() {
                                     onChange={e => handleSlotInputChange(i, e.target.value)}
                                     onBlur={() => handleSlotBlur(i)}
                                     placeholder="Search for a bird..."
-                                    className="w-full rounded-lg border border-[#C9C9C9] px-3 py-2 text-sm text-[#333333] placeholder:text-[#C9C9C9] focus:outline-none focus:border-[#3F4850] pr-8"
+                                    className="w-full bg-[#ffffff] rounded-lg border border-[#C9C9C9] px-3 py-2 text-base text-[#333333] placeholder:text-[#C9C9C9] focus:outline-none focus:border-[#3F4850] pr-8"
                                 />
 
                                 {/* Each slot gets its own datalist, filtered to exclude birds already chosen in other slots */}
@@ -226,7 +225,7 @@ export default function SpeciesPage() {
 
                     {/* Hint shown when every slot has been cleared */}
                     {activeSlots.length === 0 && (
-                        <p className="mt-6 text-center text-sm text-[#3F4850]/60 italic">
+                        <p className="mt-6 text-center text-lg text-[#3F4850]/60 italic">
                             Select at least one bird above to see the comparison below.
                         </p>
                     )}
@@ -234,8 +233,8 @@ export default function SpeciesPage() {
             </section>
 
             {/* Section 3: Comparison Table — attribute rows vs. bird columns */}
-            <section className="bg-[#FFFFFF] px-8 py-10">
-                <div className="max-w-6xl mx-auto">
+            <section className="bg-[#FFFFFF] px-8 py-20">
+                <div className="max-w-7xl mx-auto">
                     <h2 className="font-serif text-2xl font-bold text-[#333333] mb-6">
                         Side-by-Side Comparison
                     </h2>
@@ -252,7 +251,7 @@ export default function SpeciesPage() {
                                 <thead>
                                     <tr className="bg-[#fffdde]">
                                         {/* Sticky label column header — stays fixed while scrolling right */}
-                                        <th className="sticky left-0 z-10 bg-[#fffdde] px-4 py-3 text-left font-semibold text-[#333333] border-b border-[#C9C9C9] min-w-[140px]">
+                                        <th className="sticky left-0 z-10 bg-[#fffdde] text-lg px-4 py-3 text-left font-semibold text-[#333333] border-b border-[#C9C9C9] min-w-[140px]">
                                             Attribute
                                         </th>
 
@@ -261,23 +260,18 @@ export default function SpeciesPage() {
                                             const bird = birdDataMap[label];
                                             const statusLabel = bird?.conservation?.status_label ?? null;
                                             return (
-                                                <th key={index} className="px-4 py-3 text-left border-b border-[#C9C9C9] min-w-[180px] align-top">
+                                                <th key={index} className="px-4 py-3 text-left text-lg border-b border-[#C9C9C9] min-w-[180px] align-top">
                                                     {/* Bird common name */}
                                                     <p className="font-bold text-[#333333]">
                                                         {toTitleCase(label)}
                                                     </p>
                                                     {/* Scientific name — genus + species from taxonomy */}
                                                     {bird?.taxonomy?.genus && (
-                                                        <p className="italic text-xs text-[#3F4850]/70 mt-0.5">
+                                                        <p className="italic text-base text-[#3F4850]/70 mt-0.5">
                                                             {bird.taxonomy.genus}
                                                         </p>
                                                     )}
                                                     {/* IUCN conservation status badge */}
-                                                    {statusLabel && (
-                                                        <span className={`inline-block mt-1.5 px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(statusLabel)}`}>
-                                                            {statusLabel}
-                                                        </span>
-                                                    )}
                                                     {/* Loading pulse while fetching */}
                                                     {loadingSlots.has(index) && (
                                                         <div className="mt-1 h-4 w-24 bg-[#C9C9C9] animate-pulse rounded" />
@@ -293,7 +287,7 @@ export default function SpeciesPage() {
 
                                     {/* Conservation Status row */}
                                     <tr className="border-b border-[#C9C9C9]">
-                                        <td className="sticky left-0 z-10 bg-white px-4 py-3 font-medium text-[#333333]">
+                                        <td className="sticky left-0 z-10 bg-white px-4 py-3 font-bold text-[#333333] text-base">
                                             Conservation Status
                                         </td>
                                         {activeSlots.map(({ label, index }) => {
@@ -302,9 +296,9 @@ export default function SpeciesPage() {
                                             return (
                                                 <td key={index} className="px-4 py-3 bg-white">
                                                     {loadingSlots.has(index) ? (
-                                                        <div className="h-4 w-20 bg-[#C9C9C9] animate-pulse rounded" />
+                                                        <div className="h-5 w-20 bg-[#C9C9C9] animate-pulse rounded" />
                                                     ) : status ? (
-                                                        <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(status)}`}>
+                                                        <span className={`inline-block px-2 py-0.5 rounded-full text-base font-medium ${getStatusColor(status)}`}>
                                                             {status}
                                                         </span>
                                                     ) : "—"}
@@ -315,14 +309,14 @@ export default function SpeciesPage() {
 
                                     {/* Population Trend row */}
                                     <tr className="border-b border-[#C9C9C9] bg-[#fafafa]">
-                                        <td className="sticky left-0 z-10 bg-[#fafafa] px-4 py-3 font-medium text-[#333333]">
+                                        <td className="sticky left-0 z-10 bg-[#fafafa] text-base px-4 py-3 font-bold text-[#333333]">
                                             Population Trend
                                         </td>
                                         {activeSlots.map(({ label, index }) => {
                                             const bird = birdDataMap[label];
                                             const trend = bird?.conservation?.population_trend;
                                             return (
-                                                <td key={index} className="px-4 py-3 bg-[#fafafa] text-[#3F4850]">
+                                                <td key={index} className="px-4 py-3 text-base bg-[#fafafa] text-[#3F4850]">
                                                     {loadingSlots.has(index) ? (
                                                         <div className="h-4 w-20 bg-[#C9C9C9] animate-pulse rounded" />
                                                     ) : (trend ?? "—")}
@@ -333,14 +327,14 @@ export default function SpeciesPage() {
 
                                     {/* Movement row */}
                                     <tr className="border-b border-[#C9C9C9]">
-                                        <td className="sticky left-0 z-10 bg-white px-4 py-3 font-medium text-[#333333]">
+                                        <td className="sticky left-0 z-10 bg-white text-base px-4 py-3 font-bold text-[#333333]">
                                             Movement
                                         </td>
                                         {activeSlots.map(({ label, index }) => {
                                             const bird = birdDataMap[label];
                                             const movement = bird?.conservation?.movement_patterns;
                                             return (
-                                                <td key={index} className="px-4 py-3 bg-white text-[#3F4850]">
+                                                <td key={index} className="px-4 py-3 bg-white text-base text-[#3F4850]">
                                                     {loadingSlots.has(index) ? (
                                                         <div className="h-4 w-20 bg-[#C9C9C9] animate-pulse rounded" />
                                                     ) : (movement ?? "—")}
@@ -350,8 +344,8 @@ export default function SpeciesPage() {
                                     </tr>
 
                                     {/* Order row — yellow highlight when cells match the first active bird */}
-                                    <tr className="border-b border-[#C9C9C9] bg-[#fafafa]">
-                                        <td className="sticky left-0 z-10 bg-[#fafafa] px-4 py-3 font-medium text-[#333333]">
+                                    <tr className="border-b border-t-5 border-[#C9C9C9] bg-[#fafafa]">
+                                        <td className="sticky left-0 z-10 bg-[#fafafa] px-4 py-3 font-bold text-base text-[#333333]">
                                             Order
                                         </td>
                                         {activeSlots.map(({ label, index }, colIdx) => {
@@ -361,7 +355,7 @@ export default function SpeciesPage() {
                                             // Highlight this cell if it matches the first bird and there is more than one bird being compared
                                             const matches = colIdx > 0 && order && firstOrder && order === firstOrder;
                                             return (
-                                                <td key={index} className={`px-4 py-3 text-[#3F4850] ${matches ? "bg-[#fff99d]" : "bg-[#fafafa]"}`}>
+                                                <td key={index} className={`px-4 py-3 text-base text-[#3F4850] `}>
                                                     {loadingSlots.has(index) ? (
                                                         <div className="h-4 w-20 bg-[#C9C9C9] animate-pulse rounded" />
                                                     ) : (order ?? "—")}
@@ -372,7 +366,7 @@ export default function SpeciesPage() {
 
                                     {/* Family row — same yellow highlight logic */}
                                     <tr className="border-b border-[#C9C9C9]">
-                                        <td className="sticky left-0 z-10 bg-white px-4 py-3 font-medium text-[#333333]">
+                                        <td className="sticky text-base left-0 z-10 bg-white px-4 py-3 font-bold text-[#333333]">
                                             Family
                                         </td>
                                         {activeSlots.map(({ label, index }, colIdx) => {
@@ -381,7 +375,7 @@ export default function SpeciesPage() {
                                             const firstFamily = birdDataMap[activeSlots[0]?.label]?.taxonomy?.family;
                                             const matches = colIdx > 0 && family && firstFamily && family === firstFamily;
                                             return (
-                                                <td key={index} className={`px-4 py-3 text-[#3F4850] ${matches ? "bg-[#fff99d]" : "bg-white"}`}>
+                                                <td key={index} className={`px-4 py-3 text-[#3F4850] text-base`}>
                                                     {loadingSlots.has(index) ? (
                                                         <div className="h-4 w-20 bg-[#C9C9C9] animate-pulse rounded" />
                                                     ) : (family ?? "—")}
@@ -392,7 +386,7 @@ export default function SpeciesPage() {
 
                                     {/* Genus row — same yellow highlight logic */}
                                     <tr className="border-b border-[#C9C9C9] bg-[#fafafa]">
-                                        <td className="sticky left-0 z-10 bg-[#fafafa] px-4 py-3 font-medium text-[#333333]">
+                                        <td className="sticky left-0 z-10 bg-[#fafafa] px-4 py-3 text-base font-bold text-[#333333]">
                                             Genus
                                         </td>
                                         {activeSlots.map(({ label, index }, colIdx) => {
@@ -401,7 +395,7 @@ export default function SpeciesPage() {
                                             const firstGenus = birdDataMap[activeSlots[0]?.label]?.taxonomy?.genus;
                                             const matches = colIdx > 0 && genus && firstGenus && genus === firstGenus;
                                             return (
-                                                <td key={index} className={`px-4 py-3 text-[#3F4850] ${matches ? "bg-[#fff99d]" : "bg-[#fafafa]"}`}>
+                                                <td key={index} className={`px-4 py-3 text-[#3F4850] text-base`}>
                                                     {loadingSlots.has(index) ? (
                                                         <div className="h-4 w-20 bg-[#C9C9C9] animate-pulse rounded" />
                                                     ) : (genus ?? "—")}
@@ -415,28 +409,22 @@ export default function SpeciesPage() {
                         </div>
                     )}
 
-                    {/* Small legend explaining the yellow highlight */}
-                    {activeSlots.length > 1 && (
-                        <p className="mt-3 text-xs text-[#3F4850]/60 italic">
-                            Yellow cells indicate a taxonomy match with the first selected bird.
-                        </p>
-                    )}
                 </div>
             </section>
 
             {/* Section 4: Diet Cards — one card per active bird showing prey items as pills */}
             {activeSlots.length > 0 && (
-                <section className="bg-[#ffd6b6] px-8 py-10">
+                <section className="px-8 py-2 pb-15">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="font-serif text-2xl font-bold text-[#333333] mb-2">
+                        <h2 className="font-serif text-3xl font-bold text-[#333333] mb-2">
                             Diet
                         </h2>
-                        <p className="text-sm text-[#3F4850] mb-6">
+                        <p className="text-base text-[#3F4850] mb-6">
                             Common prey items recorded for each species.
                         </p>
 
                         {/* Grid of cards — up to 3 per row on large screens */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                             {activeSlots.map(({ label, index }) => {
                                 const bird = birdDataMap[label];
                                 const isLoading = loadingSlots.has(index);
@@ -446,9 +434,9 @@ export default function SpeciesPage() {
                                 const prey = cleanPreyList(rawPrey);
 
                                 return (
-                                    <div key={index} className="bg-white rounded-xl p-5 shadow-sm">
+                                    <div key={index} className="bg-white rounded-xl p-5 shadow-xl">
                                         {/* Card header — bird common name */}
-                                        <h3 className="font-bold text-[#333333] mb-3">
+                                        <h3 className="font-bold text-lg text-[#333333] mb-3">
                                             {toTitleCase(label)}
                                         </h3>
 
@@ -465,7 +453,7 @@ export default function SpeciesPage() {
                                                 {prey.map((item, pi) => (
                                                     <span
                                                         key={pi}
-                                                        className="px-3 py-1 bg-[#fffdde] text-[#333333] text-xs rounded-full border border-[#C9C9C9]"
+                                                        className="px-2 py-2 bg-[#fffdde] text-[#333333] text-xs rounded-full border border-[#C9C9C9]"
                                                     >
                                                         {item}
                                                     </span>
@@ -473,7 +461,7 @@ export default function SpeciesPage() {
                                             </div>
                                         ) : (
                                             /* Fallback when no diet data is available for this species */
-                                            <p className="text-xs text-[#3F4850]/60 italic">
+                                            <p className="text-base text-[#3F4850]/60 italic">
                                                 No diet data available.
                                             </p>
                                         )}

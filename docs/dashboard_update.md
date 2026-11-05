@@ -16,3 +16,8 @@
 
 # Prediction
     - Need to fix Plumage phargras for a text limit ( example the golden Eagle pharagra is vary long and is not clear)
+
+# Species
+    - set the maps and trends/status looks like the place holder when there is no bird is selected
+    -  In the side-by side comparison section the conservation statuse back ground should chang back ground color base on the resultes least concern -light yellow, no concern -vary light green, endangerd- light orange, wirse then endanger - red
+    - In the side-by side comparison section the Population trend back ground should chang back ground color base on the resultes: decreasing -ligt orang, stable- vary light green
