@@ -26,7 +26,7 @@ body {
 }
 
 footer h3 {
-  @apply font-serif text-xl py-6 decoration-1;
+  @apply font-serif text-3xl py-6 decoration-1 underline;
   text-align: center;
 }
 

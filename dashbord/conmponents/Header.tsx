@@ -31,9 +31,9 @@ export default function Header() {
             <div className="relative flex items-center justify-between px-6">
 
                 {/* Logo and brand name — left side */}
-                <div className="flex items-center gap-3">
-                    <span className="text-sm text-[#3F4850]/50">[Logo]</span>
-                    <span className="text-xl font-bold font-serif tracking-tight">AvianVision</span>
+                <div className="flex items-center gap-8">
+                    <span className="text-lg text-[#3F4850]/50">[Logo]</span>
+                    <span className="text-2xl font-bold font-serif tracking-tight">AvianVision</span>
                 </div>
 
                 {/* Current page title — pinned to the center of the full header width */}
@@ -42,7 +42,7 @@ export default function Header() {
                 </div>
 
                 {/* Navigation links — right side */}
-                <nav className="flex gap-3" aria-label="Main navigation">
+                <nav className="flex gap-5" aria-label="Main navigation">
                     {navLinks.map(({ href, label }) => {
                         // Highlight the button for whichever page the user is currently on
                         const isActive = pathname === href;
@@ -50,11 +50,10 @@ export default function Header() {
                             <Link
                                 key={href}
                                 href={href}
-                                className={`px-4 py-2 rounded text-sm font-medium transition-colors duration-200 ${
-                                    isActive
-                                        ? "bg-[#3F4850] text-white"
-                                        : "bg-white text-[#3F4850] hover:bg-[#3F4850] hover:text-white"
-                                }`}
+                                className={`px-4 py-2 rounded text-lg font-medium transition-colors duration-200 ${isActive
+                                    ? "bg-[#3F4850] text-white"
+                                    : "bg-white text-[#3F4850] hover:bg-[#3F4850] hover:text-white"
+                                    }`}
                                 aria-current={isActive ? "page" : undefined}
                             >
                                 {label}
