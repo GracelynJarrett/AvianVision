@@ -944,17 +944,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## November 4, 2026
 **Day Goal:** Make the Bird stats, and species
 
-**What Was Done:** 
+**What Was Done:** Bird, Stats, and species page was done
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:**  no blockers
 
 **Summary:**
+    Today I created the Bird, Stats and the species pages on my dashboard. I also created the dashboard update.md file where I put things I want cloude to update as I am going and making small adjustments to my dashboard pages.
 
 
 **Time:**
-    - Total:
+    - Total: 5 hours
 
 ---
 
