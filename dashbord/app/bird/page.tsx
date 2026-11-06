@@ -599,7 +599,7 @@ export default function BirdPage() {
                             <p className="text-6xl font-bold text-white">
                                 {(birdData.migration.total_sightings ?? 0).toLocaleString()}
                             </p>
-                            <p className="mt-2 text-[#C9C9C9]">Total recorded sightings</p>
+                            <p className="mt-2 text-base text-[#C9C9C9]">Total recorded sightings</p>
                         </div>
 
                         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
@@ -607,7 +607,7 @@ export default function BirdPage() {
                             {/* Top countries — name, count, and a proportional bar */}
                             {birdData.migration.top_countries?.length > 0 && (
                                 <div>
-                                    <h3 className="font-serif text-lg font-semibold text-[#ffbc88] mb-5">
+                                    <h3 className="font-serif text-2xl font-semibold text-[#ffbc88] mb-5">
                                         Top Countries
                                     </h3>
                                     <div className="flex flex-col gap-4">
@@ -625,7 +625,7 @@ export default function BirdPage() {
                                                 return (
                                                     <div key={c.country}>
                                                         <div className="flex justify-between text-sm mb-1">
-                                                            <span className="text-white">{countryName}</span>
+                                                            <span className="text-white text-base">{countryName}</span>
                                                             <span className="text-[#C9C9C9]">{c.count.toLocaleString()}</span>
                                                         </div>
                                                         {/* Progress bar — width is proportional to the highest-count country */}
@@ -646,7 +646,7 @@ export default function BirdPage() {
                             {/* Monthly sightings — a simple CSS bar chart, no library needed */}
                             {birdData.migration.monthly_sightings && (
                                 <div>
-                                    <h3 className="font-serif text-lg font-semibold text-[#ffbc88] mb-5">
+                                    <h3 className="font-serif text-2xl font-semibold text-[#ffbc88] mb-5">
                                         Sightings by Month
                                     </h3>
                                     {(() => {
