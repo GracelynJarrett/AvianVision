@@ -14,11 +14,11 @@ function toTitleCase(str: string): string {
 function getStatusColor(status: string): string {
     switch (status?.toUpperCase()) {
         case "CRITICALLY ENDANGERED": return "bg-[#333333] text-white";
-        case "ENDANGERED":            return "bg-[#FF8A2A] text-white";
-        case "VULNERABLE":            return "bg-[#ffbc88] text-[#333333]";
-        case "NEAR THREATENED":       return "bg-[#fff99d] text-[#333333]";
-        case "LEAST CONCERN":         return "bg-[#fffdde] text-[#333333]";
-        default:                      return "bg-[#C9C9C9] text-[#333333]";
+        case "ENDANGERED": return "bg-[#FF8A2A] text-white";
+        case "VULNERABLE": return "bg-[#ffbc88] text-[#333333]";
+        case "NEAR THREATENED": return "bg-[#fff99d] text-[#333333]";
+        case "LEAST CONCERN": return "bg-[#fffdde] text-[#333333]";
+        default: return "bg-[#C9C9C9] text-[#333333]";
     }
 }
 
@@ -162,10 +162,10 @@ function TaxonomySection({ birdData }: { birdData: any }) {
 
     // Build the ordered list of taxonomy levels using the bird's actual data
     const levels = [
-        { label: "Class",   value: birdData.taxonomy?.class },
-        { label: "Order",   value: birdData.taxonomy?.order },
-        { label: "Family",  value: birdData.taxonomy?.family },
-        { label: "Genus",   value: birdData.taxonomy?.genus },
+        { label: "Class", value: birdData.taxonomy?.class },
+        { label: "Order", value: birdData.taxonomy?.order },
+        { label: "Family", value: birdData.taxonomy?.family },
+        { label: "Genus", value: birdData.taxonomy?.genus },
         { label: "Species", value: birdData.scientific_name },
     ].filter(level => level.value); // skip any levels the API didn't return
 
@@ -340,9 +340,9 @@ export default function BirdPage() {
         <main className="bg-[#FFFFFF] text-[#3F4850]">
 
             {/* ── Page intro ──────────────────────────────────────────────────────── */}
-            <section className="bg-[#fffdde] px-8 py-14">
+            <section className=" px-8 py-14">
                 <div className="max-w-5xl mx-auto text-center">
-                    <h1 className="font-serif text-4xl font-bold text-[#333333] mb-4">
+                    <h1 className="font-serif text-4xl font-bold underline text-[#333333] mb-8">
                         Bird Explorer
                     </h1>
                     <p className="text-lg text-[#3F4850] leading-relaxed max-w-2xl mx-auto">
@@ -354,14 +354,14 @@ export default function BirdPage() {
 
             {/* ── Section 1: Search ───────────────────────────────────────────────── */}
             {/* Lets the user find a bird by typing or load a random one */}
-            <section className="bg-[#ffd6b6] px-8 py-10">
-                <div className="max-w-2xl mx-auto">
-                    <h2 className="font-serif text-xl font-semibold text-center mb-6 text-[#333333]">
+            <section className=" px-8 py-10">
+                <div className="max-w-2xl mx-auto bg-[#ffd6b6] px-15 py-8 rounded-2xl">
+                    <h2 className="font-serif text-2xl font-semibold text-center mb-3 text-[#333333]">
                         Find a Bird
                     </h2>
 
                     {/* Search input and Random button sit side-by-side */}
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 ">
                         <input
                             id="bird-search"
                             type="text"
@@ -369,7 +369,7 @@ export default function BirdPage() {
                             value={searchQuery}
                             onChange={handleSearchChange}
                             placeholder="Type a bird name..."
-                            className="flex-1 rounded-lg border border-[#3F4850]/30 bg-white px-4 py-3 text-[#333333] placeholder:text-[#909090] focus:outline-none focus:ring-2 focus:ring-[#3F4850]/40"
+                            className="flex-1 rounded-lg border border-[#3F4850]/30 bg-white px-4 py-3 text-[#333333] placeholder:text-[#909090] focus:outline-none focus:ring-2 focus:ring-[#3F4850]/40 "
                         />
                         {/* datalist feeds the browser's native dropdown suggestions */}
                         <datalist id="bird-name-list">
@@ -390,9 +390,9 @@ export default function BirdPage() {
 
                     {/* Shows which bird is currently loaded */}
                     {selectedBird && (
-                        <p className="mt-3 text-center text-sm text-[#3F4850]">
+                        <p className="mt-3 text-center text-base text-[#3F4850]">
                             Currently showing:{" "}
-                            <span className="font-semibold">{toTitleCase(selectedBird)}</span>
+                            <span className="font-semibold italic">{toTitleCase(selectedBird)}</span>
                         </p>
                     )}
                 </div>
@@ -433,41 +433,41 @@ export default function BirdPage() {
                                 </h2>
 
                                 {/* Scientific name */}
-                                <p className="italic text-xl text-[#909090]">
+                                <p className="italic text-2xl text-[#909090]">
                                     {birdData.scientific_name}
                                 </p>
 
                                 {/* Divider */}
-                                <hr className="border-[#C9C9C9]" />
+                                <hr className="border-[#C9C9C9]-300" />
 
                                 {/* Conservation status badge */}
                                 <div>
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#909090] mb-2">
+                                    <p className="text-base font-semibold uppercase tracking-widest text-[#909090] mb-2">
                                         Conservation Status
                                     </p>
-                                    <span className={`rounded-full px-4 py-1 text-sm font-semibold ${getStatusColor(birdData.conservation?.status_label)}`}>
+                                    <span className={`rounded-full px-4 py-1 text-base font-semibold ${getStatusColor(birdData.conservation?.status_label)}`}>
                                         {birdData.conservation?.status_label ?? "Unknown"}
                                     </span>
                                 </div>
 
                                 {/* Population trend and movement — shown as a small fact card grid */}
-                                <div className="grid grid-cols-2 gap-3 pt-1">
+                                <div className="grid grid-cols-2 gap-3 pt-1 ">
                                     {birdData.conservation?.population_trend && (
-                                        <div className="rounded-lg bg-[#fffdde] px-4 py-3">
-                                            <p className="text-xs font-semibold uppercase tracking-widest text-[#909090] mb-1">
+                                        <div className="rounded-lg bg-[#fffdde] px-4 py-3 rounded-2xl">
+                                            <p className="text-base font-semibold uppercase tracking-widest text-[#909090] mb-1">
                                                 Population Trend
                                             </p>
-                                            <p className="text-sm font-medium text-[#333333]">
+                                            <p className="text-base font-medium text-[#333333]">
                                                 {birdData.conservation.population_trend}
                                             </p>
                                         </div>
                                     )}
                                     {birdData.conservation?.movement_patterns && (
-                                        <div className="rounded-lg bg-[#fffdde] px-4 py-3">
-                                            <p className="text-xs font-semibold uppercase tracking-widest text-[#909090] mb-1">
+                                        <div className="rounded-lg bg-[#fffdde] px-4 py-3 rounded-2xl">
+                                            <p className="text-base font-semibold uppercase tracking-widest text-[#909090] mb-1">
                                                 Movement
                                             </p>
-                                            <p className="text-sm font-medium text-[#333333]">
+                                            <p className="text-base font-medium text-[#333333]">
                                                 {birdData.conservation.movement_patterns}
                                             </p>
                                         </div>
@@ -492,30 +492,30 @@ export default function BirdPage() {
             {/* ── Section 4: Diet ─────────────────────────────────────────────────── */}
             {/* Shows what this bird eats using data from the Avian Diet Database */}
             {birdData && (
-                <section className="bg-[#ffd6b6] px-8 py-12">
-                    <div className="max-w-5xl mx-auto">
-                        <h2 className="font-serif text-2xl font-bold text-[#333333] mb-8 text-center">
+                <section className=" px-8 py-12">
+                    <div className=" bg-[#ffd6b6] py-10 rounded-2xl">
+                        <h2 className="font-serif text-3xl font-bold text-[#333333] mb-8 text-center">
                             Diet
                         </h2>
 
                         {/* Clean both lists first to remove any NaN or empty entries */}
                         {(() => {
-                            const preyNames  = cleanPreyList(birdData.diet?.prey_common_names);
-                            const preyTypes  = cleanPreyList(birdData.diet?.prey_classes);
-                            const hasData    = preyNames.length > 0 || preyTypes.length > 0;
+                            const preyNames = cleanPreyList(birdData.diet?.prey_common_names);
+                            const preyTypes = cleanPreyList(birdData.diet?.prey_classes);
+                            const hasData = preyNames.length > 0 || preyTypes.length > 0;
 
                             return hasData ? (
-                                <div className="flex flex-col gap-6">
+                                <div className="flex flex-col gap-6 px-10">
 
                                     {/* Single hint at the top — no need to repeat it per group */}
-                                    <p className="text-xs text-[#3F4850]/60">
+                                    <p className="text-ms text-[#3F4850]/60">
                                         Hover or click any pill to see an image of that prey item.
                                     </p>
 
                                     {/* Prey names */}
                                     {preyNames.length > 0 && (
                                         <div>
-                                            <h3 className="text-sm font-semibold uppercase tracking-widest text-[#3F4850] mb-3">
+                                            <h3 className="text-base font-semibold uppercase tracking-widest text-[#3F4850] mb-3">
                                                 Prey
                                             </h3>
                                             <div className="flex flex-wrap gap-2">
@@ -529,10 +529,10 @@ export default function BirdPage() {
                                     {/* Prey types — broader categories such as "Fish" or "Insects" */}
                                     {preyTypes.length > 0 && (
                                         <div>
-                                            <h3 className="text-sm font-semibold uppercase tracking-widest text-[#3F4850] mb-3">
+                                            <h3 className="text-base font-semibold uppercase tracking-widest text-[#3F4850] mb-3">
                                                 Prey Type
                                             </h3>
-                                            <div className="flex flex-wrap gap-2">
+                                            <div className="flex flex-wrap gap-3 text-sm">
                                                 {preyTypes.map((cls) => (
                                                     <PreyPill key={cls} name={cls} filled />
                                                 ))}
@@ -557,7 +557,7 @@ export default function BirdPage() {
             {birdData?.wikipedia && (
                 <section className="bg-[#FFFFFF] px-8 py-12">
                     <div className="max-w-5xl mx-auto">
-                        <h2 className="font-serif text-2xl font-bold text-[#333333] mb-8 text-center">
+                        <h2 className="font-serif text-3xl font-bold text-[#333333] mb-8 text-center">
                             About this Species
                         </h2>
 
@@ -590,7 +590,7 @@ export default function BirdPage() {
             {birdData?.migration && (
                 <section className="bg-[#333333] px-8 py-12 text-white">
                     <div className="max-w-5xl mx-auto">
-                        <h2 className="font-serif text-2xl font-bold text-[#fff99d] mb-10 text-center">
+                        <h2 className="font-serif text-3xl font-bold text-[#fff99d] mb-10 text-center">
                             Migration &amp; Sightings
                         </h2>
 
@@ -613,7 +613,7 @@ export default function BirdPage() {
                                     <div className="flex flex-col gap-4">
                                         {(() => {
                                             const countries = birdData.migration.top_countries.slice(0, 5);
-                                            const maxCount  = Math.max(...countries.map((c: any) => c.count));
+                                            const maxCount = Math.max(...countries.map((c: any) => c.count));
                                             // Resolve 2-letter country code to a readable name using the browser's built-in API
                                             const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
 
@@ -650,10 +650,10 @@ export default function BirdPage() {
                                         Sightings by Month
                                     </h3>
                                     {(() => {
-                                        const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                                        const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                         const monthly = birdData.migration.monthly_sightings;
-                                        const values  = MONTHS.map((_, i) => Number(monthly[String(i + 1)] ?? 0));
-                                        const maxVal  = Math.max(...values, 1); // avoid divide-by-zero
+                                        const values = MONTHS.map((_, i) => Number(monthly[String(i + 1)] ?? 0));
+                                        const maxVal = Math.max(...values, 1); // avoid divide-by-zero
 
                                         return (
                                             <div className="flex items-end gap-1 h-52">
