@@ -474,12 +474,12 @@ export default function SpeciesPage() {
             )}
 
             {/* Section 5: Maps — geographic Tableau embeds for occurrence and density */}
-            <section className="bg-[#333333] px-8 py-10">
+            <section className="bg-[#333333] px-10 py-15">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="font-serif text-2xl font-bold text-white mb-2">
+                    <h2 className="font-serif text-3xl font-bold text-white mb-2">
                         Maps
                     </h2>
-                    <p className="text-sm text-[#C9C9C9] mb-8">
+                    <p className="text-base text-[#C9C9C9] mb-8">
                         Geographic visualizations showing where these species are found — Tableau embeds coming soon.
                     </p>
 
@@ -487,17 +487,23 @@ export default function SpeciesPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                         {/* Placeholder: Species Density Heatmap */}
-                        <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                            <div className="text-4xl opacity-40">🗺️</div>
-                            <p className="font-semibold text-white/70 text-sm">Species Density Heatmap</p>
-                            <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                        <div>
+                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
+                                <div className="text-4xl opacity-40">🗺️</div>
+                                <p className="font-semibold text-white/70 text-sm">Species Density Heatmap</p>
+                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                            </div>
+                            <p className="text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
                         </div>
 
                         {/* Placeholder: All Bird Occurrence */}
-                        <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                            <div className="text-4xl opacity-40">📍</div>
-                            <p className="font-semibold text-white/70 text-sm">All Bird Occurrence</p>
-                            <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                        <div>
+                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
+                                <div className="text-4xl opacity-40">📍</div>
+                                <p className="font-semibold text-white/70 text-sm">All Bird Occurrence</p>
+                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                            </div>
+                            <p className="text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
                         </div>
 
                     </div>
@@ -505,12 +511,12 @@ export default function SpeciesPage() {
             </section>
 
             {/* Section 6: Charts — trend and status Tableau embeds */}
-            <section className="bg-[#3F4850] px-8 py-10">
+            <section className="bg-[#3F4850] px-8 py-15">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="font-serif text-2xl font-bold text-white mb-2">
+                    <h2 className="font-serif text-3xl font-bold text-white mb-2">
                         Trends &amp; Status
                     </h2>
-                    <p className="text-sm text-[#C9C9C9] mb-8">
+                    <p className="text-base text-[#C9C9C9] mb-8">
                         Charts showing population trends, sighting patterns, and conservation status over time — Tableau embeds coming soon.
                     </p>
 
@@ -518,31 +524,43 @@ export default function SpeciesPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                         {/* Placeholder: Observation Trend by Year */}
-                        <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                            <div className="text-4xl opacity-40">📈</div>
-                            <p className="font-semibold text-white/70 text-sm">Observation Trend by Year</p>
-                            <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                        <div>
+                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
+                                <div className="text-4xl opacity-40">📈</div>
+                                <p className="font-semibold text-white/70 text-sm">Observation Trend by Year</p>
+                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                            </div>
+                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
                         </div>
 
                         {/* Placeholder: Monthly Sighting Over Time */}
-                        <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                            <div className="text-4xl opacity-40">📅</div>
-                            <p className="font-semibold text-white/70 text-sm">Monthly Sighting Over Time</p>
-                            <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                        <div>
+                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
+                                <div className="text-4xl opacity-40">📅</div>
+                                <p className="font-semibold text-white/70 text-sm">Monthly Sighting Over Time</p>
+                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                            </div>
+                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
                         </div>
 
                         {/* Placeholder: Population Trend */}
-                        <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                            <div className="text-4xl opacity-40">📊</div>
-                            <p className="font-semibold text-white/70 text-sm">Population Trend</p>
-                            <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                        <div>
+                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
+                                <div className="text-4xl opacity-40">📊</div>
+                                <p className="font-semibold text-white/70 text-sm">Population Trend</p>
+                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                            </div>
+                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
                         </div>
 
                         {/* Placeholder: Conservation Status */}
-                        <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                            <div className="text-4xl opacity-40">🛡️</div>
-                            <p className="font-semibold text-white/70 text-sm">Conservation Status</p>
-                            <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                        <div>
+                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
+                                <div className="text-4xl opacity-40">🛡️</div>
+                                <p className="font-semibold text-white/70 text-sm">Conservation Status</p>
+                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                            </div>
+                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
                         </div>
 
                     </div>
@@ -553,10 +571,10 @@ export default function SpeciesPage() {
             {activeSlots.length > 0 && (
                 <section className="bg-[#fffdde] px-8 py-10">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="font-serif text-2xl font-bold text-[#333333] mb-2">
+                        <h2 className="font-serif text-3xl font-bold text-[#333333] mb-2">
                             About These Species
                         </h2>
-                        <p className="text-sm text-[#3F4850] mb-6">
+                        <p className="text-base text-[#3F4850] mb-6">
                             A brief overview of each selected species from Wikipedia.
                         </p>
 
@@ -573,9 +591,9 @@ export default function SpeciesPage() {
                                     : fullText;
 
                                 return (
-                                    <div key={index} className="bg-white rounded-xl p-5 shadow-sm flex flex-col gap-3">
+                                    <div key={index} className="bg-white rounded-xl p-5 shadow-lg flex flex-col gap-4">
                                         {/* Card header — bird common name */}
-                                        <h3 className="font-bold text-[#333333]">
+                                        <h3 className="font-bold text-[#333333] text-lg">
                                             {toTitleCase(label)}
                                         </h3>
 
@@ -588,12 +606,12 @@ export default function SpeciesPage() {
                                             </div>
                                         ) : summary ? (
                                             /* Truncated Wikipedia extract */
-                                            <p className="text-sm text-[#3F4850] leading-relaxed">
+                                            <p className="text-base text-[#3F4850] leading-relaxed">
                                                 {summary}
                                             </p>
                                         ) : (
                                             /* Fallback when no Wikipedia data is available */
-                                            <p className="text-xs text-[#3F4850]/60 italic">
+                                            <p className="text-base text-[#3F4850]/60 italic">
                                                 No description available.
                                             </p>
                                         )}
