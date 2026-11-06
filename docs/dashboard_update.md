@@ -28,3 +28,8 @@
     - Have the find bird search bar bird name only have the first letter of each work capulized. 
     - Need to fix the Classification section, I cant find the code to fix it my self (If you show me where the code is I will fix everthing)
     - The Gallery will have the images from the Plumige tab on the preidction page
+
+
+# Stats
+    - In the Dataset Overview I want toe bottom 2 boxes to be in the center so its seting between the uper level
+    
