@@ -962,17 +962,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Novemerber 5, 2026
 **Day Goal:** Finnish making small tweeks to the dashboard
 
-**What Was Done:** 
+**What Was Done:** Finnish making small tweeks to all the dashboard pages
 
-**Challenges:** 
+**Challenges:** Finnedint time
 
-**Blockers:** 
+**Blockers:** no blockers
 
 **Summary:**
+    Today I finnish makeing small tweeks to the dashboard. I adusted text size, text underling and italic. I also palyed around with padding and background colors. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
