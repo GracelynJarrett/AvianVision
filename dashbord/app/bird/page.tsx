@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 // The bird that is shown when the page first loads
 const DEFAULT_BIRD = "EUROPEAN TURTLE DOVE";
@@ -246,13 +247,21 @@ function TaxonomySection({ birdData }: { birdData: any }) {
     );
 }
 
-export default function BirdPage() {
+function BirdPageInner() {
+    // Read the ?species= URL param so links from the slideshow open the right bird directly
+    const searchParams = useSearchParams();
+    const urlSpecies = searchParams.get("species")?.toUpperCase().trim() ?? DEFAULT_BIRD;
+
     const [birdNames, setBirdNames] = useState<string[]>([]);
-    const [searchQuery, setSearchQuery] = useState(DEFAULT_BIRD);
-    const [selectedBird, setSelectedBird] = useState(DEFAULT_BIRD);
+    const [searchQuery, setSearchQuery] = useState(urlSpecies);
+    const [selectedBird, setSelectedBird] = useState(urlSpecies);
     const [birdData, setBirdData] = useState<any>(null);
     const [birdDataLoading, setBirdDataLoading] = useState(true);
     const [birdImage, setBirdImage] = useState<string | null>(null);
+
+    // Wikimedia plumage image URLs for the currently selected bird
+    const [plumageImages, setPlumageImages] = useState<string[]>([]);
+    const [plumageLoading, setPlumageLoading] = useState(false);
 
     // In-memory caches so switching back to a previously viewed bird is instant
     const birdDataCache = useRef<Map<string, any>>(new Map());
@@ -316,6 +325,18 @@ export default function BirdPage() {
                 setBirdImage(url);
             })
             .catch(error => console.error("Error loading bird image:", error));
+    }, [selectedBird]);
+
+    // Fetch Wikimedia plumage images whenever the selected bird changes
+    useEffect(() => {
+        if (!selectedBird) return;
+        setPlumageLoading(true);
+        setPlumageImages([]);
+        fetch(`http://127.0.0.1:8000/bird/${encodeURIComponent(selectedBird)}/plumage`)
+            .then(r => r.json())
+            .then(data => setPlumageImages(data.images ?? []))
+            .catch(() => setPlumageImages([]))
+            .finally(() => setPlumageLoading(false));
     }, [selectedBird]);
 
     // Called when the user types in the search box — updates the input and loads the bird
@@ -561,6 +582,29 @@ export default function BirdPage() {
                             About this Species
                         </h2>
 
+                        {/* Plumage photo gallery — Wikimedia Commons images for this species */}
+                        {(plumageLoading || plumageImages.length > 0) && (
+                            <div className="mb-10">
+                                {plumageLoading ? (
+                                    <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                                        <div className="h-52 bg-[#C9C9C9] animate-pulse rounded-xl" />
+                                        <div className="h-52 bg-[#C9C9C9] animate-pulse rounded-xl" />
+                                    </div>
+                                ) : (
+                                    <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                                        {plumageImages.map((url, i) => (
+                                            <img
+                                                key={i}
+                                                src={url}
+                                                alt={`${toTitleCase(selectedBird)} photo ${i + 1}`}
+                                                className="w-full h-52 object-cover rounded-xl"
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
                         {/* Short extract — always visible, gives a quick overview */}
                         {birdData.wikipedia.extract && (
                             <p className="text-lg text-[#333333] leading-relaxed mb-10 max-w-3xl mx-auto text-center">
@@ -693,5 +737,14 @@ export default function BirdPage() {
             )}
 
         </main>
+    );
+}
+
+// Suspense wrapper is required by Next.js whenever useSearchParams() is used in a client component
+export default function BirdPage() {
+    return (
+        <Suspense fallback={null}>
+            <BirdPageInner />
+        </Suspense>
     );
 }

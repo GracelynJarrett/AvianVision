@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 // Converts ALL-CAPS species labels to Title Case for display
@@ -81,19 +81,6 @@ function cleanPreyList(list: any[]): string[] {
         });
 }
 
-// Displays a plumage image and hides itself silently if the file doesn't exist for this species yet
-function PlumageImage({ src, alt }: { src: string; alt: string }) {
-    const [visible, setVisible] = useState(true);
-    if (!visible) return null;
-    return (
-        <img
-            src={src}
-            alt={alt}
-            onError={() => setVisible(false)}
-            className="w-full max-h-80 object-cover rounded-xl"
-        />
-    );
-}
 
 // The prediction page — users upload a bird photo and the ML model identifies the species
 export default function PredictPage() {
@@ -109,6 +96,15 @@ export default function PredictPage() {
 
     // Which tab is currently active in the bird info section
     const [activeTab, setActiveTab] = useState<"diet" | "taxonomy" | "history" | "plumage" | "migration">("diet");
+
+    // Wikimedia plumage image URLs fetched for the current prediction
+    const [plumageImages, setPlumageImages] = useState<string[]>([]);
+
+    // True while the plumage image request is in flight
+    const [plumageLoading, setPlumageLoading] = useState(false);
+
+    // Tracks which species label was last fetched so we don't re-fetch on every tab switch
+    const plumageLoadedFor = useRef<string | null>(null);
 
     // True while waiting for the API to return a prediction
     const [loading, setLoading] = useState(false);
@@ -162,6 +158,23 @@ export default function PredictPage() {
         // Reset the hidden input so the same file can be re-selected if needed
         if (fileInputRef.current) fileInputRef.current.value = "";
     }
+
+    // Fetches Wikimedia plumage images the first time the Plumage tab is opened for a prediction
+    useEffect(() => {
+        const label = result?.prediction?.species_label;
+        if (activeTab !== "plumage" || !label || plumageLoadedFor.current === label) return;
+
+        // Mark this label as in-flight so switching tabs and back doesn't re-fetch
+        plumageLoadedFor.current = label;
+        setPlumageLoading(true);
+        setPlumageImages([]);
+
+        fetch(`http://127.0.0.1:8000/bird/${encodeURIComponent(label)}/plumage`)
+            .then(r => r.json())
+            .then(data => setPlumageImages(data.images ?? []))
+            .catch(() => setPlumageImages([]))
+            .finally(() => setPlumageLoading(false));
+    }, [activeTab, result]);
 
     // Submits the selected image to the prediction API
     async function handleSubmit() {
@@ -620,13 +633,9 @@ export default function PredictPage() {
                                 </div>
                             );
                         })()}
-                        {/* Plumage tab — species image from public/plumage/ and Wikipedia description text */}
+                        {/* Plumage tab — Wikimedia Commons photo gallery and Wikipedia description text */}
                         {activeTab === "plumage" && (() => {
-                            const label = result.prediction.species_label;
                             const sections: Record<string, string> = result.bird?.wikipedia?.sections ?? {};
-
-                            // Build the image path — spaces become underscores, all lowercase, .jpg
-                            const imgPath = `/plumage/${label.toLowerCase().replace(/\s+/g, "_")}.jpg`;
 
                             // Use the Description section first (covers appearance), fall back to Subspecies
                             const text = sections["Description"] ?? sections["Subspecies"] ?? null;
@@ -634,21 +643,42 @@ export default function PredictPage() {
                             return (
                                 <div className="flex flex-col gap-6">
 
-                                    {/* Plumage photo — hides itself silently if no image exists for this species yet */}
-                                    <PlumageImage src={imgPath} alt={toTitleCase(label)} />
+                                    {/* Photo gallery — loading skeletons while images are being fetched */}
+                                    {plumageLoading ? (
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="h-48 bg-[#C9C9C9] animate-pulse rounded-xl" />
+                                            <div className="h-48 bg-[#C9C9C9] animate-pulse rounded-xl" />
+                                        </div>
+                                    ) : plumageImages.length > 0 ? (
+                                        /* 2-column grid of Wikimedia photos loaded from the backend cache */
+                                        <div className="grid grid-cols-2 gap-4">
+                                            {plumageImages.map((url, i) => (
+                                                <img
+                                                    key={i}
+                                                    src={url}
+                                                    alt={`Plumage photo ${i + 1}`}
+                                                    className="w-full h-48 object-cover rounded-xl"
+                                                />
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <p className="text-sm text-[#3F4850]/60 italic">
+                                            No plumage images found for this species.
+                                        </p>
+                                    )}
 
                                     {/* Wikipedia description text */}
                                     {text ? (
                                         <div>
-                                            <p className="text-base font-semibold uppercase tracking-widest text-[#3F4850]/50 mb-3">
+                                            <p className="text-xs font-semibold uppercase tracking-widest text-[#3F4850]/50 mb-3">
                                                 Description
                                             </p>
-                                            <p className="text-base text-[#3F4850] leading-relaxed">
+                                            <p className="text-sm text-[#3F4850] leading-relaxed">
                                                 {text}
                                             </p>
                                         </div>
                                     ) : (
-                                        <p className="text-base text-[#3F4850]/60 italic">
+                                        <p className="text-sm text-[#3F4850]/60 italic">
                                             No plumage description available for this species.
                                         </p>
                                     )}

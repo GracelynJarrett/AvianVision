@@ -15,6 +15,9 @@ export default function BirdSlideshow() {
     const [isPaused, setIsPaused] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    // Maps species_label → first Wikimedia plumage image URL, or null if none was found
+    const [plumageMap, setPlumageMap] = useState<Record<string, string | null>>({});
+
     // Fetch a fresh set of random birds from the API when the component first loads
     useEffect(() => {
         fetch(`${API_BASE}/birds/random?count=6`)
@@ -37,6 +40,25 @@ export default function BirdSlideshow() {
         return () => clearInterval(timer);
     }, [isPaused, birds.length]);
 
+    // Fetch one Wikimedia plumage image for the current slide when it has not been loaded yet
+    useEffect(() => {
+        if (birds.length === 0) return;
+        const label = birds[currentIndex].species_label;
+
+        // Skip if we already have a result for this bird (even null means we tried and found nothing)
+        if (label in plumageMap) return;
+
+        fetch(`${API_BASE}/bird/${encodeURIComponent(label)}/plumage`)
+            .then(r => r.json())
+            .then(data => {
+                const url: string | null = data.images?.[0] ?? null;
+                setPlumageMap(prev => ({ ...prev, [label]: url }));
+            })
+            .catch(() => {
+                setPlumageMap(prev => ({ ...prev, [label]: null }));
+            });
+    }, [currentIndex, birds]);
+
     const showPrevious = () => {
         setCurrentIndex((prev) => (prev - 1 + birds.length) % birds.length);
     };
@@ -48,7 +70,7 @@ export default function BirdSlideshow() {
     // Show a placeholder while the API call is in flight
     if (loading) {
         return (
-            <section className="relative h-[400px] w-full overflow-hidden rounded-xl bg-[#000000] flex items-center justify-center">
+            <section className="relative h-[550px] w-full overflow-hidden rounded-xl bg-[#000000] flex items-center justify-center">
                 <p className="text-white">Loading birds...</p>
             </section>
         );
@@ -57,7 +79,7 @@ export default function BirdSlideshow() {
     // Show a fallback if the API returned nothing
     if (birds.length === 0) {
         return (
-            <section className="relative h-[400px] w-full overflow-hidden rounded-xl bg-[#000000] flex items-center justify-center">
+            <section className="relative h-[1000px] w-full overflow-hidden rounded-xl bg-[#000000] flex items-center justify-center">
                 <p className="text-white">No birds available.</p>
             </section>
         );
@@ -65,19 +87,22 @@ export default function BirdSlideshow() {
 
     const current = birds[currentIndex];
 
-    // Build the image URL using the species label — the API handles the lookup
-    const imageUrl = `${API_BASE}/bird/${encodeURIComponent(current.species_label)}/image`;
+    // Use the Wikimedia plumage photo if one was found; otherwise fall back to the dataset image
+    const plumageUrl = plumageMap[current.species_label];
+    const imageUrl = typeof plumageUrl === "string"
+        ? plumageUrl
+        : `${API_BASE}/bird/${encodeURIComponent(current.species_label)}/image`;
 
     return (
         <section
-            className="relative h-[400px] w-full overflow-hidden rounded-xl bg-[#000000]"
+            className="relative h-[550px] w-full overflow-hidden rounded-xl bg-[#000000]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
             <img
                 src={imageUrl}
                 alt={current.species_label}
-                className="h-full w-full object-contain"
+                className="h-full w-3/4 object-contain block mx-auto"
             />
 
             <div className="absolute inset-y-0 left-0 w-1/4 bg-black/60 p-6 text-white">
@@ -94,7 +119,7 @@ export default function BirdSlideshow() {
                 </p>
 
                 <a
-                    href="/bird"
+                    href={`/bird?species=${encodeURIComponent(current.species_label)}`}
                     className="mt-4 inline-block text-[#fff99d] underline underline-offset-4 hover:text-[#F5E400]"
                 >
                     Learn more
@@ -125,9 +150,8 @@ export default function BirdSlideshow() {
                     <button
                         key={bird.species_label}
                         onClick={() => setCurrentIndex(index)}
-                        className={`h-3 w-3 rounded-full transition-colors ${
-                            currentIndex === index ? "bg-white" : "bg-black/60"
-                        }`}
+                        className={`h-3 w-3 rounded-full transition-colors ${currentIndex === index ? "bg-white" : "bg-black/60"
+                            }`}
                         aria-label={`Go to ${bird.species_label}`}
                         aria-current={currentIndex === index ? "true" : undefined}
                     />

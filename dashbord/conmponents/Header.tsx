@@ -27,12 +27,25 @@ export default function Header() {
 
     return (
         // Single horizontal bar: logo left | page title center | nav right
-        <header className="py-3 font-serif bg-[#C9C9C9] text-[#3F4850] border-b border-[#3F4850]/20">
+        <header className="py-3 font-serif bg-[#3F4850] text-[#FFFFFF] border-b border-[#3F4850]/20">
             <div className="relative flex items-center justify-between px-6">
 
                 {/* Logo and brand name — left side */}
                 <div className="flex items-center gap-8">
-                    <span className="text-lg text-[#3F4850]/50">[Logo]</span>
+                    <svg viewBox="0 6 60 68" width="34" height="43" aria-hidden="true">
+                        {/* Yellow crest + head */}
+                        <path d="M30,10 C27,18 17,30 15,38 C14,47 11,56 11,60 Q11,69 30,70 Q49,69 49,60 C49,56 46,47 45,38 C43,30 33,18 30,10 Z" fill="#FFE500" />
+                        {/* Eyes */}
+                        <circle cx="20" cy="44" r="4" fill="#111" />
+                        <circle cx="40" cy="44" r="4" fill="#111" />
+                        {/* Cheek patches */}
+                        <ellipse cx="15" cy="55" rx="8" ry="6" fill="#D4591E" />
+                        <ellipse cx="45" cy="55" rx="8" ry="6" fill="#D4591E" />
+                        {/* Beak */}
+                        <polygon points="30,46 24,54 30,62 36,54" fill="#FFF8F0" />
+                        {/* Neck stub */}
+                        <rect x="22" y="69" width="16" height="5" rx="2.5" fill="#C0BFBF" />
+                    </svg>
                     <span className="text-2xl font-bold font-serif tracking-tight">AvianVision</span>
                 </div>
 

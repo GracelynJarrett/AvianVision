@@ -1,6 +1,9 @@
 # Standard Library
 import json
+import os
 import random
+import urllib.parse
+import urllib.request
 from datetime import datetime
 from io import BytesIO
 import pandas as pd
@@ -833,5 +836,148 @@ def get_bird_image(species_label: str):
     buffer.seek(0)
 
     return StreamingResponse(buffer, media_type="image/jpeg")
+
+
+# /bird/{species_label}/plumage returns up to 4 Wikimedia Commons image URLs for the species.
+# Results are cached as a JSON file so Wikimedia is only queried once per species.
+@app.get("/bird/{species_label}/plumage")
+def get_plumage_images(species_label: str):
+    """Returns a list of up to 4 Wikimedia Commons image URLs for the given bird species.
+
+    On the first request for a species, the endpoint looks up its scientific name in
+    MongoDB, queries the Wikimedia Commons API, saves the URL list to a local cache file,
+    then returns the URLs. All subsequent requests for the same species are served from
+    the cache file without hitting Wikimedia again."""
+
+    # ----- Normalize the Label -----
+
+    # Convert to uppercase and strip whitespace to match the MongoDB field format.
+    label = species_label.upper().strip()
+
+    # Build the cache file path — spaces in the label become underscores in the filename.
+    cache_dir = os.path.join(os.path.dirname(__file__), "plumage_cache")
+    cache_file = os.path.join(cache_dir, label.replace(" ", "_") + ".json")
+
+    # ----- Check Cache -----
+
+    # If a cache file already exists for this species, return it immediately
+    # without making any external network requests.
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as f:
+            return json.load(f)
+
+    # ----- Look Up Scientific Name -----
+
+    # The Wikimedia search works best with the scientific (Latin) name, which is
+    # less ambiguous than a common English name.
+    collection = get_species_info_collection()
+    doc = collection.find_one({"species_label": label}, {"scientific_name": 1, "_id": 0})
+
+    if not doc or not doc.get("scientific_name"):
+        # Species not in MongoDB — cache an empty result and return early.
+        result = {"images": []}
+        os.makedirs(cache_dir, exist_ok=True)
+        with open(cache_file, "w") as f:
+            json.dump(result, f)
+        return result
+
+    scientific_name = doc["scientific_name"]
+
+    # ----- Query Wikimedia Commons -----
+
+    # Adding "bird" to the search term biases Wikimedia toward bird-related files
+    # and reduces cross-contamination from fish or other species that share part of
+    # a scientific name. gsrnamespace=6 restricts results to the File: namespace.
+    # iiurlwidth=800 asks Wikimedia to return a resized 800px thumbnail URL.
+    # gsrlimit=20 requests extra candidates so we have room to filter bad ones out.
+    params = urllib.parse.urlencode({
+        "action": "query",
+        "generator": "search",
+        "gsrsearch": f"filetype:bitmap {scientific_name} bird",
+        "gsrnamespace": "6",
+        "prop": "imageinfo",
+        "iiprop": "url",
+        "iiurlwidth": "800",
+        "gsrlimit": "20",
+        "format": "json",
+    })
+    url = f"https://commons.wikimedia.org/w/api.php?{params}"
+
+    try:
+        # Wikimedia requires a User-Agent header identifying the application.
+        req = urllib.request.Request(url, headers={"User-Agent": "AvianVision/1.0"})
+        with urllib.request.urlopen(req, timeout=10) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except Exception:
+        # If the network request fails, return an empty result without caching
+        # so the next request will try again.
+        return {"images": []}
+
+    # ----- Filter Out Non-Photo Images -----
+
+    # Wikimedia results often include paintings, drawings, egg photos, taxidermy mounts,
+    # fish photos, range maps, and scientific illustrations. We filter these out by
+    # checking the filename for keywords that commonly appear in those file names.
+    BLOCKED_KEYWORDS = [
+        "egg", "eggs",
+        "painting", "painted",
+        "drawing", "drawn",
+        "illustration",
+        "taxidermy", "stuffed", "mounted",
+        "specimen",
+        "stamp",
+        "lithograph", "engraving",
+        "skeleton", "skull",
+        "map", "range", "distribution",
+        "habitat",
+        "fossil",
+        "nest",
+        "fish",
+        "feather",
+    ]
+
+    # Split the scientific name into its two words (genus and species) so we can
+    # check that at least one of them appears in the filename. This prevents
+    # results for completely unrelated species from slipping through.
+    sci_parts = [part.lower() for part in scientific_name.split() if len(part) > 3]
+
+    # ----- Extract Image URLs -----
+
+    # The response has a query.pages dict keyed by page ID.
+    # Each page has a title like "File:Robin_on_branch.jpg" and an imageinfo list.
+    # We apply two checks before keeping a URL:
+    #   1. The filename must not contain any blocked keyword.
+    #   2. The filename must contain at least one part of the scientific name,
+    #      so we reject results that don't belong to this species at all.
+    pages = data.get("query", {}).get("pages", {})
+    images = []
+    for page in pages.values():
+        # Pull the filename from the page title and convert to lowercase for matching
+        filename = page.get("title", "").lower().replace("file:", "").strip()
+
+        # Skip this result if the filename contains any blocked keyword
+        if any(keyword in filename for keyword in BLOCKED_KEYWORDS):
+            continue
+
+        # Skip if no part of the scientific name appears in the filename
+        if sci_parts and not any(part in filename for part in sci_parts):
+            continue
+
+        info = page.get("imageinfo", [])
+        if info and info[0].get("url"):
+            images.append(info[0]["url"])
+        if len(images) >= 4:
+            break
+
+    result = {"images": images}
+
+    # ----- Save to Cache -----
+
+    # Create the cache directory if it doesn't exist yet, then write the result.
+    os.makedirs(cache_dir, exist_ok=True)
+    with open(cache_file, "w") as f:
+        json.dump(result, f)
+
+    return result
 
 

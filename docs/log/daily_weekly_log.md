@@ -923,7 +923,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## November 3 2026
+## Tuseday November 3 2026
 **Day Goal:** Undate Tello
 
 **What Was Done:** Update trello, looked into cansloling Snowflake for good
@@ -941,7 +941,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## November 4, 2026
+## Wednday November 4, 2026
 **Day Goal:** Make the Bird stats, and species
 
 **What Was Done:** Bird, Stats, and species page was done
@@ -959,7 +959,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Novemerber 5, 2026
+## Thursday Novemerber 5, 2026
 **Day Goal:** Finnish making small tweeks to the dashboard
 
 **What Was Done:** Finnish making small tweeks to all the dashboard pages
@@ -977,8 +977,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Saterday Novemerber 7, 2026
+**Day Goal:** Get at less 100 bird image for my plumige and slide show
 
 **What Was Done:** 
 
@@ -994,39 +994,6 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-
-
-**Time:**
-    - Total:
-
----
-
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-
-
-**Time:**
-    - Total:
-
----
 
 ## Week [#] Review
 
