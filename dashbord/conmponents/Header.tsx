@@ -50,7 +50,7 @@ export default function Header() {
                 </div>
 
                 {/* Current page title — pinned to the center of the full header width */}
-                <div className="absolute left-1/2 -translate-x-1/2 font-serif text-2xl font-semibold pointer-events-none">
+                <div className="left-1/2 -translate-x-1/2 font-serif text-2xl font-semibold pointer-events-none">
                     {pageTitle}
                 </div>
 
@@ -64,7 +64,7 @@ export default function Header() {
                                 key={href}
                                 href={href}
                                 className={`px-4 py-2 rounded text-lg font-medium transition-colors duration-200 ${isActive
-                                    ? "bg-[#3F4850] text-white"
+                                    ? "bg-[#333333] text-white"
                                     : "bg-white text-[#3F4850] hover:bg-[#3F4850] hover:text-white"
                                     }`}
                                 aria-current={isActive ? "page" : undefined}

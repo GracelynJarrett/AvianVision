@@ -980,37 +980,36 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Saterday Novemerber 7, 2026
 **Day Goal:** Get at less 100 bird image for my plumige and slide show
 
-**What Was Done:** 
+**What Was Done:** Cooneted to wikimedia for bird images for slideshow and the dashboards, added Logo
 
-**Challenges:** 
+**Challenges:** Getting the right size for the slidshow, getting the right kind of images from the wikimedia
 
-**Blockers:** 
+**Blockers:** Finnding time
 
 **Summary:**
+    Today I did some reacher and found that I can get images though wikimeda free API. SO I conneted my dashboard to wikimdia and use the images for my slide show and my Plumage section of my prediction, and birds page. I did have a change will getting the images on the slide show to fit proply. I also strugled with finding the right conbonation of filtering for the wikmdia API, but I got it fix advecaly. I also had time to add the logo to my dashboard. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
 
 ## Week [#] Review
 
-**Week Goal:** [The goal of the week — 1 sentence max]
+**Week Goal:** Finnish most of the dashboard, fix the slide show on the home page
 
-**What Was Done:** [What got done — 1 sentence max]
+**What Was Done:** Finnish the dashboard (besided graphs), and fix the slide show
 
-**What Was Not Done:** [What didn't get done — 3 words min]
+**What Was Not Done:** Everthing was DOne
 
-**Challenges:** [The week's main challenge — 3 words min]
+**Challenges:** Findding time to work on Capstone do to travaling and other Finnals
 
-**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+**Carried Into Next Week:** Dont need to carried anything over
 
 **Weekly Summary:**
-[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
-and why, main challenges, any changes to project files or the project plan, and what the 
-carry-over means for next week's goals.]
+    This week I was able to finnish the dashboards, exapte for adding in the Tabule graphs and maps. I also was able to fix the slide show on the home page, so now it will take you to the bird page about the bird on the slide. 
 
 ---
 
