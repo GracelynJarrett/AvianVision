@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import AllBirdOccurrenceMap from "@/conmponents/maps/allbird_occurrence_map";
+
 
 // Converts ALL-CAPS species labels to Title Case for display
 function toTitleCase(str: string): string {
@@ -156,6 +158,28 @@ export default function SpeciesPage() {
                     </p>
                 </div>
             </section>
+
+
+            {/* Temraly placeholder for the maps and graphs*/}
+
+            <div>
+                <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 p-6">
+                    <AllBirdOccurrenceMap />
+                </div>
+                <p className="text-[#c9c9c9] px-10 py-5">
+                    All Bird Occurrence
+                </p>
+            </div>
+
+
+
+
+
+
+
+
+
+
 
             {/* Section 2: Bird Selector — 6 search slots in a 2×3 grid */}
             <section className="bg-[#ffffff] px-8 py-2 ">

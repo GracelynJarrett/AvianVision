@@ -981,3 +981,42 @@ def get_plumage_images(species_label: str):
     return result
 
 
+# /occurrences returns bird Occurrences data
+# this endpoint is used for the maps and graphs
+@app.get("/occurrences")
+def get_occurrences():
+    collection = get_species_observations_collection()
+    occurrences = list(
+        collection.aggregate([
+            {
+                "$group": {
+                    "_id": {
+                        "species_label": "$species_label",
+                        "country": "$country",
+                        "scientific_name": "$scientific_name",
+                        "month": "$month"
+                    },
+                    "avg_lat": {"$avg": "$lat"},
+                    "avg_lon": {"$avg": "$lon"},
+                    "occurrence_count": {"$sum": 1}
+                }
+            },
+            {
+                "$project": {
+                    "_id": 0,
+                    "species_label": "$_id.species_label",
+                    "country": "$_id.country",
+                    "scientific_name": "$_id.scientific_name",
+                    "month": "$_id.month",
+                    "avg_lat": 1,
+                    "avg_lon": 1,
+                    "occurrence_count": 1
+                }
+            }
+        ])
+    )
+
+    return {
+            "occurrence_count": len(occurrences),
+            "occurrences": occurrences
+    }
