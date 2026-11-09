@@ -1015,8 +1015,10 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 # Week 8
-## 
-**Day Goal:** 
+    * This weeks Goal is to connete Tableau to Dashboard, Start working on Bird identifyer Model. 
+## Monday Novemer 9, 2026
+    
+**Day Goal:** Reacher how to connet Tableau to dashboard, Test connetions 
 
 **What Was Done:** 
 
