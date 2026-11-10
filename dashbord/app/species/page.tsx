@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import SpeciesByFamily from "@/conmponents/charts/species_by_family";
+import PopulationTrend from "@/conmponents/charts/population_trend";
 
 
 // Converts ALL-CAPS species labels to Title Case for display
@@ -164,7 +164,7 @@ export default function SpeciesPage() {
 
             <div>
                 <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 p-6">
-                    < SpeciesByFamily />
+                    < PopulationTrend />
                 </div>
                 <p className="text-[#c9c9c9] px-10 py-5">
                     All Bird Occurrence
