@@ -1035,8 +1035,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Tuesday November 10, 2026 
+**Day Goal:** Create at less 5 more graphs/maps
 
 **What Was Done:** 
 

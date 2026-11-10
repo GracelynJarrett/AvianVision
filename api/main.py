@@ -994,7 +994,8 @@ def get_occurrences():
                         "species_label": "$species_label",
                         "country": "$country",
                         "scientific_name": "$scientific_name",
-                        "month": "$month"
+                        "month": "$month",
+                        "year": "$year"
                     },
                     "avg_lat": {"$avg": "$lat"},
                     "avg_lon": {"$avg": "$lon"},
@@ -1008,6 +1009,7 @@ def get_occurrences():
                     "country": "$_id.country",
                     "scientific_name": "$_id.scientific_name",
                     "month": "$_id.month",
+                    "year": "$_id.year",
                     "avg_lat": 1,
                     "avg_lon": 1,
                     "occurrence_count": 1

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import AllBirdOccurrenceMap from "@/conmponents/maps/allbird_occurrence_map";
+import MonthlySightingsOverTime from "@/conmponents/charts/monthly_sighting_overtime";
 
 
 // Converts ALL-CAPS species labels to Title Case for display
@@ -164,20 +164,12 @@ export default function SpeciesPage() {
 
             <div>
                 <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 p-6">
-                    <AllBirdOccurrenceMap />
+                    < MonthlySightingsOverTime />
                 </div>
                 <p className="text-[#c9c9c9] px-10 py-5">
                     All Bird Occurrence
                 </p>
             </div>
-
-
-
-
-
-
-
-
 
 
 
