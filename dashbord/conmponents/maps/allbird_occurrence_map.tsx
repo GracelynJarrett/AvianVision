@@ -19,7 +19,7 @@ type Occurrence = {
     month: number;
 };
 
-const countryColors = [
+const speciesColors = [
     "#38bdf8",
     "#f97316",
     "#a78bfa",
@@ -37,17 +37,6 @@ const countryColors = [
 export default function AllBirdOccurrenceMap() {
     const [occurrences, setOccurrences] = useState<Occurrence[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
-    const countries = Array.from(
-        new Set(occurrences.map((item) => item.country))
-    ).sort();
-
-    const filteredOccurrences =
-        selectedCountries.length === 0
-            ? occurrences
-            : occurrences.filter((item) =>
-                selectedCountries.includes(item.country)
-            );
 
     useEffect(() => {
         fetch(`${API_BASE}/occurrences`)
@@ -73,27 +62,27 @@ export default function AllBirdOccurrenceMap() {
     }
 
     return (
-        <div className="flex flex-col md:flex-row gap-5">
+        <div className="w-full">
 
             {/* Map */}
-            <div className="flex-1 min-w-0">
+            <div className="w-full">
                 <Plot
-                    data={Array.from(new Set(filteredOccurrences.map((item) => item.country))).map(
-                        (country, index) => {
-                            const countryOccurrences = filteredOccurrences.filter(
-                                (item) => item.country === country
+                    data={Array.from(new Set(occurrences.map((item) => item.species_label))).map(
+                        (speciesLabel, index) => {
+                            const speciesOccurrences = occurrences.filter(
+                                (item) => item.species_label === speciesLabel
                             );
 
                             return {
                                 type: "scattergeo" as const,
                                 mode: "markers" as const,
-                                name: country,
+                                name: speciesLabel,
                                 showlegend: false,
-                                lat: countryOccurrences.map((item) => item.avg_lat),
-                                lon: countryOccurrences.map((item) => item.avg_lon),
+                                lat: speciesOccurrences.map((item) => item.avg_lat),
+                                lon: speciesOccurrences.map((item) => item.avg_lon),
                                 marker: {
                                     size: 5,
-                                    color: countryColors[index % countryColors.length],
+                                    color: speciesColors[index % speciesColors.length],
                                     opacity: 0.6,
                                 },
                             };
@@ -115,45 +104,6 @@ export default function AllBirdOccurrenceMap() {
                 />
             </div>
 
-            {/* Country Filter */}
-            <div className="md:w-56 shrink-0">
-                <p className="text-white font-semibold mb-3">
-                    Filter by Country
-                </p>
-
-                <select
-                    multiple
-                    value={selectedCountries}
-                    onChange={(e) => {
-                        const selected = Array.from(
-                            e.target.selectedOptions,
-                            (option) => option.value
-                        );
-
-                        if (selected.includes("All")) {
-                            setSelectedCountries([]);
-                        } else {
-                            setSelectedCountries(selected);
-                        }
-                    }}
-                    className="rounded-lg bg-white text-black p-2 w-full"
-                    size={12}
-                >
-                    <option value="All">All Countries</option>
-                    {countries.map((country) => (
-                        <option key={country} value={country}>
-                            {country}
-                        </option>
-                    ))}
-                </select>
-
-                <button
-                    onClick={() => setSelectedCountries([])}
-                    className="mt-3 rounded-lg bg-white/10 text-white px-3 py-2 w-full"
-                >
-                    Show All Countries
-                </button>
-            </div>
 
         </div>
     );

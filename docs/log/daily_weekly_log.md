@@ -1020,17 +1020,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     
 **Day Goal:** Reacher how to connet Tableau to dashboard, Test connetions 
 
-**What Was Done:** 
+**What Was Done:** Reacher how to connet Tableau, started making maps
 
-**Challenges:** 
+**Challenges:** Reachering connetion to Tableau
 
-**Blockers:** 
+**Blockers:** No Blockers
 
 **Summary:**
+    Today I reacher How to connete Tableau to my Next.js dashbord. I found that I can conneted it though the Cloud or the Tableau Server. I checked with IT and we dont have accase to either of thouse. I looked into useing the publice section on Tableau but becase I am useing a lot of data from different API's I feel more confable remaking the graphs and maps in Plotly. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
