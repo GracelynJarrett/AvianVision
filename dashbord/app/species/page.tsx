@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import SpeciesRichness from "@/conmponents/maps/species_richness";
+import ConservationStatus from "@/conmponents/charts/conservation_status";
 
 
 // Converts ALL-CAPS species labels to Title Case for display
@@ -164,7 +164,7 @@ export default function SpeciesPage() {
 
             <div>
                 <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 p-6">
-                    < SpeciesRichness />
+                    < ConservationStatus />
                 </div>
                 <p className="text-[#c9c9c9] px-10 py-5">
                     All Bird Occurrence
