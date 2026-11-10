@@ -534,8 +534,9 @@ def species():
                 "_id": 0,
                 "species_label": 1,
                 "scientific_name": 1,
+                "taxonomy.family": 1,
                 "conservation.status_label": 1,
-                "migration.total_sightings": 1
+                "migration.total_sightings": 1,
             }
         )
     )
