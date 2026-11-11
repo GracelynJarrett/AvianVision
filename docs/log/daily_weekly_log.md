@@ -1038,22 +1038,23 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Tuesday November 10, 2026 
 **Day Goal:** Create at less 5 more graphs/maps
 
-**What Was Done:** 
+**What Was Done:** I created 8 more graphs/maps
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:** No Bolckers
 
 **Summary:**
+    Today I worked on making 8 more graphs and maps. I also had a meeting with my Chair head and found out that he has accase to an clound account so he gave me prmetion to use it. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 
-## 
-**Day Goal:** 
+## Wendsady November 11, 2026
+**Day Goal:** Connete Tableau to my dashbarod, desplay the graphs properly. 
 
 **What Was Done:** 
 
