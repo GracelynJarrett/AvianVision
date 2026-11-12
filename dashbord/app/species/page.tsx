@@ -364,14 +364,49 @@ export default function SpeciesPage() {
 
                     {/* ── All Bird Occurrence tab ───────────────────────────────── */}
                     {tab === "All Bird Occurrence" && (
-                        <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
-                            <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                <span className="font-semibold text-sm text-[#232629]">All Bird Occurrence</span>
-                                <span className="ml-2 text-xs text-[#9199a1]">A global map of occurrence records across all 525 species in the dataset.</span>
+                        <div className="flex flex-col gap-5">
+
+                            {/* Main occurrence map — always shows all 525 species */}
+                            <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
+                                <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
+                                    <span className="font-semibold text-sm text-[#232629]">All Bird Occurrence</span>
+                                    <span className="ml-2 text-xs text-[#9199a1]">A global map of occurrence records across all 525 species in the dataset.</span>
+                                </div>
+                                <div className="p-5">
+                                    <TableauEmbed url={process.env.NEXT_PUBLIC_ALL_BIRD_OCCURRENCE!} title="All Bird Occurrence" height="600px" clearFilter />
+                                </div>
                             </div>
-                            <div className="p-5">
-                                <TableauEmbed url={process.env.NEXT_PUBLIC_ALL_BIRD_OCCURRENCE!} title="All Bird Occurrence" height="600px" />
+
+                            {/* Species Density Heatmap — full width */}
+                            <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
+                                <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
+                                    <span className="font-semibold text-sm text-[#232629]">Species Density Heatmap</span>
+                                </div>
+                                <div className="p-5">
+                                    <TableauEmbed url={process.env.NEXT_PUBLIC_SPECIES_HEATMAP!} title="Species Density Heatmap" height="600px" clearFilter />
+                                </div>
                             </div>
+
+                            {/* Population Trend and Species Richness side by side */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
+                                    <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
+                                        <span className="font-semibold text-sm text-[#232629]">Population Trend</span>
+                                    </div>
+                                    <div className="p-5">
+                                        <TableauEmbed url={process.env.NEXT_PUBLIC_POPULATION_TREND!} title="Population Trend" height="500px" clearFilter />
+                                    </div>
+                                </div>
+                                <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
+                                    <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
+                                        <span className="font-semibold text-sm text-[#232629]">Species Richness</span>
+                                    </div>
+                                    <div className="p-5">
+                                        <TableauEmbed url={process.env.NEXT_PUBLIC_SPECIES_REICHNESS!} title="Species Richness" height="500px" clearFilter />
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     )}
 
@@ -383,7 +418,12 @@ export default function SpeciesPage() {
                                     <span className="font-semibold text-sm text-[#232629]">Species Density Heatmap</span>
                                 </div>
                                 <div className="p-5">
-                                    <TableauEmbed url={process.env.NEXT_PUBLIC_SPECIES_HEATMAP!} title="Species Density Heatmap" height="600px" />
+                                    <TableauEmbed
+                                        url={process.env.NEXT_PUBLIC_SPECIES_HEATMAP!}
+                                        title="Species Density Heatmap"
+                                        height="600px"
+                                        speciesFilters={activeSlots.length > 0 ? activeSlots.map(s => s.label) : undefined}
+                                    />
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -392,7 +432,12 @@ export default function SpeciesPage() {
                                         <span className="font-semibold text-sm text-[#232629]">Species Richness</span>
                                     </div>
                                     <div className="p-5">
-                                        <TableauEmbed url={process.env.NEXT_PUBLIC_SPECIES_REICHNESS!} title="Species Richness" height="500px" />
+                                        <TableauEmbed
+                                            url={process.env.NEXT_PUBLIC_SPECIES_REICHNESS!}
+                                            title="Species Richness"
+                                            height="500px"
+                                            speciesFilters={activeSlots.length > 0 ? activeSlots.map(s => s.label) : undefined}
+                                        />
                                     </div>
                                 </div>
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
@@ -400,7 +445,12 @@ export default function SpeciesPage() {
                                         <span className="font-semibold text-sm text-[#232629]">Country Distribution</span>
                                     </div>
                                     <div className="p-5">
-                                        <TableauEmbed url={process.env.NEXT_PUBLIC_COUNTRY_DISTRIBUTION!} title="Country Distribution" height="500px" />
+                                        <TableauEmbed
+                                            url={process.env.NEXT_PUBLIC_COUNTRY_DISTRIBUTION!}
+                                            title="Country Distribution"
+                                            height="500px"
+                                            speciesFilters={activeSlots.length > 0 ? activeSlots.map(s => s.label) : undefined}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -421,7 +471,15 @@ export default function SpeciesPage() {
                                         <span className="font-semibold text-sm text-[#232629]">{title}</span>
                                     </div>
                                     <div className="p-5">
-                                        <TableauEmbed url={env} title={title} height="400px" />
+                                        {/* Pass the currently selected species as filters so the graphs
+                                            show only the birds being compared — only sent when at least
+                                            one bird is selected, otherwise the graph shows all species */}
+                                        <TableauEmbed
+                                            url={env}
+                                            title={title}
+                                            height="400px"
+                                            speciesFilters={activeSlots.length > 0 ? activeSlots.map(s => s.label) : undefined}
+                                        />
                                     </div>
                                 </div>
                             ))}

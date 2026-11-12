@@ -1071,8 +1071,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Thursday Novmebr 12, 2026
+**Day Goal:** Finnish conneting my maps and graphs, finnish dashboard updates.
 
 **What Was Done:** 
 
