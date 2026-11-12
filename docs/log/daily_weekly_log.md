@@ -1056,17 +1056,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Wendsady November 11, 2026
 **Day Goal:** Connete Tableau to my dashbarod, desplay the graphs properly. 
 
-**What Was Done:** 
+**What Was Done:** Conneted to Tableau, updated my dashboard desinge
 
-**Challenges:** 
+**Challenges:** I cannt display the tableau graph and maps yet
 
-**Blockers:** 
+**Blockers:** no blockers
 
 **Summary:**
+    Today I connete Tableau to my dashboard. However it does not desplay the full graphs and maps yet. I need my Chair Degree to aprove my public accase first. In the meen time I used Clause desigen and created a new cleaner, more profecinal looking dashboard. 
 
 
 **Time:**
-    - Total:
+    - Total: 3 hours 30m 
 
 ---
 
