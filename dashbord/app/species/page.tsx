@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import PopulationTrend from "@/conmponents/charts/population_trend";
+import TableauEmbed from "@/conmponents/TableauEmbed";
 
 
 // Converts ALL-CAPS species labels to Title Case for display
@@ -160,16 +160,22 @@ export default function SpeciesPage() {
             </section>
 
 
-            {/* Temraly placeholder for the maps and graphs*/}
-
-            <div>
-                <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 p-6">
-                    < PopulationTrend />
+            {/* Section: All Bird Occurrence — global map of every bird sighting record */}
+            <section className="bg-[#333333] px-10 py-15">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="font-serif text-3xl font-bold text-white mb-2">
+                        All Bird Occurrence
+                    </h2>
+                    <p className="text-base text-[#C9C9C9] mb-8">
+                        A global map of occurrence records across all 525 species in the dataset.
+                    </p>
+                    <TableauEmbed
+                        url={process.env.NEXT_PUBLIC_ALL_BIRD_OCCURRENCE!}
+                        title="All Bird Occurrence"
+                        height="600px"
+                    />
                 </div>
-                <p className="text-[#c9c9c9] px-10 py-5">
-                    All Bird Occurrence
-                </p>
-            </div>
+            </section>
 
 
 
@@ -489,39 +495,44 @@ export default function SpeciesPage() {
                 </section>
             )}
 
-            {/* Section 5: Maps — geographic Tableau embeds for occurrence and density */}
+            {/* Section 5: Maps — geographic Tableau embeds for density and richness */}
             <section className="bg-[#333333] px-10 py-15">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="font-serif text-3xl font-bold text-white mb-2">
                         Maps
                     </h2>
                     <p className="text-base text-[#C9C9C9] mb-8">
-                        Geographic visualizations showing where these species are found — Tableau embeds coming soon.
+                        Geographic visualizations showing where these species are found.
                     </p>
 
-                    {/* Two map placeholders side by side */}
+                    {/* Species Density Heatmap — full width so the map has room to breathe */}
+                    <div className="mb-8">
+                        <TableauEmbed
+                            url={process.env.NEXT_PUBLIC_SPECIES_HEATMAP!}
+                            title="Species Density Heatmap"
+                            height="600px"
+                        />
+                        <p className="text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
+                    </div>
+
+                    {/* Species Richness and Country Distribution — side by side */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        {/* Placeholder: Species Density Heatmap */}
                         <div>
-                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                                <div className="text-4xl opacity-40">🗺️</div>
-                                <p className="font-semibold text-white/70 text-sm">Species Density Heatmap</p>
-                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
-                            </div>
-                            <p className="text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_SPECIES_REICHNESS!}
+                                title="Species Richness"
+                                height="500px"
+                            />
+                            <p className="text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
                         </div>
-
-                        {/* Placeholder: All Bird Occurrence */}
                         <div>
-                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                                <div className="text-4xl opacity-40">📍</div>
-                                <p className="font-semibold text-white/70 text-sm">All Bird Occurrence</p>
-                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
-                            </div>
-                            <p className="text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_COUNTRY_DISTRIBUTION!}
+                                title="Country Distribution"
+                                height="500px"
+                            />
+                            <p className="text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -536,47 +547,43 @@ export default function SpeciesPage() {
                         Charts showing population trends, sighting patterns, and conservation status over time — Tableau embeds coming soon.
                     </p>
 
-                    {/* Four chart placeholders in a 2-column grid */}
+                    {/* Four Tableau charts in a 2-column grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                        {/* Placeholder: Observation Trend by Year */}
                         <div>
-                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                                <div className="text-4xl opacity-40">📈</div>
-                                <p className="font-semibold text-white/70 text-sm">Observation Trend by Year</p>
-                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
-                            </div>
-                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!}
+                                title="Observation Trend by Year"
+                                height="500px"
+                            />
+                            <p className="text-base text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
                         </div>
 
-                        {/* Placeholder: Monthly Sighting Over Time */}
                         <div>
-                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                                <div className="text-4xl opacity-40">📅</div>
-                                <p className="font-semibold text-white/70 text-sm">Monthly Sighting Over Time</p>
-                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
-                            </div>
-                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!}
+                                title="Monthly Sighting Over Time"
+                                height="500px"
+                            />
+                            <p className="text-base text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
                         </div>
 
-                        {/* Placeholder: Population Trend */}
                         <div>
-                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                                <div className="text-4xl opacity-40">📊</div>
-                                <p className="font-semibold text-white/70 text-sm">Population Trend</p>
-                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
-                            </div>
-                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_POPULATION_TREND!}
+                                title="Population Trend"
+                                height="500px"
+                            />
+                            <p className="text-base text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
                         </div>
 
-                        {/* Placeholder: Conservation Status */}
                         <div>
-                            <div className="rounded-xl border-2 border-dashed border-[#C9C9C9]/40 flex flex-col items-center justify-center py-20 gap-3">
-                                <div className="text-4xl opacity-40">🛡️</div>
-                                <p className="font-semibold text-white/70 text-sm">Conservation Status</p>
-                                <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
-                            </div>
-                            <p className=" text-base text-[#c9c9c9] px-10 py-5">Put map or graph description under</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_CONSERVATION_STATUS!}
+                                title="Conservation Status"
+                                height="500px"
+                            />
+                            <p className="text-base text-[#c9c9c9] px-2 py-5">Put map or graph description under</p>
                         </div>
 
                     </div>

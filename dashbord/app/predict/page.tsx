@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import TableauEmbed from "@/conmponents/TableauEmbed";
 
 // Converts ALL-CAPS species labels to Title Case for display
 function toTitleCase(str: string): string {
@@ -757,11 +758,37 @@ export default function PredictPage() {
                                         </div>
                                     )}
 
-                                    {/* Tableau migration map placeholder */}
-                                    <div className="rounded-xl bg-[#333333] flex flex-col items-center justify-center py-20 gap-3">
-                                        <div className="text-4xl opacity-40">🗺️</div>
-                                        <p className="font-semibold text-white/70 text-sm">Migration Map</p>
-                                        <p className="text-xs text-[#C9C9C9]/50 italic">Tableau embed coming soon</p>
+                                    {/* Individual Bird Occurrence — where this species has been spotted */}
+                                    <div className="mt-4">
+                                        <p className="text-white font-semibold mb-3">Occurrence Map</p>
+                                        <TableauEmbed
+                                            url={process.env.NEXT_PUBLIC_BIRD_OCCURRENCE!}
+                                            title="Individual Bird Occurrence"
+                                            height="500px"
+                                            speciesFilter={result?.prediction?.species_label}
+                                        />
+                                    </div>
+
+                                    {/* Monthly Sighting Over Time — when this species is typically spotted */}
+                                    <div className="mt-8">
+                                        <p className="text-white font-semibold mb-3">Monthly Sightings Over Time</p>
+                                        <TableauEmbed
+                                            url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!}
+                                            title="Monthly Sighting Over Time"
+                                            height="500px"
+                                            speciesFilter={result?.prediction?.species_label}
+                                        />
+                                    </div>
+
+                                    {/* Observation Trends by Year — whether sightings are increasing or decreasing */}
+                                    <div className="mt-8">
+                                        <p className="text-white font-semibold mb-3">Observation Trends by Year</p>
+                                        <TableauEmbed
+                                            url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!}
+                                            title="Observation Trends by Year"
+                                            height="500px"
+                                            speciesFilter={result?.prediction?.species_label}
+                                        />
                                     </div>
 
                                 </div>

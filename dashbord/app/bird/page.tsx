@@ -1,6 +1,7 @@
 "use client";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import TableauEmbed from "@/conmponents/TableauEmbed";
 
 // The bird that is shown when the page first loads
 const DEFAULT_BIRD = "EUROPEAN TURTLE DOVE";
@@ -721,15 +722,37 @@ function BirdPageInner() {
                             )}
                         </div>
 
-                        {/* ── Tableau placeholder ──────────────────────────────────────────── */}
-                        {/* This section will be replaced with the real Tableau embed once    */}
-                        {/* Gracie has confirmed the server access / publishing approach.     */}
-                        <div className="mt-12 rounded-xl border-2 border-dashed border-[#909090] p-10 text-center">
-                            <p className="text-[#909090] text-sm uppercase tracking-widest mb-2">Coming Soon</p>
-                            <p className="text-white font-serif text-xl font-semibold">Tableau Migration Map</p>
-                            <p className="text-[#C9C9C9] mt-2 text-sm">
-                                An interactive migration map will be embedded here once the Tableau setup is confirmed.
-                            </p>
+                        {/* Individual Bird Occurrence — where this species has been spotted */}
+                        <div className="mt-12">
+                            <p className="text-white font-semibold mb-3">Occurrence Map</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_BIRD_OCCURRENCE!}
+                                title="Individual Bird Occurrence"
+                                height="500px"
+                                speciesFilter={selectedBird}
+                            />
+                        </div>
+
+                        {/* Monthly Sighting Over Time — when this species is typically spotted */}
+                        <div className="mt-8">
+                            <p className="text-white font-semibold mb-3">Monthly Sightings Over Time</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!}
+                                title="Monthly Sighting Over Time"
+                                height="500px"
+                                speciesFilter={selectedBird}
+                            />
+                        </div>
+
+                        {/* Observation Trends by Year — whether sightings are increasing or decreasing */}
+                        <div className="mt-8">
+                            <p className="text-white font-semibold mb-3">Observation Trends by Year</p>
+                            <TableauEmbed
+                                url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!}
+                                title="Observation Trends by Year"
+                                height="500px"
+                                speciesFilter={selectedBird}
+                            />
                         </div>
 
                     </div>
