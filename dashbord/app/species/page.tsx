@@ -63,6 +63,9 @@ export default function SpeciesPage() {
     // Which main content tab is currently shown
     const [tab, setTab] = useState<TabName>("Compare");
 
+    // Diet pagination — tracks the current prey page (10 items) per bird slot index
+    const [dietPages, setDietPages] = useState<Record<number, number>>({});
+
     // In-memory cache so switching back to a previously viewed bird is instant
     const birdDataCache = useRef<Map<string, any>>(new Map());
 
@@ -158,7 +161,7 @@ export default function SpeciesPage() {
                 {/* Page header card */}
                 <div className="bg-white border-b border-[#e3e6e8] px-6 pt-5 pb-0" style={{ borderTop: "3px solid #ffbc88" }}>
                     <h1 className="text-xl font-bold text-[#232629] mb-1">Species Comparison</h1>
-                    <p className="text-sm text-[#6a737c] mb-4">Compare up to 6 bird species side by side across taxonomy, diet, and migration.</p>
+                    <p className="text-base text-[#6a737c] mb-4">Compare up to 6 bird species side by side across taxonomy, diet, and migration.</p>
 
                     {/* Tab navigation */}
                     <div className="flex flex-wrap border-b border-[#e3e6e8] -mb-px">
@@ -166,7 +169,7 @@ export default function SpeciesPage() {
                             <button
                                 key={t}
                                 onClick={() => setTab(t)}
-                                className={`px-3.5 py-3 text-sm border-b-[3px] -mb-px transition-colors font-medium whitespace-nowrap ${
+                                className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium whitespace-nowrap ${
                                     tab === t
                                         ? "border-[#ffbc88] text-[#232629] font-semibold"
                                         : "border-transparent text-[#6a737c] hover:text-[#232629]"
@@ -186,17 +189,17 @@ export default function SpeciesPage() {
                         <>
                             {/* Side-by-side comparison table */}
                             {activeSlots.length === 0 ? (
-                                <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-sm text-[#6a737c]">
+                                <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-base text-[#6a737c]">
                                     Select at least one species in the right panel to see the comparison.
                                 </div>
                             ) : (
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Side-by-Side Comparison</span>
+                                        <span className="font-semibold text-base text-[#232629]">Side-by-Side Comparison</span>
                                     </div>
                                     {/* Horizontal scroll wrapper so narrow screens don't clip the table */}
                                     <div className="overflow-x-auto">
-                                        <table className="w-full border-collapse text-sm">
+                                        <table className="w-full border-collapse text-base">
                                             <thead>
                                                 <tr className="bg-[#f8f9f9]">
                                                     {/* Sticky label column */}
@@ -208,9 +211,9 @@ export default function SpeciesPage() {
                                                         const bird = birdDataMap[label];
                                                         return (
                                                             <th key={index} className="px-4 py-3 text-left border-b border-[#e3e6e8] min-w-[170px] align-top">
-                                                                <p className="font-bold text-[#232629] text-sm">{toTitleCase(label)}</p>
+                                                                <p className="font-bold text-[#232629] text-base">{toTitleCase(label)}</p>
                                                                 {bird?.taxonomy?.genus && (
-                                                                    <p className="italic text-xs text-[#9199a1] mt-0.5">{bird.taxonomy.genus}</p>
+                                                                    <p className="italic text-sm text-[#9199a1] mt-0.5">{bird.taxonomy.genus}</p>
                                                                 )}
                                                                 {loadingSlots.has(index) && (
                                                                     <div className="mt-1 h-3 w-20 bg-[#e3e6e8] animate-pulse rounded" />
@@ -233,7 +236,7 @@ export default function SpeciesPage() {
                                                                 {loadingSlots.has(index) ? (
                                                                     <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" />
                                                                 ) : status ? (
-                                                                    <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(status)}`}>{status}</span>
+                                                                    <span className={`inline-block px-2 py-0.5 rounded-full text-sm font-medium ${getStatusColor(status)}`}>{status}</span>
                                                                 ) : "—"}
                                                             </td>
                                                         );
@@ -242,12 +245,12 @@ export default function SpeciesPage() {
 
                                                 {/* Population Trend row */}
                                                 <tr className="border-b border-[#e3e6e8] bg-[#f8f9f9]">
-                                                    <td className="sticky left-0 z-10 bg-[#f8f9f9] px-4 py-3 font-semibold text-sm text-[#232629]">Population Trend</td>
+                                                    <td className="sticky left-0 z-10 bg-[#f8f9f9] px-4 py-3 font-semibold text-base text-[#232629]">Population Trend</td>
                                                     {activeSlots.map(({ label, index }) => {
                                                         const bird  = birdDataMap[label];
                                                         const trend = bird?.conservation?.population_trend;
                                                         return (
-                                                            <td key={index} className="px-4 py-3 text-sm bg-[#f8f9f9] text-[#6a737c]">
+                                                            <td key={index} className="px-4 py-3 text-base bg-[#f8f9f9] text-[#6a737c]">
                                                                 {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (trend ?? "—")}
                                                             </td>
                                                         );
@@ -256,49 +259,63 @@ export default function SpeciesPage() {
 
                                                 {/* Movement row */}
                                                 <tr className="border-b border-[#e3e6e8]">
-                                                    <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Movement</td>
+                                                    <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-base text-[#232629]">Movement</td>
                                                     {activeSlots.map(({ label, index }) => {
                                                         const bird     = birdDataMap[label];
                                                         const movement = bird?.conservation?.movement_patterns;
                                                         return (
-                                                            <td key={index} className="px-4 py-3 bg-white text-sm text-[#6a737c]">
+                                                            <td key={index} className="px-4 py-3 bg-white text-base text-[#6a737c]">
                                                                 {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (movement ?? "—")}
                                                             </td>
                                                         );
                                                     })}
                                                 </tr>
 
-                                                {/* Order row */}
-                                                <tr className="border-b border-[#e3e6e8] bg-[#f8f9f9]">
-                                                    <td className="sticky left-0 z-10 bg-[#f8f9f9] px-4 py-3 font-semibold text-sm text-[#232629]">Order</td>
-                                                    {activeSlots.map(({ label, index }, colIdx) => {
-                                                        const bird       = birdDataMap[label];
-                                                        const order      = bird?.taxonomy?.order;
-                                                        const firstOrder = birdDataMap[activeSlots[0]?.label]?.taxonomy?.order;
-                                                        const matches    = colIdx > 0 && order && firstOrder && order === firstOrder;
-                                                        return (
-                                                            <td key={index} className={`px-4 py-3 text-sm text-[#6a737c] ${matches ? "bg-[#fdf2d8]" : "bg-[#f8f9f9]"}`}>
-                                                                {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (order ?? "—")}
-                                                            </td>
-                                                        );
-                                                    })}
-                                                </tr>
+                                                {/* Order row — highlight only columns that share their order value with at least one other column */}
+                                                {(() => {
+                                                    const orderFreq = new Map<string, number>();
+                                                    activeSlots.forEach(({ label }) => {
+                                                        const v = birdDataMap[label]?.taxonomy?.order;
+                                                        if (v) orderFreq.set(v, (orderFreq.get(v) ?? 0) + 1);
+                                                    });
+                                                    return (
+                                                        <tr className="border-t-2 border-t-[#babfc4] border-b border-[#e3e6e8]">
+                                                            <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Order</td>
+                                                            {activeSlots.map(({ label, index }) => {
+                                                                const order    = birdDataMap[label]?.taxonomy?.order;
+                                                                const isShared = order && (orderFreq.get(order) ?? 0) > 1;
+                                                                return (
+                                                                    <td key={index} className={`px-4 py-3 text-sm text-[#232629] ${isShared ? "bg-[#ffbc88]" : "bg-white"}`}>
+                                                                        {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (order ?? "—")}
+                                                                    </td>
+                                                                );
+                                                            })}
+                                                        </tr>
+                                                    );
+                                                })()}
 
-                                                {/* Family row */}
-                                                <tr className="border-b border-[#e3e6e8]">
-                                                    <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Family</td>
-                                                    {activeSlots.map(({ label, index }, colIdx) => {
-                                                        const bird        = birdDataMap[label];
-                                                        const family      = bird?.taxonomy?.family;
-                                                        const firstFamily = birdDataMap[activeSlots[0]?.label]?.taxonomy?.family;
-                                                        const matches     = colIdx > 0 && family && firstFamily && family === firstFamily;
-                                                        return (
-                                                            <td key={index} className={`px-4 py-3 text-sm text-[#6a737c] ${matches ? "bg-[#fdf2d8]" : "bg-white"}`}>
-                                                                {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (family ?? "—")}
-                                                            </td>
-                                                        );
-                                                    })}
-                                                </tr>
+                                                {/* Family row — highlight only columns that share their family value with at least one other column */}
+                                                {(() => {
+                                                    const familyFreq = new Map<string, number>();
+                                                    activeSlots.forEach(({ label }) => {
+                                                        const v = birdDataMap[label]?.taxonomy?.family;
+                                                        if (v) familyFreq.set(v, (familyFreq.get(v) ?? 0) + 1);
+                                                    });
+                                                    return (
+                                                        <tr className="border-b border-[#e3e6e8]">
+                                                            <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Family</td>
+                                                            {activeSlots.map(({ label, index }) => {
+                                                                const family   = birdDataMap[label]?.taxonomy?.family;
+                                                                const isShared = family && (familyFreq.get(family) ?? 0) > 1;
+                                                                return (
+                                                                    <td key={index} className={`px-4 py-3 text-sm text-[#232629] ${isShared ? "bg-[#ffbc88]" : "bg-white"}`}>
+                                                                        {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (family ?? "—")}
+                                                                    </td>
+                                                                );
+                                                            })}
+                                                        </tr>
+                                                    );
+                                                })()}
 
                                                 {/* Genus row */}
                                                 <tr>
@@ -309,7 +326,7 @@ export default function SpeciesPage() {
                                                         const firstGenus = birdDataMap[activeSlots[0]?.label]?.taxonomy?.genus;
                                                         const matches    = colIdx > 0 && genus && firstGenus && genus === firstGenus;
                                                         return (
-                                                            <td key={index} className={`px-4 py-3 text-sm text-[#6a737c] ${matches ? "bg-[#fdf2d8]" : "bg-[#f8f9f9]"}`}>
+                                                            <td key={index} className={`px-4 py-3 text-base text-[#6a737c] ${matches ? "bg-[#fdf2d8]" : "bg-[#f8f9f9]"}`}>
                                                                 {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (genus ?? "—")}
                                                             </td>
                                                         );
@@ -326,8 +343,8 @@ export default function SpeciesPage() {
                             {activeSlots.length > 0 && (
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Diet</span>
-                                        <span className="ml-2 text-xs text-[#9199a1]">Common prey items recorded for each species.</span>
+                                        <span className="font-semibold text-base text-[#232629]">Diet</span>
+                                        <span className="ml-2 text-base text-[#9199a1]">Common prey items recorded for each species.</span>
                                     </div>
                                     <div className="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {activeSlots.map(({ label, index }) => {
@@ -335,23 +352,44 @@ export default function SpeciesPage() {
                                             const isLoading = loadingSlots.has(index);
                                             const rawPrey   = bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? [];
                                             const prey      = cleanPreyList(rawPrey);
+                                            const pageSize  = 10;
+                                            const page      = dietPages[index] ?? 0;
+                                            const totalPages = Math.ceil(prey.length / pageSize);
+                                            const pagePrey  = prey.slice(page * pageSize, (page + 1) * pageSize);
                                             return (
-                                                <div key={index} className="bg-[#f8f9f9] rounded-lg p-4">
-                                                    <h3 className="font-semibold text-sm text-[#232629] mb-2">{toTitleCase(label)}</h3>
+                                                <div key={index} className="bg-[#f8f9f9] rounded-lg p-4 flex flex-col gap-2">
+                                                    <h3 className="font-semibold text-base text-[#232629]">{toTitleCase(label)}</h3>
                                                     {isLoading ? (
                                                         <div className="flex flex-wrap gap-1.5">
                                                             {[1, 2, 3].map(n => <div key={n} className="h-5 w-16 bg-[#e3e6e8] animate-pulse rounded-full" />)}
                                                         </div>
                                                     ) : prey.length > 0 ? (
-                                                        <div className="flex flex-wrap gap-1.5">
-                                                            {prey.map((item, pi) => (
-                                                                <span key={pi} className="px-2 py-0.5 bg-white text-[#232629] text-xs rounded-full border border-[#e3e6e8]">
-                                                                    {item}
-                                                                </span>
-                                                            ))}
-                                                        </div>
+                                                        <>
+                                                            <div className="flex flex-wrap gap-1.5">
+                                                                {pagePrey.map((item, pi) => (
+                                                                    <span key={pi} className="px-2 py-0.5 bg-white text-[#232629] text-sm rounded-full border border-[#e3e6e8]">
+                                                                        {item}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                            {totalPages > 1 && (
+                                                                <div className="flex items-center gap-2 mt-1">
+                                                                    <button
+                                                                        onClick={() => setDietPages(prev => ({ ...prev, [index]: Math.max(0, (prev[index] ?? 0) - 1) }))}
+                                                                        disabled={page === 0}
+                                                                        className="px-2 py-0.5 text-xs rounded border border-[#d6d9dc] bg-white text-[#232629] hover:bg-[#f1f2f3] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                                                    >‹</button>
+                                                                    <span className="text-xs text-[#9199a1]">{page + 1}/{totalPages}</span>
+                                                                    <button
+                                                                        onClick={() => setDietPages(prev => ({ ...prev, [index]: Math.min(totalPages - 1, (prev[index] ?? 0) + 1) }))}
+                                                                        disabled={page === totalPages - 1}
+                                                                        className="px-2 py-0.5 text-xs rounded border border-[#d6d9dc] bg-white text-[#232629] hover:bg-[#f1f2f3] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                                                    >›</button>
+                                                                </div>
+                                                            )}
+                                                        </>
                                                     ) : (
-                                                        <p className="text-xs text-[#9199a1] italic">No diet data available.</p>
+                                                        <p className="text-base text-[#9199a1] italic">No diet data available.</p>
                                                     )}
                                                 </div>
                                             );
@@ -369,8 +407,8 @@ export default function SpeciesPage() {
                             {/* Main occurrence map — always shows all 525 species */}
                             <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                 <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                    <span className="font-semibold text-sm text-[#232629]">All Bird Occurrence</span>
-                                    <span className="ml-2 text-xs text-[#9199a1]">A global map of occurrence records across all 525 species in the dataset.</span>
+                                    <span className="font-semibold text-base text-[#232629]">All Bird Occurrence</span>
+                                    <span className="ml-2 text-base text-[#9199a1]">A global map of occurrence records across all 525 species in the dataset.</span>
                                 </div>
                                 <div className="p-5">
                                     <TableauEmbed url={process.env.NEXT_PUBLIC_ALL_BIRD_OCCURRENCE!} title="All Bird Occurrence" height="600px" clearFilter />
@@ -380,7 +418,7 @@ export default function SpeciesPage() {
                             {/* Species Density Heatmap — full width */}
                             <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                 <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                    <span className="font-semibold text-sm text-[#232629]">Species Density Heatmap</span>
+                                    <span className="font-semibold text-base text-[#232629]">Species Density Heatmap</span>
                                 </div>
                                 <div className="p-5">
                                     <TableauEmbed url={process.env.NEXT_PUBLIC_SPECIES_HEATMAP!} title="Species Density Heatmap" height="600px" clearFilter />
@@ -391,7 +429,7 @@ export default function SpeciesPage() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Population Trend</span>
+                                        <span className="font-semibold text-base text-[#232629]">Population Trend</span>
                                     </div>
                                     <div className="p-5">
                                         <TableauEmbed url={process.env.NEXT_PUBLIC_POPULATION_TREND!} title="Population Trend" height="500px" clearFilter />
@@ -399,7 +437,7 @@ export default function SpeciesPage() {
                                 </div>
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Species Richness</span>
+                                        <span className="font-semibold text-base text-[#232629]">Species Richness</span>
                                     </div>
                                     <div className="p-5">
                                         <TableauEmbed url={process.env.NEXT_PUBLIC_SPECIES_REICHNESS!} title="Species Richness" height="500px" clearFilter />
@@ -415,7 +453,7 @@ export default function SpeciesPage() {
                         <div className="flex flex-col gap-5">
                             <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                 <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                    <span className="font-semibold text-sm text-[#232629]">Species Density Heatmap</span>
+                                    <span className="font-semibold text-base text-[#232629]">Species Density Heatmap</span>
                                 </div>
                                 <div className="p-5">
                                     <TableauEmbed
@@ -429,7 +467,7 @@ export default function SpeciesPage() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Species Richness</span>
+                                        <span className="font-semibold text-base text-[#232629]">Species Richness</span>
                                     </div>
                                     <div className="p-5">
                                         <TableauEmbed
@@ -442,7 +480,7 @@ export default function SpeciesPage() {
                                 </div>
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Country Distribution</span>
+                                        <span className="font-semibold text-base text-[#232629]">Country Distribution</span>
                                     </div>
                                     <div className="p-5">
                                         <TableauEmbed
@@ -468,7 +506,7 @@ export default function SpeciesPage() {
                             ].map(({ env, title }) => (
                                 <div key={title} className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">{title}</span>
+                                        <span className="font-semibold text-base text-[#232629]">{title}</span>
                                     </div>
                                     <div className="p-5">
                                         {/* Pass the currently selected species as filters so the graphs
@@ -489,7 +527,7 @@ export default function SpeciesPage() {
                     {/* ── About tab — Wikipedia summaries for each selected species ── */}
                     {tab === "About" && (
                         activeSlots.length === 0 ? (
-                            <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-sm text-[#6a737c]">
+                            <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-base text-[#6a737c]">
                                 Select at least one species in the right panel to see summaries.
                             </div>
                         ) : (
@@ -501,7 +539,7 @@ export default function SpeciesPage() {
                                     const summary   = fullText.length > 400 ? fullText.slice(0, 400).trimEnd() + "…" : fullText;
                                     return (
                                         <div key={index} className="bg-white border border-[#e3e6e8] rounded-lg p-4 flex flex-col gap-3 shadow-sm">
-                                            <h3 className="font-bold text-sm text-[#232629]">{toTitleCase(label)}</h3>
+                                            <h3 className="font-bold text-base text-[#232629]">{toTitleCase(label)}</h3>
                                             {isLoading ? (
                                                 <div className="flex flex-col gap-2">
                                                     <div className="h-3 w-full bg-[#e3e6e8] animate-pulse rounded" />
@@ -509,9 +547,9 @@ export default function SpeciesPage() {
                                                     <div className="h-3 w-4/6 bg-[#e3e6e8] animate-pulse rounded" />
                                                 </div>
                                             ) : summary ? (
-                                                <p className="text-sm text-[#6a737c] leading-relaxed">{summary}</p>
+                                                <p className="text-base text-[#6a737c] leading-relaxed">{summary}</p>
                                             ) : (
-                                                <p className="text-sm text-[#9199a1] italic">No description available.</p>
+                                                <p className="text-base text-[#9199a1] italic">No description available.</p>
                                             )}
                                         </div>
                                     );
@@ -529,8 +567,8 @@ export default function SpeciesPage() {
                 style={{ minHeight: "calc(100vh - 50px)" }}
             >
                 <div>
-                    <p className="font-semibold text-sm text-[#232629] mb-0.5">Select Species</p>
-                    <p className="text-xs text-[#9199a1]">Pick up to 6 birds to compare.</p>
+                    <p className="font-semibold text-base text-[#232629] mb-0.5">Select Species</p>
+                    <p className="text-sm text-[#9199a1]">Pick up to 6 birds to compare.</p>
                 </div>
 
                 {/* Six search slots */}
@@ -547,7 +585,7 @@ export default function SpeciesPage() {
                                 onChange={e => handleSlotInputChange(i, e.target.value)}
                                 onBlur={() => handleSlotBlur(i)}
                                 placeholder="Search for a bird…"
-                                className="w-full bg-white rounded border border-[#babfc4] px-3 py-2 text-xs text-[#232629] placeholder:text-[#9199a1] focus:outline-none focus:ring-2 focus:ring-[#ffbc88] pr-6"
+                                className="w-full bg-white rounded border border-[#babfc4] px-3 py-2 text-sm text-[#232629] placeholder:text-[#9199a1] focus:outline-none focus:ring-2 focus:ring-[#ffbc88] pr-6"
                             />
                             {/* Each slot gets its own datalist, filtered to exclude birds already chosen */}
                             <datalist id={`bird-name-list-${i}`}>

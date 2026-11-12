@@ -1074,17 +1074,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Thursday Novmebr 12, 2026
 **Day Goal:** Finnish conneting my maps and graphs, finnish dashboard updates.
 
-**What Was Done:** 
+**What Was Done:** Finnish updateding the dashboard, finnish conneting maps and graphs
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:** No blockers
 
 **Summary:**
-
+    Today I sursflly conneted my tableau maps and graphs to my dashboard. I also made small changes to my dashboard making it look more clean and profeshinal looking. 
 
 **Time:**
-    - Total:
+    - Total: 4 hours
 
 ---
 

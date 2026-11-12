@@ -968,7 +968,7 @@ def get_plumage_images(species_label: str):
         info = page.get("imageinfo", [])
         if info and info[0].get("url"):
             images.append(info[0]["url"])
-        if len(images) >= 4:
+        if len(images) >= 2:
             break
 
     result = {"images": images}

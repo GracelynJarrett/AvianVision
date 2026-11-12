@@ -75,7 +75,7 @@ export default function StatsPage() {
             {/* ── Dark accuracy hero — always visible at the top ─────────────── */}
             <div className="bg-[#232629] px-6 py-8" style={{ borderTop: "3px solid #ffbc88" }}>
                 <h1 className="text-xl font-bold text-white mb-0.5">Model Performance</h1>
-                <p className="text-sm text-[#9199a1] mb-6">AvianVision EfficientNetB0 — 525 bird species</p>
+                <p className="text-base text-[#9199a1] mb-6">AvianVision EfficientNetB0 — 525 bird species</p>
 
                 {loading && <p className="text-[#9199a1] text-sm">Loading stats…</p>}
                 {error   && <p className="text-[#ffbc88] text-sm">{error}</p>}
@@ -89,7 +89,7 @@ export default function StatsPage() {
                             { label: "Test Loss",     value: fmtLoss(bestTest?.loss)      },
                         ].map(({ label, value }) => (
                             <div key={label} className="bg-white/10 rounded-lg px-6 py-4 text-center min-w-[140px]">
-                                <p className="text-xs text-[#9199a1] mb-1">{label}</p>
+                                <p className="text-sm text-[#9199a1] mb-1">{label}</p>
                                 <p className="text-3xl font-bold text-white">{value}</p>
                             </div>
                         ))}
@@ -102,7 +102,7 @@ export default function StatsPage() {
                             { label: "Val Recall",     value: fmtPct(bestVal?.recall)      },
                         ].map(({ label, value }) => (
                             <div key={label} className="bg-white/10 rounded-lg px-4 py-3 text-center min-w-[110px]">
-                                <p className="text-xs text-[#9199a1] mb-1">{label}</p>
+                                <p className="text-sm text-[#9199a1] mb-1">{label}</p>
                                 <p className="text-xl font-bold text-white">{value}</p>
                             </div>
                         ))}
@@ -111,12 +111,12 @@ export default function StatsPage() {
             </div>
 
             {/* ── Stage selector bar ─────────────────────────────────────────── */}
-            <div className="bg-white border-b border-[#e3e6e8] px-6 flex flex-wrap">
+            <div className="bg-white border-b border-[#e3e6e8] px-6 py-2 flex flex-wrap">
                 {STAGES.map(s => (
                     <button
                         key={s.id}
                         onClick={() => setStage(s.id)}
-                        className={`px-3.5 py-3 text-sm border-b-[3px] -mb-px transition-colors font-medium whitespace-nowrap ${
+                        className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium whitespace-nowrap ${
                             stage === s.id
                                 ? "border-[#ffbc88] text-[#232629] font-semibold"
                                 : "border-transparent text-[#6a737c] hover:text-[#232629]"
@@ -136,12 +136,12 @@ export default function StatsPage() {
                         {/* Overview text */}
                         <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
                             <h2 className="text-base font-bold text-[#232629] mb-2">Dataset Overview</h2>
-                            <p className="text-sm text-[#6a737c] leading-relaxed">
+                            <p className="text-base text-[#6a737c] leading-relaxed">
                                 The AvianVision model was trained on a publicly available bird image dataset from HuggingFace.
                                 Each species has a dedicated set of validation and test images that were never shown to the
                                 model during training, ensuring the performance metrics reflect real-world accuracy.
                             </p>
-                            <p className="text-xs text-[#9199a1] mt-3">
+                            <p className="text-sm text-[#9199a1] mt-3">
                                 Source: <span className="font-mono font-semibold">yashikota/birds-525-species-image-classification</span> — HuggingFace
                             </p>
                         </div>
@@ -154,23 +154,23 @@ export default function StatsPage() {
                                 { label: "Test",       value: "2,625",  sub: "Test images",        note: "5 per species" },
                             ].map(({ label, value, sub, note }) => (
                                 <div key={label} className="bg-white border border-[#e3e6e8] rounded-lg p-5 text-center shadow-sm" style={{ borderTop: "3px solid #babfc4" }}>
-                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2">{label}</p>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2">{label}</p>
                                     <p className="text-4xl font-bold text-[#232629]">{value}</p>
-                                    <p className="text-sm text-[#6a737c] mt-1">{sub}</p>
-                                    {note && <p className="text-xs text-[#9199a1] mt-0.5">{note}</p>}
+                                    <p className="text-base text-[#6a737c] mt-1">{sub}</p>
+                                    {note && <p className="text-sm text-[#9199a1] mt-0.5">{note}</p>}
                                 </div>
                             ))}
                         </div>
 
                         {/* Additional dataset facts */}
-                        <div className="grid grid-cols-2 gap-4 max-w-sm">
+                        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
                             <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 text-center shadow-sm">
                                 <p className="text-4xl font-bold text-[#232629]">525</p>
-                                <p className="text-sm text-[#6a737c] mt-1">Bird species</p>
+                                <p className="text-base text-[#6a737c] mt-1">Bird species</p>
                             </div>
                             <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 text-center shadow-sm">
                                 <p className="text-4xl font-bold text-[#232629]">224²</p>
-                                <p className="text-sm text-[#6a737c] mt-1">Input image size (pixels)</p>
+                                <p className="text-base text-[#6a737c] mt-1">Input image size (pixels)</p>
                             </div>
                         </div>
                     </>
@@ -192,15 +192,15 @@ export default function StatsPage() {
                                 },
                             ].map(({ title, text }) => (
                                 <div key={title} className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
-                                    <h3 className="font-bold text-sm text-[#232629] mb-2">{title}</h3>
-                                    <p className="text-sm text-[#6a737c] leading-relaxed">{text}</p>
+                                    <h3 className="font-bold text-base text-[#232629] mb-2">{title}</h3>
+                                    <p className="text-base text-[#6a737c] leading-relaxed">{text}</p>
                                 </div>
                             ))}
                         </div>
 
                         {/* Visual layer diagram */}
                         <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
-                            <h3 className="font-bold text-sm text-[#232629] mb-4">Layer Structure</h3>
+                            <h3 className="font-bold text-base text-[#232629] mb-4">Layer Structure</h3>
                             <div className="flex flex-col items-center gap-1 max-w-sm mx-auto">
                                 {[
                                     { label: "ImageNet Pretrained Weights", sub: "Starting knowledge — 14M+ images, 1,000 categories", style: "bg-[#f1f2f3] border border-[#e3e6e8] text-[#232629]" },
@@ -218,12 +218,12 @@ export default function StatsPage() {
                                     ) : (
                                         <div key={i} className={`w-full rounded-lg px-5 py-3 text-center ${item.style}`}>
                                             <p className="font-semibold text-sm">{item.label}</p>
-                                            <p className="text-xs opacity-70 mt-0.5">{item.sub}</p>
+                                            <p className="text-sm opacity-70 mt-0.5">{item.sub}</p>
                                         </div>
                                     )
                                 )}
                             </div>
-                            <p className="text-xs text-center text-[#9199a1] mt-4">
+                            <p className="text-sm text-center text-[#9199a1] mt-4">
                                 Which layers were frozen or unfrozen during training was controlled by the Freeze Base, Freeze Middle, and Freeze End hyperparameters — see Stage 4 for details.
                             </p>
                         </div>
@@ -235,7 +235,7 @@ export default function StatsPage() {
                     <>
                         <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
                             <h2 className="text-base font-bold text-[#232629] mb-2">Data Augmentation</h2>
-                            <p className="text-sm text-[#6a737c] leading-relaxed">
+                            <p className="text-base text-[#6a737c] leading-relaxed">
                                 Data augmentation artificially expands the training dataset by applying random transformations
                                 to each image. This teaches the model to be more flexible and reduces the chance of it
                                 memorizing the training data instead of learning to truly recognize each species.
@@ -246,10 +246,10 @@ export default function StatsPage() {
                         {!loading && !error && statsData?.defintions?.aggregations?.length > 0 && (
                             <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden shadow-sm">
                                 <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                    <span className="font-semibold text-sm text-[#232629]">Techniques Used</span>
+                                    <span className="font-semibold text-base text-[#232629]">Techniques Used</span>
                                 </div>
                                 <div className="overflow-x-auto">
-                                    <table className="w-full text-sm border-collapse">
+                                    <table className="w-full text-base border-collapse">
                                         <thead>
                                             <tr className="bg-[#f8f9f9]">
                                                 <th className="px-5 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8] w-44">Technique</th>
@@ -274,16 +274,16 @@ export default function StatsPage() {
                             const augModels = [...(statsData?.mlflow?.aggregation_models ?? [])]
                                 .sort((a: any, b: any) => (b?.validation?.accuracy ?? 0) - (a?.validation?.accuracy ?? 0));
                             if (augModels.length === 0) return (
-                                <p className="text-sm text-[#9199a1] italic">No augmentation runs found.</p>
+                                <p className="text-base text-[#9199a1] italic">No augmentation runs found.</p>
                             );
                             return (
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden shadow-sm">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Augmentation Run Results</span>
-                                        <span className="ml-2 text-xs text-[#9199a1]">Sorted best-first by validation accuracy.</span>
+                                        <span className="font-semibold text-base text-[#232629]">Augmentation Run Results</span>
+                                        <span className="ml-2 text-sm text-[#9199a1]">Sorted best-first by validation accuracy.</span>
                                     </div>
                                     <div className="overflow-x-auto">
-                                        <table className="w-full text-sm border-collapse">
+                                        <table className="w-full text-base border-collapse">
                                             <thead>
                                                 <tr className="bg-[#f8f9f9]">
                                                     <th className="px-5 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8]">Run Name</th>
@@ -297,10 +297,10 @@ export default function StatsPage() {
                                                 {/* Top row highlighted in orange to show the best run */}
                                                 {augModels.map((m: any, i: number) => (
                                                     <tr key={m.run_name} className={i === 0 ? "bg-[#fdf2d8]" : i % 2 === 1 ? "bg-[#f8f9f9]" : "bg-white"}>
-                                                        <td className="px-5 py-3 font-mono text-xs text-[#232629] align-middle border-b border-[#e3e6e8]">
+                                                        <td className="px-5 py-3 font-mono text-sm text-[#232629] align-middle border-b border-[#e3e6e8]">
                                                             {m.run_name}
                                                             {i === 0 && (
-                                                                <span className="ml-2 inline-block rounded-full bg-[#232629] text-white text-[10px] px-2 py-0.5">Best</span>
+                                                                <span className="ml-2 inline-block rounded-full bg-[#232629] text-white text-xs px-2 py-0.5">Best</span>
                                                             )}
                                                         </td>
                                                         <td className="px-5 py-3 text-center font-semibold text-[#232629] border-b border-[#e3e6e8]">{fmtPct(m?.validation?.accuracy)}</td>
@@ -315,7 +315,7 @@ export default function StatsPage() {
                                 </div>
                             );
                         })()}
-                        {loading && <p className="text-sm text-[#9199a1]">Loading augmentation data…</p>}
+                        {loading && <p className="text-base text-[#9199a1]">Loading augmentation data…</p>}
                     </>
                 )}
 
@@ -324,7 +324,7 @@ export default function StatsPage() {
                     <>
                         <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
                             <h2 className="text-base font-bold text-[#232629] mb-2">Hyperparameter Tuning</h2>
-                            <p className="text-sm text-[#6a737c] leading-relaxed">
+                            <p className="text-base text-[#6a737c] leading-relaxed">
                                 Hyperparameters are settings that control how the model trains — they are not learned from the
                                 data, they are chosen before training begins. Tuning them means running the model multiple
                                 times with different combinations of settings to find the configuration that performs best.
@@ -335,10 +335,10 @@ export default function StatsPage() {
                         {!loading && !error && statsData?.defintions?.hyperparameters?.length > 0 && (
                             <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden shadow-sm">
                                 <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                    <span className="font-semibold text-sm text-[#232629]">Parameters Tuned</span>
+                                    <span className="font-semibold text-base text-[#232629]">Parameters Tuned</span>
                                 </div>
                                 <div className="overflow-x-auto">
-                                    <table className="w-full text-sm border-collapse">
+                                    <table className="w-full text-base border-collapse">
                                         <thead>
                                             <tr className="bg-[#f8f9f9]">
                                                 <th className="px-5 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8] w-44">Parameter</th>
@@ -364,16 +364,16 @@ export default function StatsPage() {
                         {!loading && !error && (() => {
                             const htModels = statsData?.mlflow?.top_hyperparameter_models ?? [];
                             if (htModels.length === 0) return (
-                                <p className="text-sm text-[#9199a1] italic">No hyperparameter tuning runs found.</p>
+                                <p className="text-base text-[#9199a1] italic">No hyperparameter tuning runs found.</p>
                             );
                             return (
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden shadow-sm">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                        <span className="font-semibold text-sm text-[#232629]">Top Tuning Runs</span>
-                                        <span className="ml-2 text-xs text-[#9199a1]">The five best-performing runs ranked by validation accuracy.</span>
+                                        <span className="font-semibold text-base text-[#232629]">Top Tuning Runs</span>
+                                        <span className="ml-2 text-sm text-[#9199a1]">The five best-performing runs ranked by validation accuracy.</span>
                                     </div>
                                     <div className="overflow-x-auto">
-                                        <table className="w-full text-sm border-collapse">
+                                        <table className="w-full text-base border-collapse">
                                             <thead>
                                                 <tr className="bg-[#f8f9f9]">
                                                     <th className="px-5 py-3 text-center font-semibold text-[#232629] border-b border-[#e3e6e8] w-12">Rank</th>
@@ -389,10 +389,10 @@ export default function StatsPage() {
                                                 {htModels.map((m: any, i: number) => (
                                                     <tr key={m.run_name} className={i === 0 ? "bg-[#fdf2d8]" : i % 2 === 1 ? "bg-[#f8f9f9]" : "bg-white"}>
                                                         <td className="px-5 py-3 text-center font-bold text-[#232629] border-b border-[#e3e6e8]">{i + 1}</td>
-                                                        <td className="px-5 py-3 font-mono text-xs text-[#232629] align-middle border-b border-[#e3e6e8]">
+                                                        <td className="px-5 py-3 font-mono text-sm text-[#232629] align-middle border-b border-[#e3e6e8]">
                                                             {m.run_name}
                                                             {i === 0 && (
-                                                                <span className="ml-2 inline-block rounded-full bg-[#232629] text-white text-[10px] px-2 py-0.5">Best</span>
+                                                                <span className="ml-2 inline-block rounded-full bg-[#232629] text-white text-xs px-2 py-0.5">Best</span>
                                                             )}
                                                         </td>
                                                         <td className="px-5 py-3 text-center font-semibold text-[#232629] border-b border-[#e3e6e8]">{fmtPct(m?.validation?.accuracy)}</td>
@@ -407,7 +407,7 @@ export default function StatsPage() {
                                 </div>
                             );
                         })()}
-                        {loading && <p className="text-sm text-[#9199a1]">Loading hyperparameter data…</p>}
+                        {loading && <p className="text-base text-[#9199a1]">Loading hyperparameter data…</p>}
                     </>
                 )}
 
@@ -439,12 +439,12 @@ export default function StatsPage() {
                                                         ? "bg-[#fdf2d8] border-[#e6d8a7]"
                                                         : "bg-[#f8f9f9] border-[#e3e6e8]"
                                                 }`}>
-                                                    <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Stage {i + 1}</p>
+                                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Stage {i + 1}</p>
                                                     <p className="text-xs font-bold text-[#232629] leading-snug mb-2">{s.label}</p>
                                                     <p className="text-2xl font-bold text-[#232629]">
                                                         {s.acc != null ? (s.acc * 100).toFixed(1) + "%" : "—"}
                                                     </p>
-                                                    <p className="text-[10px] text-[#9199a1] mt-0.5">{s.sub}</p>
+                                                    <p className="text-xs text-[#9199a1] mt-0.5">{s.sub}</p>
                                                 </div>
                                                 {i < progStages.length - 1 && (
                                                     <span className="text-xl text-[#babfc4] font-light">→</span>
@@ -460,25 +460,25 @@ export default function StatsPage() {
                         {!loading && !error && (
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
-                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Test Accuracy</p>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Test Accuracy</p>
                                     <p className="text-2xl font-bold text-[#232629] mb-3">{fmtPct(bestTest?.accuracy)}</p>
-                                    <p className="text-sm text-[#6a737c] leading-relaxed">
+                                    <p className="text-base text-[#6a737c] leading-relaxed">
                                         If you uploaded 100 random bird photos, the model would correctly identify the species in roughly{" "}
                                         <strong>{bestTest?.accuracy != null ? Math.round(bestTest.accuracy * 100) : "—"} of them</strong> — choosing from 525 possible species each time.
                                     </p>
                                 </div>
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm">
-                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Test F1 Score</p>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Test F1 Score</p>
                                     <p className="text-2xl font-bold text-[#232629] mb-3">{fmtPct(bestTest?.f1_score)}</p>
-                                    <p className="text-sm text-[#6a737c] leading-relaxed">
+                                    <p className="text-base text-[#6a737c] leading-relaxed">
                                         F1 score rewards the model for being both accurate in its confident guesses and thorough in finding the right species.
                                         A score above 90% means the model is doing well on both fronts across all 525 classes.
                                     </p>
                                 </div>
                                 <div className="bg-[#fdf2d8] border border-[#e6d8a7] rounded-lg p-5 shadow-sm">
-                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Is this good?</p>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Is this good?</p>
                                     <p className="text-2xl font-bold text-[#232629] mb-3">Yes.</p>
-                                    <p className="text-sm text-[#6a737c] leading-relaxed">
+                                    <p className="text-base text-[#6a737c] leading-relaxed">
                                         Random guessing across 525 species would give an accuracy of only 0.19%.
                                         The AvianVision model performs far above that baseline and is competitive with published research on fine-grained bird classification.
                                     </p>
@@ -490,11 +490,11 @@ export default function StatsPage() {
                         {!loading && !error && statsData?.defintions?.metrics?.length > 0 && (
                             <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden shadow-sm">
                                 <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                                    <span className="font-semibold text-sm text-[#232629]">Understanding the Metrics</span>
-                                    <span className="ml-2 text-xs text-[#9199a1]">Precision, Recall, and F1 are macro-averaged — each of the 525 species is weighted equally.</span>
+                                    <span className="font-semibold text-base text-[#232629]">Understanding the Metrics</span>
+                                    <span className="ml-2 text-sm text-[#9199a1]">Precision, Recall, and F1 are macro-averaged — each of the 525 species is weighted equally.</span>
                                 </div>
                                 <div className="overflow-x-auto">
-                                    <table className="w-full text-sm border-collapse">
+                                    <table className="w-full text-base border-collapse">
                                         <thead>
                                             <tr className="bg-[#f8f9f9]">
                                                 <th className="px-5 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8] w-32">Metric</th>
@@ -510,7 +510,7 @@ export default function StatsPage() {
                                                     <td className="px-5 py-3 text-[#6a737c] align-top leading-relaxed border-b border-[#e3e6e8]">{m.definition}</td>
                                                     <td className="px-5 py-3 align-top border-b border-[#e3e6e8]"><FormulaCell m={m} /></td>
                                                     <td className="px-5 py-3 text-center align-top border-b border-[#e3e6e8]">
-                                                        <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
+                                                        <span className={`inline-block rounded-full px-3 py-1.5 text-xs font-semibold min-w-[80px] text-center ${
                                                             m["Better Direction"]?.toLowerCase().includes("higher")
                                                                 ? "bg-[#fdf2d8] text-[#232629]"
                                                                 : "bg-[#ffbc88] text-[#232629]"
@@ -529,18 +529,18 @@ export default function StatsPage() {
                         {/* Try it yourself CTA */}
                         <div className="bg-[#232629] rounded-lg p-8 text-center">
                             <h2 className="text-xl font-bold text-white mb-2">Try It Yourself</h2>
-                            <p className="text-sm text-[#9199a1] leading-relaxed mb-5 max-w-md mx-auto">
+                            <p className="text-base text-[#9199a1] leading-relaxed mb-5 max-w-md mx-auto">
                                 You have seen the numbers — now put the model to the test. Upload a photo of a bird and see which of the 525 species AvianVision thinks it is.
                             </p>
                             <a
                                 href="/predict"
-                                className="inline-block rounded-lg bg-[#ffbc88] text-[#232629] font-bold text-sm px-6 py-3 hover:bg-[#ff9f5a] transition-colors"
+                                className="inline-block rounded-lg bg-[#ffbc88] text-[#232629] font-bold text-base px-6 py-3 hover:bg-[#ff9f5a] transition-colors"
                             >
                                 Go to Prediction →
                             </a>
                         </div>
 
-                        {loading && <p className="text-sm text-[#9199a1]">Loading evaluation data…</p>}
+                        {loading && <p className="text-base text-[#9199a1]">Loading evaluation data…</p>}
                     </>
                 )}
 

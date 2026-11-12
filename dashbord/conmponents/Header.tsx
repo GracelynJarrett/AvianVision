@@ -16,7 +16,7 @@ export function SidebarNav() {
     const pathname = usePathname();
     return (
         <nav
-            className="w-[164px] flex-none bg-white border-r border-[#e3e6e8] py-6 flex flex-col gap-0.5 text-[13px] sticky top-[50px] self-start box-border"
+            className="w-[164px] flex-none bg-white border-r border-[#e3e6e8] py-6 flex flex-col gap-0.5 text-base sticky top-[50px] self-start box-border"
             style={{ minHeight: "calc(100vh - 50px)" }}
             aria-label="Main navigation"
         >
@@ -27,11 +27,10 @@ export function SidebarNav() {
                     <Link
                         key={href}
                         href={href}
-                        className={`block py-2 pl-6 pr-3 transition-colors ${
-                            isActive
-                                ? "text-[#232629] bg-[#f8f9f9] border-r-[3px] border-[#ffbc88] font-semibold"
-                                : "text-[#6a737c] hover:bg-[#f8f9f9]"
-                        }`}
+                        className={`block py-2 pl-6 pr-3 transition-colors ${isActive
+                            ? "text-[#232629] bg-[#f8f9f9] border-r-[3px] border-[#ffbc88] font-semibold"
+                            : "text-[#6a737c] hover:bg-[#f8f9f9]"
+                            }`}
                         aria-current={isActive ? "page" : undefined}
                     >
                         {label}

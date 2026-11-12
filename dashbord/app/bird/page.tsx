@@ -68,7 +68,7 @@ function PreyPill({ name, filled = false }: { name: string; filled?: boolean }) 
             onClick={() => { setShowCard(v => !v); loadImage(); }}
         >
             {/* The pill — filled orange for prey types, outlined for specific prey names */}
-            <span className={`cursor-pointer rounded-full px-3 py-1 text-xs select-none transition-opacity hover:opacity-80 ${
+            <span className={`cursor-pointer rounded-full px-3 py-1 text-sm select-none transition-opacity hover:opacity-80 ${
                 filled
                     ? "bg-[#ffbc88] font-medium text-[#232629]"
                     : "bg-white border border-[#ffbc88] text-[#232629]"
@@ -80,13 +80,13 @@ function PreyPill({ name, filled = false }: { name: string; filled?: boolean }) 
             {showCard && (
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-20 w-40 rounded-lg border border-[#e3e6e8] bg-white shadow-lg p-3">
                     {imgLoading ? (
-                        <p className="text-xs text-center text-[#9199a1] py-4">Loading...</p>
+                        <p className="text-sm text-center text-[#9199a1] py-4">Loading...</p>
                     ) : imgSrc ? (
                         <img src={imgSrc} alt={name} className="w-full rounded-md object-cover max-h-28" />
                     ) : (
-                        <p className="text-xs text-center text-[#9199a1] py-4">No image available</p>
+                        <p className="text-sm text-center text-[#9199a1] py-4">No image available</p>
                     )}
-                    <p className="mt-2 text-xs text-center font-medium text-[#232629]">{name}</p>
+                    <p className="mt-2 text-sm text-center font-medium text-[#232629]">{name}</p>
                 </div>
             )}
         </div>
@@ -104,13 +104,16 @@ function WikiAccordionItem({ title, content }: { title: string; content: string 
                 className="w-full flex justify-between items-center px-5 py-3.5 bg-[#f8f9f9] hover:bg-[#f1f2f3] transition-colors text-left border-b border-[#e3e6e8]"
                 aria-expanded={isOpen}
             >
-                <span className="font-semibold text-sm text-[#232629]">{title}</span>
+                <span className="font-semibold text-base text-[#232629]">{title}</span>
                 <span className={`text-[#9199a1] text-lg transition-transform duration-200 ${isOpen ? "rotate-90" : ""}`}>›</span>
             </button>
-            {/* Section text — only rendered when open */}
+            {/* Section text — only rendered when open; truncated to 500 words */}
             {isOpen && (
-                <div className="px-5 py-4 bg-white text-sm text-[#6a737c] leading-relaxed whitespace-pre-line border-b border-[#e3e6e8]">
-                    {content}
+                <div className="px-5 py-4 bg-white text-base text-[#6a737c] leading-relaxed whitespace-pre-line border-b border-[#e3e6e8]">
+                    {(() => {
+                        const words = content.split(/\s+/);
+                        return words.length > 500 ? words.slice(0, 500).join(" ") + "…" : content;
+                    })()}
                 </div>
             )}
         </div>
@@ -150,8 +153,8 @@ function TaxonomySection({ birdData }: { birdData: any }) {
     return (
         <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
             <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                <span className="font-semibold text-sm text-[#232629]">Classification</span>
-                <span className="ml-2 text-xs text-[#9199a1]">Click any level to learn more.</span>
+                <span className="font-semibold text-base text-[#232629]">Classification</span>
+                <span className="ml-2 text-base text-[#9199a1]">Click any level to learn more.</span>
             </div>
             <div className="p-5">
                 {/* Horizontal chain of clickable taxonomy boxes with connecting arrows */}
@@ -169,8 +172,8 @@ function TaxonomySection({ birdData }: { birdData: any }) {
                                     }`}
                                     aria-expanded={isOpen}
                                 >
-                                    <span className="text-[10px] font-semibold uppercase tracking-widest text-[#9199a1] mb-0.5">{level.label}</span>
-                                    <span className={`text-xs font-medium text-[#232629] text-center ${level.label === "Species" ? "italic" : ""}`}>{level.value}</span>
+                                    <span className="text-sm font-semibold uppercase tracking-widest text-[#9199a1] mb-0.5">{level.label}</span>
+                                    <span className={`text-base font-medium text-[#232629] text-center ${level.label === "Species" ? "italic" : ""}`}>{level.value}</span>
                                 </button>
                                 {index < levels.length - 1 && (
                                     <span className="text-[#9199a1] select-none">›</span>
@@ -184,10 +187,10 @@ function TaxonomySection({ birdData }: { birdData: any }) {
                 {expanded && (
                     <div className="mt-4 bg-[#f8f9f9] border border-[#e3e6e8] rounded-lg px-5 py-4">
                         <div className="flex items-baseline gap-2 mb-2">
-                            <span className="text-[10px] font-semibold uppercase tracking-widest text-[#9199a1]">{expanded.label}</span>
+                            <span className="text-sm font-semibold uppercase tracking-widest text-[#9199a1]">{expanded.label}</span>
                             <span className={`text-lg font-bold text-[#232629] ${expanded.label === "Species" ? "italic" : ""}`}>{expanded.value}</span>
                         </div>
-                        <p className="text-sm text-[#6a737c] leading-relaxed">{RANK_DESCRIPTIONS[expanded.label]}</p>
+                        <p className="text-base text-[#6a737c] leading-relaxed">{RANK_DESCRIPTIONS[expanded.label]}</p>
                     </div>
                 )}
             </div>
@@ -208,6 +211,9 @@ function BirdPageInner() {
     const [birdImage,       setBirdImage]       = useState<string | null>(null);
     const [plumageImages,   setPlumageImages]   = useState<string[]>([]);
     const [plumageLoading,  setPlumageLoading]  = useState(false);
+
+    // Which page of prey items to show (10 at a time); resets when bird changes
+    const [preyPage, setPreyPage] = useState(0);
 
     // In-memory caches — switching back to a previously viewed bird is instant
     const birdDataCache  = useRef<Map<string, any>>(new Map());
@@ -288,7 +294,7 @@ function BirdPageInner() {
     function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
         const value = e.target.value.toUpperCase();
         setSearchQuery(value);
-        if (birdNames.includes(value)) setSelectedBird(value);
+        if (birdNames.includes(value)) { setSelectedBird(value); setPreyPage(0); }
     }
 
     // Picks a random bird from the full 525-species list
@@ -297,6 +303,7 @@ function BirdPageInner() {
         const randomName = birdNames[Math.floor(Math.random() * birdNames.length)];
         setSearchQuery(randomName);
         setSelectedBird(randomName);
+        setPreyPage(0);
     }
 
     return (
@@ -305,7 +312,7 @@ function BirdPageInner() {
             {/* ── Search card ──────────────────────────────────────────────────── */}
             <div className="bg-white border border-[#e3e6e8] rounded-lg p-5 shadow-sm" style={{ borderTop: "3px solid #ffbc88" }}>
                 <h1 className="text-xl font-bold text-[#232629] mb-1">Bird Explorer</h1>
-                <p className="text-sm text-[#6a737c] mb-4">Search any of the 525 species in the AvianVision dataset.</p>
+                <p className="text-base text-[#6a737c] mb-4">Search any of the 525 species in the AvianVision dataset.</p>
                 <div className="flex gap-3 max-w-xl">
                     <input
                         id="bird-search"
@@ -314,7 +321,7 @@ function BirdPageInner() {
                         value={searchQuery}
                         onChange={handleSearchChange}
                         placeholder="Type a bird name..."
-                        className="flex-1 rounded-lg border border-[#babfc4] bg-white px-4 py-2.5 text-sm text-[#232629] placeholder:text-[#9199a1] focus:outline-none focus:ring-2 focus:ring-[#ffbc88]"
+                        className="flex-1 rounded-lg border border-[#babfc4] bg-white px-4 py-2.5 text-base text-[#232629] placeholder:text-[#9199a1] focus:outline-none focus:ring-2 focus:ring-[#ffbc88]"
                     />
                     {/* datalist feeds the browser's native dropdown suggestions */}
                     <datalist id="bird-name-list">
@@ -323,7 +330,7 @@ function BirdPageInner() {
                     <button
                         onClick={handleRandom}
                         disabled={birdNames.length === 0}
-                        className="rounded-lg border border-[#d6d9dc] bg-white px-5 py-2.5 text-sm font-semibold text-[#232629] hover:bg-[#f1f2f3] transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                        className="rounded-lg border border-[#d6d9dc] bg-white px-5 py-2.5 text-base font-semibold text-[#232629] hover:bg-[#f1f2f3] transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                     >
                         Random Bird
                     </button>
@@ -353,31 +360,31 @@ function BirdPageInner() {
                         <>
                             <div>
                                 <h2 className="text-2xl font-bold text-[#232629] leading-tight">{toTitleCase(birdData.species_label)}</h2>
-                                <p className="italic text-sm text-[#9199a1] mt-0.5">{birdData.scientific_name}</p>
+                                <p className="italic text-base text-[#9199a1] mt-0.5">{birdData.scientific_name}</p>
                             </div>
                             <div>
-                                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1.5">Conservation Status</p>
-                                <span className={`inline-block rounded-full px-3 py-0.5 text-sm font-semibold ${getStatusColor(birdData.conservation?.status_label)}`}>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1.5">Conservation Status</p>
+                                <span className={`inline-block rounded-full px-3 py-0.5 text-base font-semibold ${getStatusColor(birdData.conservation?.status_label)}`}>
                                     {birdData.conservation?.status_label ?? "Unknown"}
                                 </span>
                             </div>
                             <div className="grid grid-cols-2 gap-3 mt-1">
                                 {birdData.conservation?.population_trend && (
                                     <div className="bg-[#f8f9f9] rounded-lg px-4 py-3">
-                                        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Population Trend</p>
-                                        <p className="text-sm font-semibold text-[#232629]">{birdData.conservation.population_trend}</p>
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Population Trend</p>
+                                        <p className="text-base font-semibold text-[#232629]">{birdData.conservation.population_trend}</p>
                                     </div>
                                 )}
                                 {birdData.conservation?.movement_patterns && (
                                     <div className="bg-[#f8f9f9] rounded-lg px-4 py-3">
-                                        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Movement</p>
-                                        <p className="text-sm font-semibold text-[#232629]">{birdData.conservation.movement_patterns}</p>
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Movement</p>
+                                        <p className="text-base font-semibold text-[#232629]">{birdData.conservation.movement_patterns}</p>
                                     </div>
                                 )}
                             </div>
                         </>
                     ) : (
-                        <p className="text-sm text-[#9199a1]">No information available for this species.</p>
+                        <p className="text-base text-[#9199a1]">No information available for this species.</p>
                     )}
                 </div>
             </div>
@@ -393,9 +400,9 @@ function BirdPageInner() {
                 return (
                     <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                         <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                            <span className="font-semibold text-sm text-[#232629]">Diet</span>
+                            <span className="font-semibold text-base text-[#232629]">Diet</span>
                             {hasData && (
-                                <span className="ml-2 text-xs text-[#9199a1]">Hover or click any pill to see an image.</span>
+                                <span className="ml-2 text-sm text-[#9199a1]">Hover or click any pill to see an image.</span>
                             )}
                         </div>
                         <div className="p-5">
@@ -403,19 +410,36 @@ function BirdPageInner() {
                                 <div className="flex flex-col gap-5">
                                     {preyNames.length > 0 && (
                                         <div>
-                                            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2.5">Prey</p>
-                                            <div className="flex flex-wrap gap-2">{preyNames.map(prey => <PreyPill key={prey} name={prey} />)}</div>
+                                            <p className="text-sm font-semibold uppercase tracking-widest text-[#9199a1] mb-2.5">Prey</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {preyNames.slice(preyPage * 10, (preyPage + 1) * 10).map(prey => <PreyPill key={prey} name={prey} />)}
+                                            </div>
+                                            {preyNames.length > 10 && (
+                                                <div className="flex items-center gap-3 mt-3">
+                                                    <button
+                                                        onClick={() => setPreyPage(p => Math.max(0, p - 1))}
+                                                        disabled={preyPage === 0}
+                                                        className="px-3 py-1 text-base rounded border border-[#d6d9dc] bg-white text-[#232629] hover:bg-[#f1f2f3] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                                    >‹ Prev</button>
+                                                    <span className="text-base text-[#9199a1]">{preyPage + 1} / {Math.ceil(preyNames.length / 10)}</span>
+                                                    <button
+                                                        onClick={() => setPreyPage(p => Math.min(Math.ceil(preyNames.length / 10) - 1, p + 1))}
+                                                        disabled={(preyPage + 1) * 10 >= preyNames.length}
+                                                        className="px-3 py-1 text-base rounded border border-[#d6d9dc] bg-white text-[#232629] hover:bg-[#f1f2f3] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                                    >Next ›</button>
+                                                </div>
+                                            )}
                                         </div>
                                     )}
                                     {preyTypes.length > 0 && (
                                         <div>
-                                            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2.5">Prey Type</p>
+                                            <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2.5">Prey Type</p>
                                             <div className="flex flex-wrap gap-2">{preyTypes.map(cls => <PreyPill key={cls} name={cls} filled />)}</div>
                                         </div>
                                     )}
                                 </div>
                             ) : (
-                                <p className="text-sm text-[#9199a1] italic">No diet data available for this species.</p>
+                                <p className="text-base text-[#9199a1] italic">No diet data available for this species.</p>
                             )}
                         </div>
                     </div>
@@ -426,31 +450,38 @@ function BirdPageInner() {
             {birdData?.wikipedia && (
                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                        <span className="font-semibold text-sm text-[#232629]">About this Species</span>
-                        <span className="ml-2 text-xs text-[#9199a1]">Wikipedia</span>
+                        <span className="font-semibold text-base text-[#232629]">About this Species</span>
+                        <span className="ml-2 text-sm text-[#9199a1]">Wikipedia</span>
                     </div>
                     <div className="p-5 flex flex-col gap-5">
-                        {/* Plumage photo gallery */}
+                        {/* Plumage photo gallery — best 2 images side by side */}
                         {(plumageLoading || plumageImages.length > 0) && (
-                            <div>
+                            <div className="max-w-xs">
                                 {plumageLoading ? (
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div className="h-44 bg-[#e3e6e8] animate-pulse rounded-lg" />
-                                        <div className="h-44 bg-[#e3e6e8] animate-pulse rounded-lg" />
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div className="h-28 bg-[#e3e6e8] animate-pulse rounded-lg" />
+                                        <div className="h-28 bg-[#e3e6e8] animate-pulse rounded-lg" />
                                     </div>
                                 ) : (
-                                    <div className="grid grid-cols-2 gap-3">
-                                        {plumageImages.map((url, i) => (
-                                            <img key={i} src={url} alt={`${toTitleCase(selectedBird)} photo ${i + 1}`} className="w-full h-44 object-cover rounded-lg" />
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {plumageImages.slice(0, 2).map((url, i) => (
+                                            <img key={i} src={url} alt={`${toTitleCase(selectedBird)} photo ${i + 1}`} className="w-full aspect-square object-cover rounded-lg" />
                                         ))}
                                     </div>
                                 )}
                             </div>
                         )}
 
-                        {/* Wikipedia extract — a quick overview paragraph */}
+                        {/* Wikipedia extract — truncated to 500 words */}
                         {birdData.wikipedia.extract && (
-                            <p className="text-sm text-[#6a737c] leading-relaxed">{birdData.wikipedia.extract}</p>
+                            <p className="text-base text-[#6a737c] leading-relaxed">
+                                {(() => {
+                                    const words = birdData.wikipedia.extract.split(/\s+/);
+                                    return words.length > 500
+                                        ? words.slice(0, 500).join(" ") + "…"
+                                        : birdData.wikipedia.extract;
+                                })()}
+                            </p>
                         )}
 
                         {/* Expandable Wikipedia sections */}
@@ -469,23 +500,23 @@ function BirdPageInner() {
             {birdData?.migration && (
                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                        <span className="font-semibold text-sm text-[#232629]">Migration &amp; Sightings</span>
+                        <span className="font-semibold text-base text-[#232629]">Migration &amp; Sightings</span>
                     </div>
                     <div className="p-5 flex flex-col gap-5">
 
-                        {/* Total sightings + monthly bar chart side by side */}
+                        {/* Top countries + Individual Bird Occurrence side by side */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
                             {/* Top countries ranked by sighting count */}
                             {birdData.migration.top_countries?.length > 0 && (
                                 <div>
-                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-3">
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-3">
                                         Top Countries — {(birdData.migration.total_sightings ?? 0).toLocaleString()} total sightings
                                     </p>
                                     <div className="flex flex-col gap-3">
                                         {(() => {
                                             const countries = birdData.migration.top_countries.slice(0, 5);
-                                            const maxCount  = Math.max(...countries.map((c: any) => c.count));
+                                            const maxCount  = Math.max(...countries.map((c: any) => c.count ?? 0));
                                             const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
                                             return countries.map((c: any) => {
                                                 let countryName = c.country;
@@ -493,9 +524,9 @@ function BirdPageInner() {
                                                 const pct = Math.round((c.count / maxCount) * 100);
                                                 return (
                                                     <div key={c.country}>
-                                                        <div className="flex justify-between text-xs mb-1">
+                                                        <div className="flex justify-between text-base mb-1">
                                                             <span className="text-[#232629] font-medium">{countryName}</span>
-                                                            <span className="text-[#9199a1]">{c.count.toLocaleString()}</span>
+                                                            <span className="text-[#9199a1]">{(c.count ?? 0).toLocaleString()}</span>
                                                         </div>
                                                         <div className="h-2 rounded-full bg-[#e3e6e8]">
                                                             <div className="h-2 rounded-full bg-[#ffbc88]" style={{ width: `${pct}%` }} />
@@ -508,46 +539,23 @@ function BirdPageInner() {
                                 </div>
                             )}
 
-                            {/* Monthly sightings — simple CSS bar chart, no library needed */}
-                            {birdData.migration.monthly_sightings && (
-                                <div>
-                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-3">Sightings by Month</p>
-                                    {(() => {
-                                        const MONTHS  = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                                        const monthly = birdData.migration.monthly_sightings;
-                                        const values  = MONTHS.map((_, i) => Number(monthly[String(i + 1)] ?? 0));
-                                        const maxVal  = Math.max(...values, 1); // avoid divide-by-zero
-                                        return (
-                                            <div className="flex items-end gap-0.5 h-36">
-                                                {values.map((val, i) => (
-                                                    <div key={i} className="flex flex-col items-center flex-1">
-                                                        <div
-                                                            className="w-full rounded-t bg-[#ffbc88]"
-                                                            style={{ height: `${(val / maxVal) * 100}%` }}
-                                                            title={`${MONTHS[i]}: ${val}`}
-                                                        />
-                                                        <span className="mt-1 text-[9px] text-[#9199a1]">{MONTHS[i]}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        );
-                                    })()}
-                                </div>
-                            )}
+                            {/* Individual Bird Occurrence Tableau embed */}
+                            <div>
+                                <p className="text-base font-semibold text-[#232629] mb-2">Individual Bird Occurrence</p>
+                                <TableauEmbed url={process.env.NEXT_PUBLIC_BIRD_OCCURRENCE!} title="Individual Bird Occurrence" height="400px" speciesFilter={selectedBird} />
+                            </div>
                         </div>
 
-                        {/* Tableau embeds — occurrence, monthly, and yearly trend maps */}
-                        <div>
-                            <p className="text-sm font-semibold text-[#232629] mb-2">Occurrence Map</p>
-                            <TableauEmbed url={process.env.NEXT_PUBLIC_BIRD_OCCURRENCE!} title="Individual Bird Occurrence" height="500px" speciesFilter={selectedBird} />
-                        </div>
-                        <div>
-                            <p className="text-sm font-semibold text-[#232629] mb-2">Monthly Sightings Over Time</p>
-                            <TableauEmbed url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!} title="Monthly Sighting Over Time" height="500px" speciesFilter={selectedBird} />
-                        </div>
-                        <div>
-                            <p className="text-sm font-semibold text-[#232629] mb-2">Observation Trends by Year</p>
-                            <TableauEmbed url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!} title="Observation Trends by Year" height="500px" speciesFilter={selectedBird} />
+                        {/* Monthly Sightings Over Time and Observation Trends side by side */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <p className="text-base font-semibold text-[#232629] mb-2">Monthly Sightings Over Time</p>
+                                <TableauEmbed url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!} title="Monthly Sighting Over Time" height="400px" speciesFilter={selectedBird} />
+                            </div>
+                            <div>
+                                <p className="text-base font-semibold text-[#232629] mb-2">Observation Trends by Year</p>
+                                <TableauEmbed url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!} title="Observation Trends by Year" height="400px" speciesFilter={selectedBird} />
+                            </div>
                         </div>
 
                     </div>

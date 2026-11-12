@@ -81,6 +81,9 @@ export default function PredictPage() {
     // Which tab is currently active in the bird info section
     const [activeTab,  setActiveTab]  = useState<"diet" | "taxonomy" | "history" | "plumage" | "migration">("diet");
 
+    // Which page of diet results to show (10 items per page)
+    const [dietPage, setDietPage] = useState(0);
+
     // Wikimedia plumage image URLs fetched for the current prediction
     const [plumageImages,   setPlumageImages]   = useState<string[]>([]);
 
@@ -137,6 +140,7 @@ export default function PredictPage() {
         setResult(null);
         setBirdImage(null);
         setApiError(null);
+        setDietPage(0);
         // Reset the hidden input so the same file can be re-selected if needed
         if (fileInputRef.current) fileInputRef.current.value = "";
     }
@@ -163,6 +167,7 @@ export default function PredictPage() {
         setApiError(null);
         setResult(null);
         setBirdImage(null);
+        setDietPage(0);
         // Declared outside try so the image fetch below can access it after the block
         let data: any = null;
         try {
@@ -211,7 +216,7 @@ export default function PredictPage() {
                 {/* Title and description */}
                 <div>
                     <h1 className="text-xl font-bold text-[#232629]">Identify a Bird</h1>
-                    <p className="text-sm text-[#6a737c] mt-1.5 leading-relaxed">
+                    <p className="text-base text-[#6a737c] mt-1.5 leading-relaxed">
                         Upload a photo and our model will identify the species from 525 possibilities.
                     </p>
                 </div>
@@ -225,7 +230,7 @@ export default function PredictPage() {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center">
                                 <div className="text-3xl opacity-20">🖼️</div>
-                                <p className="text-xs text-[#9199a1] mt-1">Photo preview</p>
+                                <p className="text-sm text-[#9199a1] mt-1">Photo preview</p>
                             </div>
                         </div>
                     )}
@@ -233,8 +238,8 @@ export default function PredictPage() {
 
                 {/* File chooser — a styled label that triggers the hidden file input */}
                 <label className="flex flex-col items-center gap-1 p-4 border-2 border-dashed border-[#babfc4] rounded-lg bg-[#f8f9f9] cursor-pointer text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
-                    <span className="text-sm font-semibold text-blue-600">Choose a Photo</span>
-                    <span className="text-xs text-[#9199a1]">{file ? file.name : "JPG, PNG or WEBP"}</span>
+                    <span className="text-base font-semibold text-blue-600">Choose a Photo</span>
+                    <span className="text-sm text-[#9199a1]">{file ? file.name : "JPG, PNG or WEBP"}</span>
                     <input
                         ref={fileInputRef}
                         type="file"
@@ -246,7 +251,7 @@ export default function PredictPage() {
 
                 {/* Error message — invalid file type or API error */}
                 {apiError && (
-                    <p className="text-xs text-red-600 font-medium leading-relaxed">{apiError}</p>
+                    <p className="text-sm text-red-600 font-medium leading-relaxed">{apiError}</p>
                 )}
 
                 {/* Identify + Clear buttons */}
@@ -254,14 +259,14 @@ export default function PredictPage() {
                     <button
                         onClick={handleSubmit}
                         disabled={loading || !file}
-                        className="px-4 py-2 bg-[#ffbc88] text-[#232629] font-semibold text-sm rounded hover:bg-[#ff9f5a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-4 py-2 bg-[#ffbc88] text-[#232629] font-semibold text-base rounded hover:bg-[#ff9f5a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {loading ? "Identifying…" : "Identify Species"}
                     </button>
                     {(file || result) && (
                         <button
                             onClick={handleClear}
-                            className="text-sm text-[#6a737c] hover:text-[#232629] transition-colors"
+                            className="text-base text-[#6a737c] hover:text-[#232629] transition-colors"
                         >
                             Clear
                         </button>
@@ -269,7 +274,7 @@ export default function PredictPage() {
                 </div>
 
                 {/* Info box — file type guidance */}
-                <div className="bg-[#e8f4fd] border border-[#b3d9f7] rounded-lg p-3 text-xs leading-relaxed text-[#2d6fa9]">
+                <div className="bg-[#e8f4fd] border border-[#b3d9f7] rounded-lg p-3 text-sm leading-relaxed text-[#2d6fa9]">
                     <span className="font-semibold">Accepted file types:</span> JPG, PNG, and WEBP images only.
                     For best results, use a clear photo where the bird is the main subject and well lit.
                 </div>
@@ -285,7 +290,7 @@ export default function PredictPage() {
                         <div className="bg-white border border-[#e3e6e8] rounded-lg p-6 flex flex-wrap gap-6 items-center shadow-sm" style={{ borderTop: "3px solid #ffbc88" }}>
 
                             {/* Species image from the dataset */}
-                            <div className="w-[200px] h-[150px] flex-none rounded-lg overflow-hidden bg-[#f1f2f3]">
+                            <div className="w-[280px] h-[220px] flex-none rounded-lg overflow-hidden bg-[#f1f2f3]">
                                 {birdImage ? (
                                     <img src={birdImage} alt={toTitleCase(result.prediction.species_label)} className="w-full h-full object-cover" />
                                 ) : (
@@ -295,11 +300,11 @@ export default function PredictPage() {
 
                             {/* Predicted name and confidence badge */}
                             <div className="flex-1 min-w-[180px]">
-                                <div className="text-[11px] uppercase tracking-widest text-[#9199a1] mb-1">Prediction Result</div>
+                                <div className="text-xs uppercase tracking-widest text-[#9199a1] mb-1">Prediction Result</div>
                                 <div className="text-2xl font-bold text-[#232629] leading-tight">
                                     {toTitleCase(result.prediction.species_label)}
                                 </div>
-                                <span className="inline-block mt-2 bg-green-100 border border-green-200 text-green-700 font-semibold text-sm px-3 py-0.5 rounded-full">
+                                <span className="inline-block mt-2 bg-green-100 border border-green-200 text-green-700 font-semibold text-base px-3 py-0.5 rounded-full">
                                     {(result.prediction.confidence * 100).toFixed(1)}% confidence
                                 </span>
                             </div>
@@ -308,7 +313,7 @@ export default function PredictPage() {
                             {result.prediction.top_5_predictions?.length > 0 && (
                                 <div className="w-[300px] max-w-full flex flex-col gap-1.5">
                                     {result.prediction.top_5_predictions.map((item: any, i: number) => (
-                                        <div key={i} className="flex gap-2 items-center text-xs">
+                                        <div key={i} className="flex gap-2 items-center text-sm">
                                             <span className={`w-36 ${i === 0 ? "font-semibold text-[#232629]" : "text-[#6a737c]"}`}>
                                                 {toTitleCase(item.species_label)}
                                             </span>
@@ -336,7 +341,7 @@ export default function PredictPage() {
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
-                                        className={`px-3.5 py-3 text-sm border-b-[3px] -mb-px transition-colors font-medium ${
+                                        className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium ${
                                             activeTab === tab
                                                 ? "border-[#ffbc88] text-[#232629] font-semibold"
                                                 : "border-transparent text-[#6a737c] hover:text-[#232629]"
@@ -359,27 +364,50 @@ export default function PredictPage() {
                                     const bird = result.bird;
                                     const names   = cleanPreyList(bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? []);
                                     const classes: string[] = bird?.diet?.prey_classes ?? [];
+                                    const pageSize = 10;
+                                    const totalPages = Math.ceil(names.length / pageSize);
+                                    const pageNames = names.slice(dietPage * pageSize, (dietPage + 1) * pageSize);
                                     return names.length > 0 ? (
-                                        <div className="overflow-x-auto rounded-lg border border-[#e3e6e8]">
-                                            <table className="w-full text-sm border-collapse">
-                                                <thead>
-                                                    <tr className="bg-[#f8f9f9]">
-                                                        <th className="px-4 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8]">Prey Common Name</th>
-                                                        <th className="px-4 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8]">Prey Class</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {names.map((name, i) => (
-                                                        <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-[#f8f9f9]"}>
-                                                            <td className="px-4 py-3 text-[#232629]">{name}</td>
-                                                            <td className="px-4 py-3 text-[#6a737c]">{classes[i] ?? "—"}</td>
+                                        <div className="flex flex-col gap-3">
+                                            <div className="overflow-x-auto rounded-lg border border-[#e3e6e8]">
+                                                <table className="w-full text-base border-collapse">
+                                                    <thead>
+                                                        <tr className="bg-[#f8f9f9]">
+                                                            <th className="px-4 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8]">Prey Common Name</th>
+                                                            <th className="px-4 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8]">Prey Class</th>
                                                         </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
+                                                    </thead>
+                                                    <tbody>
+                                                        {pageNames.map((name, i) => {
+                                                            const gi = dietPage * pageSize + i;
+                                                            return (
+                                                                <tr key={gi} className={gi % 2 === 0 ? "bg-white" : "bg-[#f8f9f9]"}>
+                                                                    <td className="px-4 py-3 text-[#232629]">{name}</td>
+                                                                    <td className="px-4 py-3 text-[#6a737c]">{classes[gi] ?? "—"}</td>
+                                                                </tr>
+                                                            );
+                                                        })}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            {totalPages > 1 && (
+                                                <div className="flex items-center gap-3 justify-end">
+                                                    <button
+                                                        onClick={() => setDietPage(p => Math.max(0, p - 1))}
+                                                        disabled={dietPage === 0}
+                                                        className="px-3 py-1 text-sm rounded border border-[#d6d9dc] bg-white text-[#232629] hover:bg-[#f1f2f3] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                                    >‹ Prev</button>
+                                                    <span className="text-base text-[#9199a1]">{dietPage + 1} / {totalPages}</span>
+                                                    <button
+                                                        onClick={() => setDietPage(p => Math.min(totalPages - 1, p + 1))}
+                                                        disabled={dietPage === totalPages - 1}
+                                                        className="px-3 py-1 text-sm rounded border border-[#d6d9dc] bg-white text-[#232629] hover:bg-[#f1f2f3] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                                    >Next ›</button>
+                                                </div>
+                                            )}
                                         </div>
                                     ) : (
-                                        <p className="text-sm text-[#9199a1] italic">No diet data available for this species.</p>
+                                        <p className="text-base text-[#9199a1] italic">No diet data available for this species.</p>
                                     );
                                 })()}
 
@@ -397,12 +425,12 @@ export default function PredictPage() {
                                         <div className="flex flex-col gap-5">
                                             {/* Scientific name displayed prominently above the table */}
                                             <div className="bg-[#f8f9f9] rounded-lg px-5 py-4">
-                                                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Scientific Name</p>
+                                                <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Scientific Name</p>
                                                 <p className="text-xl italic text-[#232629] font-semibold">{bird?.scientific_name ?? "—"}</p>
-                                                <p className="text-sm text-[#9199a1] mt-1">Common name: {toTitleCase(result.prediction.species_label)}</p>
+                                                <p className="text-base text-[#9199a1] mt-1">Common name: {toTitleCase(result.prediction.species_label)}</p>
                                             </div>
                                             <div className="overflow-x-auto rounded-lg border border-[#e3e6e8]">
-                                                <table className="w-full text-sm border-collapse">
+                                                <table className="w-full text-base border-collapse">
                                                     <thead>
                                                         <tr className="bg-[#f8f9f9]">
                                                             <th className="px-4 py-3 text-left font-semibold text-[#232629] border-b border-[#e3e6e8] w-1/3">Rank</th>
@@ -411,10 +439,10 @@ export default function PredictPage() {
                                                     </thead>
                                                     <tbody>
                                                         {rows.map((row, i) => (
-                                                            <tr key={i} className={row.highlight ? "bg-[#fdf2d8]" : i % 2 === 0 ? "bg-white" : "bg-[#f8f9f9]"}>
+                                                            <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-[#f8f9f9]"}>
                                                                 <td className="px-4 py-3">
                                                                     <p className="font-semibold text-[#232629]">{row.label}</p>
-                                                                    <p className="text-xs text-[#9199a1] mt-0.5">{row.definition}</p>
+                                                                    <p className="text-base text-[#9199a1] mt-0.5">{row.definition}</p>
                                                                 </td>
                                                                 <td className="px-4 py-3 text-[#6a737c]">{row.value ?? "—"}</td>
                                                             </tr>
@@ -435,16 +463,16 @@ export default function PredictPage() {
                                         <div className="flex flex-col gap-5">
                                             <div className="bg-[#f8f9f9] rounded-lg px-5 py-4">
                                                 <p className="font-bold text-[#232629]">{toTitleCase(result.prediction.species_label)}</p>
-                                                <p className="text-sm text-[#9199a1] mt-0.5 italic">Wikipedia overview</p>
+                                                <p className="text-base text-[#9199a1] mt-0.5 italic">Wikipedia overview</p>
                                             </div>
                                             {paragraphs.length > 0 ? (
                                                 <div className="flex flex-col gap-3">
                                                     {paragraphs.map((para: string, i: number) => (
-                                                        <p key={i} className="text-sm text-[#6a737c] leading-relaxed">{para}</p>
+                                                        <p key={i} className="text-base text-[#6a737c] leading-relaxed">{para}</p>
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <p className="text-sm text-[#9199a1] italic">No Wikipedia information available for this species.</p>
+                                                <p className="text-base text-[#9199a1] italic">No Wikipedia information available for this species.</p>
                                             )}
                                         </div>
                                     );
@@ -464,22 +492,29 @@ export default function PredictPage() {
                                                     <div className="h-44 bg-[#e3e6e8] animate-pulse rounded-lg" />
                                                 </div>
                                             ) : plumageImages.length > 0 ? (
-                                                // 2-column grid of Wikimedia photos
-                                                <div className="grid grid-cols-2 gap-3">
-                                                    {plumageImages.map((url, i) => (
-                                                        <img key={i} src={url} alt={`Plumage photo ${i + 1}`} className="w-full h-44 object-cover rounded-lg" />
+                                                // Best 2 Wikimedia photos side by side
+                                                <div className="grid grid-cols-2 gap-3 max-w-sm">
+                                                    {plumageImages.slice(0, 2).map((url, i) => (
+                                                        <img key={i} src={url} alt={`Plumage photo ${i + 1}`} className="w-full aspect-square object-cover rounded-lg" />
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <p className="text-sm text-[#9199a1] italic">No plumage images found for this species.</p>
+                                                <p className="text-base text-[#9199a1] italic">No plumage images found for this species.</p>
                                             )}
                                             {text ? (
                                                 <div>
-                                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Description</p>
-                                                    <p className="text-sm text-[#6a737c] leading-relaxed">{text}</p>
+                                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Description</p>
+                                                    <p className="text-base text-[#6a737c] leading-relaxed">
+                                                        {(() => {
+                                                            const words = text.split(/\s+/);
+                                                            return words.length > 500
+                                                                ? words.slice(0, 500).join(" ") + "…"
+                                                                : text;
+                                                        })()}
+                                                    </p>
                                                 </div>
                                             ) : (
-                                                <p className="text-sm text-[#9199a1] italic">No plumage description available for this species.</p>
+                                                <p className="text-base text-[#9199a1] italic">No plumage description available for this species.</p>
                                             )}
                                         </div>
                                     );
@@ -496,11 +531,11 @@ export default function PredictPage() {
                                             {/* Movement pattern + total sightings cards */}
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                                 <div className="bg-[#f8f9f9] rounded-lg px-5 py-4">
-                                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Movement Pattern</p>
+                                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Movement Pattern</p>
                                                     <p className="font-bold text-[#232629] text-lg">{movement ?? "—"}</p>
                                                 </div>
                                                 <div className="bg-[#f8f9f9] rounded-lg px-5 py-4">
-                                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Total Recorded Sightings</p>
+                                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-1">Total Recorded Sightings</p>
                                                     <p className="font-bold text-[#232629] text-lg">
                                                         {totalSightings != null ? totalSightings.toLocaleString() : "—"}
                                                     </p>
@@ -510,21 +545,21 @@ export default function PredictPage() {
                                             {topCountries.length > 0 && (
                                                 <div className="rounded-lg border border-[#e3e6e8] overflow-hidden">
                                                     <div className="bg-[#f8f9f9] px-4 py-2.5 border-b border-[#e3e6e8]">
-                                                        <p className="font-semibold text-[#232629] text-sm">Top Sighting Countries</p>
+                                                        <p className="font-semibold text-[#232629] text-base">Top Sighting Countries</p>
                                                     </div>
                                                     <div className="divide-y divide-[#e3e6e8]">
                                                         {topCountries.slice(0, 8).map((entry, i) => {
                                                             const max = topCountries[0]?.count ?? 1;
-                                                            const pct = Math.round((entry.count / max) * 100);
+                                                            const pct = Math.round(((entry.count ?? 0) / max) * 100);
                                                             return (
                                                                 <div key={i} className="px-4 py-2.5 flex items-center gap-3 bg-white">
-                                                                    <span className="text-xs font-mono text-[#9199a1] w-4 shrink-0">{i + 1}</span>
-                                                                    <span className="text-sm text-[#232629] w-32 shrink-0">{getCountryName(entry.country)}</span>
+                                                                    <span className="text-sm font-mono text-[#9199a1] w-4 shrink-0">{i + 1}</span>
+                                                                    <span className="text-base text-[#232629] w-32 shrink-0">{getCountryName(entry.country)}</span>
                                                                     <div className="flex-1 h-2 rounded-full bg-[#e3e6e8]">
                                                                         <div className="h-2 rounded-full bg-[#ffbc88]" style={{ width: `${pct}%` }} />
                                                                     </div>
-                                                                    <span className="text-xs font-mono text-[#9199a1] w-14 text-right shrink-0">
-                                                                        {entry.count.toLocaleString()}
+                                                                    <span className="text-sm font-mono text-[#9199a1] w-14 text-right shrink-0">
+                                                                        {(entry.count ?? 0).toLocaleString()}
                                                                     </span>
                                                                 </div>
                                                             );
@@ -534,16 +569,18 @@ export default function PredictPage() {
                                             )}
                                             {/* Tableau embeds for occurrence and trend data */}
                                             <div>
-                                                <p className="text-sm font-semibold text-[#232629] mb-2">Occurrence Map</p>
+                                                <p className="text-base font-semibold text-[#232629] mb-2">Occurrence Map</p>
                                                 <TableauEmbed url={process.env.NEXT_PUBLIC_BIRD_OCCURRENCE!} title="Individual Bird Occurrence" height="500px" speciesFilter={result?.prediction?.species_label} />
                                             </div>
-                                            <div>
-                                                <p className="text-sm font-semibold text-[#232629] mb-2">Monthly Sightings Over Time</p>
-                                                <TableauEmbed url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!} title="Monthly Sighting Over Time" height="500px" speciesFilter={result?.prediction?.species_label} />
-                                            </div>
-                                            <div>
-                                                <p className="text-sm font-semibold text-[#232629] mb-2">Observation Trends by Year</p>
-                                                <TableauEmbed url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!} title="Observation Trends by Year" height="500px" speciesFilter={result?.prediction?.species_label} />
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                                <div>
+                                                    <p className="text-base font-semibold text-[#232629] mb-2">Monthly Sightings Over Time</p>
+                                                    <TableauEmbed url={process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!} title="Monthly Sighting Over Time" height="400px" speciesFilter={result?.prediction?.species_label} />
+                                                </div>
+                                                <div>
+                                                    <p className="text-base font-semibold text-[#232629] mb-2">Observation Trends by Year</p>
+                                                    <TableauEmbed url={process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!} title="Observation Trends by Year" height="400px" speciesFilter={result?.prediction?.species_label} />
+                                                </div>
                                             </div>
                                         </div>
                                     );
@@ -554,7 +591,7 @@ export default function PredictPage() {
                     </>
                 ) : (
                     // Empty state — shown before any prediction is made
-                    <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-sm text-[#6a737c]">
+                    <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-base text-[#6a737c]">
                         Choose a photo and select Identify Species to see the prediction.
                     </div>
                 )}
@@ -562,22 +599,22 @@ export default function PredictPage() {
                 {/* What's next — always visible action cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-white border border-[#e3e6e8] rounded-lg p-4 flex flex-col gap-1.5 hover:border-blue-300 hover:shadow-md transition-all">
-                        <span className="font-semibold text-sm text-blue-600">Try Another Photo →</span>
-                        <span className="text-xs leading-relaxed text-[#6a737c]">Upload a different image and see if the model can identify another species.</span>
+                        <span className="font-semibold text-base text-blue-600">Try Another Photo →</span>
+                        <span className="text-base leading-relaxed text-[#6a737c]">Upload a different image and see if the model can identify another species.</span>
                         <button
                             onClick={() => { handleClear(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                            className="mt-2 self-start text-xs font-semibold text-[#232629] underline hover:no-underline"
+                            className="mt-2 self-start text-sm font-semibold text-[#232629] underline hover:no-underline"
                         >
                             Upload a New Photo
                         </button>
                     </div>
                     <Link href="/bird" className="bg-white border border-[#e3e6e8] rounded-lg p-4 flex flex-col gap-1.5 hover:border-blue-300 hover:shadow-md transition-all">
-                        <span className="font-semibold text-sm text-blue-600">Explore a Species →</span>
-                        <span className="text-xs leading-relaxed text-[#6a737c]">Browse the list of all 525 species and dive into their full profile.</span>
+                        <span className="font-semibold text-base text-blue-600">Explore a Species →</span>
+                        <span className="text-base leading-relaxed text-[#6a737c]">Browse the list of all 525 species and dive into their full profile.</span>
                     </Link>
                     <Link href="/species" className="bg-white border border-[#e3e6e8] rounded-lg p-4 flex flex-col gap-1.5 hover:border-blue-300 hover:shadow-md transition-all">
-                        <span className="font-semibold text-sm text-blue-600">Compare Species →</span>
-                        <span className="text-xs leading-relaxed text-[#6a737c]">Select up to 6 birds and compare their taxonomy, diet, and migration side by side.</span>
+                        <span className="font-semibold text-base text-blue-600">Compare Species →</span>
+                        <span className="text-base leading-relaxed text-[#6a737c]">Select up to 6 birds and compare their taxonomy, diet, and migration side by side.</span>
                     </Link>
                 </div>
 
@@ -585,8 +622,8 @@ export default function PredictPage() {
                 <div className="bg-[#fdf2d8] border border-[#e6d8a7] rounded-lg p-4 flex gap-3 items-start">
                     <span className="text-lg flex-none">⚠️</span>
                     <div>
-                        <div className="font-semibold text-sm text-[#232629] mb-1">AI Prediction Disclaimer</div>
-                        <div className="text-sm text-[#6a737c] leading-relaxed">
+                        <div className="font-semibold text-base text-[#232629] mb-1">AI Prediction Disclaimer</div>
+                        <div className="text-base text-[#6a737c] leading-relaxed">
                             AI predictions may not always be accurate. Please verify results using reliable sources before making decisions.
                         </div>
                     </div>
