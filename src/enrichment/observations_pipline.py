@@ -10,9 +10,9 @@
 # observations without touching the bird info data.
 #
 # Usage (run from the project root):
-#   python src/observations_pipline.py                  # all 525 species, 300 records each
-#   python src/observations_pipline.py --test           # first 3 species only
-#   python src/observations_pipline.py --limit 1000     # up to 1000 records per species
+#   python -m src.enrichment.observations_pipeline                  # all 525 species, 300 records each
+#   python -m src.enrichment.observations_pipeline --test           # first 3 species only
+#   python -m src.enrichment.observations_pipeline  --limit 1000     # up to 1000 records per species
 
 import argparse
 import sys

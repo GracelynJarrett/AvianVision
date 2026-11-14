@@ -6,7 +6,7 @@
 # matrix, classification report) to a new dedicated MLflow run.
 #
 # Usage:
-#   python src/add_testset.py --run base-middle-frozen-low-dropout-HT
+#   python -m src.species_classifier.evaluate --run  --run base-middle-frozen-low-dropout-HT
 
 import argparse
 import csv

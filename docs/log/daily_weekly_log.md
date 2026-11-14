@@ -1088,8 +1088,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Friday November 13, 2026
+**Day Goal:** Creat plain for the helper image model
 
 **What Was Done:** 
 

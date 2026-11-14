@@ -17,6 +17,7 @@ patterns, diet, and conservation status — to give the user a richer result.
    rather than returning an incorrect result
 4. The identified species is looked up across multiple data sources to return enrichment 
    information alongside the prediction
+5. enrichment data is pulled in
 
 ---
 
@@ -26,11 +27,12 @@ patterns, diet, and conservation status — to give the user a richer result.
 |------|-----------|
 | Machine Learning Model | EfficientNetB0 (transfer learning) |
 | Experiment Tracking | MLflow |
-| Data Warehouse | Snowflake |
 | Backend | FastAPI + MongoDB Atlas |
 | Frontend | Next.js |
 | Dataset | Hugging Face — 525 bird species |
 | Enrichment Sources | GBIF, IUCN Red List, Avian Diet Database |
+| Visualizations | Tableau| 
+|Bird Gate Mode| EfficientNetB0|
 
 ---
 
@@ -43,6 +45,8 @@ AvianVision/
 ├── configs/ # YAML configuration files
 ├── src/ # Source code
 ├── tests/ # Tests
+├── api/ # The FastAPI Backend
+├── dashboard/ the Next.js frontend
 ├── CLAUDE.md # AI assistant instructions
 └── requirements.txt
 
