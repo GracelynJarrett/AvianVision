@@ -14,10 +14,10 @@ from pathlib import Path
 
 import mlflow
 
-from help_read_yaml import read_yaml
-from preprocessing import get_datasets
-from model_builder import build_model
-from mlflow_setup import setup_mlflow
+from src.help_read_yaml import read_yaml
+from src.preprocessing import get_datasets
+from src.model_builder import build_model
+from src.mlflow_setup import setup_mlflow
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 def train(run_name=None):

@@ -17,7 +17,7 @@ import argparse
 
 import mlflow
 
-from mlflow_setup import setup_mlflow
+from src.mlflow_setup import setup_mlflow
 
 
 def register(run_id, model_name):

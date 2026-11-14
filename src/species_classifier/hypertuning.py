@@ -17,9 +17,9 @@ import tensorflow as tf
 import mlflow
 from sklearn.metrics import f1_score, precision_score, recall_score
 
-from help_read_yaml import read_yaml
-from preprocessing import get_datasets
-from mlflow_setup import setup_mlflow
+from src.help_read_yaml import read_yaml
+from src.preprocessing import get_datasets
+from src.mlflow_setup import setup_mlflow
 
 
 # --- Optimizer lookup (same as model_builder.py) ---

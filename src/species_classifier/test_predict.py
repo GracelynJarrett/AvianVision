@@ -24,9 +24,9 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from datasets import load_dataset_builder
-from mlflow_setup import setup_mlflow
-from mongodb_client import get_species_info_collection
-from preprocessing import build_label_remap
+from src.mlflow_setup import setup_mlflow
+from src.mongodb_client import get_species_info_collection
+from src.preprocessing import build_label_remap
 
 # ---- Fixed settings ----
 

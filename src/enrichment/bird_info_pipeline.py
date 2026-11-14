@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 # without installing the project as a package.
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from mongodb_client import get_species_info_collection
+from src.mongodb_client import get_species_info_collection
 
 # ---- Fixed settings ----
 

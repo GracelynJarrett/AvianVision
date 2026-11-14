@@ -23,10 +23,10 @@ from sklearn.metrics import (
     recall_score,
 )
 
-from help_read_yaml import read_yaml
-from hypertuning import build_model
-from mlflow_setup import setup_mlflow
-from preprocessing import get_datasets
+from src.help_read_yaml import read_yaml
+from src.species_classifier.hypertuning import build_model
+from src.mlflow_setup import setup_mlflow
+from src.preprocessing import get_datasets
 
 
 def run_test_evaluation(run_name):
