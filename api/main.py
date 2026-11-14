@@ -29,7 +29,7 @@ from src.mongodb_client import (
     get_species_observations_collection,
 )
 from src.preprocessing import build_label_remap
-from src.test_prediction import(
+from src.species_classifier.test_predict import(
     load_class_names,
     load_config
 
