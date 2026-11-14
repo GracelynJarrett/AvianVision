@@ -25,14 +25,14 @@ from dotenv import load_dotenv
 
 # Add the src/ folder to the Python path so we can import mongodb_client
 # without installing the project as a package.
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from mongodb_client import get_species_observations_collection
 
 # ---- Fixed settings ----
 
 # Project root folder, calculated from where this script lives (inside src/).
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # Path to the CSV that maps dataset labels to scientific names.
 BIRD_MAPPING_PATH = PROJECT_ROOT / "data" / "bird_name_mapping.csv"

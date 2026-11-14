@@ -25,7 +25,7 @@ def train(run_name=None):
 
     # --- Find and read the two config files ---
     # The project root is one level up from this file (which lives in src/).
-    project_root = Path(__file__).resolve().parent.parent
+    project_root = Path(__file__).resolve().parents[2]
     model_cfg = read_yaml(project_root / "configs" / "model_config.yaml")
     image_cfg = read_yaml(project_root / "configs" / "image_config.yaml")
 

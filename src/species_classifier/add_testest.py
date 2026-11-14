@@ -34,7 +34,7 @@ def run_test_evaluation(run_name):
 
     # --- Find and read the config files ---
     # The project root is one level up from this file (which lives in src/).
-    project_root = Path(__file__).resolve().parent.parent
+    project_root = Path(__file__).resolve().parents[2]
     ht_experiments = read_yaml(project_root / "configs" / "hypertuning_experiments.yaml")
     image_cfg = read_yaml(project_root / "configs" / "image_config.yaml")
 

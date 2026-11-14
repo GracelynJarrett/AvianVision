@@ -19,7 +19,7 @@ from huggingface_hub import login
 # Work out the project's main folder based on where this script lives (it lives in
 # the "src" folder, so the project root is one level up). Building the paths this
 # way means the script works no matter which folder it is run from.
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # Location of the eBird taxonomy file (download it from the Cornell Lab website and
 # save it into the "data" folder). Change this line if you keep the file elsewhere.

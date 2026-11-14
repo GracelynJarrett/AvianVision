@@ -21,7 +21,7 @@ from PIL import Image
 
 # Add the src/ folder to the Python path so we can import our sibling modules
 # (mlflow_setup, mongodb_client, preprocessing) without installing the project as a package.
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from datasets import load_dataset_builder
 from mlflow_setup import setup_mlflow
@@ -34,7 +34,7 @@ from preprocessing import build_label_remap
 DATASET_NAME = "yashikota/birds-525-species-image-classification"
 
 # The project's root folder, calculated from where this file lives (inside src/).
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 # ---- Helper functions ----
