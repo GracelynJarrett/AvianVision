@@ -220,3 +220,8 @@ __marimo__/
 # MLflow
 mlflow.db
 mlruns/
+
+
+# Tableau
+*.twbx
+*.twb

@@ -2,3 +2,10 @@
 # If the model's top prediction is below this value, the API returns "Unknown"
 # instead of a species name. Value is between 0.0 and 1.0.
 unknown_threshold: 0.45
+
+# Spread threshold for the /predict endpoint.
+# The model's confidence is checked across the top 5 predictions.
+# If the sum of predictions #2 through #5 exceeds this value, the model's confidence
+# is too spread out across species — the image is likely not a bird and returns "Unknown".
+# Tune upward if real birds are being rejected; tune downward if OOD images are passing.
+spread_threshold: 0.20

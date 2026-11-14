@@ -1,6 +1,12 @@
 # Standard Library
 import json
+import os
+import random
+import urllib.parse
+import urllib.request
 from datetime import datetime
+from io import BytesIO
+import pandas as pd
 
 
 # Third-Party Libraries
@@ -8,9 +14,12 @@ import mlflow
 import numpy as np
 import tensorflow as tf
 from PIL import Image
+from datasets import load_dataset, load_dataset_builder
 
 # FastAPI
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 
 # Project Files
 from src.model_loader import get_model
@@ -19,14 +28,68 @@ from src.mongodb_client import (
     get_species_info_collection,
     get_species_observations_collection,
 )
+from src.preprocessing import build_label_remap
 from src.test_prediction import(
     load_class_names,
     load_config
-    
+
 )
 
 
 common_name = "BirdName"
+
+# ---- Dataset image cache ----
+
+# These two variables hold the loaded HF dataset and a pre-built lookup table.
+# They start as None and are filled in the first time someone requests a bird image.
+# After that first call, every image request reuses the cached values instantly.
+_hf_dataset = None
+_merged_id_to_row = None  # maps merged label ID (0-524) → first row index in the dataset
+
+
+def _build_image_index():
+    """Loads the Hugging Face dataset and builds a label-to-row lookup table.
+
+    On the first call this scans the label column of the training split to find
+    the first row that belongs to each of the 525 species. No images are loaded
+    during this scan — only the integer label values. The result is cached so
+    every future image request skips this work entirely.
+
+    Returns the dataset object and the lookup dict so the caller can load a
+    specific row by index."""
+
+    global _hf_dataset, _merged_id_to_row
+
+    # If we already did this work, return the cached result immediately.
+    if _merged_id_to_row is not None:
+        return _hf_dataset, _merged_id_to_row
+
+    # Pull the raw label names and the remap table from the dataset metadata.
+    # load_dataset_builder only downloads the schema, not any images.
+    builder = load_dataset_builder(
+        "yashikota/birds-525-species-image-classification"
+    )
+    raw_names = builder.info.features["label"].names
+    old_to_new, _ = build_label_remap(raw_names)
+
+    # Load the training split. If the dataset is already cached on disk from
+    # training, this is instant — it just memory-maps the Arrow files.
+    _hf_dataset = load_dataset(
+        "yashikota/birds-525-species-image-classification",
+        split="train"
+    )
+
+    # Walk through every label value in the training split.
+    # We only read the label column here — no image data is loaded into memory.
+    # For each merged species ID we record the first row index we encounter.
+    index = {}
+    for row_idx, raw_label_id in enumerate(_hf_dataset["label"]):
+        merged_id = old_to_new[raw_label_id]
+        if merged_id not in index:
+            index[merged_id] = row_idx
+
+    _merged_id_to_row = index
+    return _hf_dataset, _merged_id_to_row
 
 
 # App is creating the API application
@@ -36,7 +99,16 @@ app = FastAPI( # creat a new FastAPI server
     version="1.0.0"
 )
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --- Helper files ---
 
@@ -265,6 +337,31 @@ def check_mlflow():
 
 # ------- Home ---------
 
+def _build_fun_fact(doc: dict) -> str | None:
+    """Builds a single fun-fact sentence from a species_info MongoDB document.
+
+    Tries two sources — diet and Wikipedia — and picks one at random from
+    whichever sources actually have data. Returns None if neither has anything."""
+
+    possible_facts = []
+
+    # Diet fact — if the top prey item is known, turn it into a short sentence.
+    top_prey = (doc.get("diet") or {}).get("top_prey") or []
+    if top_prey:
+        prey_name = top_prey[0].get("prey", "")
+        if prey_name:
+            possible_facts.append(
+                f"This species primarily feeds on {prey_name.lower()}."
+            )
+
+    # Wikipedia fact — the description field is already a short one-liner.
+    wiki_desc = (doc.get("wikipedia") or {}).get("description", "")
+    if wiki_desc:
+        possible_facts.append(wiki_desc)
+
+    return random.choice(possible_facts) if possible_facts else None
+
+
 # calulating/ gathering data for the home endpoint
 def get_home_data():
 
@@ -302,6 +399,28 @@ def get_home_data():
         observation_collection.distinct("year")
     )
 
+    # ----- Featured Bird -----
+
+    # Pick one random species document from the collection using MongoDB's $sample.
+    # This returns a different bird every time the home page loads.
+    sample = list(
+        species_collection.aggregate([{"$sample": {"size": 1}}])
+    )
+
+    featured_bird = None
+
+    if sample:
+        doc = sample[0]
+
+        # Build a fun fact from whichever data sources have content for this bird.
+        fun_fact = _build_fun_fact(doc)
+
+        featured_bird = {
+            "species_label": doc.get("species_label"),
+            "scientific_name": doc.get("scientific_name"),
+            "fun_fact": fun_fact
+        }
+
     return {
         "project": {
             "name": "AvianVision"
@@ -319,7 +438,7 @@ def get_home_data():
                 "min": min(years) if years else None,
                 "max": max(years) if years else None
                 }
-                   
+
         },
 
         "model": {
@@ -338,7 +457,9 @@ def get_home_data():
                 prediction_count,
 
             "top_predicted_species": None
-        }
+        },
+
+        "featured_bird": featured_bird
     }
 
 
@@ -413,8 +534,10 @@ def species():
                 "_id": 0,
                 "species_label": 1,
                 "scientific_name": 1,
+                "taxonomy.family": 1,
                 "conservation.status_label": 1,
-                "migration.total_sightings": 1
+                "conservation.population_trend": 1,
+                "migration.total_sightings": 1,
             }
         )
     )
@@ -443,7 +566,7 @@ def predict(file: UploadFile = File(...)):
 
     # ----- Load Config -----
 
-    image_size, threshold = load_config()
+    image_size, threshold, spread_threshold = load_config()
 
     # ----- Preprocess Image -----
 
@@ -503,6 +626,27 @@ def predict(file: UploadFile = File(...)):
                 predictions[0][index]
             )
         })
+
+    # ----- Spread Check -----
+
+    # Add up the confidence scores for predictions #2 through #5.
+    # If the total is above the spread threshold, the model's confidence is too
+    # scattered across different species — this usually means the image is not a bird.
+    # NOTE: This check catches uncertain OOD images (spread predictions) but cannot
+    # catch falsely confident OOD images where one wrong class dominates (e.g., an
+    # airplane predicted as a specific bird at 95%+). That case requires a future
+    # binary pre-classifier gate.
+    spread = sum(p["confidence"] for p in top_5_predictions[1:])
+
+    if spread > spread_threshold:
+        return {
+            "prediction": {
+                "species_label": "UNKNOWN",
+                "confidence": confidence,
+                "accepted": False
+            },
+            "bird": None
+        }
 
     # ----- Confidence Check -----
 
@@ -564,13 +708,47 @@ def predict(file: UploadFile = File(...)):
         "prediction": {
             "species_label": predicted_label,
             "confidence": confidence,
-            "accepted": True
+            "accepted": True,
+            "top_5_predictions": top_5_predictions
         },
         "bird": bird_info
     }
 
 
 
+
+
+# /birds/random returns N randomly selected birds for use in slideshows
+@app.get("/birds/random")
+def get_random_birds(count: int = Query(default=6, ge=1, le=10)):
+    """Returns a list of randomly selected bird species for the slideshow.
+
+    The count parameter controls how many birds are returned (1–10, default 6).
+    Each bird includes its species label, scientific name, and a one-sentence fun fact.
+    Call this endpoint once — do not call it once per bird."""
+
+    # ----- Sample Random Birds -----
+
+    # MongoDB's $sample stage picks the requested number of documents at random.
+    # Each call to this endpoint returns a different set of birds.
+    species_collection = get_species_info_collection()
+
+    sample = list(
+        species_collection.aggregate([{"$sample": {"size": count}}])
+    )
+
+    # ----- Build Response -----
+
+    # For each sampled document, pull out the three fields the slideshow needs.
+    birds = []
+    for doc in sample:
+        birds.append({
+            "species_label": doc.get("species_label"),
+            "scientific_name": doc.get("scientific_name"),
+            "fun_fact": _build_fun_fact(doc)
+        })
+
+    return {"birds": birds}
 
 
 # /bird/common_name returns info for one bird
@@ -605,5 +783,244 @@ def get_bird(species_label: str):
     }
 
 
+# /bird/{species_label}/image returns a representative photo for one species
+@app.get("/bird/{species_label}/image")
+def get_bird_image(species_label: str):
+    """Streams a JPEG image of the requested bird species from the dataset.
+
+    Looks up the species name in the 525-class label list to get its merged
+    label ID, then uses the pre-built row index to load just that one image
+    from the cached Hugging Face dataset and returns it as a JPEG stream."""
+
+    # ----- Find the Merged Label ID -----
+
+    # Load the 525-class name list and search for the requested species.
+    # The position of the name in this list is its merged label ID.
+    class_names = load_class_names()
+    target = species_label.upper().strip()
+
+    merged_id = None
+    for i, name in enumerate(class_names):
+        if name.upper() == target:
+            merged_id = i
+            break
+
+    # If the name isn't in the label list, this species doesn't exist in the dataset.
+    if merged_id is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Species '{species_label}' not found in the dataset."
+        )
+
+    # ----- Look Up the Row Index -----
+
+    # Build (or retrieve from cache) the merged-label-ID → row-index lookup table.
+    dataset, id_to_row = _build_image_index()
+
+    # Make sure we actually have a row for this species.
+    if merged_id not in id_to_row:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No image found for '{species_label}'."
+        )
+
+    # ----- Load and Stream the Image -----
+
+    # Load just the one dataset row we need — the HF library reads only that
+    # record from the Arrow cache, so no other images are touched.
+    row_idx = id_to_row[merged_id]
+    image = dataset[row_idx]["image"]
+
+    # Convert the PIL image to JPEG bytes, then send them back as a streaming response.
+    # Converting to RGB first handles any greyscale or RGBA images in the dataset.
+    buffer = BytesIO()
+    image.convert("RGB").save(buffer, format="JPEG")
+    buffer.seek(0)
+
+    return StreamingResponse(buffer, media_type="image/jpeg")
 
 
+# /bird/{species_label}/plumage returns up to 4 Wikimedia Commons image URLs for the species.
+# Results are cached as a JSON file so Wikimedia is only queried once per species.
+@app.get("/bird/{species_label}/plumage")
+def get_plumage_images(species_label: str):
+    """Returns a list of up to 4 Wikimedia Commons image URLs for the given bird species.
+
+    On the first request for a species, the endpoint looks up its scientific name in
+    MongoDB, queries the Wikimedia Commons API, saves the URL list to a local cache file,
+    then returns the URLs. All subsequent requests for the same species are served from
+    the cache file without hitting Wikimedia again."""
+
+    # ----- Normalize the Label -----
+
+    # Convert to uppercase and strip whitespace to match the MongoDB field format.
+    label = species_label.upper().strip()
+
+    # Build the cache file path — spaces in the label become underscores in the filename.
+    cache_dir = os.path.join(os.path.dirname(__file__), "plumage_cache")
+    cache_file = os.path.join(cache_dir, label.replace(" ", "_") + ".json")
+
+    # ----- Check Cache -----
+
+    # If a cache file already exists for this species, return it immediately
+    # without making any external network requests.
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as f:
+            return json.load(f)
+
+    # ----- Look Up Scientific Name -----
+
+    # The Wikimedia search works best with the scientific (Latin) name, which is
+    # less ambiguous than a common English name.
+    collection = get_species_info_collection()
+    doc = collection.find_one({"species_label": label}, {"scientific_name": 1, "_id": 0})
+
+    if not doc or not doc.get("scientific_name"):
+        # Species not in MongoDB — cache an empty result and return early.
+        result = {"images": []}
+        os.makedirs(cache_dir, exist_ok=True)
+        with open(cache_file, "w") as f:
+            json.dump(result, f)
+        return result
+
+    scientific_name = doc["scientific_name"]
+
+    # ----- Query Wikimedia Commons -----
+
+    # Adding "bird" to the search term biases Wikimedia toward bird-related files
+    # and reduces cross-contamination from fish or other species that share part of
+    # a scientific name. gsrnamespace=6 restricts results to the File: namespace.
+    # iiurlwidth=800 asks Wikimedia to return a resized 800px thumbnail URL.
+    # gsrlimit=20 requests extra candidates so we have room to filter bad ones out.
+    params = urllib.parse.urlencode({
+        "action": "query",
+        "generator": "search",
+        "gsrsearch": f"filetype:bitmap {scientific_name} bird",
+        "gsrnamespace": "6",
+        "prop": "imageinfo",
+        "iiprop": "url",
+        "iiurlwidth": "800",
+        "gsrlimit": "20",
+        "format": "json",
+    })
+    url = f"https://commons.wikimedia.org/w/api.php?{params}"
+
+    try:
+        # Wikimedia requires a User-Agent header identifying the application.
+        req = urllib.request.Request(url, headers={"User-Agent": "AvianVision/1.0"})
+        with urllib.request.urlopen(req, timeout=10) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except Exception:
+        # If the network request fails, return an empty result without caching
+        # so the next request will try again.
+        return {"images": []}
+
+    # ----- Filter Out Non-Photo Images -----
+
+    # Wikimedia results often include paintings, drawings, egg photos, taxidermy mounts,
+    # fish photos, range maps, and scientific illustrations. We filter these out by
+    # checking the filename for keywords that commonly appear in those file names.
+    BLOCKED_KEYWORDS = [
+        "egg", "eggs",
+        "painting", "painted",
+        "drawing", "drawn",
+        "illustration",
+        "taxidermy", "stuffed", "mounted",
+        "specimen",
+        "stamp",
+        "lithograph", "engraving",
+        "skeleton", "skull",
+        "map", "range", "distribution",
+        "habitat",
+        "fossil",
+        "nest",
+        "fish",
+        "feather",
+    ]
+
+    # Split the scientific name into its two words (genus and species) so we can
+    # check that at least one of them appears in the filename. This prevents
+    # results for completely unrelated species from slipping through.
+    sci_parts = [part.lower() for part in scientific_name.split() if len(part) > 3]
+
+    # ----- Extract Image URLs -----
+
+    # The response has a query.pages dict keyed by page ID.
+    # Each page has a title like "File:Robin_on_branch.jpg" and an imageinfo list.
+    # We apply two checks before keeping a URL:
+    #   1. The filename must not contain any blocked keyword.
+    #   2. The filename must contain at least one part of the scientific name,
+    #      so we reject results that don't belong to this species at all.
+    pages = data.get("query", {}).get("pages", {})
+    images = []
+    for page in pages.values():
+        # Pull the filename from the page title and convert to lowercase for matching
+        filename = page.get("title", "").lower().replace("file:", "").strip()
+
+        # Skip this result if the filename contains any blocked keyword
+        if any(keyword in filename for keyword in BLOCKED_KEYWORDS):
+            continue
+
+        # Skip if no part of the scientific name appears in the filename
+        if sci_parts and not any(part in filename for part in sci_parts):
+            continue
+
+        info = page.get("imageinfo", [])
+        if info and info[0].get("url"):
+            images.append(info[0]["url"])
+        if len(images) >= 2:
+            break
+
+    result = {"images": images}
+
+    # ----- Save to Cache -----
+
+    # Create the cache directory if it doesn't exist yet, then write the result.
+    os.makedirs(cache_dir, exist_ok=True)
+    with open(cache_file, "w") as f:
+        json.dump(result, f)
+
+    return result
+
+
+# /occurrences returns bird Occurrences data
+# this endpoint is used for the maps and graphs
+@app.get("/occurrences")
+def get_occurrences():
+    collection = get_species_observations_collection()
+    occurrences = list(
+        collection.aggregate([
+            {
+                "$group": {
+                    "_id": {
+                        "species_label": "$species_label",
+                        "country": "$country",
+                        "scientific_name": "$scientific_name",
+                        "month": "$month",
+                        "year": "$year"
+                    },
+                    "avg_lat": {"$avg": "$lat"},
+                    "avg_lon": {"$avg": "$lon"},
+                    "occurrence_count": {"$sum": 1}
+                }
+            },
+            {
+                "$project": {
+                    "_id": 0,
+                    "species_label": "$_id.species_label",
+                    "country": "$_id.country",
+                    "scientific_name": "$_id.scientific_name",
+                    "month": "$_id.month",
+                    "year": "$_id.year",
+                    "avg_lat": 1,
+                    "avg_lon": 1,
+                    "occurrence_count": 1
+                }
+            }
+        ])
+    )
+
+    return {
+            "occurrence_count": len(occurrences),
+            "occurrences": occurrences
+    }

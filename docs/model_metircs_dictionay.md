@@ -16,7 +16,7 @@ This document contains a dictionary for the model's metrics. The dictionary expl
     ** Why:
         Accuracy is one of the best metrics to look at when deciding to use the model or to continue experimenting with hypertuning.
     ** Formula:
-                                Number of Correct Prdictions
+                                Number of Correct Predictions
                  Accuracy   =  -------------------------------
                                      Total Predictions
 
