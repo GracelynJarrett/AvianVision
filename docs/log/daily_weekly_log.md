@@ -1091,22 +1091,23 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Friday November 13, 2026
 **Day Goal:** Creat plain for the helper image model
 
-**What Was Done:** 
+**What Was Done:** Cleaned up the src folder and getting a plan made for the brid-gate model
 
-**Challenges:** 
+**Challenges:** No challenges 
 
-**Blockers:** 
+**Blockers:** work around no more cloude creteds avable
 
 **Summary:**
+    Today I cleaned up the src folder to make it more orginzed I also talke to cloude though my presional accoset to plain how I want my bird_gate model to go.
 
 
 **Time:**
-    - Total:
+    - Total:2 hours 30 m
 
 ---
 
-## 
-**Day Goal:** 
+## Saterday November 14, 2026
+**Day Goal:** start working on created the bird_gate model
 
 **What Was Done:** 
 
