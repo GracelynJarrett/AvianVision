@@ -1109,17 +1109,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Saterday November 14, 2026
 **Day Goal:** start working on created the bird_gate model
 
-**What Was Done:** 
+**What Was Done:** Today I found 6 small datasets for the gate model
 
-**Challenges:** 
+**Challenges:** word on some images
 
-**Blockers:** 
+**Blockers:** no blockers for today
 
 **Summary:**
-
+    Today I found 6 differnet datasets that I can combind and use as the train/val/test data for my gate model. I got accase and looked at the images from two dataset and found that some of the bird images has text on them. I have to be carefule with theses iamges, but I fell confidect that with the combinding of the other datasets I should be fine. 
 
 **Time:**
-    - Total:
+    - Total:2 hours
 
 ---
 
