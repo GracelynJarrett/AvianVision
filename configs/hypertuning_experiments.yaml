@@ -3,7 +3,7 @@
 # Each entry below is one hypertuning experiment. To run one, pass its name to
 # hypertuning.py with the --run flag:
 #
-#   python src/hypertuning.py --run base-frozen-HT
+#   python -m src.species_classifier.hypertuning --run base-frozen-HT
 #
 # Experiments are organized into 6 groups based on which sections of EfficientNetB0
 # are frozen. Within each group, 4 runs vary one knob at a time (LR, dropout/epochs,
