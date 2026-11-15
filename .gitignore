@@ -225,3 +225,7 @@ mlruns/
 # Tableau
 *.twbx
 *.twb
+
+
+models/bird_gate/
+data/bird_gate/

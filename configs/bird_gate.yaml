@@ -90,3 +90,4 @@ augmentation:
   random_crop: true        # sometimes cuts off part of the bird
   blur: true               # simulates blurry photos
   low_res_resize: true     # shrinks then re-enlarges the image
+  text_overlay: 0.3        # share of training images (birds AND non-birds) that get random text drawn on
