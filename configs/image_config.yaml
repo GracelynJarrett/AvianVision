@@ -9,17 +9,17 @@
 # experimenting with image size (see the note in the phase docs).
 image_size: 224
 
-# Master on/off switch for data augmentation.
-# false = use the real images unchanged (this is the baseline).
-# true  = apply the augmentation options below to the TRAINING images only.
-augmentation_enabled: false
-
-# Individual augmentation options. These are ONLY used when augmentation_enabled is
-# true, and they are ONLY applied to training images (never validation or test).
+# --- Augmentation (TRAINING images only, never validation or test) ---
+# Same option names as image_cofig.yaml where they overlap. The last three
+# are extras that make bird photos look more like real uploads.
+augmentation_enabled: true   # the gate uses augmentation from the start (the species baseline did not)
 augmentation:
-  horizontal_flip: false   # randomly mirror the image left-to-right
-  vertical_flip: false     # randomly flip the image upside down
-  rotation: 0.0            # random rotation, as a fraction of a full turn (e.g. 0.1)
-  zoom: 0.0                # random zoom in or out (e.g. 0.1)
-  brightness: 0.0          # random brightness change (e.g. 0.1)
-  contrast: 0.0            # random contrast change (e.g. 0.1)
+  horizontal_flip: true    # randomly mirror the image left-to-right
+  vertical_flip: false     # birds are not usually upside down
+  rotation: 0.1            # random rotation, as a fraction of a full turn
+  zoom: 0.3                # random zoom in or out (bigger = bird looks farther away)
+  brightness: 0.1          # random brightness change
+  contrast: 0.1            # random contrast change
+  random_crop: true        # sometimes cuts off part of the bird
+  blur: true               # simulates blurry photos
+  low_res_resize: true     # shrinks then re-enlarges the image
