@@ -1147,7 +1147,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Monday November 16, 2026
 **Day Goal:** Finnish cheeking all the dataset
 
-**What Was Done:** 
+**What Was Done:** updated md files, updated project peek, update Trello
 
 **Challenges:** 
 

@@ -91,3 +91,33 @@ augmentation:
   blur: true               # simulates blurry photos
   low_res_resize: true     # shrinks then re-enlarges the image
   text_overlay: 0.3        # share of training images (birds AND non-birds) that get random text drawn on
+
+
+
+caltech256_remove_classes:
+  - cormorant
+  - duck
+  - goose
+  - hummingbird
+  - ibis-101
+  - ostrich
+  - owl
+  - penguin
+  - swan
+  - birdbath        # not a bird, but photos may show birds
+
+caltech256_challenge_classes:
+  - fighter-jet
+  - helicopter-101
+  - hot-air-balloon
+  - blimp
+  - bat
+  - butterfly
+  - house-fly
+
+
+
+
+
+
+
