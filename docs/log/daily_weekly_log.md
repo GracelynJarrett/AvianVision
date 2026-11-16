@@ -1123,46 +1123,29 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-
-
-**Time:**
-    - Total:
-
----
 
 ## Week [#] Review
 
-**Week Goal:** [The goal of the week — 1 sentence max]
+**Week Goal:** This weeks goal was to connete Tableau to my dashboard and start working on the gate model
 
-**What Was Done:** [What got done — 1 sentence max]
+**What Was Done:** Conneted Tableau to my dashboard, make the dashboard look nicer, found datasets for the gate model
 
-**What Was Not Done:** [What didn't get done — 3 words min]
+**What Was Not Done:** Everying got done that I wanted to get done. 
 
-**Challenges:** [The week's main challenge — 3 words min]
+**Challenges:** This weeks main challange was conneting Tableau to my dashboard 
 
-**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+**Carried Into Next Week:** nothing needs to be brought over
 
 **Weekly Summary:**
-[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
-and why, main challenges, any changes to project files or the project plan, and what the 
-carry-over means for next week's goals.]
-
+    This week I was able to commplet all of my goals. I conneted my Tableau to my dashboard, it tooks some time because I first thought I didnt have accase to Tableau cloude so I started working on plotly graphs/maps, then I got asscase to cloude server. I also worked on fixing up my dashboard to look more clean and profcinal. I also orginzed my src floder so that the files for the differnet models dont get mixed up. I was able to find 6 small datasets that I plane to commbind and use for my gate model. 
 ---
 
 
 # Week 9
-## 
-**Day Goal:** 
+    * This weeks goal be done with Augmentation expermtation on the gate model
+
+## Monday November 16, 2026
+**Day Goal:** Finnish cheeking all the dataset
 
 **What Was Done:** 
 
