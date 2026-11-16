@@ -15,15 +15,15 @@ single working backend system.
 
 ## Main Tasks
 
-- [ ] Set up FastAPI
-- [ ] Create initial API endpoints (/predict, /birds, /species, /stats, /health)
-- [ ] Connect MongoDB Atlas to FastAPI
-- [ ] Begin connecting the EfficientNetB0 model to FastAPI
-- [ ] Finish and test all FastAPI endpoints
-- [ ] Verify predictions are saved correctly to MongoDB Atlas
-- [ ] Test the full pipeline end-to-end
-- [ ] Document the backend
-- [ ] Create Phase 5 design
+- [X] Set up FastAPI
+- [X] Create initial API endpoints (/predict, /birds, /species, /stats, /health)
+- [X] Connect MongoDB Atlas to FastAPI
+- [X] Begin connecting the EfficientNetB0 model to FastAPI
+- [X] Finish and test all FastAPI endpoints
+- [X] Verify predictions are saved correctly to MongoDB Atlas
+- [X]Test the full pipeline end-to-end
+- [X] Document the backend
+- [X] Create Phase 5 design
 
 ---
 

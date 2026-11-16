@@ -16,14 +16,14 @@ data and a bird diet page are also planned as part of this phase.
 
 ## Main Tasks
 
-- [ ] Build the Next.js dashboard
-- [ ] Create the prediction page
-- [ ] Display prediction results and confidence score
-- [ ] Display enrichment data
-- [ ] Build the model metrics page
-- [ ] Connect the dashboard to FastAPI endpoints
-- [ ] Build the interactive range map using GBIF occurrence data
-- [ ] Build the bird diet page
+- [X] Build the Next.js dashboard
+- [X] Create the prediction page
+- [X] Display prediction results and confidence score
+- [X] Display enrichment data
+- [X] Build the model metrics page
+- [X] Connect the dashboard to FastAPI endpoints
+- [X] Build the interactive range map using GBIF occurrence data
+- [X] Build the bird diet page
 
 ---
 

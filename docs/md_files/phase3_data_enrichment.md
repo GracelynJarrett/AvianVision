@@ -16,14 +16,14 @@ beyond just the species name.
 
 ## Main Tasks
 
-- [ ] Load enrichment data into Snowflake from all three sources
-  - [ ] GBIF — bird range and migration data
-  - [ ] IUCN Red List API — endangered status, population trend, habitat
-  - [ ] Avian Diet Database — bird diet information
-- [ ] Set up the pipeline to automatically query Snowflake when a prediction is made
-- [ ] Test the enrichment pipeline to make sure data is pulling correctly
-- [ ] Flag missing data as "data not available"
-- [ ] Finalize and document the enrichment pipeline
+- [X] Load enrichment data into Snowflake from all three sources
+  - [X] GBIF — bird range and migration data
+  - [X] IUCN Red List API — endangered status, population trend, habitat
+  - [X] Avian Diet Database — bird diet information
+- [X] Set up the pipeline to automatically query Snowflake when a prediction is made
+- [X] Test the enrichment pipeline to make sure data is pulling correctly
+- [X] Flag missing data as "data not available"
+- [X] Finalize and document the enrichment pipeline
 
 ---
 
