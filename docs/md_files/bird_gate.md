@@ -2,7 +2,7 @@
 
 **Author:** Gracelyn Jarrett
 **Date:** 2026-11-14
-**Status:** Planning (no training yet)
+**Status:**  Data sources checked. Dataset build is next (no training yet).
 
 ---
 
@@ -53,22 +53,34 @@ Using a different source avoids two problems:
 - **Domain gap:** the 525 images are clean, well-framed photos. Real users
   upload blurry, distant, and cluttered ones.
 
+## 4a. Decision: what counts as a bird
+
+The gate treats **any clear picture of a bird as a bird, including drawings,
+paintings, and other artwork.** The Bird vs Drone bird folder contains some
+drawings and paintings, and we decided to keep them labeled "bird".
+
+Consequence: a drawing can pass the gate and reach the species classifier,
+which was trained on photos, so its species guess for art may be less reliable.
+The gate does not try to reject art.
+
 ## 5. Dataset sources
 
-Sizes are approximate. Verify each one before the final build.
+## 5. Dataset sources
 
-| Role | Source | Where | Approx. size | Notes |
-|------|--------|-------|--------------|-------|
-| Birds (clean) | CUB-200-2011 | Hugging Face | ~11.8k | Close-up, single bird |
-| Birds (messy, in motion) | Bird vs Drone, bird folders | Kaggle | part of ~21k | Video frames, near-duplicates likely |
-| Birds (extra variety) | Aves del Tolima | Hugging Face | ~11k | 11 species, one region |
-| Negatives (objects, airplanes) | Caltech-256 | Hugging Face | ~30k | Bird classes must be removed |
-| Hard negatives (drones) | Bird vs Drone, drone folders | Kaggle | part of ~21k | Directly targets the airplane problem |
-| Negatives (scenes, sky) | Places365 sample | Hugging Face (streamed) | 3-5k sample | Do not download the full set |
+Each source was checked by hand. Details are in `docs/bird_gate_dataset_quality.md`.
+
+| Role | Source | Where | Size used | Notes |
+|------|--------|-------|-----------|-------|
+| Birds (clean) | CUB-200-2011 | Hugging Face | up to 6,000 of 11,788 | Few overlays (about 13% had text) |
+| Birds (messy) | Bird vs Drone, `Birds` folder | Kaggle | 400 | Kaggle copy is a small subset of the Mendeley original. Includes drawings. |
+| Hard negatives (drones) | Bird vs Drone, `Drones` folder | Kaggle | 428 | |
+| Negatives (objects, airplanes) | Caltech-256 | Hugging Face | up to 6,000 | 9 bird classes plus birdbath removed |
+| Birds (test) | Aves del Tolima | Hugging Face | about 2,970 sampled | 11 species, 11,000 images after dropping 4 duplicate folders |
+| Negatives (test) | Places365 | Hugging Face | about 2,600 sampled | 365 scenes, 1.8M images, sampled through the viewer API |
 
 **Access rule:** public data only, no API key or account. Hugging Face
-datasets load with the `datasets` library. Kaggle datasets use `kagglehub`
-(to be confirmed on my machine with a small test download).
+datasets load with the `datasets` library. Kaggle works with `kagglehub`
+and no key (confirmed on my machine).
 
 ## 6. Split strategy: split by source, not by image
 
@@ -77,15 +89,14 @@ train/val, and the third of each is held out for the test set.
 
 | Split | Birds | Not birds |
 |-------|-------|-----------|
-| Train / val | CUB + Bird vs Drone (bird folders) | Caltech-256 (minus held-out classes) + Bird vs Drone (drone folders) |
-| Test | Aves del Tolima | Places365 sample |
-| Challenge set (test only) | n/a | Held-out Caltech-256 classes: airplane, jet, helicopter, etc. |
+| Train / val | CUB + Bird vs Drone birds | Caltech-256 (minus bird and challenge classes) + Bird vs Drone drones + part of airplanes-101 |
+| Test | Aves del Tolima (11 species) | Places365 sample |
+| Challenge set (test only) | n/a | Held-out Caltech-256 classes (fighter-jet, helicopter, hot-air-balloon, blimp, bat, butterfly, house-fly) + part of airplanes-101 |
 | Real-life set (test only) | Own bird photos | The 2 airplane images + own photos of planes, pets, random things |
 
-- Bird vs Drone stays whole in train/val (birds and drones together), so the
-  gate cannot learn "source style = label".
-- The test set is touched once, at the end.
-- Thresholds and settings are chosen on validation data only.
+- `airplanes-101` is split between train/val and the challenge set, so the gate
+  sees airplanes in training and is still tested on unseen ones.
+  The exact split is decided when the dataset is built.
 
 **Why by source:** it measures how the gate handles data it has never seen,
 not just new images from the same collection.
@@ -110,6 +121,16 @@ not just new images from the same collection.
    negative source dominating.
 6. **Make birds messier with augmentation:** random zoom-out, crops that cut off
    part of the bird, blur, and low-resolution resizing.
+7. **Text shortcut.** In the Bird vs Drone copy, about 19 of 30 birds had text
+   or watermarks, versus about 5 of 30 drones (hand count). The gate could learn
+   "text means bird". Fix: random text overlays on a share of training images of
+   both classes (`text_overlay` in the config), then a small manual check with
+   about 20 text-heavy drones and 20 text-free birds.
+8. **Aves del Tolima duplicates.** 4 of its 15 folders repeat other folders.
+   Use only the 11 Latin-name folders, with about 270 images per species.
+9. **Places365 scenes.** Included by default. 11 scenes where birds are likely
+   the subject are excluded. Stray birds in other scenes are removed by
+   screening with the species model.
 
 ## 8. Evaluation plan (proposed)
 
@@ -133,9 +154,14 @@ not just new images from the same collection.
 
 ## 10. Open items
 
-- [ ] Confirm `kagglehub` downloads without an API key.
-- [ ] Confirm the Kaggle dataset names and licenses.
-- [ ] Print the Caltech-256 labels and sort them into birds (remove),
-      challenge classes (hold out), and everything else.
-- [ ] Choose which Caltech-256 classes go in the challenge set.
+## 10. Open items
+
+- [x] Confirm `kagglehub` downloads without an API key.
+- [x] Confirm the Kaggle dataset name (`harshwalia/birds-vs-drone-dataset`).
+- [x] Print the Caltech-256 labels and sort the classes.
+- [x] Choose the challenge classes.
+- [ ] Check licenses for all six sources (see the quality doc).
+- [ ] Decide how `airplanes-101` is split (placeholder: 30% to the challenge set).
+- [ ] Build the dataset: sample, screen for hidden birds, check duplicates and
+      overlap with the 525 set.
 - [ ] Decide the final size of each source after sampling.
