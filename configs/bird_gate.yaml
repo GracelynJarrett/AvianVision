@@ -4,6 +4,7 @@
 # The gate uses the same EfficientNetB0 base as the species classifier, but it
 # has one output (bird or not bird) instead of 525.
 #
+# Image size comes from image_cofig.yaml, not from this file.
 # Values marked TODO are decided in later steps (see docs/bird_gate_decisions.md).
 
 # --- Training settings ---
@@ -31,145 +32,160 @@ bird_threshold: 0.5    # starting value, to be tuned
 seed: 42               # makes sampling and splits repeatable
 
 # --- Paths ---
-data_dir: data/bird_gate                 # downloaded / sampled images (ignored by git)
+data_dir: data/bird_gate                   # downloaded / sampled images (ignored by git)
 weights_path: models/bird_gate/best.keras  # best weights saved during training
 mlflow_experiment: bird_gate
 
-# --- Data: where each source comes from ---
+# --- Augmentation (TRAINING images only, never validation or test) ---
+# Same option names as image_cofig.yaml where they overlap. The last four
+# are extras that make photos look more like real uploads.
+augmentation_enabled: true   # the gate uses augmentation from the start
+augmentation:
+  horizontal_flip: true    # randomly mirror the image left-to-right
+  vertical_flip: false     # birds are not usually upside down
+  rotation: 0.1            # random rotation, as a fraction of a full turn
+  zoom: 0.3                # random zoom in or out (bigger = bird looks farther away)
+  brightness: 0.1          # random brightness change
+  contrast: 0.1            # random contrast change
+  random_crop: true        # sometimes cuts off part of the bird
+  blur: true               # simulates blurry photos
+  low_res_resize: true     # shrinks then re-enlarges the image
+  text_overlay: 0.3        # share of training images (birds AND non-birds) that get random text
+
+# --- Data: split ---
+val_fraction: 0.15         # share of train/val data used for validation
+
+# --- Data: sources ---
+# role: train_val = pooled, then split into train and validation
+#       test      = held out, never used for training or tuning
 # max_images is a starting guess so birds and not-birds stay roughly 1:1.
 # Use null to take everything the source has.
 sources:
-  cub:                         # birds, clean
+
+  cub:                          # birds, clean
     kind: huggingface
     id: bentrevett/caltech-ucsd-birds-200-2011
     label: bird
     role: train_val
-    max_images: 8000
-  bird_vs_drone_birds:         # birds, messy / in motion
+    max_images: 6000            # 11,788 available; both original halves are pooled
+
+  bird_vs_drone_birds:          # birds, messy / in motion (includes drawings, see decisions doc)
     kind: kaggle
-    id: TODO                   # Kaggle dataset name, confirm on kaggle.com
+    id: harshwalia/birds-vs-drone-dataset
+    local_dir: data/bird_gate/raw/bird_vs_drone   # TODO: confirm folder layout
+    subfolder: Birds
     label: bird
     role: train_val
-    max_images: 4000
-  caltech256:                  # objects, airplanes (bird classes removed)
+    max_images: 400
+
+  caltech256:                   # objects and airplanes (bird classes removed)
     kind: huggingface
     id: ilee0022/Caltech-256
     label: not_bird
     role: train_val
-    max_images: 6000
-  bird_vs_drone_drones:        # hard negatives
+    max_images: 6000            # real number will be lower after removing classes
+    remove_classes:             # birds, plus birdbath (photos may show birds)
+      - cormorant
+      - duck
+      - goose
+      - hummingbird
+      - ibis-101
+      - ostrich
+      - owl
+      - penguin
+      - swan
+      - birdbath
+    challenge_classes:          # held out for the challenge set (never trained on)
+      - fighter-jet
+      - helicopter-101
+      - hot-air-balloon
+      - blimp
+      - bat
+      - butterfly
+      - house-fly
+    split_classes:              # shared between train/val and the challenge set
+      - airplanes-101
+    airplanes_challenge_fraction: 0.3   # TODO: decide how airplanes are split
+
+  bird_vs_drone_drones:         # hard negatives
     kind: kaggle
-    id: TODO                   # same Kaggle dataset as above
+    id: harshwalia/birds-vs-drone-dataset
+    local_dir: data/bird_gate/raw/bird_vs_drone   # TODO: confirm folder layout
+    subfolder: Drones
     label: not_bird
     role: train_val
-    max_images: 4000
-  aves_tolima:                 # birds, held out for testing
+    max_images: 428
+
+  aves_tolima:                  # birds, held out for testing
     kind: huggingface
     id: AndresFelipeYule/AvesdelTolima
     label: bird
     role: test
-    max_images: 3000
-  places365:                   # scenes and sky, held out for testing
+    max_images: 3000            # about 2,970 with the per-folder cap below
+    max_per_folder: 270         # about the same number from each of the 11 species
+    exclude_folders:            # duplicates of the Latin-name folders
+      - BATARA_CARCAJADA
+      - HORMIGUERO_GUARDABOSQUE
+      - TIRANUELO_CEJIAMARILLO
+      - TOROROI_COMPADRE
+
+  places365:                    # scenes, sky, and airport scenes, held out for testing
     kind: huggingface
-    id: TODO                   # pick one Places365 copy, then stream a sample
+    id: ljnlonoljpiljm/places365-256px
+    local_dir: data/bird_gate/raw/places365   # already sampled with the viewer API
     label: not_bird
     role: test
-    max_images: 3000
-
-# --- Data: Caltech-256 class rules ---
-# Fill these in after printing the Caltech-256 label names.
-caltech256_remove_classes: []     # TODO: every bird class (cormorant, ibis, ...) must go here
-caltech256_challenge_classes: []  # TODO: held out for the challenge set (airplane, jet, ...)
-
-# --- Data: split ---
-val_fraction: 0.15     # share of train/val data used for validation
-
-# --- Augmentation (makes bird photos messier, like real uploads) ---
-augmentation:
-  random_zoom_out: 0.3     # shrinks the bird so it looks far away
-  random_crop: true        # sometimes cuts off part of the bird
-  blur: true               # simulates blurry photos
-  low_res_resize: true     # shrinks then re-enlarges the image
-  text_overlay: 0.3        # share of training images (birds AND non-birds) that get random text drawn on
-
-
-
-caltech256_remove_classes:
-  - cormorant
-  - duck
-  - goose
-  - hummingbird
-  - ibis-101
-  - ostrich
-  - owl
-  - penguin
-  - swan
-  - birdbath        # not a bird, but photos may show birds
-
-caltech256_challenge_classes:
-  - fighter-jet
-  - helicopter-101
-  - hot-air-balloon
-  - blimp
-  - bat
-  - butterfly
-  - house-fly
-
-
-places365_exclude_scenes:
-  - beach
-  - coast
-  - islet
-  - marsh
-  - swamp
-  - lagoon
-  - pond
-  - fishpond
-  - watering hole
-  - natural history museum
-  - pet shop
-
-
-places365_guarantee_scenes:
-  - sky
-  - badlands
-  - butte
-  - canyon
-  - desert/sand
-  - desert/vegetation
-  - desert road
-  - glacier
-  - mountain
-  - mountain snowy
-  - mountain path
-  - snowfield
-  - ski slope
-  - volcano
-  - valley
-  - highway
-  - street
-  - downtown
-  - skyscraper
-  - railroad track
-  - construction site
-  - industrial area
-  - oilrig
-  - wind farm
-  - windmill
-  - lighthouse
-  - water tower
-  - tower
-
-
-places365_aircraft_scenes:
-  - airfield
-  - runway
-  - heliport
-  - hangar/indoor
-  - hangar/outdoor
-  - landing deck
-  - cockpit
-  - airplane cabin
-  - airport terminal
-
-
+    max_images: null            # whatever the sample holds (see the quality doc)
+    images_per_scene: 8
+    images_per_guarantee_scene: 20
+    exclude_scenes:             # birds likely the subject; the rest are screened by image
+      - beach
+      - coast
+      - islet
+      - marsh
+      - swamp
+      - lagoon
+      - pond
+      - fishpond
+      - watering hole
+      - natural history museum
+      - pet shop
+    guarantee_scenes:           # outdoors with no bird: sampled more heavily
+      - sky
+      - badlands
+      - butte
+      - canyon
+      - desert/sand
+      - desert/vegetation
+      - desert road
+      - glacier
+      - mountain
+      - mountain snowy
+      - mountain path
+      - snowfield
+      - ski slope
+      - volcano
+      - valley
+      - highway
+      - street
+      - downtown
+      - skyscraper
+      - railroad track
+      - construction site
+      - industrial area
+      - oilrig
+      - wind farm
+      - windmill
+      - lighthouse
+      - water tower
+      - tower
+    aircraft_scenes:            # extra check on the original airplane problem
+      - airfield
+      - runway
+      - heliport
+      - hangar/indoor
+      - hangar/outdoor
+      - landing deck
+      - cockpit
+      - airplane cabin
+      - airport terminal

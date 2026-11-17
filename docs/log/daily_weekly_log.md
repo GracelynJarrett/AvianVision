@@ -1016,6 +1016,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 # Week 8
     * This weeks Goal is to connete Tableau to Dashboard, Start working on Bird identifyer Model. 
+
 ## Monday Novemer 9, 2026
     
 **Day Goal:** Reacher how to connet Tableau to dashboard, Test connetions 
@@ -1124,7 +1125,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 
-## Week [#] Review
+## Week 8 Review
 
 **Week Goal:** This weeks goal was to connete Tableau to my dashboard and start working on the gate model
 
@@ -1138,6 +1139,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 **Weekly Summary:**
     This week I was able to commplet all of my goals. I conneted my Tableau to my dashboard, it tooks some time because I first thought I didnt have accase to Tableau cloude so I started working on plotly graphs/maps, then I got asscase to cloude server. I also worked on fixing up my dashboard to look more clean and profcinal. I also orginzed my src floder so that the files for the differnet models dont get mixed up. I was able to find 6 small datasets that I plane to commbind and use for my gate model. 
+
+
 ---
 
 
@@ -1161,8 +1164,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Tuesday Novmber 17, 2026
+**Day Goal:** Update docs, plain how to commbind the datasets, plain how to split the dataset
 
 **What Was Done:** 
 
