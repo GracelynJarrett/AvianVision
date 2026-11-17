@@ -116,8 +116,60 @@ caltech256_challenge_classes:
   - house-fly
 
 
+places365_exclude_scenes:
+  - beach
+  - coast
+  - islet
+  - marsh
+  - swamp
+  - lagoon
+  - pond
+  - fishpond
+  - watering hole
+  - natural history museum
+  - pet shop
 
 
+places365_guarantee_scenes:
+  - sky
+  - badlands
+  - butte
+  - canyon
+  - desert/sand
+  - desert/vegetation
+  - desert road
+  - glacier
+  - mountain
+  - mountain snowy
+  - mountain path
+  - snowfield
+  - ski slope
+  - volcano
+  - valley
+  - highway
+  - street
+  - downtown
+  - skyscraper
+  - railroad track
+  - construction site
+  - industrial area
+  - oilrig
+  - wind farm
+  - windmill
+  - lighthouse
+  - water tower
+  - tower
 
+
+places365_aircraft_scenes:
+  - airfield
+  - runway
+  - heliport
+  - hangar/indoor
+  - hangar/outdoor
+  - landing deck
+  - cockpit
+  - airplane cabin
+  - airport terminal
 
 

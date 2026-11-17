@@ -1149,15 +1149,15 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 **What Was Done:** updated md files, updated project peek, update Trello
 
-**Challenges:** 
+**Challenges:** Waiting while I cheked larger datasets
 
-**Blockers:** 
+**Blockers:** No blockers for today
 
 **Summary:**
-
+    Today I finnishe chekking all of my datasets.
 
 **Time:**
-    - Total:
+    - Total: 5 hours 
 
 ---
 
