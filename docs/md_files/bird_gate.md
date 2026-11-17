@@ -63,7 +63,6 @@ Consequence: a drawing can pass the gate and reach the species classifier,
 which was trained on photos, so its species guess for art may be less reliable.
 The gate does not try to reject art.
 
-## 5. Dataset sources
 
 ## 5. Dataset sources
 
@@ -152,7 +151,6 @@ not just new images from the same collection.
 - Bird vs Drone: check the Kaggle page. Images come from Pexels.
 - Places365: check the license on the specific copy used.
 
-## 10. Open items
 
 ## 10. Open items
 

@@ -127,6 +127,8 @@ blimp, bat, butterfly, house-fly.
 
 ## Places365 (Hugging Face: ljnlonoljpiljm/places365-256px)
 
+http://places2.csail.mit.edu/ - this is the source need to give crited to the site
+
 | Check | Result |
 |-------|--------|
 | Role | Test: not bird (scenes, sky, and airport scenes), held out |
