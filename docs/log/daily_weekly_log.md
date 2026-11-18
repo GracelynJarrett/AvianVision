@@ -1167,17 +1167,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Tuesday Novmber 17, 2026
 **Day Goal:** Update docs, plain how to commbind the datasets, plain how to split the dataset
 
-**What Was Done:** 
+**What Was Done:** I plaind how to commbind and split the data, I doownload all the dataset
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:** No blockers
 
 **Summary:**
+    Today I plained with cloude how I want to commbind all of my data and how I want to splet it. I then donloaded all the datasets, which took me longer then expeted. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours 30 m
 
 ---
 
