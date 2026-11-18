@@ -386,6 +386,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
         As the models were training I updated Trello and the daily_weekly_log.md files
 
 ---
+
+
 ## Wednesday October 7, 2026
 **Day Goal:** Continue training hypertuning models
 
@@ -403,7 +405,6 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     - Model training: 9 hours
     - Note:
         As the models were training I worked on other class work
-
 ---
 
 ## Thursday October 8, 2026
@@ -422,7 +423,6 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
     - Total: 6h 45 min
     - Model training: 6 hours
     - Analyzing model: 45 min
-
 
 ---
 
@@ -1182,8 +1182,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Wednesday Noveber 18, 2026
+**Day Goal:** Commbind and split the data
 
 **What Was Done:** 
 
