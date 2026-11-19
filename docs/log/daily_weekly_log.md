@@ -1196,12 +1196,12 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 **Time:**
-    - Total:
+    - Total: 3 hours 30 m
 
 ---
 
-## 
-**Day Goal:** 
+## Thursday November 19, 2026
+**Day Goal:** Augmentation training
 
 **What Was Done:** 
 

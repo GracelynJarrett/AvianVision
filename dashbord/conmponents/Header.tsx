@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 // Navigation links used in both the sidebar and aria labels
 const navLinks = [
@@ -16,7 +17,7 @@ export function SidebarNav() {
     const pathname = usePathname();
     return (
         <nav
-            className="w-[164px] flex-none bg-white border-r border-[#e3e6e8] py-6 flex flex-col gap-0.5 text-base sticky top-[50px] self-start box-border"
+            className="w-[164px] flex-none bg-white dark:bg-[#232629] border-r border-[#e3e6e8] dark:border-[#3b4045] py-6 flex flex-col gap-0.5 text-base sticky top-[50px] self-start box-border"
             style={{ minHeight: "calc(100vh - 50px)" }}
             aria-label="Main navigation"
         >
@@ -28,8 +29,8 @@ export function SidebarNav() {
                         key={href}
                         href={href}
                         className={`block py-2 pl-6 pr-3 transition-colors ${isActive
-                            ? "text-[#232629] bg-[#f8f9f9] border-r-[3px] border-[#ffbc88] font-semibold"
-                            : "text-[#6a737c] hover:bg-[#f8f9f9]"
+                            ? "text-[#232629] dark:text-white bg-[#f8f9f9] dark:bg-[#2d3135] border-r-[3px] border-[#ffbc88] font-semibold"
+                            : "text-[#6a737c] dark:text-[#9199a1] hover:bg-[#f8f9f9] dark:hover:bg-[#2d3135]"
                             }`}
                         aria-current={isActive ? "page" : undefined}
                     >
@@ -40,7 +41,33 @@ export function SidebarNav() {
         </nav>
     );
 }
+// Button that switches between light and dark mode and remembers the choice
+function ThemeToggle() {
+    const [isDark, setIsDark] = useState(false);
 
+    // When the page loads, match the button to the saved theme
+    useEffect(() => {
+        setIsDark(document.documentElement.classList.contains("dark"));
+    }, []);
+
+    // Flip the theme, update the <html> class, and save it for next visit
+    function toggle() {
+        const next = !isDark;
+        setIsDark(next);
+        document.documentElement.classList.toggle("dark", next);
+        localStorage.setItem("theme", next ? "dark" : "light");
+    }
+
+    return (
+        <button
+            onClick={toggle}
+            className="text-[12px] text-[#ffbc88] border border-[#ffbc88] rounded px-2 py-1 hover:bg-[#ffbc88] hover:text-[#232629] transition-colors"
+            aria-label="Toggle dark mode"
+        >
+            {isDark ? "Light mode" : "Dark mode"}
+        </button>
+    );
+}
 // Top header bar — slim, dark, sticky across all pages; navigation is in SidebarNav
 export default function Header() {
     return (
@@ -53,6 +80,8 @@ export default function Header() {
                 Avian<span className="text-[#ffbc88]">Vision</span>
             </span>
             <span className="ml-auto text-[12px] text-[#9199a1]">Neumont University capstone</span>
+            {/* Light / dark mode switch */}
+            <ThemeToggle />
         </header>
     );
 }

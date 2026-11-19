@@ -24,9 +24,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-[#f8f9f9]">
+      {/* Applies the saved theme before the page shows, so it doesn't flash light first */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");`,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col bg-[#f8f9f9] dark:bg-[#1b1d1f]">
         {/* Sticky top bar with brand name */}
         <Header />
 
