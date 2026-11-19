@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from sklearn.model_selection import StratifiedGroupKFold
+
 # ---- Settings (change these here) ----
 RAW_DIR = Path("data/bird_gate/raw")
 OUTPUT_CSV = Path("data/bird_gate/split_manifest.csv")
@@ -15,6 +17,7 @@ VAL_SHARE = 0.25                # 75/25 train/val
 AIRPLANE_CHALLENGE_SHARE = 0.30 # 30% of airplanes go to the challenge set
 CUB_MAX = 6000
 AVES_PER_SPECIES = 270
+GROUPS_CSV = Path("data/bird_gate/bvd_groups.csv")  # similar Bird vs Drone image groups
 
 # Caltech classes that are birds (or birdbath) and must never be negatives
 CALTECH_REMOVE = ["cormorant", "duck", "goose", "hummingbird", "ibis-101",
@@ -24,6 +27,15 @@ CALTECH_CHALLENGE = ["fighter_jet", "helicopter", "hot_air_balloon",
                      "blimp", "bat", "butterfly", "house_fly"]
 AIRPLANE_CLASS = "airplanes"
 
+# Not-bird images that really show a bird (found by hand review)
+HIDDEN_BIRDS = [
+    "places365/not_bird/lawn__1029007.jpg",
+    "places365/not_bird/lake_natural__1008002.jpg",
+    "places365/not_bird/kennel_outdoor__0987001.jpg",
+    "places365/not_bird/boardwalk__0282006.jpg",
+    "places365/not_bird/desert_vegetation__0576003.jpg",
+    "places365/not_bird/harbor__0840003.jpg",
+]
 
 def load_manifests():
     """Read all five manifest CSVs and stack them into one table."""
@@ -77,6 +89,10 @@ def build(test_rows=None, save=True):
     df = load_manifests()
     check_class_names(df)
 
+    # Remove not-bird images that were found to contain a bird
+    df = df[~df["path"].isin(HIDDEN_BIRDS)]
+    print(f"Removed {len(HIDDEN_BIRDS)} hidden bird images.")
+
     # In test mode, keep a few images from every class so each step still runs
     if test_rows:
         df = df.groupby(["source", "orig_class"], dropna=False).head(test_rows)
@@ -104,13 +120,22 @@ def build(test_rows=None, save=True):
     others = others.sample(n=min(room, len(others)), random_state=SEED)
     not_birds = pd.concat([drones, cal_tv[is_plane], others])
 
-    # Split train/val 75/25, keeping the bird/not-bird ratio the same in both
-    trainval = pd.concat([birds, not_birds])
-    val_idx = trainval.groupby("label", group_keys=False).sample(
-        frac=VAL_SHARE, random_state=SEED).index
+        # Split train/val 75/25. Similar Bird vs Drone images (same group) stay together,
+    # and the bird/not-bird ratio stays about the same in both
+    trainval = pd.concat([birds, not_birds]).reset_index(drop=True)
+    groups = pd.read_csv(GROUPS_CSV)
+    group_of = dict(zip(groups["path"], "bvd_" + groups["group"].astype(str)))
+    # Images with no group (CUB, Caltech) each count as their own group
+    trainval["group"] = trainval["path"].map(group_of).fillna(trainval["path"])
+    # 4 folds means one fold is 25%, which becomes val
+    folds = StratifiedGroupKFold(n_splits=4, shuffle=True, random_state=SEED)
+    _, val_pos = next(folds.split(trainval, trainval["label"], trainval["group"]))
     trainval["split"] = "train"
-    trainval.loc[val_idx, "split"] = "val"
+    trainval.loc[val_pos, "split"] = "val"
 
+    # Check that no group ended up in both train and val
+    mixed = (trainval.groupby("group")["split"].nunique() > 1).sum()
+    print(f"Groups split across train and val: {mixed} (must be 0)")
     # Test birds: 270 per Aves del Tolima species
     aves = df[df["source"] == "aves_tolima"]
     aves = aves.groupby("orig_class", group_keys=False).apply(
@@ -125,6 +150,8 @@ def build(test_rows=None, save=True):
 
     # Save everything into one CSV and print a summary table
     out = pd.concat([trainval, test, challenge], ignore_index=True)
+    # Show how many images each split has, by source and label
+    print(pd.crosstab([out["split"], out["source"]], out["label"], margins=True))
     if save:
         out.to_csv(OUTPUT_CSV, index=False)
         print(f"Saved {len(out)} rows to {OUTPUT_CSV}")
