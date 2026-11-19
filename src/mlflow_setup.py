@@ -33,11 +33,11 @@ def setup_mlflow(experiment_name=EXPERIMENT_NAME):
 
     # The first time only, create the experiment and send its artifacts to models/.
     # On later runs the experiment already exists, so we skip creating it.
-    if mlflow.get_experiment_by_name(EXPERIMENT_NAME) is None:
-        mlflow.create_experiment(EXPERIMENT_NAME, artifact_location=ARTIFACT_PATH.as_uri())
+    if mlflow.get_experiment_by_name(experiment_name) is None:
+        mlflow.create_experiment(experiment_name, artifact_location=ARTIFACT_PATH.as_uri())
 
     # Make this the active experiment so every run is filed under it.
-    mlflow.set_experiment(EXPERIMENT_NAME)
+    mlflow.set_experiment(experiment_name)
 
 
 # Run a quick test when this file is executed directly, to confirm MLflow is wired up.
