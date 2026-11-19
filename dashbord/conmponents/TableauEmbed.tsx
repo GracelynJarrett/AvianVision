@@ -41,6 +41,26 @@ function getToken(): Promise<string | null> {
     return sharedTokenPromise;
 }
 
+// Pairs each light Tableau link with its dark version.
+// Each env variable must be written out in full, because Next.js only
+// fills in NEXT_PUBLIC_ values it can see written in the code.
+// This assumes each light variable has the same name without _DARK.
+const DARK_URLS: Record<string, string | undefined> = {
+    [process.env.NEXT_PUBLIC_BIRD_OCCURRENCE ?? ""]: process.env.NEXT_PUBLIC_BIRD_OCCURRENCE_DARK,
+    [process.env.NEXT_PUBLIC_ALL_BIRD_OCCURRENCE ?? ""]: process.env.NEXT_PUBLIC_ALL_BIRD_OCCURRENCE_DARK,
+    [process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME ?? ""]: process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME_DARK,
+    [process.env.NEXT_PUBLIC_COUNTRY_DISTRIBUTION ?? ""]: process.env.NEXT_PUBLIC_COUNTRY_DISTRIBUTION_DARK,
+    [process.env.NEXT_PUBLIC_SPECIES_HEATMAP ?? ""]: process.env.NEXT_PUBLIC_SPECIES_HEATMAP_DARK,
+    [process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR ?? ""]: process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR_DARK,
+    [process.env.NEXT_PUBLIC_SPECIES_REICHNESS ?? ""]: process.env.NEXT_PUBLIC_SPECIES_REICHNESS_DARK,
+    [process.env.NEXT_PUBLIC_CONSERVATION_STATUS ?? ""]: process.env.NEXT_PUBLIC_CONSERVATION_STATUS_DARK,
+    [process.env.NEXT_PUBLIC_SPECIES_BY_FAMILY ?? ""]: process.env.NEXT_PUBLIC_SPECIES_BY_FAMILY_DARK,
+    [process.env.NEXT_PUBLIC_POPULATION_TREND ?? ""]: process.env.NEXT_PUBLIC_POPULATION_TREND_DARK,
+    [process.env.NEXT_PUBLIC_POPULATION_AND_CONSERVATION ?? ""]: process.env.NEXT_PUBLIC_POPULATION_AND_CONSERVATION_DARK,
+    [process.env.NEXT_PUBLIC_CONSERVATION_STATUS_FAMILY ?? ""]: process.env.NEXT_PUBLIC_CONSERVATION_STATUS_FAMILY_DARK,
+};
+
+
 interface TableauEmbedProps {
     url: string;               // The NEXT_PUBLIC_ env var value (share-link URL)
     title: string;             // Accessible label for the visualization
@@ -58,6 +78,19 @@ export default function TableauEmbed({ url, title, height = "500px", speciesFilt
     const [scriptLoaded, setScriptLoaded] = useState(false);
     // error tracks whether something went wrong fetching the token
     const [error, setError] = useState(false);
+
+    // isDark is true while the dashboard is in dark mode
+    const [isDark, setIsDark] = useState(false);
+
+    // Watch the <html> tag so the chart switches as soon as the toggle is pressed
+    useEffect(() => {
+        const html = document.documentElement;
+        const check = () => setIsDark(html.classList.contains("dark"));
+        check();
+        const observer = new MutationObserver(check);
+        observer.observe(html, { attributes: true, attributeFilter: ["class"] });
+        return () => observer.disconnect();
+    }, []);
 
     // vizRef gives us direct access to the <tableau-viz> DOM element so we can
     // call the Tableau JavaScript API methods on it after the viz loads
@@ -150,14 +183,16 @@ export default function TableauEmbed({ url, title, height = "500px", speciesFilt
         }
 
         applyFilters();
-    }, [token, scriptLoaded, speciesFilter, speciesFilters, clearFilter]);
+    }, [token, scriptLoaded, speciesFilter, speciesFilters, clearFilter, isDark]);
 
     // If the env var is missing, render nothing instead of crashing
     if (!url) return null;
 
     // Strip the share-link query params — we only want the base path to the view.
     // Filters are no longer added to the URL here; they are applied via the JS API above.
-    const embedUrl = url.trim().split("?")[0];
+    // In dark mode use the dark link if there is one; otherwise keep the light link
+    const chosenUrl = isDark ? (DARK_URLS[url] ?? url) : url;
+    const embedUrl = chosenUrl.trim().split("?")[0];
 
     // Show a user-friendly message if the token request failed
     if (error) {
@@ -191,6 +226,7 @@ export default function TableauEmbed({ url, title, height = "500px", speciesFilt
     // ref gives us access to the DOM element so the filter effect above can call the JS API
     return (
         <tableau-viz
+            key={embedUrl}
             ref={vizRef}
             src={embedUrl}
             token={token}

@@ -58,3 +58,95 @@ footer p {
   overflow-wrap: break-word;
 
 }
+
+
+
+/* ---- Dark mode for every page ----
+   The pages use fixed light colors (like bg-white or text-[#232629]).
+   When the toggle adds the "dark" class to <html>, these rules swap
+   each of those light colors for a dark one, on every page at once. */
+
+/* Card and page backgrounds */
+.dark .bg-white {
+  background-color: #1e2124;
+}
+
+.dark .bg-\[\#f8f9f9\] {
+  background-color: #17191b;
+}
+
+.dark .bg-\[\#f1f2f3\] {
+  background-color: #2a2e32;
+}
+
+/* Loading placeholders and empty bar tracks */
+.dark .bg-\[\#e3e6e8\] {
+  background-color: #3b4045;
+}
+
+/* Yellow highlight boxes (disclaimer, best run, open taxonomy box) */
+.dark .bg-\[\#fdf2d8\] {
+  background-color: #3a3020;
+}
+
+/* Blue info box on the Prediction page */
+.dark .bg-\[\#e8f4fd\] {
+  background-color: #1c2b3a;
+}
+
+/* Hover backgrounds, so hovering doesn't flash light */
+.dark .hover\:bg-\[\#f8f9f9\]:hover,
+.dark .hover\:bg-\[\#f1f2f3\]:hover {
+  background-color: #2a2e32;
+}
+
+.dark .hover\:bg-blue-50:hover {
+  background-color: #1c2b3a;
+}
+
+/* Text colors */
+.dark .text-\[\#232629\] {
+  color: #e8eaed;
+}
+
+.dark .text-\[\#6a737c\] {
+  color: #b0b7be;
+}
+
+.dark .text-\[\#2d6fa9\] {
+  color: #8cc4f2;
+}
+
+.dark .hover\:text-\[\#232629\]:hover {
+  color: #ffffff;
+}
+
+/* Borders and dividing lines */
+.dark .border-\[\#e3e6e8\],
+.dark .divide-\[\#e3e6e8\]>* {
+  border-color: #3b4045;
+}
+
+.dark .border-\[\#d6d9dc\],
+.dark .border-\[\#babfc4\] {
+  border-color: #4a5056;
+}
+
+.dark .border-t-\[\#babfc4\] {
+  border-top-color: #4a5056;
+}
+
+.dark .border-\[\#e6d8a7\] {
+  border-color: #5a4a2a;
+}
+
+.dark .border-\[\#b3d9f7\] {
+  border-color: #2d4a66;
+}
+
+/* Orange buttons, pills and highlighted cells keep dark text so it stays readable */
+.dark .bg-\[\#ffbc88\].text-\[\#232629\],
+.dark .bg-\[\#ffbc88\] .text-\[\#232629\],
+.dark .bg-\[\#ffbc88\] {
+  color: #232629;
+}
