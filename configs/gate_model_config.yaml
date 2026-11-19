@@ -1,0 +1,10 @@
+# Bird gate baseline model settings
+run_name: gate-baseline
+freeze_base: true      # blocks 1-2
+freeze_middle: true    # blocks 3-5
+freeze_end: true       # blocks 6-7 + top
+learning_rate: 0.001
+dropout: 0.2
+epochs: 10
+batch_size: 32
+optimizer: adam
