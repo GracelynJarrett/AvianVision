@@ -1185,13 +1185,14 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Wednesday Noveber 18, 2026
 **Day Goal:** Commbind and split the data
 
-**What Was Done:** 
+**What Was Done:** Combined and split the data, created all the files for traing the model, tested the model and mlflow conetion.
 
-**Challenges:** 
+**Challenges:** No challenges today
 
-**Blockers:** 
+**Blockers:** No blockers today
 
 **Summary:**
+    Today I was able to combind and split the data. Afterwareds I createed all the files I will need for the gate model traing. I also tested the connetion between the gate model and mlflow and it works. 
 
 
 **Time:**
