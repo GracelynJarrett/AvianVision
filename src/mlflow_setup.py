@@ -24,8 +24,9 @@ ARTIFACT_PATH = PROJECT_ROOT / "models"
 EXPERIMENT_NAME = "avianvision-bird-classification"
 
 
-def setup_mlflow():
-    """Points MLflow at the local SQLite database and selects the project's experiment."""
+def setup_mlflow(experiment_name=EXPERIMENT_NAME):
+    """Points MLflow at the local SQLite database and selects an experiment.
+    experiment_name: which experiment to file runs under (the classifier one by default)."""
     # Tell MLflow to store run data in the local SQLite database. Using forward
     # slashes (as_posix) keeps the path valid for SQLite on Windows.
     mlflow.set_tracking_uri(f"sqlite:///{DB_PATH.as_posix()}")
