@@ -1,0 +1,112 @@
+# Gate Hypertuning Experiments Configuration
+# ------------------------------------------
+# Each entry below is one hypertuning experiment for the bird / not-bird gate.
+# To run one, pass its name to gate_hypertuning.py with the --run flag:
+#
+#   python -m src.bird_gate.gate_hypertuning --run gate-base-middle-frozen-HT
+#
+# Experiments are organized into 2 groups based on which sections of EfficientNetB0
+# are frozen. Within each group, 4 runs vary one knob at a time (LR, dropout/epochs,
+# batch size) so results can be compared cleanly.
+#
+# Every run uses the color-focus-DA augmentation, which was picked from the
+# augmentation experiments (see gate_augmentation_experiments.yaml).
+#
+# Section definitions:
+#   base   = Blocks 1-2 (early layers - edges, colors, textures)
+#   middle = Blocks 3-5 (mid layers - shapes and patterns)
+#   end    = Blocks 6-7 (top layers - high-level, task-specific features)
+
+
+# --- BASE + MIDDLE FROZEN (only end can train) ---
+
+gate-base-middle-frozen-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+gate-base-middle-frozen-low-lr-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+gate-base-middle-frozen-low-dropout-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+gate-base-middle-frozen-large-batch-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: true
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
+
+
+# --- BASE FROZEN (middle + end can train) ---
+
+gate-base-frozen-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+gate-base-frozen-low-lr-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.00005
+  dropout: 0.2
+  epochs: 10
+  batch_size: 32
+  optimizer: adam
+
+gate-base-frozen-low-dropout-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.1
+  epochs: 15
+  batch_size: 32
+  optimizer: adam
+
+gate-base-frozen-large-batch-HT:
+  augmentation_run: color-focus-DA
+  freeze_base: true
+  freeze_middle: false
+  freeze_end: false
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 10
+  batch_size: 64
+  optimizer: adam
