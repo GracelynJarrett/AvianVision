@@ -1203,17 +1203,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Thursday November 19, 2026
 **Day Goal:** Augmentation training
 
-**What Was Done:** 
+**What Was Done:** All the Aumentation traing, set up for hypertuning, added dark mode
 
-**Challenges:** 
+**Challenges:** no challenges
 
-**Blockers:** 
+**Blockers:** no blockers
 
 **Summary:**
-
+    Today I did all the Augmentation expermets and prepared to run the hypertuning experments tomorrow. I also added Dark mode to my dashboard making suer all the graphs also had a dark mode
 
 **Time:**
-    - Total:
+    - Total: 3 hours
 
 ---
 
