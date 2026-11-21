@@ -1217,8 +1217,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Friday November 20, 2026
+**Day Goal:** Start traing hypertuning model, work on fixing the dashboard
 
 **What Was Done:** 
 

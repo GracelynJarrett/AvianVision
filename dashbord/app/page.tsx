@@ -13,19 +13,19 @@ const projectSections = [
 // The four navigation cards that link to the main sections of the app
 const exploreLinks = [
   { href: "/predict", title: "Prediction", description: "Identify a bird species using an AI-powered image prediction." },
-  { href: "/bird",    title: "Bird",        description: "Look up information about an individual bird species." },
-  { href: "/species", title: "Species",     description: "Compare different bird species side by side." },
-  { href: "/stats",   title: "Model Metrics", description: "Explore the performance of the AvianVision AI model." },
+  { href: "/bird", title: "Bird", description: "Look up information about an individual bird species." },
+  { href: "/species", title: "Species", description: "Compare different bird species side by side." },
+  { href: "/stats", title: "Model Metrics", description: "Explore the performance of the AvianVision AI model." },
 ];
 
 export default function Home() {
-  const [speciesCount,     setSpeciesCount]     = useState<number | null>(null);
-  const [countryCount,     setCountryCount]     = useState<number | null>(null);
-  const [yearRange,        setYearRange]        = useState<{ min: number | null; max: number | null } | null>(null);
-  const [accuracy,         setAccuracy]         = useState<number | null>(null);
-  const [f1Score,          setF1Score]          = useState<number | null>(null);
-  const [loss,             setLoss]             = useState<number | null>(null);
-  const [predictionCount,  setPredictionCount]  = useState<number | null>(null);
+  const [speciesCount, setSpeciesCount] = useState<number | null>(null);
+  const [countryCount, setCountryCount] = useState<number | null>(null);
+  const [yearRange, setYearRange] = useState<{ min: number | null; max: number | null } | null>(null);
+  const [accuracy, setAccuracy] = useState<number | null>(null);
+  const [f1Score, setF1Score] = useState<number | null>(null);
+  const [loss, setLoss] = useState<number | null>(null);
+  const [predictionCount, setPredictionCount] = useState<number | null>(null);
 
   // Fetch dashboard statistics from the API when the page first loads
   useEffect(() => {
@@ -47,43 +47,18 @@ export default function Home() {
     <main className="flex-1 min-w-0 bg-[#f8f9f9]">
 
       {/* Featured bird slideshow — full-width banner at the top of the content area */}
-      <BirdSlideshow />
+      <div className="p-6 pb-0"><BirdSlideshow /></div>
 
       <div className="p-6 flex flex-col gap-5">
 
-        {/* Welcome card — project tagline and quick-access buttons */}
-        <section className="bg-white border border-[#e3e6e8] rounded-lg p-6 shadow-sm">
-          <div className="flex flex-wrap gap-2 mb-3">
-            <span className="px-2 py-0.5 bg-[#f1f2f3] text-[#6a737c] text-sm font-medium rounded">AI identification</span>
-            <span className="px-2 py-0.5 bg-[#f1f2f3] text-[#6a737c] text-sm font-medium rounded">525 species</span>
-          </div>
-          <h1 className="text-2xl font-bold text-[#232629] mb-2 leading-tight">Welcome to AvianVision!</h1>
-          <p className="text-base text-[#6a737c] leading-relaxed max-w-[460px] mb-4">
-            Discover bird species through AI-powered image identification and explore the data behind the project.
-          </p>
-          <div className="flex gap-2 flex-wrap">
-            <Link
-              href="/predict"
-              className="px-4 py-2 bg-[#ffbc88] text-[#232629] font-semibold text-base rounded hover:bg-[#ff9f5a] transition-colors"
-            >
-              Identify a bird
-            </Link>
-            <Link
-              href="/bird"
-              className="px-4 py-2 bg-white border border-[#d6d9dc] text-[#232629] font-semibold text-base rounded hover:bg-[#f8f9f9] transition-colors"
-            >
-              Browse species
-            </Link>
-          </div>
-        </section>
 
         {/* Stat cards — four live numbers from the API */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Dataset",      value: speciesCount ?? "—",                                     sub: "Species" },
-            { label: "Coverage",     value: countryCount ?? "—",                                     sub: "Countries represented" },
-            { label: "Observations", value: `${yearRange?.min ?? "—"} – ${yearRange?.max ?? "—"}`,   sub: "Year range" },
-            { label: "Predictions",  value: predictionCount ?? "—",                                  sub: "Total predictions made" },
+            { label: "Dataset", value: speciesCount ?? "—", sub: "Species" },
+            { label: "Coverage", value: countryCount ?? "—", sub: "Countries represented" },
+            { label: "Observations", value: `${yearRange?.min ?? "—"} – ${yearRange?.max ?? "—"}`, sub: "Year range" },
+            { label: "Predictions", value: predictionCount ?? "—", sub: "Total predictions made" },
           ].map(({ label, value, sub }) => (
             <div key={label} className="bg-white border border-[#e3e6e8] border-t-[3px] border-t-blue-500 rounded-lg p-4">
               <div className="text-xs text-[#9199a1] uppercase tracking-widest mb-1">{label}</div>
@@ -103,9 +78,9 @@ export default function Home() {
               <Link href="/stats" className="text-sm text-blue-600 hover:text-blue-700">Model metrics →</Link>
             </div>
             {[
-              { label: "Accuracy", value: accuracy  !== null ? `${(accuracy  * 100).toFixed(2)}%` : "—", pct: (accuracy  ?? 0) * 100, color: "bg-green-500" },
-              { label: "F1 Score", value: f1Score   !== null ? `${(f1Score   * 100).toFixed(2)}%` : "—", pct: (f1Score   ?? 0) * 100, color: "bg-blue-500"  },
-              { label: "Loss",     value: loss       !== null ? loss.toFixed(4)                   : "—", pct: (loss      ?? 0) * 100, color: "bg-[#ffbc88]" },
+              { label: "Accuracy", value: accuracy !== null ? `${(accuracy * 100).toFixed(2)}%` : "—", pct: (accuracy ?? 0) * 100, color: "bg-green-500" },
+              { label: "F1 Score", value: f1Score !== null ? `${(f1Score * 100).toFixed(2)}%` : "—", pct: (f1Score ?? 0) * 100, color: "bg-blue-500" },
+              { label: "Loss", value: loss !== null ? loss.toFixed(4) : "—", pct: (loss ?? 0) * 100, color: "bg-[#ffbc88]" },
             ].map(({ label, value, pct, color }) => (
               <div key={label} className="flex items-center gap-4 mb-3">
                 <span className="w-16 text-base text-[#6a737c]">{label}</span>
