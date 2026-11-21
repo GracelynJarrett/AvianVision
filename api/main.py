@@ -714,7 +714,47 @@ def predict(file: UploadFile = File(...)):
         "bird": bird_info
     }
 
+# /predictions/recent returns the most recently predicted birds, newest first, with no repeats
+@app.get("/predictions/recent")
+def get_recent_predictions(count: int = Query(default=6, ge=1, le=6)):
+    """Returns up to `count` (1 to 6, default 6) different species the user predicted most recently.
 
+    If the same bird was predicted more than once, it only shows up once,
+    using the time of its newest prediction. UNKNOWN results are skipped."""
+
+    collection = get_predictions_collection()
+
+    recent = list(collection.aggregate([
+        # Skip any saved prediction with no species or an UNKNOWN label
+        {"$match": {"species_label": {"$nin": [None, "UNKNOWN"]}}},
+
+        # Put the newest predictions first
+        {"$sort": {"timestamp": -1}},
+
+        # Combine repeats into one row per species, keeping its newest time
+        {"$group": {
+            "_id": "$species_label",
+            "scientific_name": {"$first": "$scientific_name"},
+            "last_predicted": {"$first": "$timestamp"}
+        }},
+
+        # Sort the combined rows newest first again, then keep only `count` of them
+        {"$sort": {"last_predicted": -1}},
+        {"$limit": count},
+
+        # Rename _id back to species_label for the dashboard
+        {"$project": {
+            "_id": 0,
+            "species_label": "$_id",
+            "scientific_name": 1,
+            "last_predicted": 1
+        }}
+    ]))
+
+    return {
+        "count": len(recent),
+        "predictions": recent
+    }
 
 
 

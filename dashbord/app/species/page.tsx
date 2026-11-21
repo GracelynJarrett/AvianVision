@@ -11,11 +11,11 @@ function toTitleCase(str: string): string {
 function getStatusColor(status: string): string {
     switch (status?.toUpperCase()) {
         case "CRITICALLY ENDANGERED": return "bg-[#333333] text-white";
-        case "ENDANGERED":            return "bg-[#FF8A2A] text-white";
-        case "VULNERABLE":            return "bg-[#ffbc88] text-[#333333]";
-        case "NEAR THREATENED":       return "bg-[#fff99d] text-[#333333]";
-        case "LEAST CONCERN":         return "bg-[#fffdde] text-[#333333]";
-        default:                      return "bg-[#C9C9C9] text-[#333333]";
+        case "ENDANGERED": return "bg-[#FF8A2A] text-white";
+        case "VULNERABLE": return "bg-[#ffbc88] text-[#333333]";
+        case "NEAR THREATENED": return "bg-[#fff99d] text-[#333333]";
+        case "LEAST CONCERN": return "bg-[#fffdde] text-[#333333]";
+        default: return "bg-[#C9C9C9] text-[#333333]";
     }
 }
 
@@ -46,16 +46,16 @@ type TabName = typeof TABS[number];
 export default function SpeciesPage() {
 
     // Full list of 525 bird names loaded from the CSV, used to populate the datalists
-    const [birdNames,    setBirdNames]    = useState<string[]>([]);
+    const [birdNames, setBirdNames] = useState<string[]>([]);
 
     // Six comparison slots — each is either a confirmed species label or null (empty)
-    const [slots,        setSlots]        = useState<(string | null)[]>(DEFAULT_SLOTS);
+    const [slots, setSlots] = useState<(string | null)[]>(DEFAULT_SLOTS);
 
     // Per-slot typed text — decoupled from slots so half-typed strings don't trigger fetches
-    const [slotInputs,   setSlotInputs]   = useState<string[]>(DEFAULT_INPUTS);
+    const [slotInputs, setSlotInputs] = useState<string[]>(DEFAULT_INPUTS);
 
     // Fetched bird data, keyed by species label
-    const [birdDataMap,  setBirdDataMap]  = useState<Record<string, any>>({});
+    const [birdDataMap, setBirdDataMap] = useState<Record<string, any>>({});
 
     // Which slot indices are currently waiting for their API fetch to complete
     const [loadingSlots, setLoadingSlots] = useState<Set<number>>(new Set([0, 1]));
@@ -65,6 +65,10 @@ export default function SpeciesPage() {
 
     // Diet pagination — tracks the current prey page (10 items) per bird slot index
     const [dietPages, setDietPages] = useState<Record<number, number>>({});
+
+    // Up to 6 different birds the user predicted most recently, newest first
+    const [recentBirds, setRecentBirds] = useState<string[]>([]);
+
 
     // In-memory cache so switching back to a previously viewed bird is instant
     const birdDataCache = useRef<Map<string, any>>(new Map());
@@ -87,6 +91,30 @@ export default function SpeciesPage() {
             })
             .catch(err => console.error("Error loading bird names:", err));
     }, []);
+
+
+    // Put the user's most recent prediction in slot 1 (Bird 1); if there are no predictions, keep the defaults
+    useEffect(() => {
+        fetch("http://127.0.0.1:8000/predictions/recent?count=6")
+            .then(r => r.json())
+            .then(data => {
+                // Save all recent birds for the button, then use the newest one for slot 1
+                const labels: string[] = (data.predictions ?? []).map((p: any) => p.species_label);
+                setRecentBirds(labels);
+                const latest = labels[0];
+                if (!latest) return;
+
+                // Slot 1 becomes the predicted bird. If that bird was already in another
+                // Slot 1 becomes the predicted bird and the other five slots start empty
+                setSlots([latest, null, null, null, null, null]);
+                setSlotInputs([latest, "", "", "", "", ""]);
+            })
+            .catch(err => console.error("Error loading latest prediction:", err));
+    }, []);
+
+
+
+
 
     // Whenever a slot changes to a new label, fetch that bird's data (or pull from cache)
     useEffect(() => {
@@ -143,10 +171,22 @@ export default function SpeciesPage() {
 
     // Clears a slot entirely — removes from the selector and the comparison view
     function handleClearSlot(i: number) {
-        const nextSlots  = [...slots];
+        const nextSlots = [...slots];
         const nextInputs = [...slotInputs];
-        nextSlots[i]  = null;
+        nextSlots[i] = null;
         nextInputs[i] = "";
+        setSlots(nextSlots);
+        setSlotInputs(nextInputs);
+    }
+
+    // Fills the slots with up to 6 recent predictions, newest in Bird 1; leftover slots are emptied
+    function handleUseRecent() {
+        const nextSlots: (string | null)[] = [null, null, null, null, null, null];
+        const nextInputs: string[] = ["", "", "", "", "", ""];
+        recentBirds.slice(0, 6).forEach((label, i) => {
+            nextSlots[i] = label;
+            nextInputs[i] = label;
+        });
         setSlots(nextSlots);
         setSlotInputs(nextInputs);
     }
@@ -169,11 +209,10 @@ export default function SpeciesPage() {
                             <button
                                 key={t}
                                 onClick={() => setTab(t)}
-                                className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium whitespace-nowrap ${
-                                    tab === t
-                                        ? "border-[#ffbc88] text-[#232629] font-semibold"
-                                        : "border-transparent text-[#6a737c] hover:text-[#232629]"
-                                }`}
+                                className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium whitespace-nowrap ${tab === t
+                                    ? "border-[#ffbc88] text-[#232629] font-semibold"
+                                    : "border-transparent text-[#6a737c] hover:text-[#232629]"
+                                    }`}
                             >
                                 {t}
                             </button>
@@ -229,7 +268,7 @@ export default function SpeciesPage() {
                                                 <tr className="border-b border-[#e3e6e8]">
                                                     <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Conservation Status</td>
                                                     {activeSlots.map(({ label, index }) => {
-                                                        const bird   = birdDataMap[label];
+                                                        const bird = birdDataMap[label];
                                                         const status = bird?.conservation?.status_label;
                                                         return (
                                                             <td key={index} className="px-4 py-3 bg-white">
@@ -247,7 +286,7 @@ export default function SpeciesPage() {
                                                 <tr className="border-b border-[#e3e6e8] bg-[#f8f9f9]">
                                                     <td className="sticky left-0 z-10 bg-[#f8f9f9] px-4 py-3 font-semibold text-base text-[#232629]">Population Trend</td>
                                                     {activeSlots.map(({ label, index }) => {
-                                                        const bird  = birdDataMap[label];
+                                                        const bird = birdDataMap[label];
                                                         const trend = bird?.conservation?.population_trend;
                                                         return (
                                                             <td key={index} className="px-4 py-3 text-base bg-[#f8f9f9] text-[#6a737c]">
@@ -261,7 +300,7 @@ export default function SpeciesPage() {
                                                 <tr className="border-b border-[#e3e6e8]">
                                                     <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-base text-[#232629]">Movement</td>
                                                     {activeSlots.map(({ label, index }) => {
-                                                        const bird     = birdDataMap[label];
+                                                        const bird = birdDataMap[label];
                                                         const movement = bird?.conservation?.movement_patterns;
                                                         return (
                                                             <td key={index} className="px-4 py-3 bg-white text-base text-[#6a737c]">
@@ -282,7 +321,7 @@ export default function SpeciesPage() {
                                                         <tr className="border-t-2 border-t-[#babfc4] border-b border-[#e3e6e8]">
                                                             <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Order</td>
                                                             {activeSlots.map(({ label, index }) => {
-                                                                const order    = birdDataMap[label]?.taxonomy?.order;
+                                                                const order = birdDataMap[label]?.taxonomy?.order;
                                                                 const isShared = order && (orderFreq.get(order) ?? 0) > 1;
                                                                 return (
                                                                     <td key={index} className={`px-4 py-3 text-sm text-[#232629] ${isShared ? "bg-[#ffbc88]" : "bg-white"}`}>
@@ -305,7 +344,7 @@ export default function SpeciesPage() {
                                                         <tr className="border-b border-[#e3e6e8]">
                                                             <td className="sticky left-0 z-10 bg-white px-4 py-3 font-semibold text-sm text-[#232629]">Family</td>
                                                             {activeSlots.map(({ label, index }) => {
-                                                                const family   = birdDataMap[label]?.taxonomy?.family;
+                                                                const family = birdDataMap[label]?.taxonomy?.family;
                                                                 const isShared = family && (familyFreq.get(family) ?? 0) > 1;
                                                                 return (
                                                                     <td key={index} className={`px-4 py-3 text-sm text-[#232629] ${isShared ? "bg-[#ffbc88]" : "bg-white"}`}>
@@ -321,10 +360,10 @@ export default function SpeciesPage() {
                                                 <tr>
                                                     <td className="sticky left-0 z-10 bg-[#f8f9f9] px-4 py-3 font-semibold text-sm text-[#232629]">Genus</td>
                                                     {activeSlots.map(({ label, index }, colIdx) => {
-                                                        const bird       = birdDataMap[label];
-                                                        const genus      = bird?.taxonomy?.genus;
+                                                        const bird = birdDataMap[label];
+                                                        const genus = bird?.taxonomy?.genus;
                                                         const firstGenus = birdDataMap[activeSlots[0]?.label]?.taxonomy?.genus;
-                                                        const matches    = colIdx > 0 && genus && firstGenus && genus === firstGenus;
+                                                        const matches = colIdx > 0 && genus && firstGenus && genus === firstGenus;
                                                         return (
                                                             <td key={index} className={`px-4 py-3 text-base text-[#6a737c] ${matches ? "bg-[#fdf2d8]" : "bg-[#f8f9f9]"}`}>
                                                                 {loadingSlots.has(index) ? <div className="h-4 w-20 bg-[#e3e6e8] animate-pulse rounded" /> : (genus ?? "—")}
@@ -348,14 +387,14 @@ export default function SpeciesPage() {
                                     </div>
                                     <div className="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {activeSlots.map(({ label, index }) => {
-                                            const bird      = birdDataMap[label];
+                                            const bird = birdDataMap[label];
                                             const isLoading = loadingSlots.has(index);
-                                            const rawPrey   = bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? [];
-                                            const prey      = cleanPreyList(rawPrey);
-                                            const pageSize  = 10;
-                                            const page      = dietPages[index] ?? 0;
+                                            const rawPrey = bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? [];
+                                            const prey = cleanPreyList(rawPrey);
+                                            const pageSize = 10;
+                                            const page = dietPages[index] ?? 0;
                                             const totalPages = Math.ceil(prey.length / pageSize);
-                                            const pagePrey  = prey.slice(page * pageSize, (page + 1) * pageSize);
+                                            const pagePrey = prey.slice(page * pageSize, (page + 1) * pageSize);
                                             return (
                                                 <div key={index} className="bg-[#f8f9f9] rounded-lg p-4 flex flex-col gap-2">
                                                     <h3 className="font-semibold text-base text-[#232629]">{toTitleCase(label)}</h3>
@@ -499,10 +538,10 @@ export default function SpeciesPage() {
                     {tab === "Trends & Status" && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             {[
-                                { env: process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!,         title: "Observation Trend by Year" },
-                                { env: process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!,    title: "Monthly Sighting Over Time" },
-                                { env: process.env.NEXT_PUBLIC_POPULATION_TREND!,             title: "Population Trend" },
-                                { env: process.env.NEXT_PUBLIC_CONSERVATION_STATUS!,          title: "Conservation Status" },
+                                { env: process.env.NEXT_PUBLIC_OBSERVATION_BY_YEAR!, title: "Observation Trend by Year" },
+                                { env: process.env.NEXT_PUBLIC_MONTHLY_SIGHTING_OVERTIME!, title: "Monthly Sighting Over Time" },
+                                { env: process.env.NEXT_PUBLIC_POPULATION_TREND!, title: "Population Trend" },
+                                { env: process.env.NEXT_PUBLIC_CONSERVATION_STATUS!, title: "Conservation Status" },
                             ].map(({ env, title }) => (
                                 <div key={title} className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
@@ -533,10 +572,10 @@ export default function SpeciesPage() {
                         ) : (
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {activeSlots.map(({ label, index }) => {
-                                    const bird      = birdDataMap[label];
+                                    const bird = birdDataMap[label];
                                     const isLoading = loadingSlots.has(index);
                                     const fullText: string = bird?.wikipedia?.extract ?? "";
-                                    const summary   = fullText.length > 400 ? fullText.slice(0, 400).trimEnd() + "…" : fullText;
+                                    const summary = fullText.length > 400 ? fullText.slice(0, 400).trimEnd() + "…" : fullText;
                                     return (
                                         <div key={index} className="bg-white border border-[#e3e6e8] rounded-lg p-4 flex flex-col gap-3 shadow-sm">
                                             <h3 className="font-bold text-base text-[#232629]">{toTitleCase(label)}</h3>
@@ -571,11 +610,19 @@ export default function SpeciesPage() {
                     <p className="text-sm text-[#9199a1]">Pick up to 6 birds to compare.</p>
                 </div>
 
+                {/* Fills the slots with recent predictions; only clickable once there are 2 or more */}
+                <button
+                    onClick={handleUseRecent}
+                    disabled={recentBirds.length < 2}
+                    className="w-full rounded-lg bg-[#ffbc88] px-3 py-2 text-sm font-semibold text-[#232629] hover:bg-[#ff9f5a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                    Use recent predictions ({recentBirds.length})
+                </button>
+
                 {/* Six search slots */}
                 {slots.map((label, i) => (
-                    <div key={i} className={`relative rounded-lg p-3 border transition-colors ${
-                        label ? "border-[#babfc4] bg-white" : "border-dashed border-[#d6d9dc] bg-[#f8f9f9]"
-                    }`}>
+                    <div key={i} className={`relative rounded-lg p-3 border transition-colors ${label ? "border-[#babfc4] bg-white" : "border-dashed border-[#d6d9dc] bg-[#f8f9f9]"
+                        }`}>
                         <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9199a1] mb-1.5">Bird {i + 1}</p>
                         <div className="relative">
                             <input

@@ -15,11 +15,11 @@ function toTitleCase(str: string): string {
 function getStatusColor(status: string): string {
     switch (status?.toUpperCase()) {
         case "CRITICALLY ENDANGERED": return "bg-[#333333] text-white";
-        case "ENDANGERED":            return "bg-[#FF8A2A] text-white";
-        case "VULNERABLE":            return "bg-[#ffbc88] text-[#333333]";
-        case "NEAR THREATENED":       return "bg-[#fff99d] text-[#333333]";
-        case "LEAST CONCERN":         return "bg-[#fffdde] text-[#333333]";
-        default:                      return "bg-[#C9C9C9] text-[#333333]";
+        case "ENDANGERED": return "bg-[#FF8A2A] text-white";
+        case "VULNERABLE": return "bg-[#ffbc88] text-[#333333]";
+        case "NEAR THREATENED": return "bg-[#fff99d] text-[#333333]";
+        case "LEAST CONCERN": return "bg-[#fffdde] text-[#333333]";
+        default: return "bg-[#C9C9C9] text-[#333333]";
     }
 }
 
@@ -39,8 +39,8 @@ function cleanPreyList(list: any[]): string[] {
 
 // A single prey pill — hovering fetches a Wikipedia thumbnail and shows it in a card above the pill
 function PreyPill({ name, filled = false }: { name: string; filled?: boolean }) {
-    const [showCard,   setShowCard]   = useState(false);
-    const [imgSrc,     setImgSrc]     = useState<string | null | undefined>(undefined);
+    const [showCard, setShowCard] = useState(false);
+    const [imgSrc, setImgSrc] = useState<string | null | undefined>(undefined);
     const [imgLoading, setImgLoading] = useState(false);
 
     // Fetch a thumbnail from Wikipedia's public summary API; results are cached so the same prey only fetches once
@@ -68,11 +68,10 @@ function PreyPill({ name, filled = false }: { name: string; filled?: boolean }) 
             onClick={() => { setShowCard(v => !v); loadImage(); }}
         >
             {/* The pill — filled orange for prey types, outlined for specific prey names */}
-            <span className={`cursor-pointer rounded-full px-3 py-1 text-sm select-none transition-opacity hover:opacity-80 ${
-                filled
-                    ? "bg-[#ffbc88] font-medium text-[#232629]"
-                    : "bg-white border border-[#ffbc88] text-[#232629]"
-            }`}>
+            <span className={`cursor-pointer rounded-full px-3 py-1 text-sm select-none transition-opacity hover:opacity-80 ${filled
+                ? "bg-[#ffbc88] font-medium text-[#232629]"
+                : "bg-white border border-[#ffbc88] text-[#232629]"
+                }`}>
                 {name}
             </span>
 
@@ -122,10 +121,10 @@ function WikiAccordionItem({ title, content }: { title: string; content: string 
 
 // Short educational description for each taxonomic rank
 const RANK_DESCRIPTIONS: Record<string, string> = {
-    Class:   "Class is one of the broadest groupings in animal classification. All birds belong to class Aves — they share key traits like feathers, beaks, warm blood, and hard-shelled eggs.",
-    Order:   "Order groups families that share a common ancestor. Birds in the same order are more closely related to each other than to birds in different orders.",
-    Family:  "Family groups genera that look and behave similarly. Birds in the same family often share physical features, nesting habits, or diet — even if they vary in size and color.",
-    Genus:   "Genus groups species that are very closely related — often similar in appearance and behavior. The genus name is the first word in a bird's two-part scientific name.",
+    Class: "Class is one of the broadest groupings in animal classification. All birds belong to class Aves — they share key traits like feathers, beaks, warm blood, and hard-shelled eggs.",
+    Order: "Order groups families that share a common ancestor. Birds in the same order are more closely related to each other than to birds in different orders.",
+    Family: "Family groups genera that look and behave similarly. Birds in the same family often share physical features, nesting habits, or diet — even if they vary in size and color.",
+    Genus: "Genus groups species that are very closely related — often similar in appearance and behavior. The genus name is the first word in a bird's two-part scientific name.",
     Species: "Species is the most specific classification level. Birds of the same species can reproduce with each other. Each species has a unique two-part scientific name made up of the genus and species identifier.",
 };
 
@@ -136,10 +135,10 @@ function TaxonomySection({ birdData }: { birdData: any }) {
 
     // Build the ordered list of taxonomy levels using the bird's actual data
     const levels = [
-        { label: "Class",   value: birdData.taxonomy?.class },
-        { label: "Order",   value: birdData.taxonomy?.order },
-        { label: "Family",  value: birdData.taxonomy?.family },
-        { label: "Genus",   value: birdData.taxonomy?.genus },
+        { label: "Class", value: birdData.taxonomy?.class },
+        { label: "Order", value: birdData.taxonomy?.order },
+        { label: "Family", value: birdData.taxonomy?.family },
+        { label: "Genus", value: birdData.taxonomy?.genus },
         { label: "Species", value: birdData.scientific_name },
     ].filter(level => level.value); // skip any levels the API didn't return
 
@@ -165,11 +164,10 @@ function TaxonomySection({ birdData }: { birdData: any }) {
                             <div key={level.label} className="flex items-center gap-1.5">
                                 <button
                                     onClick={() => handleBoxClick(level.label)}
-                                    className={`flex flex-col items-center rounded-lg px-4 py-2.5 min-w-[90px] border-2 transition-colors cursor-pointer ${
-                                        isOpen
-                                            ? "bg-[#fdf2d8] border-[#ffbc88]"
-                                            : "bg-[#f8f9f9] border-[#e3e6e8] hover:border-[#babfc4]"
-                                    }`}
+                                    className={`flex flex-col items-center rounded-lg px-4 py-2.5 min-w-[90px] border-2 transition-colors cursor-pointer ${isOpen
+                                        ? "bg-[#fdf2d8] border-[#ffbc88]"
+                                        : "bg-[#f8f9f9] border-[#e3e6e8] hover:border-[#babfc4]"
+                                        }`}
                                     aria-expanded={isOpen}
                                 >
                                     <span className="text-sm font-semibold uppercase tracking-widest text-[#9199a1] mb-0.5">{level.label}</span>
@@ -201,22 +199,24 @@ function TaxonomySection({ birdData }: { birdData: any }) {
 function BirdPageInner() {
     // Read the ?species= URL param so links from elsewhere open the right bird directly
     const searchParams = useSearchParams();
-    const urlSpecies   = searchParams.get("species")?.toUpperCase().trim() ?? DEFAULT_BIRD;
+    const urlSpecies = searchParams.get("species")?.toUpperCase().trim() ?? DEFAULT_BIRD;
 
-    const [birdNames,       setBirdNames]       = useState<string[]>([]);
-    const [searchQuery,     setSearchQuery]     = useState(urlSpecies);
-    const [selectedBird,    setSelectedBird]    = useState(urlSpecies);
-    const [birdData,        setBirdData]        = useState<any>(null);
+    const [birdNames, setBirdNames] = useState<string[]>([]);
+    const [searchQuery, setSearchQuery] = useState(urlSpecies);
+    const [selectedBird, setSelectedBird] = useState(urlSpecies);
+    const [birdData, setBirdData] = useState<any>(null);
     const [birdDataLoading, setBirdDataLoading] = useState(true);
-    const [birdImage,       setBirdImage]       = useState<string | null>(null);
-    const [plumageImages,   setPlumageImages]   = useState<string[]>([]);
-    const [plumageLoading,  setPlumageLoading]  = useState(false);
+    const [birdImage, setBirdImage] = useState<string | null>(null);
+    const [plumageImages, setPlumageImages] = useState<string[]>([]);
+    const [plumageLoading, setPlumageLoading] = useState(false);
 
     // Which page of prey items to show (10 at a time); resets when bird changes
+    // True once we know which bird to show, so the Tableau charts only load once, for the right bird
+    const [birdReady, setBirdReady] = useState(!!searchParams.get("species"));
     const [preyPage, setPreyPage] = useState(0);
 
     // In-memory caches — switching back to a previously viewed bird is instant
-    const birdDataCache  = useRef<Map<string, any>>(new Map());
+    const birdDataCache = useRef<Map<string, any>>(new Map());
     const birdImageCache = useRef<Map<string, string>>(new Map());
 
     // Load the full list of 525 bird species names from the CSV when the page first opens
@@ -233,8 +233,34 @@ function BirdPageInner() {
             .catch(error => console.error("Error loading bird names:", error));
     }, []);
 
+    // If no bird was picked in the URL, open on the user's most recent prediction instead of the default bird
+    useEffect(() => {
+        // A ?species= link (like "Learn more" in the slideshow) always wins, so do nothing
+        if (searchParams.get("species")) return;
+
+        fetch("http://127.0.0.1:8000/predictions/recent?count=1")
+            .then(response => response.json())
+            .then(data => {
+                // Take the newest predicted bird; if there are none, keep the default bird
+                const latest = data.predictions?.[0]?.species_label;
+                if (latest) {
+                    setSearchQuery(latest);
+                    setSelectedBird(latest);
+                }
+            })
+            .catch(error => console.error("Error loading latest prediction:", error))
+            // Whether or not a prediction was found, the bird is now decided
+            .finally(() => setBirdReady(true));
+    }, []);
+
+
+
+
     // Fetch the bird's enrichment data — checks the cache first so repeat visits are instant
     useEffect(() => {
+        // Set to true when the bird changes, so a late answer for the old bird is ignored
+        let cancelled = false;
+
         if (birdDataCache.current.has(selectedBird)) {
             setBirdData(birdDataCache.current.get(selectedBird));
             setBirdDataLoading(false);
@@ -248,18 +274,26 @@ function BirdPageInner() {
                 return response.json();
             })
             .then(data => {
+                // Always save to the cache, but only show it if this is still the selected bird
                 birdDataCache.current.set(selectedBird, data.bird);
+                if (cancelled) return;
                 setBirdData(data.bird);
                 setBirdDataLoading(false);
             })
             .catch(error => {
                 console.error("Error loading bird information:", error);
-                setBirdDataLoading(false);
+                if (!cancelled) setBirdDataLoading(false);
             });
+
+        // Runs when the bird changes: marks this request as out of date
+        return () => { cancelled = true; };
     }, [selectedBird]);
 
     // Fetch the bird's dataset image — checks the cache first so repeat visits are instant
     useEffect(() => {
+        // Set to true when the bird changes, so a late image for the old bird is ignored
+        let cancelled = false;
+
         if (birdImageCache.current.has(selectedBird)) {
             setBirdImage(birdImageCache.current.get(selectedBird)!);
             return;
@@ -271,23 +305,34 @@ function BirdPageInner() {
                 return response.blob();
             })
             .then(blob => {
+                // Always save to the cache, but only show it if this is still the selected bird
                 const url = URL.createObjectURL(blob);
                 birdImageCache.current.set(selectedBird, url);
-                setBirdImage(url);
+                if (!cancelled) setBirdImage(url);
             })
             .catch(error => console.error("Error loading bird image:", error));
+
+        // Runs when the bird changes: marks this request as out of date
+        return () => { cancelled = true; };
     }, [selectedBird]);
 
     // Fetch Wikimedia plumage images whenever the selected bird changes
     useEffect(() => {
         if (!selectedBird) return;
+
+        // Set to true when the bird changes, so late photos for the old bird are ignored
+        let cancelled = false;
+
         setPlumageLoading(true);
         setPlumageImages([]);
         fetch(`http://127.0.0.1:8000/bird/${encodeURIComponent(selectedBird)}/plumage`)
             .then(r => r.json())
-            .then(data => setPlumageImages(data.images ?? []))
-            .catch(() => setPlumageImages([]))
-            .finally(() => setPlumageLoading(false));
+            .then(data => { if (!cancelled) setPlumageImages(data.images ?? []); })
+            .catch(() => { if (!cancelled) setPlumageImages([]); })
+            .finally(() => { if (!cancelled) setPlumageLoading(false); });
+
+        // Runs when the bird changes: marks this request as out of date
+        return () => { cancelled = true; };
     }, [selectedBird]);
 
     // Updates the search input and loads the bird if the typed value matches a name in the list
@@ -396,7 +441,7 @@ function BirdPageInner() {
             {birdData && (() => {
                 const preyNames = cleanPreyList(birdData.diet?.prey_common_names);
                 const preyTypes = cleanPreyList(birdData.diet?.prey_classes);
-                const hasData   = preyNames.length > 0 || preyTypes.length > 0;
+                const hasData = preyNames.length > 0 || preyTypes.length > 0;
                 return (
                     <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                         <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
@@ -497,7 +542,7 @@ function BirdPageInner() {
             )}
 
             {/* ── Migration & Sightings ─────────────────────────────────────────── */}
-            {birdData?.migration && (
+            {birdData?.migration && birdReady && (
                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
                         <span className="font-semibold text-base text-[#232629]">Migration &amp; Sightings</span>
@@ -516,7 +561,7 @@ function BirdPageInner() {
                                     <div className="flex flex-col gap-3">
                                         {(() => {
                                             const countries = birdData.migration.top_countries.slice(0, 5);
-                                            const maxCount  = Math.max(...countries.map((c: any) => c.count ?? 0));
+                                            const maxCount = Math.max(...countries.map((c: any) => c.count ?? 0));
                                             const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
                                             return countries.map((c: any) => {
                                                 let countryName = c.country;
