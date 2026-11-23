@@ -97,3 +97,36 @@ Its train vs val gap is small (0.9976 vs 0.9934), so it is not overfitting much.
 
 
 # Final results
+
+## Setup
+Model: gate-base-frozen-HT, re-trained once with the same config (the hypertuning run did not save weights).
+Script: src/bird_gate/gate_add_testset.py. MLflow run: gate-base-frozen-HT-final. The model is saved in this run.
+Test set: Aves del Tolima (birds) + Places365 (not-birds), 5,920 images.
+Challenge set: 7 held-out Caltech classes (fighter_jet, helicopter, hot_air_balloon, blimp, bat, butterfly, house_fly) + 30% of airplanes, 438 images, all not-birds.
+Set sizes logged in MLflow: train 5,036, val 1,678, test 5,920, challenge 438. These match split_manifest.csv, so adding the test set did not shrink train or val.
+Bird and not-bird counts for train (2,535 birds, 2,501 not-birds) and test (2,958 birds, 2,962 not-birds) are worked out from the logged accuracy, precision, and recall.
+Augmentation used for the re-train (color-focus-DA): horizontal flip, rotation 0.05, zoom 0.05, brightness 0.25, contrast 0.25.
+
+## Results
+Set	Accuracy	AUC	Bird recall	Not-bird recall	F1	Loss
+Train (last epoch)	0.9954	0.9999	0.9945	0.9964	0.9955	0.0129
+Val	0.9911	0.9967	0.9882	0.9940	0.9911	0.0369
+Test	0.9473	0.9796	0.9006	0.9939	0.9447	0.2409
+Challenge	0.9269	n/a	n/a	0.9269	n/a	n/a
+Set	Birds missed	Not-birds let through
+Train (last epoch)	14 of 2,535	9 of 2,501
+Val	10 of 845	5 of 833
+Test	294 of 2,958	18 of 2,962
+Challenge	n/a	32 of 438
+
+## Notes:
+
+Train numbers are measured during the last training epoch, on augmented images with dropout on, so they are a little rougher than the val and test numbers.
+The challenge set has no birds, so AUC, bird recall, F1, and birds missed do not apply to it (n/a). Its accuracy is the same as its not-bird recall. Challenge loss was not logged.
+
+## What the results show
+The re-train matched the original hypertuning run closely (val accuracy 0.9911 vs 0.9934), so the saved model is a fair copy of the chosen one.
+Not-birds: the gate stays strong on new data. Not-bird recall is 0.994 on both val and test.
+Birds: bird recall drops from 0.988 on val to 0.901 on test. The test birds come from a different source (Aves del Tolima) than the training birds (CUB + Bird vs Drone), so the gate has partly learned the style of the training bird photos. This is the gate's main weakness.
+Challenge: the gate blocked 406 of 438 never-seen not-bird types (92.7%). 32 got through as birds.
+Test AUC (0.98) is still high, so the gate ranks birds above not-birds well. Many missed birds are likely just under the 0.5 cut-off.

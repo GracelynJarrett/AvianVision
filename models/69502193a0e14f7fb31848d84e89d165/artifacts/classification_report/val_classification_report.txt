@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+    not_bird       0.99      0.99      0.99       833
+        bird       0.99      0.99      0.99       845
+
+    accuracy                           0.99      1678
+   macro avg       0.99      0.99      0.99      1678
+weighted avg       0.99      0.99      0.99      1678

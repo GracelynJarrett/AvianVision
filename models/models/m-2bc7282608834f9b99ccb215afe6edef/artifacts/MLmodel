@@ -1,0 +1,22 @@
+artifact_path: file:///mnt/c/workspace/neumont/AvianVision/models/models/m-2bc7282608834f9b99ccb215afe6edef/artifacts
+flavors:
+  python_function:
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.tensorflow
+    python_version: 3.12.14
+  tensorflow:
+    code: null
+    data: data
+    keras_version: 2.21.0
+    model_type: keras
+    save_format: tf
+mlflow_version: 3.16.1
+model_id: m-2bc7282608834f9b99ccb215afe6edef
+model_size_bytes: 49105855
+model_uuid: m-2bc7282608834f9b99ccb215afe6edef
+prompts: null
+run_id: 69502193a0e14f7fb31848d84e89d165
+utc_time_created: '2026-11-23 18:59:52.563588'
