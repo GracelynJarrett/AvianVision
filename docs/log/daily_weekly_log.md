@@ -87,7 +87,7 @@ carry-over means for next week's goals.]
 
 ---
 
-## Tuesday September 15,2026
+## Tuesday September 15, 2026
 **Day Goal:** Review applications and decide what to do with Snowflake
 
 **What Was Done:** Reviewed applications, made a decision about Snowflake
@@ -102,7 +102,7 @@ carry-over means for next week's goals.]
 ---
 
 
-## Week 1 Review
+## Week 0 Review
 
 **Week Goal:** Get API access, set up Snowflake, and review some applications
 **What Was Done:** Got API access, reviewed applications, and decided what to do with Snowflake
@@ -185,7 +185,7 @@ carry-over means for next week's goals.]
 ---
 
 ## Thursday September 24, 2026
-**Day Goal:** Complet the CSV File 
+**Day Goal:** Complete the CSV File 
 
 **What Was Done:** Completed the CSV file and started exploring the dataset
 
@@ -233,7 +233,7 @@ carry-over means for next week's goals.]
 
 
 # Week 2 - Start Training Models
-## Sunday September 27,2026
+## Sunday September 27, 2026
 **Day Goal:** Create EfficientNetB0 model builder and YAML files
 
 **What Was Done:** Set up access to GPU and created YAML files
@@ -275,7 +275,7 @@ carry-over means for next week's goals.]
     Today I tried to train my base model and it worked, but only the params were logged to MLflow, so I could not view my model's metrics. I also ran out of Claude credits so I had to wait until Thursday to fix my problem, because I tried ChatGPT but I quickly ran out of credits too.
 
 ---
-## Thursday
+## Thursday October 1, 2026
 **Day Goal:** Fix train.py and log Base model into mlflow
 
 **What Was Done:** Fixed train.py and logged the base model
@@ -288,7 +288,7 @@ carry-over means for next week's goals.]
     Today I was able to train my base model. I had no challenges or blockers.
   
 ---
-## Friday
+## Friday October 2, 2026
 **Day Goal:** Set up augmentation runs, run 1st augmentation
 
 **What Was Done:** Set up augmentation
@@ -398,7 +398,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 **Blockers:** No blockers
 
 **Summary:**
-    Today I trained 9 more hypertuning models, that means tomorrow I will only need to make 5 more models, then I can analyze and pick the best model for my project.
+    Today I trained 9 more hypertuning models. That means tomorrow I will only need to make 5 more models, then I can analyze and pick the best model for my project.
 
 **Time:**
     - Total: 9 hours
@@ -502,7 +502,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 ## Monday October 12, 2026
-**Day Goal:** Set up snowflake
+**Day Goal:** Set up Snowflake
 
 **What Was Done:** Snowflake was set up, connected to MongoDB Atlas, connected to Snowflake, accessed the data, and requested the migration data from eBird
 
@@ -676,10 +676,10 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 
 **Time:**
-    - Total: 9 hours 5 mintus
-    - Downloading data: 7 hours 5 minuts
+    - Total: 9 hours 5 minutes
+    - Downloading data: 7 hours 5 minutes
     - Other: 2 hours
-    - recoded to Project peek: 5 Hours 35 minutes
+    - Recorded to Project Peek: 5 hours 35 minutes
 
 ---
 
@@ -717,7 +717,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Friday October 23 2026
+## Friday October 23, 2026
 **Day Goal:** Set up FastAPI and endpoints
 
 **What Was Done:** Set up FastAPI and created all the endpoints
@@ -734,7 +734,7 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Saterday October 24, 2026
+## Saturday October 24, 2026
 **Day Goal:** Finish FastAPI endpoint
 
 **What Was Done:** Worked on the /stats endpoint
@@ -864,17 +864,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Fiday Octoebr 30,2026
-**Day Goal:** Start the Bird Dash board
+## Friday October 30, 2026
+**Day Goal:** Start the Bird dashboard
 
-**What Was Done:** I created the about section, Coneted all enpoints and tested them.
+**What Was Done:** I created the about section, connected all endpoints, and tested them.
 
-**Challenges:** no chanllenges
+**Challenges:** No challenges
 
-**Blockers:** time managment
+**Blockers:** Time management
 
 **Summary:**
-    Today i started my Bird page for my dashboard. I got the about section done and conneted both endpoints to the page. I tested both end point and they both work.I also decided to have the European Turtle Doave as my audo bird for my bird info page, meaning when uses first opean the page they will use information about this Dove. 
+    Today I started my Bird page for my dashboard. I got the about section done and connected both endpoints to the page. I tested both endpoints and they both work. I also decided to have the European Turtle Dove as my auto bird for my bird info page, meaning when users first open the page they will see information about this dove. 
 
 
 **Time:**
@@ -886,36 +886,36 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ## Week 6 Review
 
-**Week Goal:** Finnish endpoints, create 2 dashboard pages
+**Week Goal:** Finish endpoints, create 2 dashboard pages
 
-**What Was Done:** I finnishe the endpoints, fix the model, finish creating the home page and started to work on the bird page
+**What Was Done:** I finished the endpoints, fixed the model, finished creating the home page, and started to work on the bird page
 
-**What Was Not Done:** bird page was not finnish
+**What Was Not Done:** The bird page was not finished
 
-**Challenges:** finding modivation
+**Challenges:** Finding motivation
 
-**Carried Into Next Week:** Finnish bird page
+**Carried Into Next Week:** Finish bird page
 
 **Weekly Summary:**
-    This week I finnished all the FastAPI endpoints and started creating the dashboard. I finshed the homepage, header, and footer. I then started to work on the bird page. When testing my endpoints I relized my model was giving a high prediction score to none bird images such as an airplin. To help proved this I added one more buffer chekck for the predictions. to fix this complitly I would need to make a new modle that would idently if an object is a bird first, or retrain my modle with a extra catagory of not a bird.
+    This week I finished all the FastAPI endpoints and started creating the dashboard. I finished the homepage, header, and footer. I then started to work on the bird page. When testing my endpoints I realized my model was giving a high prediction score to non-bird images such as an airplane. To help prevent this I added one more buffer check for the predictions. To fix this completely I would need to make a new model that would identify if an object is a bird first, or retrain my model with an extra category of not a bird.
 
 ---
 
 
 # Week 7
-    * Finnish most of the dashboard, fix the slide show on the home page
+    * Finish most of the dashboard, fix the slide show on the home page
 
-## Monday Novmber 2 2026
-**Day Goal:** clean up what we have right now, finnish bird page
+## Monday November 2, 2026
+**Day Goal:** Clean up what we have right now, finish bird page
 
-**What Was Done:** I clean up the home page and finnish the bird page
+**What Was Done:** I cleaned up the home page and finished the bird page
 
-**Challenges:** no challenges
+**Challenges:** No challenges
 
-**Blockers:** no blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I worked on cleaning up my dashboard home page. I also created my bird page. I found that I dont have emidiat accase to tablue so I will need to hold off on that untill I either get accase or confiner I need to use ploty for my graphs, and maps.
+    Today I worked on cleaning up my dashboard home page. I also created my bird page. I found that I don't have immediate access to Tableau, so I will need to hold off on that until I either get access or confirm I need to use Plotly for my graphs and maps.
 
 
 **Time:**
@@ -923,17 +923,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Tuseday November 3 2026
-**Day Goal:** Undate Tello
+## Tuesday November 3, 2026
+**Day Goal:** Update Trello
 
-**What Was Done:** Update trello, looked into cansloling Snowflake for good
+**What Was Done:** Updated Trello, looked into canceling Snowflake for good
 
-**Challenges:**  I have other finnals to work on
+**Challenges:**  I have other finals to work on
 
-**Blockers:** othe finnals
+**Blockers:** Other finals
 
 **Summary:**
-    Today I updated trello and looked into closing snowflek, becase I am still geting charged for it. Now I was not able to work long today because I had to work on my finnals for my other classes
+    Today I updated Trello and looked into closing Snowflake, because I am still getting charged for it. Now I was not able to work long today because I had to work on my finals for my other classes.
 
 
 **Time:**
@@ -941,17 +941,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Wednday November 4, 2026
-**Day Goal:** Make the Bird stats, and species
+## Wednesday November 4, 2026
+**Day Goal:** Make the Bird, Stats, and Species pages
 
-**What Was Done:** Bird, Stats, and species page was done
+**What Was Done:** Bird, Stats, and Species pages were done
 
-**Challenges:** no challenges
+**Challenges:** No challenges
 
-**Blockers:**  no blockers
+**Blockers:**  No blockers
 
 **Summary:**
-    Today I created the Bird, Stats and the species pages on my dashboard. I also created the dashboard update.md file where I put things I want cloude to update as I am going and making small adjustments to my dashboard pages.
+    Today I created the Bird, Stats and the species pages on my dashboard. I also created the dashboard update.md file where I put things I want Claude to update as I am going and making small adjustments to my dashboard pages.
 
 
 **Time:**
@@ -959,17 +959,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Thursday Novemerber 5, 2026
-**Day Goal:** Finnish making small tweeks to the dashboard
+## Thursday November 5, 2026
+**Day Goal:** Finish making small tweaks to the dashboard
 
-**What Was Done:** Finnish making small tweeks to all the dashboard pages
+**What Was Done:** Finished making small tweaks to all the dashboard pages
 
-**Challenges:** Finnedint time
+**Challenges:** Finding time
 
-**Blockers:** no blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I finnish makeing small tweeks to the dashboard. I adusted text size, text underling and italic. I also palyed around with padding and background colors. 
+    Today I finished making small tweaks to the dashboard. I adjusted text size, text underlining, and italics. I also played around with padding and background colors. 
 
 
 **Time:**
@@ -977,17 +977,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Saterday Novemerber 7, 2026
-**Day Goal:** Get at less 100 bird image for my plumige and slide show
+## Saturday November 7, 2026
+**Day Goal:** Get at least 100 bird images for my plumage and slide show
 
-**What Was Done:** Cooneted to wikimedia for bird images for slideshow and the dashboards, added Logo
+**What Was Done:** Connected to Wikimedia for bird images for the slideshow and the dashboards, added logo
 
-**Challenges:** Getting the right size for the slidshow, getting the right kind of images from the wikimedia
+**Challenges:** Getting the right size for the slideshow, getting the right kind of images from Wikimedia
 
-**Blockers:** Finnding time
+**Blockers:** Finding time
 
 **Summary:**
-    Today I did some reacher and found that I can get images though wikimeda free API. SO I conneted my dashboard to wikimdia and use the images for my slide show and my Plumage section of my prediction, and birds page. I did have a change will getting the images on the slide show to fit proply. I also strugled with finding the right conbonation of filtering for the wikmdia API, but I got it fix advecaly. I also had time to add the logo to my dashboard. 
+    Today I did some research and found that I can get images through Wikimedia's free API. So I connected my dashboard to Wikimedia and used the images for my slide show and the Plumage section of my prediction and birds pages. I did have a challenge while getting the images on the slide show to fit properly. I also struggled with finding the right combination of filtering for the Wikimedia API, but I got it fixed eventually. I also had time to add the logo to my dashboard. 
 
 
 **Time:**
@@ -996,39 +996,39 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 
-## Week [#] Review
+## Week 7 Review
 
-**Week Goal:** Finnish most of the dashboard, fix the slide show on the home page
+**Week Goal:** Finish most of the dashboard, fix the slide show on the home page
 
-**What Was Done:** Finnish the dashboard (besided graphs), and fix the slide show
+**What Was Done:** Finished the dashboard (besides graphs), and fixed the slide show
 
-**What Was Not Done:** Everthing was DOne
+**What Was Not Done:** Everything was done
 
-**Challenges:** Findding time to work on Capstone do to travaling and other Finnals
+**Challenges:** Finding time to work on capstone due to traveling and other finals
 
-**Carried Into Next Week:** Dont need to carried anything over
+**Carried Into Next Week:** Don't need to carry anything over
 
 **Weekly Summary:**
-    This week I was able to finnish the dashboards, exapte for adding in the Tabule graphs and maps. I also was able to fix the slide show on the home page, so now it will take you to the bird page about the bird on the slide. 
+    This week I was able to finish the dashboards, except for adding in the Tableau graphs and maps. I also was able to fix the slide show on the home page, so now it will take you to the bird page about the bird on the slide. 
 
 ---
 
 
 # Week 8
-    * This weeks Goal is to connete Tableau to Dashboard, Start working on Bird identifyer Model. 
+    * This week's goal is to connect Tableau to the dashboard, start working on the bird identifier model. 
 
-## Monday Novemer 9, 2026
+## Monday November 9, 2026
     
-**Day Goal:** Reacher how to connet Tableau to dashboard, Test connetions 
+**Day Goal:** Research how to connect Tableau to dashboard, test connections 
 
-**What Was Done:** Reacher how to connet Tableau, started making maps
+**What Was Done:** Researched how to connect Tableau, started making maps
 
-**Challenges:** Reachering connetion to Tableau
+**Challenges:** Researching connection to Tableau
 
 **Blockers:** No Blockers
 
 **Summary:**
-    Today I reacher How to connete Tableau to my Next.js dashbord. I found that I can conneted it though the Cloud or the Tableau Server. I checked with IT and we dont have accase to either of thouse. I looked into useing the publice section on Tableau but becase I am useing a lot of data from different API's I feel more confable remaking the graphs and maps in Plotly. 
+    Today I researched how to connect Tableau to my Next.js dashboard. I found that I can connect it through the Cloud or the Tableau Server. I checked with IT and we don't have access to either of those. I looked into using the public section on Tableau, but because I am using a lot of data from different APIs I feel more comfortable remaking the graphs and maps in Plotly. 
 
 
 **Time:**
@@ -1037,16 +1037,16 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 ## Tuesday November 10, 2026 
-**Day Goal:** Create at less 5 more graphs/maps
+**Day Goal:** Create at least 5 more graphs/maps
 
 **What Was Done:** I created 8 more graphs/maps
 
 **Challenges:** No challenges
 
-**Blockers:** No Bolckers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I worked on making 8 more graphs and maps. I also had a meeting with my Chair head and found out that he has accase to an clound account so he gave me prmetion to use it. 
+    Today I worked on making 8 more graphs and maps. I also had a meeting with my Chair head and found out that he has access to a cloud account, so he gave me permission to use it. 
 
 
 **Time:**
@@ -1054,17 +1054,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Wendsady November 11, 2026
-**Day Goal:** Connete Tableau to my dashbarod, desplay the graphs properly. 
+## Wednesday November 11, 2026
+**Day Goal:** Connect Tableau to my dashboard, display the graphs properly. 
 
-**What Was Done:** Conneted to Tableau, updated my dashboard desinge
+**What Was Done:** Connected to Tableau, updated my dashboard design
 
-**Challenges:** I cannt display the tableau graph and maps yet
+**Challenges:** I can't display the Tableau graphs and maps yet
 
-**Blockers:** no blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I connete Tableau to my dashboard. However it does not desplay the full graphs and maps yet. I need my Chair Degree to aprove my public accase first. In the meen time I used Clause desigen and created a new cleaner, more profecinal looking dashboard. 
+    Today I connected Tableau to my dashboard. However, it does not display the full graphs and maps yet. I need my Degree Chair to approve my public access first. In the meantime I used Claude Design and created a new, cleaner, more professional-looking dashboard. 
 
 
 **Time:**
@@ -1072,17 +1072,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Thursday Novmebr 12, 2026
-**Day Goal:** Finnish conneting my maps and graphs, finnish dashboard updates.
+## Thursday November 12, 2026
+**Day Goal:** Finish connecting my maps and graphs, finish dashboard updates.
 
-**What Was Done:** Finnish updateding the dashboard, finnish conneting maps and graphs
+**What Was Done:** Finished updating the dashboard, finished connecting maps and graphs
 
-**Challenges:** no challenges
+**Challenges:** No challenges
 
 **Blockers:** No blockers
 
 **Summary:**
-    Today I sursflly conneted my tableau maps and graphs to my dashboard. I also made small changes to my dashboard making it look more clean and profeshinal looking. 
+    Today I successfully connected my Tableau maps and graphs to my dashboard. I also made small changes to my dashboard, making it look more clean and professional looking. 
 
 **Time:**
     - Total: 4 hours
@@ -1090,91 +1090,91 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ---
 
 ## Friday November 13, 2026
-**Day Goal:** Creat plain for the helper image model
+**Day Goal:** Create plan for the helper image model
 
-**What Was Done:** Cleaned up the src folder and getting a plan made for the brid-gate model
+**What Was Done:** Cleaned up the src folder and got a plan made for the bird-gate model
 
 **Challenges:** No challenges 
 
-**Blockers:** work around no more cloude creteds avable
+**Blockers:** Working around no more Claude credits available
 
 **Summary:**
-    Today I cleaned up the src folder to make it more orginzed I also talke to cloude though my presional accoset to plain how I want my bird_gate model to go.
+    Today I cleaned up the src folder to make it more organized. I also talked to Claude through my personal account to plan how I want my bird_gate model to go.
 
 
 **Time:**
-    - Total:2 hours 30 m
+    - Total: 2 hours 30 m
 
 ---
 
-## Saterday November 14, 2026
-**Day Goal:** start working on created the bird_gate model
+## Saturday November 14, 2026
+**Day Goal:** Start working on creating the bird_gate model
 
 **What Was Done:** Today I found 6 small datasets for the gate model
 
-**Challenges:** word on some images
+**Challenges:** Words on some images
 
-**Blockers:** no blockers for today
+**Blockers:** No blockers for today
 
 **Summary:**
-    Today I found 6 differnet datasets that I can combind and use as the train/val/test data for my gate model. I got accase and looked at the images from two dataset and found that some of the bird images has text on them. I have to be carefule with theses iamges, but I fell confidect that with the combinding of the other datasets I should be fine. 
+    Today I found 6 different datasets that I can combine and use as the train/val/test data for my gate model. I got access and looked at the images from two datasets and found that some of the bird images have text on them. I have to be careful with these images, but I feel confident that with the combining of the other datasets I should be fine. 
 
 **Time:**
-    - Total:2 hours
+    - Total: 2 hours
 
 ---
 
 
 ## Week 8 Review
 
-**Week Goal:** This weeks goal was to connete Tableau to my dashboard and start working on the gate model
+**Week Goal:** This week's goal was to connect Tableau to my dashboard and start working on the gate model
 
-**What Was Done:** Conneted Tableau to my dashboard, make the dashboard look nicer, found datasets for the gate model
+**What Was Done:** Connected Tableau to my dashboard, made the dashboard look nicer, found datasets for the gate model
 
-**What Was Not Done:** Everying got done that I wanted to get done. 
+**What Was Not Done:** Everything got done that I wanted to get done. 
 
-**Challenges:** This weeks main challange was conneting Tableau to my dashboard 
+**Challenges:** This week's main challenge was connecting Tableau to my dashboard 
 
-**Carried Into Next Week:** nothing needs to be brought over
+**Carried Into Next Week:** Nothing needs to be brought over
 
 **Weekly Summary:**
-    This week I was able to commplet all of my goals. I conneted my Tableau to my dashboard, it tooks some time because I first thought I didnt have accase to Tableau cloude so I started working on plotly graphs/maps, then I got asscase to cloude server. I also worked on fixing up my dashboard to look more clean and profcinal. I also orginzed my src floder so that the files for the differnet models dont get mixed up. I was able to find 6 small datasets that I plane to commbind and use for my gate model. 
+    This week I was able to complete all of my goals. I connected my Tableau to my dashboard; it took some time because I first thought I didn't have access to Tableau Cloud, so I started working on Plotly graphs/maps, then I got access to the cloud server. I also worked on fixing up my dashboard to look more clean and professional. I also organized my src folder so that the files for the different models don't get mixed up. I was able to find 6 small datasets that I plan to combine and use for my gate model. 
 
 
 ---
 
 
 # Week 9
-    * This weeks goal be done with Augmentation expermtation on the gate model
+    * This week's goal is to be done with Augmentation experimentation on the gate model
 
 ## Monday November 16, 2026
-**Day Goal:** Finnish cheeking all the dataset
+**Day Goal:** Finish checking all the datasets
 
-**What Was Done:** updated md files, updated project peek, update Trello
+**What Was Done:** Updated md files, updated Project Peek, updated Trello
 
-**Challenges:** Waiting while I cheked larger datasets
+**Challenges:** Waiting while I checked larger datasets
 
 **Blockers:** No blockers for today
 
 **Summary:**
-    Today I finnishe chekking all of my datasets.
+    Today I finished checking all of my datasets.
 
 **Time:**
     - Total: 5 hours 
 
 ---
 
-## Tuesday Novmber 17, 2026
-**Day Goal:** Update docs, plain how to commbind the datasets, plain how to split the dataset
+## Tuesday November 17, 2026
+**Day Goal:** Update docs, plan how to combine the datasets, plan how to split the dataset
 
-**What Was Done:** I plaind how to commbind and split the data, I doownload all the dataset
+**What Was Done:** I planned how to combine and split the data, I downloaded all the datasets
 
-**Challenges:** no challenges
+**Challenges:** No challenges
 
 **Blockers:** No blockers
 
 **Summary:**
-    Today I plained with cloude how I want to commbind all of my data and how I want to splet it. I then donloaded all the datasets, which took me longer then expeted. 
+    Today I planned with Claude how I want to combine all of my data and how I want to split it. I then downloaded all the datasets, which took me longer than expected. 
 
 
 **Time:**
@@ -1182,17 +1182,17 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## Wednesday Noveber 18, 2026
-**Day Goal:** Commbind and split the data
+## Wednesday November 18, 2026
+**Day Goal:** Combine and split the data
 
-**What Was Done:** Combined and split the data, created all the files for traing the model, tested the model and mlflow conetion.
+**What Was Done:** Combined and split the data, created all the files for training the model, tested the model and MLflow connection.
 
 **Challenges:** No challenges today
 
 **Blockers:** No blockers today
 
 **Summary:**
-    Today I was able to combind and split the data. Afterwareds I createed all the files I will need for the gate model traing. I also tested the connetion between the gate model and mlflow and it works. 
+    Today I was able to combine and split the data. Afterwards I created all the files I will need for the gate model training. I also tested the connection between the gate model and MLflow and it works. 
 
 
 **Time:**
@@ -1203,14 +1203,14 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Thursday November 19, 2026
 **Day Goal:** Augmentation training
 
-**What Was Done:** All the Aumentation traing, set up for hypertuning, added dark mode
+**What Was Done:** All the Augmentation training, set up for hypertuning, added dark mode
 
-**Challenges:** no challenges
+**Challenges:** No challenges
 
-**Blockers:** no blockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I did all the Augmentation expermets and prepared to run the hypertuning experments tomorrow. I also added Dark mode to my dashboard making suer all the graphs also had a dark mode
+    Today I did all the Augmentation experiments and prepared to run the hypertuning experiments tomorrow. I also added dark mode to my dashboard, making sure all the graphs also had a dark mode.
 
 **Time:**
     - Total: 3 hours
@@ -1220,14 +1220,14 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Friday November 20, 2026
 **Day Goal:** Start traing hypertuning model, work on fixing the dashboard
 
-**What Was Done:** all the hypertuning models was done train, fix the slideshow and the page connetions
+**What Was Done:** All the hypertuning models were done training, fixed the slideshow and the page connections
 
 **Challenges:** No challenges
 
-**Blockers:** No clockers
+**Blockers:** No blockers
 
 **Summary:**
-    Today I did all of my hypertuning expermets, while they where train I fixed up my dashboard, fixing the slideshow and added the connetion between all of my pages. 
+    Today I did all of my hypertuning experiments. While they were training I fixed up my dashboard, fixing the slideshow and adding the connections between all of my pages. 
 
 
 **Time:**
@@ -1238,29 +1238,29 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ## Week 9 Review
 
-**Week Goal:** Finnish Augmentation expermatitation on the gate model
+**Week Goal:** Finish Augmentation experimentation on the gate model
 
-**What Was Done:** Augmentation, and Hypertuning expermatitation of the gate modle, added dark mode, added more contetion with the predict page and the other pages
+**What Was Done:** Augmentation and Hypertuning experimentation of the gate model, added dark mode, added more connections between the predict page and the other pages
 
-**What Was Not Done:** Everthing that needed to get done was done
+**What Was Not Done:** Everything that needed to get done was done
 
-**Challenges:** There is no challenges this week 
+**Challenges:** There were no challenges this week 
 
-**Carried Into Next Week:** There is nothing to carrie over
+**Carried Into Next Week:** There is nothing to carry over
 
 **Weekly Summary:**
-    This week I complited doing Augentation and Hypertuning expermatition on my gate model. While the expermatitions where runing I used that time and added some stuff to my dashboard, include a dark mode and made the pages be more conneted. 
+    This week I completed doing Augmentation and Hypertuning experimentation on my gate model. While the experiments were running I used that time and added some stuff to my dashboard, including a dark mode, and made the pages more connected. 
 
 ---
 
 
 
 
-# Week 10 - Thankginving week, I know I will not get 20 hours
-    * attached the new model to my systome pipline and create the dashboard
+# Week 10 - Thanksgiving week, I know I will not get 20 hours
+    * Attach the new model to my system pipeline and create the dashboard
     
 ## Monday November 23, 2026
-**Day Goal:** update daily_weekly_log.md, clean up the daily_weekly_log.md, analze the gate model hypertuning results. 
+**Day Goal:** Update daily_weekly_log.md, clean up the daily_weekly_log.md, analyze the gate model hypertuning results. 
 
 **What Was Done:** 
 
@@ -1396,3 +1396,16 @@ and why, main challenges, any changes to project files or the project plan, and 
 carry-over means for next week's goals.]
 
 ---
+
+
+
+
+
+
+
+
+
+
+# Week 11 - Last week 
+
+# Week 12 - Presintation
