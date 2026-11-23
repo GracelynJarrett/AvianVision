@@ -1220,77 +1220,47 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Friday November 20, 2026
 **Day Goal:** Start traing hypertuning model, work on fixing the dashboard
 
-**What Was Done:** 
+**What Was Done:** all the hypertuning models was done train, fix the slideshow and the page connetions
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:** No clockers
 
 **Summary:**
+    Today I did all of my hypertuning expermets, while they where train I fixed up my dashboard, fixing the slideshow and added the connetion between all of my pages. 
 
 
 **Time:**
-    - Total:
+    - Total: 3 hours
 
 ---
 
-## 
-**Day Goal:** 
 
-**What Was Done:** 
+## Week 9 Review
 
-**Challenges:** 
+**Week Goal:** Finnish Augmentation expermatitation on the gate model
 
-**Blockers:** 
+**What Was Done:** Augmentation, and Hypertuning expermatitation of the gate modle, added dark mode, added more contetion with the predict page and the other pages
 
-**Summary:**
+**What Was Not Done:** Everthing that needed to get done was done
 
+**Challenges:** There is no challenges this week 
 
-**Time:**
-    - Total:
-
----
-
-## 
-**Day Goal:** 
-
-**What Was Done:** 
-
-**Challenges:** 
-
-**Blockers:** 
-
-**Summary:**
-
-
-**Time:**
-    - Total:
-
----
-
-## Week [#] Review
-
-**Week Goal:** [The goal of the week — 1 sentence max]
-
-**What Was Done:** [What got done — 1 sentence max]
-
-**What Was Not Done:** [What didn't get done — 3 words min]
-
-**Challenges:** [The week's main challenge — 3 words min]
-
-**Carried Into Next Week:** [What's being added to next week's goals — 3 words min]
+**Carried Into Next Week:** There is nothing to carrie over
 
 **Weekly Summary:**
-[Expand on everything above in a short paragraph. Cover what was done, what wasn't done 
-and why, main challenges, any changes to project files or the project plan, and what the 
-carry-over means for next week's goals.]
+    This week I complited doing Augentation and Hypertuning expermatition on my gate model. While the expermatitions where runing I used that time and added some stuff to my dashboard, include a dark mode and made the pages be more conneted. 
 
 ---
 
 
-# Week 10
-## 
-**Day Goal:** 
+
+
+# Week 10 - Thankginving week, I know I will not get 20 hours
+    * attached the new model to my systome pipline and create the dashboard
+    
+## Monday November 23, 2026
+**Day Goal:** update daily_weekly_log.md, clean up the daily_weekly_log.md, analze the gate model hypertuning results. 
 
 **What Was Done:** 
 
