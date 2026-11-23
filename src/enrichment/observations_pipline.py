@@ -67,6 +67,32 @@ def load_bird_mapping():
 
 # ---- API fetch functions ----
 
+def get_with_retry(url, params, timeout, tries=4):
+    """Calls GBIF and tries again if the request fails.
+
+    GBIF sometimes refuses requests (status 429, "too many requests") or times out
+    when we send many in a row. Instead of giving up after one failure, this waits
+    and tries again, waiting longer each time (5, 10, 20 seconds).
+
+    Returns the JSON data, or raises the last error if every try failed."""
+
+    # Seconds to wait before the next try. This doubles after each failure.
+    wait = 5
+
+    for attempt in range(1, tries + 1):
+        try:
+            # Send the request and stop with an error if GBIF says it failed.
+            resp = requests.get(url, params=params, timeout=timeout)
+            resp.raise_for_status()
+            return resp.json()
+        except Exception as e:
+            # On the last try, pass the error on so the caller can report it.
+            if attempt == tries:
+                raise
+            print(f"    Request failed (try {attempt} of {tries}): {e}. Waiting {wait}s...")
+            time.sleep(wait)
+            wait *= 2
+
 def fetch_gbif_key(scientific_name):
     """Calls the GBIF species match endpoint to get the numeric GBIF species key
     for one bird. This key is required to query occurrence records for that species.
@@ -79,9 +105,7 @@ def fetch_gbif_key(scientific_name):
 
     try:
         # Request with a 10-second timeout so the script does not hang.
-        resp = requests.get(url, params=params, timeout=10)
-        resp.raise_for_status()
-        data = resp.json()
+        data = get_with_retry(url, params, timeout=10)
     except Exception as e:
         print(f"    GBIF key lookup error for '{scientific_name}': {e}")
         return None
@@ -123,9 +147,7 @@ def fetch_gbif_occurrences(gbif_key, scientific_name, dataset_label, max_records
         }
 
         try:
-            resp = requests.get(url, params=params, timeout=15)
-            resp.raise_for_status()
-            data = resp.json()
+            data = get_with_retry(url, params, timeout=15)
         except Exception as e:
             print(f"    GBIF occurrence fetch error (offset {offset}): {e}")
             break
@@ -183,7 +205,7 @@ def fetch_gbif_occurrences(gbif_key, scientific_name, dataset_label, max_records
 
 # ---- Main pipeline ----
 
-def run_pipeline(test_mode=False, limit_per_species=DEFAULT_LIMIT):
+def run_pipeline(test_mode=False, limit_per_species=DEFAULT_LIMIT, missing_only=False):
     """Runs the full observations pipeline.
 
     Reads the 525-species mapping CSV, looks up each species in GBIF to get its
@@ -191,7 +213,10 @@ def run_pipeline(test_mode=False, limit_per_species=DEFAULT_LIMIT):
     species, and saves all records to the MongoDB species_observations collection.
 
     If test_mode is True, only the first 3 species are processed.
-    limit_per_species sets the maximum number of sighting records per species."""
+    limit_per_species sets the maximum number of sighting records per species.
+    
+        If missing_only is True, nothing is deleted and only species with 0 saved sightings are fetched.
+    """
 
     # Load environment variables from .env (needed to connect to MongoDB).
     load_dotenv()
@@ -211,12 +236,22 @@ def run_pipeline(test_mode=False, limit_per_species=DEFAULT_LIMIT):
     print("Connecting to MongoDB...")
     collection = get_species_observations_collection()
 
-    # Delete all existing observation documents before starting.
-    # This prevents duplicates if the pipeline is run more than once.
-    delete_result = collection.delete_many({})
-    print(f"  Cleared {delete_result.deleted_count} existing documents from species_observations.")
+    if missing_only:
+        # Ask MongoDB for every species label that already has at least one sighting.
+        already_saved = set(collection.distinct("species_label"))
+
+        # Keep only the species that have no sightings yet. Nothing is deleted.
+        species_list = [s for s in species_list if s["dataset_label"] not in already_saved]
+        print(f"  MISSING ONLY: {len(species_list)} species have 0 sightings and will be fetched.")
+    else:
+        # Delete all existing observation documents before starting.
+        # This prevents duplicates if the pipeline is run more than once.
+        delete_result = collection.delete_many({})
+        print(f"  Cleared {delete_result.deleted_count} existing documents from species_observations.")
 
     total_inserted = 0
+        # Species that still end up with 0 sightings, so we can list them at the end.
+    still_missing = []
 
     # Process each species one at a time.
     for i, species in enumerate(species_list, start=1):
@@ -232,6 +267,7 @@ def run_pipeline(test_mode=False, limit_per_species=DEFAULT_LIMIT):
         if gbif_key is None:
             # No GBIF key means we cannot fetch observations — skip this species.
             print(f"  Skipping '{label}' — no GBIF key found.")
+            still_missing.append(label)
             time.sleep(RATE_LIMIT_SECONDS)
             continue
 
@@ -244,11 +280,17 @@ def run_pipeline(test_mode=False, limit_per_species=DEFAULT_LIMIT):
         if records:
             collection.insert_many(records)
             total_inserted += len(records)
+        else:
+            # Nothing came back for this bird, so remember it for the end report.
+            still_missing.append(label)
 
         # Pause before the next species to stay within API rate limits.
         time.sleep(RATE_LIMIT_SECONDS)
 
-    print(f"\nDone. Total observation documents saved to MongoDB: {total_inserted}")
+       # List any species that still have no sightings so they are easy to spot.
+    print(f"Species with 0 sightings this run: {len(still_missing)}")
+    for label in still_missing:
+        print(f"  - {label}")
 
 
 # ---- Entry point ----
@@ -269,7 +311,12 @@ if __name__ == "__main__":
         default=DEFAULT_LIMIT,
         help=f"Maximum number of occurrence records to fetch per species (default: {DEFAULT_LIMIT}).",
     )
+    parser.add_argument(
+        "--missing-only",
+        action="store_true",
+        help="Do not delete anything. Only fetch species that have 0 sightings in MongoDB.",
+    )
     args = parser.parse_args()
 
     # Run the pipeline with the provided arguments.
-    run_pipeline(test_mode=args.test, limit_per_species=args.limit)
+    run_pipeline(test_mode=args.test, limit_per_species=args.limit, missing_only=args.missing_only)
