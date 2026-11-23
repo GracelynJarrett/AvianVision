@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cockatiel logo">
+  <defs><clipPath id="h-logo"><path d="M50 6 C55 12.8 60 26.4 66 40 C76 54 78 70 74 86 L26 86 C22 70 24 54 34 40 C40 26.4 45 12.8 50 6Z"/></clipPath></defs>
+  <path d="M50 6 C55 12.8 60 26.4 66 40 C76 54 78 70 74 86 L26 86 C22 70 24 54 34 40 C40 26.4 45 12.8 50 6Z" fill="#fff200"/>
+  <g clip-path="url(#h-logo)" fill="#ff5a36" ><circle cx="27" cy="72" r="8"/><circle cx="73" cy="72" r="8"/></g>
+  <circle cx="38" cy="58" r="5" fill="#111"/><circle cx="62" cy="58" r="5" fill="#111"/><circle cx="39.5" cy="56.5" r="1.6" fill="#fff"/><circle cx="63.5" cy="56.5" r="1.6" fill="#fff"/>
+  <path d="M50 61 C54 64 56.5 67.5 54 71 L50 77 L46 71 C43.5 67.5 46 64 50 61Z" fill="#ffa95c" />
+  <path d="M24 89 L76 89 L80 95 L20 95Z" fill="#c4c4c4"/>
+</svg>

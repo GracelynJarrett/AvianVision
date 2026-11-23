@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -73,8 +74,9 @@ export default function Header() {
     return (
         <header
             className="sticky top-0 z-10 bg-[#232629] h-[50px] flex items-center px-6 gap-3"
-            style={{ borderTop: "3px solid #ffbc88" }}
-        >
+            style={{ borderTop: "3px solid #ffbc88" }}>
+            {/* Logo in the left corner of the header; the drawing lives in public/logo_head.svg */}
+            <Image src="/logo_head.svg" alt="AvianVision logo" width={40} height={40} className="h-10 w-10" priority unoptimized />
             {/* Brand name — "Vision" is tinted orange to match the brand accent */}
             <span className="font-bold text-[17px] text-white">
                 Avian<span className="text-[#ffbc88]">Vision</span>
