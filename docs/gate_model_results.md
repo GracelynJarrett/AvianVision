@@ -98,6 +98,7 @@ Its train vs val gap is small (0.9976 vs 0.9934), so it is not overfitting much.
 
 # Final results
 
+
 ## Setup
 Model: gate-base-frozen-HT, re-trained once with the same config (the hypertuning run did not save weights).
 Script: src/bird_gate/gate_add_testset.py. MLflow run: gate-base-frozen-HT-final. The model is saved in this run.
@@ -130,3 +131,29 @@ Not-birds: the gate stays strong on new data. Not-bird recall is 0.994 on both v
 Birds: bird recall drops from 0.988 on val to 0.901 on test. The test birds come from a different source (Aves del Tolima) than the training birds (CUB + Bird vs Drone), so the gate has partly learned the style of the training bird photos. This is the gate's main weakness.
 Challenge: the gate blocked 406 of 438 never-seen not-bird types (92.7%). 32 got through as birds.
 Test AUC (0.98) is still high, so the gate ranks birds above not-birds well. Many missed birds are likely just under the 0.5 cut-off.
+---
+
+# Challenge breakdown
+## Setup
+Model: gate-base-frozen-HT-final, loaded from MLflow (no re-train).
+Script: src/bird_gate/gate_challenge_breakdown.py. It only reads. It does not log to MLflow or write files.
+Challenge set: 438 images, all not-birds. Cut-off 0.5 (a bird score of 0.5 or higher counts as a bird).
+Total let through: 32 of 438, the same as gate_add_testset.py, so the loaded model matches the saved run.
+
+## Results by kind
+Kind	Images	Blocked	Let through	Let through %	Avg bird score	Max bird score
+butterfly	60	45	15	25.0	0.272	0.995
+bat	60	46	14	23.3	0.248	1.000
+helicopter	60	59	1	1.7	0.015	0.838
+fighter_jet	60	59	1	1.7	0.041	0.987
+house_fly	60	59	1	1.7	0.050	1.000
+airplanes	18	18	0	0.0	0.002	0.033
+blimp	60	60	0	0.0	0.004	0.080
+hot_air_balloon	60	60	0	0.0	0.001	0.054
+Near misses (blocked, but bird score from 0.2 to just under 0.5): 19 images. 8 butterflies, 6 bats, 3 house flies, 2 fighter jets.
+
+## What the results show
+29 of the 32 images let through are bats and butterflies. These are winged animals, usually photographed against sky or plants, so they look a lot like bird photos. This is the gate's main weak spot on the challenge set.
+Aircraft are almost all blocked: 0 airplanes, 0 blimps, 0 hot air balloons, 1 helicopter, 1 fighter jet. The gate solves the problem it was built for (the classifier calling an airplane a bird).
+Most of the let-through bats and butterflies scored very high (many above 0.9), so raising the cut-off would likely block real birds before it blocked these (not tested).
+The 19 near misses would get through if the cut-off is lowered to raise bird recall. Most of them are bats and butterflies again.
