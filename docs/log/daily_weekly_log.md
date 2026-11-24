@@ -1262,22 +1262,23 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Monday November 23, 2026
 **Day Goal:** Update daily_weekly_log.md, clean up the daily_weekly_log.md, analyze the gate model hypertuning results. 
 
-**What Was Done:** 
+**What Was Done:** Updated and cleaned up the daily_weekly_log. and picked hypertuning model, added a logo
 
-**Challenges:** 
+**Challenges:** I ran so code to get missing bird records but it stoped halfway thorugh so now I have to restart it
 
-**Blockers:** 
+**Blockers:** No blockers for today
 
 **Summary:**
+    Today i updated and clean the daily_weely_log.md file, so now all the grammer and spelling is fixed. I also analyed the Jypertuning results and added in the test set. On top of that I was able to add my logo in. 
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours 30 m
 
 ---
 
-## 
-**Day Goal:** 
+## Tuesday November 24, 2026
+**Day Goal:** Attach the gate model to my systom, test it out. Fix the dark mode on the maps/graphs
 
 **What Was Done:** 
 
