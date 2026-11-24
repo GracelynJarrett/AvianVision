@@ -3,6 +3,8 @@
 # instead of a species name. Value is between 0.0 and 1.0.
 unknown_threshold: 0.75
 
+gate_threshold: 0.5   # bird gate: a bird score under this means "not a bird"
+
 # Spread threshold for the /predict endpoint.
 # The model's confidence is checked across the top 5 predictions.
 # If the sum of predictions #2 through #5 exceeds this value, the model's confidence
