@@ -1,18 +1,37 @@
-# This file is to hold the update I need cloude to make to my Dashboard
+# This file hold a list of things I Still need to do before I present 
 
-# All
- - Add an Dark mode to the full dashboard
+## Order of the fixing process
+1. Dashboard
+2. Create presiontation for finnal
+3. File clean up
+4. Fix I HAVE TIME 
+5. (olny if I get to 4) update the presiontation
 
+## Dashbord
+1. updated the graph and maps for dark mode
+2. fix the lag for what bird is shown first (we should just have it the last predited bird)
+3. Fix the footer for the data sorces
+4. update the photos ( istead of using wikimedia just use the hugging faces data set)
+   4a. update the get one image endpont so it can retune between 1-4 images at a time
+5. Add the gate model metrics to the stats page
+6. change the title migration (It not migration any more its there location)
+7. swich the bird and species postion on the nav bar
+8. fix up the working for the warning for low confidece 
 
-# Preditied bird cary over
-- If the user has predited a bird then the bird should cairey over to the other pages
-   - Bird page: if the user had a predited bird then the bird page will be with that bird infomation
-      - if the user has not done the a prediton yet it will have the defalt bird
-   - Species page: if the user had a predition then that bird will be bird one
-      - I think we should add a button that is only ativated for the user to use the last 6 bird preditions
-         - if the uer made more then one predition they can push the button and up to the lates 6 recent preditons will fill in the bird speaces. 
+## File clean up
+1. update any documetions
+2. check For grammer and spelling errores in all documentions
+3. update the readme file
+4. get ride of any unesary files and folders
+5. move files into proper folders and update any file path if needed
 
-# Home page
-   - there is alot of negive space that can be filled up
-   - the Welcom wigit can be in the slide show
-   - we can play around with what the slide shows tranzitions. 
+## IF I HAVE TIME
+ - Lest add a User Acconte
+   * the Account will use keep track of the users pass predictions and the photos they updated.
+   * When log in the pick from records will show up for the speces and bird page, alowing users to get uses there own pass predictions
+   * Use last prediction button will apere for the uers on the bird and predict page.
+
+- Lets add a Guess
+   * the gess can do everthing the Acconte can but it does not save the predictions to the recoreds list (still saves to Mongodb)
+   * the last prediction will be turned off on the bird and species page
+   * buttons will be deativated and when none loging users try to use it a messge will pop up asking the uers to please sign in first
