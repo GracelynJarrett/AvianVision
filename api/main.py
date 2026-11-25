@@ -7,6 +7,7 @@ import urllib.request
 from datetime import datetime
 from io import BytesIO
 import pandas as pd
+from pathlib import Path
 
 
 # Third-Party Libraries
@@ -15,6 +16,7 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 from datasets import load_dataset, load_dataset_builder
+import yaml
 
 # FastAPI
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
@@ -22,7 +24,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
 # Project Files
-from src.model_loader import get_model
+from src.model_loader import get_model, get_gate_model
 from src.mongodb_client import (
     get_predictions_collection,
     get_species_info_collection,
@@ -117,6 +119,14 @@ def load_json(filepath):
     with open(filepath, "r", encoding="utf-8") as file:
         return json.load(file)
 
+# Helper to read the bird gate cut-off from configs/api_config.yaml
+def load_gate_threshold():
+    """Reads gate_threshold from api_config.yaml. A bird score under it means the photo is not a bird."""
+    # main.py lives in api/, so the project root is one folder up
+    config_path = Path(__file__).resolve().parents[1] / "configs" / "api_config.yaml"
+    with open(config_path, "r", encoding="utf-8") as file:
+        api_cfg = yaml.safe_load(file)
+    return api_cfg["gate_threshold"]
 
 ## help to talks to mlflow
 from src.mlflow_setup import(
@@ -589,6 +599,32 @@ def predict(file: UploadFile = File(...)):
         axis=0
     )
 
+    # ----- Bird Gate Check -----
+
+    # Run the bird gate before the species classifier. It gives one score from
+    # 0 to 1 for how likely the photo is a bird. If the score is under the gate
+    # threshold, the photo is not a bird, so we stop here: the species classifier
+    # does not run and nothing is saved to the predictions collection.
+    gate_threshold = load_gate_threshold()
+
+    gate_model = get_gate_model()
+
+    bird_score = float(
+        gate_model.predict(img_tensor, verbose=0)[0][0]
+    )
+
+    if bird_score < gate_threshold:
+        return {
+            "prediction": {
+                "species_label": "UNKNOWN",
+                "confidence": bird_score,
+                "accepted": False,
+                "reason": "not_a_bird",
+                "bird_score": bird_score
+            },
+            "bird": None
+        }
+
     # ----- Run Prediction -----
 
     model = get_model()
@@ -634,8 +670,8 @@ def predict(file: UploadFile = File(...)):
     # scattered across different species — this usually means the image is not a bird.
     # NOTE: This check catches uncertain OOD images (spread predictions) but cannot
     # catch falsely confident OOD images where one wrong class dominates (e.g., an
-    # airplane predicted as a specific bird at 95%+). That case requires a future
-    # binary pre-classifier gate.
+    # airplane predicted as a specific bird at 95%+). That case is now handled
+    # by the bird gate check above.
     spread = sum(p["confidence"] for p in top_5_predictions[1:])
 
     if spread > spread_threshold:
