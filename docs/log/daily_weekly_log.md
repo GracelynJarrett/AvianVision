@@ -1280,34 +1280,36 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Tuesday November 24, 2026
 **Day Goal:** Attach the gate model to my systom, test it out. Fix the dark mode on the maps/graphs
 
-**What Was Done:** 
+**What Was Done:** Added and tested the gate model to my project systom, and started to work on fixing the dark mode
 
-**Challenges:** 
+**Challenges:** No challenges today
 
-**Blockers:** 
+**Blockers:** No blockets for today
 
 **Summary:**
+    Today i attached the gate model to my project systom and I tested it out and it worked! the Airplain image that was giving me probloms was cought and nothing whent through to the classification model. I also started to work on fixing up my dark mode for the maps and graphs
 
 
 **Time:**
-    - Total:
+    - Total: 2 hours
 
 ---
 
-## 
-**Day Goal:** 
+## Wedsnday Novemer 25, 2026
+**Day Goal:** Work on updateding the dashboard
 
-**What Was Done:** 
+**What Was Done:** Chreated a todo list, and finshed 4/9 dashboard updatas
 
-**Challenges:** 
+**Challenges:** No challenges
 
-**Blockers:** 
+**Blockers:** No blockers
 
 **Summary:**
+    Today I created a todo list of things I would like to get done before my finnal presionation. In the dashboard seciont I complited 4/9 fixs. Including the dark mode for the maps and graphs. I fixed the lag on the bird and species page, I added the gate datasorces to the footer, and I swiched from wikimida to huggingFace database for the plumge and the slideshow images
 
 
 **Time:**
-    - Total:
+    - Total: 4 hours 30 m
 
 ---
 

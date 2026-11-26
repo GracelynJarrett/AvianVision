@@ -8,15 +8,16 @@
 5. (olny if I get to 4) update the presiontation
 
 ## Dashbord
-1. updated the graph and maps for dark mode
-2. fix the lag for what bird is shown first (we should just have it the last predited bird)
-3. Fix the footer for the data sorces
-4. update the photos ( istead of using wikimedia just use the hugging faces data set)
-   4a. update the get one image endpont so it can retune between 1-4 images at a time
+X 1. updated the graph and maps for dark mode
+X 2. fix the lag for what bird is shown first (we should just have it the last predited bird)
+X 3. Fix the footer for the data sorces
+X 4. update the photos ( istead of using wikimedia just use the hugging faces data set)
+  X 4a. update the get one image endpont so it can retune between 1-4 images at a time
 5. Add the gate model metrics to the stats page
 6. change the title migration (It not migration any more its there location)
 7. swich the bird and species postion on the nav bar
 8. fix up the working for the warning for low confidece 
+9. update the image size on the predict page
 
 ## File clean up
 1. update any documetions
