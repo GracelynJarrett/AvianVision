@@ -18,8 +18,6 @@ export default function BirdSlideshow() {
     const [isPaused, setIsPaused] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    // Maps species_label to the first Wikimedia plumage image URL, or null if none was found
-    const [plumageMap, setPlumageMap] = useState<Record<string, string | null>>({});
 
     // Fetch a fresh set of random birds from the API when the component first loads
     useEffect(() => {
@@ -41,24 +39,6 @@ export default function BirdSlideshow() {
         return () => clearInterval(timer);
     }, [isPaused, birds.length]);
 
-    // Fetch one Wikimedia plumage image for the current slide when it has not been loaded yet
-    useEffect(() => {
-        if (birds.length === 0) return;
-        const label = birds[currentIndex].species_label;
-
-        // Skip if we already have a result for this bird (even null means we tried and found nothing)
-        if (label in plumageMap) return;
-
-        fetch(`${API_BASE}/bird/${encodeURIComponent(label)}/plumage`)
-            .then(r => r.json())
-            .then(data => {
-                const url: string | null = data.images?.[0] ?? null;
-                setPlumageMap(prev => ({ ...prev, [label]: url }));
-            })
-            .catch(() => {
-                setPlumageMap(prev => ({ ...prev, [label]: null }));
-            });
-    }, [currentIndex, birds]);
 
     // Go back one slide, wrapping to the last bird from the first
     const showPrevious = () => {
@@ -74,13 +54,10 @@ export default function BirdSlideshow() {
     const current = birds[currentIndex];
 
     // Use the Wikimedia plumage photo if one was found; otherwise fall back to the dataset image
-    const plumageUrl = current ? plumageMap[current.species_label] : undefined;
-    const imageUrl = !current
-        ? null
-        : typeof plumageUrl === "string"
-            ? plumageUrl
-            : `${API_BASE}/bird/${encodeURIComponent(current.species_label)}/image`;
-
+    // Use the bird's main Hugging Face dataset photo (photo 0, same as the bird page)
+    const imageUrl = current
+        ? `${API_BASE}/bird/${encodeURIComponent(current.species_label)}/image?photo=0`
+        : null;
     return (
         <section className="grid grid-cols-1 md:grid-cols-[45%_55%] h-auto md:h-[480px] w-full overflow-hidden rounded-xl bg-[#232629]">
 
@@ -159,7 +136,7 @@ export default function BirdSlideshow() {
                         <img
                             src={imageUrl}
                             alt={current.species_label}
-                            className="relative max-h-[340px] max-w-full object-contain rounded-lg shadow-2xl"
+                            className="relative h-[340px] w-auto max-w-full object-contain rounded-lg shadow-2xl"
                         />
                     </>
                 )}

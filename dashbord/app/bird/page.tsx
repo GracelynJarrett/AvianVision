@@ -207,8 +207,7 @@ function BirdPageInner() {
     const [birdData, setBirdData] = useState<any>(null);
     const [birdDataLoading, setBirdDataLoading] = useState(true);
     const [birdImage, setBirdImage] = useState<string | null>(null);
-    const [plumageImages, setPlumageImages] = useState<string[]>([]);
-    const [plumageLoading, setPlumageLoading] = useState(false);
+
 
     // Which page of prey items to show (10 at a time); resets when bird changes
     // True once we know which bird to show, so the Tableau charts only load once, for the right bird
@@ -328,24 +327,6 @@ function BirdPageInner() {
         return () => { cancelled = true; };
     }, [selectedBird]);
 
-    // Fetch Wikimedia plumage images whenever the selected bird changes
-    useEffect(() => {
-        if (!selectedBird) return;
-
-        // Set to true when the bird changes, so late photos for the old bird are ignored
-        let cancelled = false;
-
-        setPlumageLoading(true);
-        setPlumageImages([]);
-        fetch(`http://127.0.0.1:8000/bird/${encodeURIComponent(selectedBird)}/plumage`)
-            .then(r => r.json())
-            .then(data => { if (!cancelled) setPlumageImages(data.images ?? []); })
-            .catch(() => { if (!cancelled) setPlumageImages([]); })
-            .finally(() => { if (!cancelled) setPlumageLoading(false); });
-
-        // Runs when the bird changes: marks this request as out of date
-        return () => { cancelled = true; };
-    }, [selectedBird]);
 
     // Updates the search input and loads the bird if the typed value matches a name in the list
     function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -511,21 +492,21 @@ function BirdPageInner() {
                         <span className="ml-2 text-sm text-[#9199a1]">Wikipedia</span>
                     </div>
                     <div className="p-5 flex flex-col gap-5">
-                        {/* Plumage photo gallery — best 2 images side by side */}
-                        {(plumageLoading || plumageImages.length > 0) && (
-                            <div className="max-w-xs">
-                                {plumageLoading ? (
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <div className="h-28 bg-[#e3e6e8] animate-pulse rounded-lg" />
-                                        <div className="h-28 bg-[#e3e6e8] animate-pulse rounded-lg" />
-                                    </div>
-                                ) : (
-                                    <div className="grid grid-cols-2 gap-2">
-                                        {plumageImages.slice(0, 2).map((url, i) => (
-                                            <img key={i} src={url} alt={`${toTitleCase(selectedBird)} photo ${i + 1}`} className="w-full aspect-square object-cover rounded-lg" />
-                                        ))}
-                                    </div>
-                                )}
+                        {/* Plumage photo gallery — 4 Hugging Face dataset photos (photo 1 to 4).
+                            These never include the main bird photo shown at the top of the page. */}
+                        {selectedBird && (
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-2xl">
+                                {[1, 2, 3, 4].map(n => (
+                                    <img
+                                        // The bird name is in the key so the photos reset when the bird changes
+                                        key={`${selectedBird}-${n}`}
+                                        src={`http://127.0.0.1:8000/bird/${encodeURIComponent(selectedBird)}/image?photo=${n}`}
+                                        alt={`${toTitleCase(selectedBird)} photo ${n}`}
+                                        className="w-full aspect-square object-cover rounded-lg bg-[#e3e6e8]"
+                                        // If this bird has no photo with this number, hide the box instead of showing a broken image
+                                        onError={e => { e.currentTarget.style.display = "none"; }}
+                                    />
+                                ))}
                             </div>
                         )}
 

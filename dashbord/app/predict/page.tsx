@@ -12,45 +12,45 @@ function toTitleCase(str: string): string {
 function getStatusColor(status: string): string {
     switch (status?.toUpperCase()) {
         case "CRITICALLY ENDANGERED": return "bg-[#333333] text-white";
-        case "ENDANGERED":            return "bg-[#FF8A2A] text-white";
-        case "VULNERABLE":            return "bg-[#ffbc88] text-[#333333]";
-        case "NEAR THREATENED":       return "bg-[#fff99d] text-[#333333]";
-        case "LEAST CONCERN":         return "bg-[#fffdde] text-[#333333]";
-        default:                      return "bg-[#C9C9C9] text-[#333333]";
+        case "ENDANGERED": return "bg-[#FF8A2A] text-white";
+        case "VULNERABLE": return "bg-[#ffbc88] text-[#333333]";
+        case "NEAR THREATENED": return "bg-[#fff99d] text-[#333333]";
+        case "LEAST CONCERN": return "bg-[#fffdde] text-[#333333]";
+        default: return "bg-[#C9C9C9] text-[#333333]";
     }
 }
 
 // Maps ISO 3166-1 alpha-2 country codes to their full English names
 const COUNTRY_NAMES: Record<string, string> = {
-    AF:"Afghanistan",AL:"Albania",DZ:"Algeria",AD:"Andorra",AO:"Angola",AG:"Antigua and Barbuda",
-    AR:"Argentina",AM:"Armenia",AU:"Australia",AT:"Austria",AZ:"Azerbaijan",BS:"Bahamas",BH:"Bahrain",
-    BD:"Bangladesh",BB:"Barbados",BY:"Belarus",BE:"Belgium",BZ:"Belize",BJ:"Benin",BT:"Bhutan",
-    BO:"Bolivia",BA:"Bosnia and Herzegovina",BW:"Botswana",BR:"Brazil",BN:"Brunei",BG:"Bulgaria",
-    BF:"Burkina Faso",BI:"Burundi",CV:"Cape Verde",KH:"Cambodia",CM:"Cameroon",CA:"Canada",
-    CF:"Central African Republic",TD:"Chad",CL:"Chile",CN:"China",CO:"Colombia",KM:"Comoros",
-    CG:"Congo",CD:"DR Congo",CR:"Costa Rica",HR:"Croatia",CU:"Cuba",CY:"Cyprus",CZ:"Czech Republic",
-    DK:"Denmark",DJ:"Djibouti",DM:"Dominica",DO:"Dominican Republic",EC:"Ecuador",EG:"Egypt",
-    SV:"El Salvador",GQ:"Equatorial Guinea",ER:"Eritrea",EE:"Estonia",SZ:"Eswatini",ET:"Ethiopia",
-    FJ:"Fiji",FI:"Finland",FR:"France",GA:"Gabon",GM:"Gambia",GE:"Georgia",DE:"Germany",GH:"Ghana",
-    GR:"Greece",GD:"Grenada",GT:"Guatemala",GN:"Guinea",GW:"Guinea-Bissau",GY:"Guyana",HT:"Haiti",
-    HN:"Honduras",HU:"Hungary",IS:"Iceland",IN:"India",ID:"Indonesia",IR:"Iran",IQ:"Iraq",IE:"Ireland",
-    IL:"Israel",IT:"Italy",JM:"Jamaica",JP:"Japan",JO:"Jordan",KZ:"Kazakhstan",KE:"Kenya",KI:"Kiribati",
-    KW:"Kuwait",KG:"Kyrgyzstan",LA:"Laos",LV:"Latvia",LB:"Lebanon",LS:"Lesotho",LR:"Liberia",
-    LY:"Libya",LI:"Liechtenstein",LT:"Lithuania",LU:"Luxembourg",MG:"Madagascar",MW:"Malawi",
-    MY:"Malaysia",MV:"Maldives",ML:"Mali",MT:"Malta",MH:"Marshall Islands",MR:"Mauritania",
-    MU:"Mauritius",MX:"Mexico",FM:"Micronesia",MD:"Moldova",MC:"Monaco",MN:"Mongolia",ME:"Montenegro",
-    MA:"Morocco",MZ:"Mozambique",MM:"Myanmar",NA:"Namibia",NR:"Nauru",NP:"Nepal",NL:"Netherlands",
-    NZ:"New Zealand",NI:"Nicaragua",NE:"Niger",NG:"Nigeria",NO:"Norway",OM:"Oman",PK:"Pakistan",
-    PW:"Palau",PA:"Panama",PG:"Papua New Guinea",PY:"Paraguay",PE:"Peru",PH:"Philippines",PL:"Poland",
-    PT:"Portugal",QA:"Qatar",RO:"Romania",RU:"Russia",RW:"Rwanda",KN:"Saint Kitts and Nevis",
-    LC:"Saint Lucia",VC:"Saint Vincent and the Grenadines",WS:"Samoa",SM:"San Marino",
-    ST:"Sao Tome and Principe",SA:"Saudi Arabia",SN:"Senegal",RS:"Serbia",SC:"Seychelles",
-    SL:"Sierra Leone",SG:"Singapore",SK:"Slovakia",SI:"Slovenia",SB:"Solomon Islands",SO:"Somalia",
-    ZA:"South Africa",SS:"South Sudan",ES:"Spain",LK:"Sri Lanka",SD:"Sudan",SR:"Suriname",SE:"Sweden",
-    CH:"Switzerland",SY:"Syria",TW:"Taiwan",TJ:"Tajikistan",TZ:"Tanzania",TH:"Thailand",TL:"Timor-Leste",
-    TG:"Togo",TO:"Tonga",TT:"Trinidad and Tobago",TN:"Tunisia",TR:"Turkey",TM:"Turkmenistan",
-    TV:"Tuvalu",UG:"Uganda",UA:"Ukraine",AE:"United Arab Emirates",GB:"United Kingdom",US:"United States",
-    UY:"Uruguay",UZ:"Uzbekistan",VU:"Vanuatu",VE:"Venezuela",VN:"Vietnam",YE:"Yemen",ZM:"Zambia",ZW:"Zimbabwe",
+    AF: "Afghanistan", AL: "Albania", DZ: "Algeria", AD: "Andorra", AO: "Angola", AG: "Antigua and Barbuda",
+    AR: "Argentina", AM: "Armenia", AU: "Australia", AT: "Austria", AZ: "Azerbaijan", BS: "Bahamas", BH: "Bahrain",
+    BD: "Bangladesh", BB: "Barbados", BY: "Belarus", BE: "Belgium", BZ: "Belize", BJ: "Benin", BT: "Bhutan",
+    BO: "Bolivia", BA: "Bosnia and Herzegovina", BW: "Botswana", BR: "Brazil", BN: "Brunei", BG: "Bulgaria",
+    BF: "Burkina Faso", BI: "Burundi", CV: "Cape Verde", KH: "Cambodia", CM: "Cameroon", CA: "Canada",
+    CF: "Central African Republic", TD: "Chad", CL: "Chile", CN: "China", CO: "Colombia", KM: "Comoros",
+    CG: "Congo", CD: "DR Congo", CR: "Costa Rica", HR: "Croatia", CU: "Cuba", CY: "Cyprus", CZ: "Czech Republic",
+    DK: "Denmark", DJ: "Djibouti", DM: "Dominica", DO: "Dominican Republic", EC: "Ecuador", EG: "Egypt",
+    SV: "El Salvador", GQ: "Equatorial Guinea", ER: "Eritrea", EE: "Estonia", SZ: "Eswatini", ET: "Ethiopia",
+    FJ: "Fiji", FI: "Finland", FR: "France", GA: "Gabon", GM: "Gambia", GE: "Georgia", DE: "Germany", GH: "Ghana",
+    GR: "Greece", GD: "Grenada", GT: "Guatemala", GN: "Guinea", GW: "Guinea-Bissau", GY: "Guyana", HT: "Haiti",
+    HN: "Honduras", HU: "Hungary", IS: "Iceland", IN: "India", ID: "Indonesia", IR: "Iran", IQ: "Iraq", IE: "Ireland",
+    IL: "Israel", IT: "Italy", JM: "Jamaica", JP: "Japan", JO: "Jordan", KZ: "Kazakhstan", KE: "Kenya", KI: "Kiribati",
+    KW: "Kuwait", KG: "Kyrgyzstan", LA: "Laos", LV: "Latvia", LB: "Lebanon", LS: "Lesotho", LR: "Liberia",
+    LY: "Libya", LI: "Liechtenstein", LT: "Lithuania", LU: "Luxembourg", MG: "Madagascar", MW: "Malawi",
+    MY: "Malaysia", MV: "Maldives", ML: "Mali", MT: "Malta", MH: "Marshall Islands", MR: "Mauritania",
+    MU: "Mauritius", MX: "Mexico", FM: "Micronesia", MD: "Moldova", MC: "Monaco", MN: "Mongolia", ME: "Montenegro",
+    MA: "Morocco", MZ: "Mozambique", MM: "Myanmar", NA: "Namibia", NR: "Nauru", NP: "Nepal", NL: "Netherlands",
+    NZ: "New Zealand", NI: "Nicaragua", NE: "Niger", NG: "Nigeria", NO: "Norway", OM: "Oman", PK: "Pakistan",
+    PW: "Palau", PA: "Panama", PG: "Papua New Guinea", PY: "Paraguay", PE: "Peru", PH: "Philippines", PL: "Poland",
+    PT: "Portugal", QA: "Qatar", RO: "Romania", RU: "Russia", RW: "Rwanda", KN: "Saint Kitts and Nevis",
+    LC: "Saint Lucia", VC: "Saint Vincent and the Grenadines", WS: "Samoa", SM: "San Marino",
+    ST: "Sao Tome and Principe", SA: "Saudi Arabia", SN: "Senegal", RS: "Serbia", SC: "Seychelles",
+    SL: "Sierra Leone", SG: "Singapore", SK: "Slovakia", SI: "Slovenia", SB: "Solomon Islands", SO: "Somalia",
+    ZA: "South Africa", SS: "South Sudan", ES: "Spain", LK: "Sri Lanka", SD: "Sudan", SR: "Suriname", SE: "Sweden",
+    CH: "Switzerland", SY: "Syria", TW: "Taiwan", TJ: "Tajikistan", TZ: "Tanzania", TH: "Thailand", TL: "Timor-Leste",
+    TG: "Togo", TO: "Tonga", TT: "Trinidad and Tobago", TN: "Tunisia", TR: "Turkey", TM: "Turkmenistan",
+    TV: "Tuvalu", UG: "Uganda", UA: "Ukraine", AE: "United Arab Emirates", GB: "United Kingdom", US: "United States",
+    UY: "Uruguay", UZ: "Uzbekistan", VU: "Vanuatu", VE: "Venezuela", VN: "Vietnam", YE: "Yemen", ZM: "Zambia", ZW: "Zimbabwe",
 };
 
 // Converts a 2-letter country code to its full name, falling back to the code itself if unknown
@@ -73,37 +73,28 @@ function cleanPreyList(list: any[]): string[] {
 export default function PredictPage() {
 
     // The file the user has selected or dropped
-    const [file,       setFile]       = useState<File | null>(null);
+    const [file, setFile] = useState<File | null>(null);
 
     // Object URL used to preview the uploaded image before submission
-    const [preview,    setPreview]    = useState<string | null>(null);
+    const [preview, setPreview] = useState<string | null>(null);
 
     // Which tab is currently active in the bird info section
-    const [activeTab,  setActiveTab]  = useState<"diet" | "taxonomy" | "history" | "plumage" | "migration">("diet");
+    const [activeTab, setActiveTab] = useState<"diet" | "taxonomy" | "history" | "plumage" | "migration">("diet");
 
     // Which page of diet results to show (10 items per page)
     const [dietPage, setDietPage] = useState(0);
 
-    // Wikimedia plumage image URLs fetched for the current prediction
-    const [plumageImages,   setPlumageImages]   = useState<string[]>([]);
-
-    // True while the plumage image request is in flight
-    const [plumageLoading,  setPlumageLoading]  = useState(false);
-
-    // Tracks which species label was last fetched so we don't re-fetch on every tab switch
-    const plumageLoadedFor = useRef<string | null>(null);
-
     // True while waiting for the API to return a prediction
-    const [loading,    setLoading]    = useState(false);
+    const [loading, setLoading] = useState(false);
 
     // The full response object returned by POST /predict
-    const [result,     setResult]     = useState<any | null>(null);
+    const [result, setResult] = useState<any | null>(null);
 
     // The species image fetched from /bird/{label}/image after a successful prediction
-    const [birdImage,  setBirdImage]  = useState<string | null>(null);
+    const [birdImage, setBirdImage] = useState<string | null>(null);
 
     // Error message shown when the file type is invalid or the API returns an error field
-    const [apiError,   setApiError]   = useState<string | null>(null);
+    const [apiError, setApiError] = useState<string | null>(null);
 
     // Ref to the hidden file input so the upload label click can open the browser file picker
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -144,21 +135,6 @@ export default function PredictPage() {
         // Reset the hidden input so the same file can be re-selected if needed
         if (fileInputRef.current) fileInputRef.current.value = "";
     }
-
-    // Fetches Wikimedia plumage images the first time the Plumage tab is opened for a prediction
-    useEffect(() => {
-        const label = result?.prediction?.species_label;
-        if (activeTab !== "plumage" || !label || plumageLoadedFor.current === label) return;
-        // Mark this label as in-flight so switching tabs and back doesn't re-fetch
-        plumageLoadedFor.current = label;
-        setPlumageLoading(true);
-        setPlumageImages([]);
-        fetch(`http://127.0.0.1:8000/bird/${encodeURIComponent(label)}/plumage`)
-            .then(r => r.json())
-            .then(data => setPlumageImages(data.images ?? []))
-            .catch(() => setPlumageImages([]))
-            .finally(() => setPlumageLoading(false));
-    }, [activeTab, result]);
 
     // Submits the selected image to the prediction API
     async function handleSubmit() {
@@ -341,11 +317,10 @@ export default function PredictPage() {
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
-                                        className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium ${
-                                            activeTab === tab
-                                                ? "border-[#ffbc88] text-[#232629] font-semibold"
-                                                : "border-transparent text-[#6a737c] hover:text-[#232629]"
-                                        }`}
+                                        className={`px-3.5 py-3 text-base border-b-[3px] -mb-px transition-colors font-medium ${activeTab === tab
+                                            ? "border-[#ffbc88] text-[#232629] font-semibold"
+                                            : "border-transparent text-[#6a737c] hover:text-[#232629]"
+                                            }`}
                                     >
                                         {tab === "diet" && "Diet"}
                                         {tab === "taxonomy" && "Family & Taxonomy"}
@@ -362,7 +337,7 @@ export default function PredictPage() {
                                 {/* Diet tab — prey items as a table */}
                                 {activeTab === "diet" && (() => {
                                     const bird = result.bird;
-                                    const names   = cleanPreyList(bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? []);
+                                    const names = cleanPreyList(bird?.diet?.prey_common_names ?? bird?.diet?.top_prey ?? []);
                                     const classes: string[] = bird?.diet?.prey_classes ?? [];
                                     const pageSize = 10;
                                     const totalPages = Math.ceil(names.length / pageSize);
@@ -414,12 +389,12 @@ export default function PredictPage() {
                                 {/* Family & Taxonomy tab — scientific classification */}
                                 {activeTab === "taxonomy" && (() => {
                                     const bird = result.bird;
-                                    const tax  = bird?.taxonomy;
+                                    const tax = bird?.taxonomy;
                                     const rows = [
-                                        { label: "Class",  definition: "The broadest grouping — all birds belong to the class Aves.",                                     value: tax?.class,  highlight: false },
-                                        { label: "Order",  definition: "A group of related families that share common ancestry.",                                          value: tax?.order,  highlight: false },
-                                        { label: "Family", definition: "A group of closely related genera that share distinctive traits.",                                  value: tax?.family, highlight: true  },
-                                        { label: "Genus",  definition: "A group of closely related species sharing a common ancestor and many physical characteristics.",   value: tax?.genus,  highlight: true  },
+                                        { label: "Class", definition: "The broadest grouping — all birds belong to the class Aves.", value: tax?.class, highlight: false },
+                                        { label: "Order", definition: "A group of related families that share common ancestry.", value: tax?.order, highlight: false },
+                                        { label: "Family", definition: "A group of closely related genera that share distinctive traits.", value: tax?.family, highlight: true },
+                                        { label: "Genus", definition: "A group of closely related species sharing a common ancestor and many physical characteristics.", value: tax?.genus, highlight: true },
                                     ];
                                     return (
                                         <div className="flex flex-col gap-5">
@@ -478,29 +453,28 @@ export default function PredictPage() {
                                     );
                                 })()}
 
-                                {/* Plumage tab — Wikimedia Commons photo gallery + description text */}
+                                {/* Plumage tab — Hugging Face dataset photo gallery + description text */}
                                 {activeTab === "plumage" && (() => {
                                     const sections: Record<string, string> = result.bird?.wikipedia?.sections ?? {};
                                     // Use Description first (covers appearance), fall back to Subspecies
                                     const text = sections["Description"] ?? sections["Subspecies"] ?? null;
                                     return (
                                         <div className="flex flex-col gap-5">
-                                            {plumageLoading ? (
-                                                // Skeleton placeholders while images load
-                                                <div className="grid grid-cols-2 gap-3">
-                                                    <div className="h-44 bg-[#e3e6e8] animate-pulse rounded-lg" />
-                                                    <div className="h-44 bg-[#e3e6e8] animate-pulse rounded-lg" />
-                                                </div>
-                                            ) : plumageImages.length > 0 ? (
-                                                // Best 2 Wikimedia photos side by side
-                                                <div className="grid grid-cols-2 gap-3 max-w-sm">
-                                                    {plumageImages.slice(0, 2).map((url, i) => (
-                                                        <img key={i} src={url} alt={`Plumage photo ${i + 1}`} className="w-full aspect-square object-cover rounded-lg" />
-                                                    ))}
-                                                </div>
-                                            ) : (
-                                                <p className="text-base text-[#9199a1] italic">No plumage images found for this species.</p>
-                                            )}
+                                            {/* Plumage photo gallery — 4 Hugging Face dataset photos (photo 1 to 4).
+                                                These never include the main bird photo shown in the result card. */}
+                                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+                                                {[1, 2, 3, 4].map(n => (
+                                                    <img
+                                                        // The bird name is in the key so the photos reset for each new prediction
+                                                        key={`${result.prediction.species_label}-${n}`}
+                                                        src={`http://127.0.0.1:8000/bird/${encodeURIComponent(result.prediction.species_label)}/image?photo=${n}`}
+                                                        alt={`Plumage photo ${n}`}
+                                                        className="w-full aspect-square object-cover rounded-lg bg-[#e3e6e8]"
+                                                        // If this bird has no photo with this number, hide the box instead of showing a broken image
+                                                        onError={e => { e.currentTarget.style.display = "none"; }}
+                                                    />
+                                                ))}
+                                            </div>
                                             {text ? (
                                                 <div>
                                                     <p className="text-xs font-semibold uppercase tracking-widest text-[#9199a1] mb-2">Description</p>
@@ -523,7 +497,7 @@ export default function PredictPage() {
                                 {/* Migration tab — movement pattern, top countries, and Tableau maps */}
                                 {activeTab === "migration" && (() => {
                                     const bird = result.bird;
-                                    const movement      = bird?.conservation?.movement_patterns;
+                                    const movement = bird?.conservation?.movement_patterns;
                                     const topCountries: { country: string; count: number }[] = bird?.migration?.top_countries ?? [];
                                     const totalSightings: number | null = bird?.migration?.total_sightings ?? null;
                                     return (
