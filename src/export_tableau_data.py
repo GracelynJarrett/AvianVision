@@ -44,7 +44,8 @@ occ_cursor = occurrences.find(
 
 occ_df = pd.DataFrame(list(occ_cursor))
 
-occ_df.to_csv("occurrences.csv", index=False)
+# Save into the data folder, which is where Tableau reads this file from.
+occ_df.to_csv("data/occurrences.csv", index=False)
 
 print(f"✅ Exported {len(occ_df):,} occurrence records")
 
@@ -106,7 +107,8 @@ for doc in species_collection.find({}):
 
 species_df = pd.DataFrame(records)
 
-species_df.to_csv("species_enrichment.csv", index=False)
+# Save into the data folder, which is where Tableau reads this file from.
+species_df.to_csv("data/species_enrichment.csv", index=False)
 
 print(f"✅ Exported {len(species_df):,} species records")
 
@@ -116,5 +118,5 @@ print(f"✅ Exported {len(species_df):,} species records")
 
 print("\nDone!")
 print("Created:")
-print(" - occurrences.csv")
-print(" - species_enrichment.csv")
+print(" - data/occurrences.csv")
+print(" - data/species_enrichment.csv")

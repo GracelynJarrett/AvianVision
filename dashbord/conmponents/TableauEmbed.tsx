@@ -220,21 +220,26 @@ export default function TableauEmbed({ url, title, height = "500px", speciesFilt
         );
     }
 
-    // Once we have both the token and the registered custom element, render the Tableau viz.
-    // toolbar="hidden" hides the bottom bar (share, download, data details, etc.)
-    // hide-tabs removes the sheet/graph switcher tabs
-    // ref gives us access to the DOM element so the filter effect above can call the JS API
+    // In dark mode, Tableau draws a thin white edge around the chart that the site can't recolor.
+    // The outer box cuts off anything outside it, and the inner box is pulled out 8px on every side,
+    // so the white edge sits outside the visible area. Light mode uses 0px, so nothing changes there.
+    const edge = isDark ? 6 : 0;
     return (
-        <tableau-viz
-            key={embedUrl}
-            ref={vizRef}
-            src={embedUrl}
-            token={token}
-            height={height}
-            width="100%"
-            toolbar="hidden"
-            hide-tabs
-            aria-label={title}
-        />
+        <div style={{ overflow: "hidden", height }}>
+            <div style={{ margin: `-${edge}px` }}>
+                <tableau-viz
+                    key={embedUrl}
+                    ref={vizRef}
+                    src={embedUrl}
+                    token={token}
+                    height={`${parseInt(height) + edge * 2}px`}
+                    width="100%"
+                    toolbar="hidden"
+                    hide-tabs
+                    aria-label={title}
+                    style={{ display: "block" }}
+                />
+            </div>
+        </div>
     );
 }
