@@ -30,7 +30,7 @@ function cleanPreyList(list: any[]): string[] {
         });
 }
 
-// The two birds pre-loaded when the page first opens
+// Not used right now. Kept so it is easy to bring back later for guest mode.
 const DEFAULT_SLOTS: (string | null)[] = [
     "EUROPEAN TURTLE DOVE", "ABBOTTS BOOBY", null, null, null, null,
 ];
@@ -48,17 +48,17 @@ export default function SpeciesPage() {
     // Full list of 525 bird names loaded from the CSV, used to populate the datalists
     const [birdNames, setBirdNames] = useState<string[]>([]);
 
-    // Six comparison slots — each is either a confirmed species label or null (empty)
-    const [slots, setSlots] = useState<(string | null)[]>(DEFAULT_SLOTS);
+    // Six comparison slots — each is either a confirmed species label or null (empty); all start empty until Bird 1 is decided
+    const [slots, setSlots] = useState<(string | null)[]>([null, null, null, null, null, null]);
 
     // Per-slot typed text — decoupled from slots so half-typed strings don't trigger fetches
-    const [slotInputs, setSlotInputs] = useState<string[]>(DEFAULT_INPUTS);
+    const [slotInputs, setSlotInputs] = useState<string[]>(["", "", "", "", "", ""]);
 
     // Fetched bird data, keyed by species label
     const [birdDataMap, setBirdDataMap] = useState<Record<string, any>>({});
 
     // Which slot indices are currently waiting for their API fetch to complete
-    const [loadingSlots, setLoadingSlots] = useState<Set<number>>(new Set([0, 1]));
+    const [loadingSlots, setLoadingSlots] = useState<Set<number>>(new Set());
 
     // Which main content tab is currently shown
     const [tab, setTab] = useState<TabName>("Compare");
@@ -69,6 +69,8 @@ export default function SpeciesPage() {
     // Up to 6 different birds the user predicted most recently, newest first
     const [recentBirds, setRecentBirds] = useState<string[]>([]);
 
+    // True once we know which bird goes in Bird 1, so the page can say "Loading" instead of "Select a species"
+    const [slotsReady, setSlotsReady] = useState(false);
 
     // In-memory cache so switching back to a previously viewed bird is instant
     const birdDataCache = useRef<Map<string, any>>(new Map());
@@ -93,7 +95,7 @@ export default function SpeciesPage() {
     }, []);
 
 
-    // Put the user's most recent prediction in slot 1 (Bird 1); if there are no predictions, keep the defaults
+    // Put the user's most recent prediction in slot 1 (Bird 1); if there are none, a random bird is picked below
     useEffect(() => {
         fetch("http://127.0.0.1:8000/predictions/recent?count=6")
             .then(r => r.json())
@@ -104,13 +106,24 @@ export default function SpeciesPage() {
                 const latest = labels[0];
                 if (!latest) return;
 
-                // Slot 1 becomes the predicted bird. If that bird was already in another
                 // Slot 1 becomes the predicted bird and the other five slots start empty
                 setSlots([latest, null, null, null, null, null]);
                 setSlotInputs([latest, "", "", "", "", ""]);
             })
-            .catch(err => console.error("Error loading latest prediction:", err));
+            .catch(err => console.error("Error loading latest prediction:", err))
+            // Whether or not a prediction was found, Bird 1 is now decided
+            .finally(() => setSlotsReady(true));
     }, []);
+
+    // If there were no predictions (or the API failed), put a random bird in Bird 1 once the name list has loaded.
+    // Only runs when the page first gets ready, so clearing all slots later does not bring a random bird back.
+    useEffect(() => {
+        if (slotsReady && slots.every(s => s === null) && birdNames.length > 0) {
+            const randomName = birdNames[Math.floor(Math.random() * birdNames.length)];
+            setSlots([randomName, null, null, null, null, null]);
+            setSlotInputs([randomName, "", "", "", "", ""]);
+        }
+    }, [slotsReady, birdNames]);
 
 
 
@@ -229,7 +242,7 @@ export default function SpeciesPage() {
                             {/* Side-by-side comparison table */}
                             {activeSlots.length === 0 ? (
                                 <div className="bg-white border-2 border-dashed border-[#d6d9dc] rounded-lg p-16 text-center text-base text-[#6a737c]">
-                                    Select at least one species in the right panel to see the comparison.
+                                    {slotsReady ? "Select at least one species in the right panel to see the comparison." : "Loading your latest prediction…"}
                                 </div>
                             ) : (
                                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">

@@ -3,7 +3,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import TableauEmbed from "@/conmponents/TableauEmbed";
 
-// The bird that is shown when the page first loads
+// Not used right now. Kept so it is easy to bring back later for guest mode.
 const DEFAULT_BIRD = "EUROPEAN TURTLE DOVE";
 
 // Converts an all-caps bird name like "EUROPEAN TURTLE DOVE" to "European Turtle Dove"
@@ -199,7 +199,7 @@ function TaxonomySection({ birdData }: { birdData: any }) {
 function BirdPageInner() {
     // Read the ?species= URL param so links from elsewhere open the right bird directly
     const searchParams = useSearchParams();
-    const urlSpecies = searchParams.get("species")?.toUpperCase().trim() ?? DEFAULT_BIRD;
+    const urlSpecies = searchParams.get("species")?.toUpperCase().trim() ?? "";
 
     const [birdNames, setBirdNames] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState(urlSpecies);
@@ -241,7 +241,7 @@ function BirdPageInner() {
         fetch("http://127.0.0.1:8000/predictions/recent?count=1")
             .then(response => response.json())
             .then(data => {
-                // Take the newest predicted bird; if there are none, keep the default bird
+                // Take the newest predicted bird; if there are none, a random bird is picked below
                 const latest = data.predictions?.[0]?.species_label;
                 if (latest) {
                     setSearchQuery(latest);
@@ -253,11 +253,21 @@ function BirdPageInner() {
             .finally(() => setBirdReady(true));
     }, []);
 
+    // If there were no predictions (or the API failed), show a random bird once the name list has loaded
+    useEffect(() => {
+        if (birdReady && !selectedBird && birdNames.length > 0) {
+            const randomName = birdNames[Math.floor(Math.random() * birdNames.length)];
+            setSearchQuery(randomName);
+            setSelectedBird(randomName);
+        }
+    }, [birdReady, selectedBird, birdNames]);
 
 
 
     // Fetch the bird's enrichment data — checks the cache first so repeat visits are instant
     useEffect(() => {
+        // No bird picked yet, so there is nothing to load
+        if (!selectedBird) return;
         // Set to true when the bird changes, so a late answer for the old bird is ignored
         let cancelled = false;
 
@@ -291,6 +301,8 @@ function BirdPageInner() {
 
     // Fetch the bird's dataset image — checks the cache first so repeat visits are instant
     useEffect(() => {
+        // No bird picked yet, so there is nothing to load
+        if (!selectedBird) return;
         // Set to true when the bird changes, so a late image for the old bird is ignored
         let cancelled = false;
 
