@@ -44,6 +44,12 @@ export default function Footer() {
                         <li>IUCN Red List — conservation status</li>
                         <li>Avian Diet Database — diet and prey data</li>
                         <li>HuggingFace: yashikota/birds-525-species-image-classification</li>
+                        {/* Datasets used to train and test the bird / not-bird gate model */}
+                        <li>CUB-200-2011 — Caltech-UCSD Birds (gate training)</li>
+                        <li>Bird vs Drone — birds and drones (gate training)</li>
+                        <li>Caltech-256 — not-bird objects (gate training and challenge set)</li>
+                        <li>Aves del Tolima — birds (gate testing)</li>
+                        <li>Places365 — scenes with no birds (gate testing)</li>
                         <li>Wikipedia — species descriptions and plumage information</li>
                     </ul>
                 </div>
