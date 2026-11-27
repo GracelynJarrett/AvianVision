@@ -534,11 +534,11 @@ function BirdPageInner() {
                 </div>
             )}
 
-            {/* ── Migration & Sightings ─────────────────────────────────────────── */}
+            {/* ── Location & Sightings ─────────────────────────────────────────── */}
             {birdData?.migration && birdReady && (
                 <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
                     <div className="px-5 py-3.5 border-b border-[#e3e6e8]">
-                        <span className="font-semibold text-base text-[#232629]">Migration &amp; Sightings</span>
+                        <span className="font-semibold text-base text-[#232629]">Location &amp; Sightings</span>
                     </div>
                     <div className="p-5 flex flex-col gap-5">
 

@@ -308,7 +308,7 @@ export default function PredictPage() {
                             )}
                         </div>
 
-                        {/* Bird info tabs — Diet, Taxonomy, History, Plumage, Migration */}
+                        {/* Bird info tabs — Diet, Taxonomy, History, Plumage, Location */}
                         <div className="bg-white border border-[#e3e6e8] rounded-lg overflow-hidden">
 
                             {/* Tab button row */}
@@ -326,7 +326,7 @@ export default function PredictPage() {
                                         {tab === "taxonomy" && "Family & Taxonomy"}
                                         {tab === "history" && "History"}
                                         {tab === "plumage" && "Plumage"}
-                                        {tab === "migration" && "Migration"}
+                                        {tab === "migration" && "Location"}
                                     </button>
                                 ))}
                             </div>
@@ -494,7 +494,7 @@ export default function PredictPage() {
                                     );
                                 })()}
 
-                                {/* Migration tab — movement pattern, top countries, and Tableau maps */}
+                                {/* Location tab — movement pattern, top countries, and Tableau maps */}
                                 {activeTab === "migration" && (() => {
                                     const bird = result.bird;
                                     const movement = bird?.conservation?.movement_patterns;
