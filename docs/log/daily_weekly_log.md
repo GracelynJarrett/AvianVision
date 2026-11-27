@@ -1313,8 +1313,8 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 
 ---
 
-## 
-**Day Goal:** 
+## Thursday  November 26, 2026 Thankgiving day
+**Day Goal:** Complets at less 2 more dashbaord fixs
 
 **What Was Done:** 
 

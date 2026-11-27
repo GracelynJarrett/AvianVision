@@ -36,3 +36,8 @@ X 4. update the photos ( istead of using wikimedia just use the hugging faces da
    * the gess can do everthing the Acconte can but it does not save the predictions to the recoreds list (still saves to Mongodb)
    * the last prediction will be turned off on the bird and species page
    * buttons will be deativated and when none loging users try to use it a messge will pop up asking the uers to please sign in first
+
+- Lets try and fix the lag
+  * Fix the lag for the loading up of the pages
+  * fix the lag of swiching pages
+  * fix the lag of making a prediction
