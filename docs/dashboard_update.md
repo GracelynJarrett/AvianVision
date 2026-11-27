@@ -1,7 +1,7 @@
 # This file hold a list of things I Still need to do before I present 
 
 ## Order of the fixing process
-1. Dashboard
+X 1. Dashboard
 2. Create presiontation for finnal
 3. File clean up
 4. Fix I HAVE TIME 
@@ -15,9 +15,9 @@ X 4. update the photos ( istead of using wikimedia just use the hugging faces da
   X 4a. update the get one image endpont so it can retune between 1-4 images at a time
 X 5. Add the gate model metrics to the stats page
 X 6. change the title migration (It not migration any more its there location)
-7. swich the bird and species postion on the nav bar
-8. fix up the working for the warning for low confidece 
-9. update the image size on the predict page
+X 7. swich the bird and species postion on the nav bar
+X 8. fix up the working for the warning for low confidece 
+X 9. update the image size on the predict page
 
 ## File clean up
 1. update any documetions

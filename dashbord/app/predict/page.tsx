@@ -159,7 +159,7 @@ export default function PredictPage() {
                 const pct = data.prediction?.confidence != null
                     ? ` (best guess confidence: ${(data.prediction.confidence * 100).toFixed(1)}%)`
                     : "";
-                setApiError(`The model wasn't confident enough to identify this bird${pct}. Try a clearer photo with the bird as the main subject.`);
+                setApiError(`Hmm, we couldn't tell which bird this is${pct}. The model's best guess was too uncertain to trust, so no species was shown. Try another photo where the bird is large, in focus, well lit, and not hidden by branches.`);
                 setLoading(false);
                 return;
             }
@@ -266,7 +266,7 @@ export default function PredictPage() {
                         <div className="bg-white border border-[#e3e6e8] rounded-lg p-6 flex flex-wrap gap-6 items-center shadow-sm" style={{ borderTop: "3px solid #ffbc88" }}>
 
                             {/* Species image from the dataset */}
-                            <div className="w-[280px] h-[220px] flex-none rounded-lg overflow-hidden bg-[#f1f2f3]">
+                            <div className="w-[280px] h-[280px] flex-none rounded-lg overflow-hidden bg-[#f1f2f3]">
                                 {birdImage ? (
                                     <img src={birdImage} alt={toTitleCase(result.prediction.species_label)} className="w-full h-full object-cover" />
                                 ) : (
