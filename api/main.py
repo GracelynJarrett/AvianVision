@@ -138,6 +138,9 @@ from src.mlflow_setup import(
     setup_mlflow,
     EXPERIMENT_NAME
 )
+# Name of the MLflow experiment that holds the bird gate runs
+GATE_EXPERIMENT_NAME = "avianvision-bird-gate"
+
 
 # help to talk to mlflow
 def get_mlflow_status():
@@ -158,11 +161,13 @@ def get_mlflow_status():
     }
 
 # help see the runs in mlflow
-def get_mlflow_runs():
+# experiment_name picks which MLflow experiment to read (the classifier if nothing is passed in).
+# use_gate_metrics=True reads the bird gate's metric names instead of the classifier's.
+def get_mlflow_runs(experiment_name=EXPERIMENT_NAME, use_gate_metrics=False):
     setup_mlflow()
 
     experiment = mlflow.get_experiment_by_name(
-        EXPERIMENT_NAME
+        experiment_name
     )
 
     runs = mlflow.search_runs(
@@ -172,11 +177,15 @@ def get_mlflow_runs():
     base_model = None
     aggregation_models = []
     hyperparameter_models = []
-    best_model = None 
-       
+    best_model = None
+
     for _, run in runs.iterrows():
 
-        run_data = extract_run_metrics(run)
+        # Read the metrics with the helper that matches this model's metric names
+        if use_gate_metrics:
+            run_data = extract_gate_run_metrics(run)
+        else:
+            run_data = extract_run_metrics(run)
 
         run_name = run_data["run_name"].strip()
 
@@ -196,15 +205,15 @@ def get_mlflow_runs():
 
         else:
             print("FOUND BASE")
-            base_model = run_data 
-     
+            base_model = run_data
+
      # sorts the top 5 best Hyperuning model
     hyperparameter_models.sort(
         key=hyperparameter_sort_key,
         reverse=True)
-     
+
     top_5_hyperparameter_models = hyperparameter_models[:5]
-    
+
     return {
     "base_model": base_model,
     "aggregation_models": aggregation_models,
@@ -306,6 +315,53 @@ def hyperparameter_sort_key(model):
         -(model["validation"]["loss"] or 999) 
     )
 
+
+# help extract the bird gate metrics we want.
+# It uses the same layout as extract_run_metrics (train / validation / test),
+# so the stats page can show both models the same way. It also adds the gate-only
+# numbers: AUC, bird recall, not-bird recall, and the challenge set results.
+# Any metric a run did not log comes back as None.
+def extract_gate_run_metrics(run):
+    return {
+        "run_name": run["tags.mlflow.runName"],
+
+        "train": {
+            "accuracy": safe_metric(run.get("metrics.train_accuracy")),
+            "loss": safe_metric(run.get("metrics.train_loss")),
+            "auc": safe_metric(run.get("metrics.train_auc")),
+            "precision": safe_metric(run.get("metrics.train_precision")),
+            "recall": safe_metric(run.get("metrics.train_recall"))
+        },
+
+        "validation": {
+            "accuracy": safe_metric(run.get("metrics.val_accuracy")),
+            "f1_score": safe_metric(run.get("metrics.val_f1")),
+            "loss": safe_metric(run.get("metrics.val_loss")),
+            "precision": safe_metric(run.get("metrics.val_precision")),
+            "recall": safe_metric(run.get("metrics.val_recall")),
+            "auc": safe_metric(run.get("metrics.val_auc")),
+            "bird_recall": safe_metric(run.get("metrics.val_bird_recall")),
+            "not_bird_recall": safe_metric(run.get("metrics.val_not_bird_recall"))
+        },
+
+        "test": {
+            "accuracy": safe_metric(run.get("metrics.test_accuracy")),
+            "f1_score": safe_metric(run.get("metrics.test_f1")),
+            "loss": safe_metric(run.get("metrics.test_loss")),
+            "precision": safe_metric(run.get("metrics.test_precision")),
+            "recall": safe_metric(run.get("metrics.test_recall")),
+            "auc": safe_metric(run.get("metrics.test_auc")),
+            "bird_recall": safe_metric(run.get("metrics.test_bird_recall")),
+            "not_bird_recall": safe_metric(run.get("metrics.test_not_bird_recall"))
+        },
+
+        # Challenge set: the 438 tricky not-bird photos (planes, bats, butterflies, ...)
+        "challenge": {
+            "accuracy": safe_metric(run.get("metrics.challenge_accuracy")),
+            "let_through": safe_metric(run.get("metrics.challenge_let_through")),
+            "total": safe_metric(run.get("metrics.challenge_total"))
+        }
+    }
 
 #------ Health cheeker funtions --------------
 
@@ -531,8 +587,9 @@ def model_stats():
             "hyperparameters": load_json("api/data/hyperparameters.json"),
             "model_types": load_json("api/data/model_types.json")
         },
-         "mlflow": get_mlflow_runs()
-         
+         "mlflow": get_mlflow_runs(),
+         # Same layout as "mlflow", but read from the bird gate experiment
+         "gate_mlflow": get_mlflow_runs(GATE_EXPERIMENT_NAME, use_gate_metrics=True)
             
     }
 
