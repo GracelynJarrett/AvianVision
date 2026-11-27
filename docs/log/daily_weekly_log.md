@@ -1316,17 +1316,18 @@ Started school week 3, and Professor wants us to keep track of time spent on wor
 ## Thursday  November 26, 2026 Thankgiving day
 **Day Goal:** Complets at less 2 more dashbaord fixs
 
-**What Was Done:** 
+**What Was Done:** I completed all the dashboard fixs
 
-**Challenges:** 
+**Challenges:** No challenges for today
 
-**Blockers:** 
+**Blockers:** No blockers for today
 
 **Summary:**
+    Today I worked all and finnished the remaing 5/9 dashboard fixs
 
 
 **Time:**
-    - Total:
+    - Total: 1 hour 30 minutes
 
 ---
 
